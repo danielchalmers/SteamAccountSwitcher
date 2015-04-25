@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d" Height="350" Width="525" ResizeMode="CanMinimize" Title="SteamAccountSwitcher" WindowStartupLocation="CenterScreen">
-    <Grid>
-        
-    </Grid>
+	<Grid>
+		<StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+	</Grid>
 </Window>
