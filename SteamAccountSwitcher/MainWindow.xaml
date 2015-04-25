@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
-        mc:Ignorable="d" Height="250" Width="300" ResizeMode="CanMinimize" Title="Steam Account Switcher"
+        mc:Ignorable="d" Height="250" Width="300" ResizeMode="NoResize" Title="Steam Account Switcher"
         WindowStartupLocation="CenterScreen" Closing="Window_Closing"
 		Icon="steam.ico">
 	<Grid>
