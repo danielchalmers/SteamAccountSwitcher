@@ -21,9 +21,12 @@ namespace SteamAccountSwitcher
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		private AccountHandler _accountHandler;
 		public MainWindow()
 		{
 			InitializeComponent();
+			_accountHandler = new AccountHandler(stackPanel);
+			_accountHandler.Add(new Account {Username = "test", Password = "test"});
 		}
 	}
 }

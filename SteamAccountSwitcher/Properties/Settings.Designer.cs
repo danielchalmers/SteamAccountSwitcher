@@ -25,7 +25,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files (x86)\\Steam\\Steam.exe")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"C:\\Program Files (x86)\\Steam\\Steam.exe\"")]
         public string SteamPath {
             get {
                 return ((string)(this["SteamPath"]));

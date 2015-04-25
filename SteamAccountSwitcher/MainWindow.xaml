@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d" Height="350" Width="525" ResizeMode="CanMinimize" Title="SteamAccountSwitcher" WindowStartupLocation="CenterScreen">
 	<Grid>
-		<StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+		<StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
 
 	</Grid>
 </Window>

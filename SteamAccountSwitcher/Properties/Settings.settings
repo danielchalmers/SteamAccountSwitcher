@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="SteamPath" Type="System.String" Scope="User">
-      <Value Profile="(Default)">C:\Program Files (x86)\Steam\Steam.exe</Value>
+      <Value Profile="(Default)">"C:\Program Files (x86)\Steam\Steam.exe"</Value>
     </Setting>
   </Settings>
 </SettingsFile>
