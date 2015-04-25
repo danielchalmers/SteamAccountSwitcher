@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Threading;
@@ -16,13 +17,15 @@ namespace SteamAccountSwitcher
 	{
 		private readonly List<Account> _accounts;
 		private readonly StackPanel _stackPanel;
+		private Action _closeWindow;
 		private int SelectedIndex = -1;
 
-		public AccountHandler(StackPanel stackPanel)
+		public AccountHandler(StackPanel stackPanel, Action closeWindow)
 		{
 			_stackPanel = stackPanel;
 			_accounts = Deserialize() ?? new List<Account>();
-			Refresh();
+			_closeWindow = closeWindow;
+            Refresh();
 		}
 
 		public string Serialize()
@@ -76,7 +79,14 @@ namespace SteamAccountSwitcher
 		{
 			var worker = new BackgroundWorker();
 			worker.DoWork += worker_DoWork;
-			worker.RunWorkerAsync();
+			worker.RunWorkerCompleted += worker_Completed;
+            worker.RunWorkerAsync();
+			_closeWindow();
+		}
+
+		private void worker_Completed(object sender, RunWorkerCompletedEventArgs e)
+		{
+			Application.Current.Shutdown();
 		}
 
 		private void worker_DoWork(object sender, DoWorkEventArgs e)

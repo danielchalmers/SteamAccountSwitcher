@@ -25,7 +25,7 @@ namespace SteamAccountSwitcher
 				Settings.Default.MustUpgrade = false;
 				Settings.Default.Save();
 			}
-			_accountHandler = new AccountHandler(stackPanel);
+			_accountHandler = new AccountHandler(stackPanel, Hide);
 
 			if (stackPanel.Children.Count > 0)
 				stackPanel.Children[0].Focus();
