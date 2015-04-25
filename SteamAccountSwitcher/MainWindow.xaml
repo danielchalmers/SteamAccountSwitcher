@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d" Height="250" Width="300" ResizeMode="NoResize" Title="Steam Account Switcher"
         WindowStartupLocation="CenterScreen" Closing="Window_Closing"
-		Icon="steam.ico">
+        Icon="steam.ico">
 	<Grid>
 		<StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 		<Button x:Name="btnAdd" Content="Add Account" HorizontalAlignment="Left" Margin="184,179,0,0" VerticalAlignment="Top"

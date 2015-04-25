@@ -17,6 +17,6 @@ namespace SteamAccountSwitcher
 		public static void LogOut()
 		{
 			Process.Start(Settings.Default.SteamPath, "-shutdown");
-        }
+		}
 	}
 }

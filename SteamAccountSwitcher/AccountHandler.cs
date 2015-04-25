@@ -17,8 +17,8 @@ namespace SteamAccountSwitcher
 	internal class AccountHandler
 	{
 		private readonly List<Account> _accounts;
+		private readonly Action _closeWindow;
 		private readonly StackPanel _stackPanel;
-		private Action _closeWindow;
 		private int SelectedIndex = -1;
 
 		public AccountHandler(StackPanel stackPanel, Action closeWindow)
@@ -26,7 +26,7 @@ namespace SteamAccountSwitcher
 			_stackPanel = stackPanel;
 			_accounts = Deserialize() ?? new List<Account>();
 			_closeWindow = closeWindow;
-            Refresh();
+			Refresh();
 		}
 
 		public string Serialize()
@@ -81,7 +81,7 @@ namespace SteamAccountSwitcher
 			var worker = new BackgroundWorker();
 			worker.DoWork += worker_DoWork;
 			worker.RunWorkerCompleted += worker_Completed;
-            worker.RunWorkerAsync();
+			worker.RunWorkerAsync();
 			_closeWindow();
 		}
 
