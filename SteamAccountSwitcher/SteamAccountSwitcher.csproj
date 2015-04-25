@@ -25,8 +25,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://danielchalmers.github.io/SteamAccountSwitcher/</InstallUrl>
-    <UpdateUrl>http://danielchalmers.github.io/SteamAccountSwitcher/</UpdateUrl>
+    <InstallUrl>http://danielchalmers.github.io/SteamAccountSwitcher/publish/</InstallUrl>
+    <UpdateUrl>http://danielchalmers.github.io/SteamAccountSwitcher/publish/</UpdateUrl>
     <ProductName>SteamAccountSwitcher</ProductName>
     <PublisherName>Daniel Chalmers</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
