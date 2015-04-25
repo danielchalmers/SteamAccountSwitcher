@@ -1,6 +1,8 @@
 ﻿#region
 
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using Newtonsoft.Json;
@@ -33,16 +35,6 @@ namespace SteamAccountSwitcher
 			return string.IsNullOrWhiteSpace(Settings.Default.Accounts)
 				? new List<Account>()
 				: JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts));
-		}
-
-		public void LogOut()
-		{
-			Scripts.Run(Scripts.Close, new Account());
-		}
-
-		public void LogIn(Account account)
-		{
-			Scripts.Run(Scripts.Open, account);
 		}
 
 		public void Add(Account account)
@@ -82,7 +74,16 @@ namespace SteamAccountSwitcher
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			LogIn(_accounts[SelectedIndex]);
+			var worker = new BackgroundWorker();
+			worker.DoWork += worker_DoWork;
+			worker.RunWorkerAsync();
+		}
+
+		private void worker_DoWork(object sender, DoWorkEventArgs e)
+		{
+			Steam.LogOut();
+			Thread.Sleep(3000);
+			Steam.LogIn(_accounts[SelectedIndex]);
 		}
 
 		private void OpenPropeties()
