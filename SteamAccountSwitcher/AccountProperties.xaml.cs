@@ -25,6 +25,7 @@ namespace SteamAccountSwitcher
 		public AccountProperties(Account account)
 		{
 			InitializeComponent();
+			txtDisplayName.Text = account.DisplayName;
 			txtUsername.Text = account.Username;
 			txtPassword.Text = account.Password;
 		}
@@ -33,6 +34,7 @@ namespace SteamAccountSwitcher
 		{
 			NewAccount = new Account
 			{
+				DisplayName = txtDisplayName.Text,
 				Username = txtUsername.Text,
 				Password = txtPassword.Text,
 			};

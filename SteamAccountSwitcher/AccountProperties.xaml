@@ -5,13 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d"
-        Title="Account Properties" Height="146" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Account Properties" Height="174" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Closing="Window_Closing">
 	<Grid>
-		<Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="23" Margin="81,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
-		<Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-		<TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="81,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201"/>
+		<Label x:Name="lblDisplayName" Content="Display Name:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="txtDisplayName" HorizontalAlignment="Left" Height="23" Margin="101,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+		<Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="23" Margin="101,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
+		<Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+		<TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="181"/>
 		<Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True" Click="btnOK_Click"
 		        HorizontalAlignment="Right" VerticalAlignment="Bottom" />
 	</Grid>
