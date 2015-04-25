@@ -1,26 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
+#endregion
 
 namespace SteamAccountSwitcher
 {
 	/// <summary>
-	/// Interaction logic for AccountProperties.xaml
+	///     Interaction logic for AccountProperties.xaml
 	/// </summary>
 	public partial class AccountProperties : Window
 	{
 		public Account NewAccount;
+
+		public AccountProperties()
+		{
+			InitializeComponent();
+		}
 
 		public AccountProperties(Account account)
 		{
@@ -36,7 +33,7 @@ namespace SteamAccountSwitcher
 			{
 				DisplayName = txtDisplayName.Text,
 				Username = txtUsername.Text,
-				Password = txtPassword.Text,
+				Password = txtPassword.Text
 			};
 		}
 

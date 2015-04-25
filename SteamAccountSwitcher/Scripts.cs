@@ -1,5 +1,9 @@
-﻿using System.Diagnostics;
+﻿#region
+
+using System.Diagnostics;
 using SteamAccountSwitcher.Properties;
+
+#endregion
 
 namespace SteamAccountSwitcher
 {
@@ -18,7 +22,7 @@ namespace SteamAccountSwitcher
 				RedirectStandardInput = true,
 				UseShellExecute = false
 			};
-			var p = new Process { StartInfo = cmd };
+			var p = new Process {StartInfo = cmd};
 			p.Start();
 
 			using (var sw = p.StandardInput)

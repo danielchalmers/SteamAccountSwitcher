@@ -61,15 +61,20 @@ namespace SteamAccountSwitcher
 			{
 				var btn = new Button
 				{
-					Content = new TextBlock {Text = string.IsNullOrWhiteSpace(account.DisplayName) ? account.Username : account.DisplayName, TextWrapping = TextWrapping.Wrap},
+					Content =
+						new TextBlock
+						{
+							Text = string.IsNullOrWhiteSpace(account.DisplayName) ? account.Username : account.DisplayName,
+							TextWrapping = TextWrapping.Wrap
+						},
 					Height = 32,
 					HorizontalContentAlignment = HorizontalAlignment.Left,
-					Margin = new Thickness(0, 0, 0,4),
-					Padding = new Thickness(4,0,0,0),
-					ContextMenu = DefaultMenu(),
+					Margin = new Thickness(0, 0, 0, 4),
+					Padding = new Thickness(4, 0, 0, 0),
+					ContextMenu = DefaultMenu()
 				};
 				btn.Click += Button_Click;
-				btn.MouseEnter += delegate{SelectedIndex = _stackPanel.Children.IndexOf(btn);};
+				btn.MouseEnter += delegate { SelectedIndex = _stackPanel.Children.IndexOf(btn); };
 
 				_stackPanel.Children.Add(btn);
 			}
@@ -84,7 +89,7 @@ namespace SteamAccountSwitcher
 		{
 			var dialog = new AccountProperties(_accounts[SelectedIndex]);
 			dialog.ShowDialog();
-			if(!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
+			if (!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
 				_accounts[SelectedIndex] = dialog.NewAccount;
 			Refresh();
 		}
@@ -110,8 +115,8 @@ namespace SteamAccountSwitcher
 			var index = i == -2 ? SelectedIndex : i;
 			if (index < 0 || index > _accounts.Count - 1) return;
 			if (msg &&
-				Popup.Show($"Are you sure you want to remove this account?\r\n\r\n\"{_accounts[index].Username}\"",
-					MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
+			    Popup.Show($"Are you sure you want to remove this account?\r\n\r\n\"{_accounts[index].Username}\"",
+				    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
 				return;
 			_accounts.RemoveAt(index);
 			Refresh();
@@ -128,19 +133,19 @@ namespace SteamAccountSwitcher
 		{
 			var contextMenu = new ContextMenu();
 
-			var item1 = new MenuItem { Header = "Properties..." };
+			var item1 = new MenuItem {Header = "Properties..."};
 			item1.Click += delegate { OpenPropeties(); };
 
-			var item2 = new MenuItem { Header = "Move Up" };
+			var item2 = new MenuItem {Header = "Move Up"};
 			item2.Click += delegate { MoveUp(); };
 
-			var item3 = new MenuItem { Header = "Move Down" };
+			var item3 = new MenuItem {Header = "Move Down"};
 			item3.Click += delegate { MoveDown(); };
 
-			var item4 = new MenuItem { Header = "Remove..." };
+			var item4 = new MenuItem {Header = "Remove..."};
 			item4.Click += delegate { Remove(-2, true); };
 
-			var item8 = new MenuItem { Header = "Exit" };
+			var item8 = new MenuItem {Header = "Exit"};
 			item8.Click += delegate { Application.Current.Shutdown(); };
 
 			contextMenu.Items.Add(item1);
