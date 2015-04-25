@@ -86,7 +86,8 @@ namespace SteamAccountSwitcher
 		{
 			var dialog = new AccountProperties(_accounts[SelectedIndex]);
 			dialog.ShowDialog();
-			_accounts[SelectedIndex] = dialog.NewAccount;
+			if(!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
+				_accounts[SelectedIndex] = dialog.NewAccount;
 			Refresh();
 		}
 
