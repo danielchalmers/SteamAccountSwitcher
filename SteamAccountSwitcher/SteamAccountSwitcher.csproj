@@ -85,6 +85,7 @@
       <DependentUpon>AccountProperties.xaml</DependentUpon>
     </Compile>
     <Compile Include="Encryption.cs" />
+    <Compile Include="Popup.cs" />
     <Compile Include="Scripts.cs" />
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
