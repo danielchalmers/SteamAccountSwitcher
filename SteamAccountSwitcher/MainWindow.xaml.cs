@@ -24,7 +24,6 @@ namespace SteamAccountSwitcher
 		public MainWindow()
 		{
 			InitializeComponent();
-			Title = Assembly.GetExecutingAssembly().GetName().Name;
 		}
 	}
 }
