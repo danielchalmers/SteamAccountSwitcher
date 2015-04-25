@@ -64,7 +64,7 @@ namespace SteamAccountSwitcher
 					Content = new TextBlock {Text = account.Username, TextWrapping = TextWrapping.Wrap},
 					Height = 32,
 					HorizontalContentAlignment = HorizontalAlignment.Left,
-					Margin = new Thickness(0, 0, 0, 8),
+					Margin = new Thickness(0, 0, 0,4),
 					Padding = new Thickness(4,0,0,0),
 					ContextMenu = DefaultMenu(),
 				};
