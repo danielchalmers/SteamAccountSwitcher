@@ -98,7 +98,7 @@
     </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="Popup.cs" />
-    <Compile Include="Scripts.cs" />
+    <Compile Include="Steam.cs" />
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
