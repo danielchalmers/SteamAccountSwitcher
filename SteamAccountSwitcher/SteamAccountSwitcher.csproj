@@ -71,7 +71,14 @@
     </ApplicationDefinition>
     <Compile Include="Account.cs" />
     <Compile Include="AccountHandler.cs" />
+    <Compile Include="AccountProperties.xaml.cs">
+      <DependentUpon>AccountProperties.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Scripts.cs" />
+    <Page Include="AccountProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -51,23 +51,16 @@ namespace SteamAccountSwitcher
 					HorizontalContentAlignment = HorizontalAlignment.Left,
 					Margin = new Thickness(0, 0, 0, 8)
 				};
-				btn.Click += Shortcut_Click;
-				btn.MouseEnter += Shortcut_Focus;
+				btn.Click += Button_Click;
+				btn.MouseEnter += delegate{SelectedIndex = _stackPanel.Children.IndexOf(btn);};
 
 				_stackPanel.Children.Add(btn);
 			}
 		}
 
-		private void Shortcut_Click(object sender, RoutedEventArgs e)
+		private void Button_Click(object sender, RoutedEventArgs e)
 		{
 			LogIn(_accounts[SelectedIndex]);
-		}
-
-		private void Shortcut_Focus(object sender, RoutedEventArgs e)
-		{
-			var button = (Button) sender;
-			var index = _stackPanel.Children.IndexOf(button);
-			SelectedIndex = index;
 		}
 	}
 }

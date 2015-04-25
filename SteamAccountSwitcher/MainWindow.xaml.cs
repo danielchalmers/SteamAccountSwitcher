@@ -26,7 +26,13 @@ namespace SteamAccountSwitcher
 		{
 			InitializeComponent();
 			_accountHandler = new AccountHandler(stackPanel);
-			_accountHandler.Add(new Account {Username = "test", Password = "test"});
+		}
+
+		private void btnAdd_Click(object sender, RoutedEventArgs e)
+		{
+			var dialog = new AccountProperties(new Account());
+			dialog.ShowDialog();
+			_accountHandler.Add(dialog.NewAccount);
 		}
 	}
 }
