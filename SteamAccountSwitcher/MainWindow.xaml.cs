@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
@@ -25,6 +27,13 @@ namespace SteamAccountSwitcher
 		public MainWindow()
 		{
 			InitializeComponent();
+			// Upgrade settings from old version.
+			if (Settings.Default.MustUpgrade)
+			{
+				Settings.Default.Upgrade();
+				Settings.Default.MustUpgrade = false;
+				Settings.Default.Save();
+			}
 			_accountHandler = new AccountHandler(stackPanel);
 		}
 
@@ -33,6 +42,18 @@ namespace SteamAccountSwitcher
 			var dialog = new AccountProperties(new Account());
 			dialog.ShowDialog();
 			_accountHandler.Add(dialog.NewAccount);
+		}
+
+		private void Window_Closing(object sender, CancelEventArgs e)
+		{
+			SaveSettings();
+		}
+
+		public void SaveSettings()
+		{
+			// Save settings.
+			Settings.Default.Accounts = _accountHandler.Serialize();
+			Settings.Default.Save();
 		}
 	}
 }

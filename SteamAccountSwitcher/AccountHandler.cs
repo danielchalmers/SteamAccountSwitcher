@@ -3,6 +3,8 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using Newtonsoft.Json;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -16,8 +18,21 @@ namespace SteamAccountSwitcher
 
 		public AccountHandler(StackPanel stackPanel)
 		{
-			_accounts = new List<Account>();
 			_stackPanel = stackPanel;
+			_accounts = Deserialize() ?? new List<Account>();
+			Refresh();
+		}
+
+		public string Serialize()
+		{
+			return new Encryption().Encrypt(JsonConvert.SerializeObject(_accounts));
+		}
+
+		public List<Account> Deserialize()
+		{
+			return string.IsNullOrWhiteSpace(Settings.Default.Accounts)
+				? new List<Account>()
+				: JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts));
 		}
 
 		public void LogOut()

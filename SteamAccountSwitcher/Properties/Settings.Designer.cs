@@ -34,5 +34,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["SteamPath"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Accounts {
+            get {
+                return ((string)(this["Accounts"]));
+            }
+            set {
+                this["Accounts"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool MustUpgrade {
+            get {
+                return ((bool)(this["MustUpgrade"]));
+            }
+            set {
+                this["MustUpgrade"] = value;
+            }
+        }
     }
 }
