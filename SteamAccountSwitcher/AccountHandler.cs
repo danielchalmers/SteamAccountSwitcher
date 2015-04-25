@@ -49,7 +49,8 @@ namespace SteamAccountSwitcher
 					Content = new TextBlock {Text = account.Username, TextWrapping = TextWrapping.Wrap},
 					Height = 32,
 					HorizontalContentAlignment = HorizontalAlignment.Left,
-					Margin = new Thickness(0, 0, 0, 8)
+					Margin = new Thickness(0, 0, 0, 8),
+					Padding = new Thickness(4,0,0,0)
 				};
 				btn.Click += Button_Click;
 				btn.MouseEnter += delegate{SelectedIndex = _stackPanel.Children.IndexOf(btn);};
