@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,8 +92,12 @@ namespace SteamAccountSwitcher
 
 		private void worker_DoWork(object sender, DoWorkEventArgs e)
 		{
-			Steam.LogOut();
-			Thread.Sleep(3000);
+			var processes = Process.GetProcessesByName("steam");
+			if (processes.Length > 0)
+			{
+				Steam.LogOut();
+				Thread.Sleep(3000);
+			}
 			Steam.LogIn(_accounts[SelectedIndex]);
 		}
 
