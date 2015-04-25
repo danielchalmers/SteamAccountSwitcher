@@ -35,6 +35,9 @@ namespace SteamAccountSwitcher
 				Settings.Default.Save();
 			}
 			_accountHandler = new AccountHandler(stackPanel);
+			
+			if (stackPanel.Children.Count > 0)
+				stackPanel.Children[0].Focus();
 		}
 
 		private void btnAdd_Click(object sender, RoutedEventArgs e)

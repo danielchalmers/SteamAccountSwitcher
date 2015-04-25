@@ -73,8 +73,6 @@ namespace SteamAccountSwitcher
 
 				_stackPanel.Children.Add(btn);
 			}
-			if(_stackPanel.Children.Count > 0)
-				_stackPanel.Children[0].Focus();
 		}
 
 		private void Button_Click(object sender, RoutedEventArgs e)
