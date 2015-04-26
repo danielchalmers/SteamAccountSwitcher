@@ -120,6 +120,15 @@ namespace SteamAccountSwitcher
 			Refresh();
 		}
 
+		public void New()
+		{
+			var dialog = new AccountProperties();
+			dialog.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
+				Add(dialog.NewAccount);
+			Refresh();
+		}
+
 		public void MoveUp(int i = -2)
 		{
 			var index = i == -2 ? SelectedIndex : i;

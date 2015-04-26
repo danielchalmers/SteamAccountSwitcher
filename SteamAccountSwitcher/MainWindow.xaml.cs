@@ -33,9 +33,7 @@ namespace SteamAccountSwitcher
 
 		private void btnAdd_Click(object sender, RoutedEventArgs e)
 		{
-			var dialog = new AccountProperties();
-			dialog.ShowDialog();
-			_accountHandler.Add(dialog.NewAccount);
+			_accountHandler.New();
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)
