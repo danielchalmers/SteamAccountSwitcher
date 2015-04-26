@@ -26,5 +26,14 @@
     <Setting Name="SwitchWaitTime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3500</Value>
     </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="ButtonMargin" Type="System.Windows.Thickness" Scope="User">
+      <Value Profile="(Default)">0,0,0,4</Value>
+    </Setting>
+    <Setting Name="ButtonPadding" Type="System.Windows.Thickness" Scope="User">
+      <Value Profile="(Default)">4,0,0,0</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

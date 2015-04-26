@@ -64,8 +64,8 @@ namespace SteamAccountSwitcher
 					},
 				Height = Settings.Default.ItemHeight,
 				HorizontalContentAlignment = HorizontalAlignment.Left,
-				Margin = new Thickness(0, 0, 0, 4),
-				Padding = new Thickness(4, 0, 0, 0),
+				Margin = Settings.Default.ButtonMargin,
+				Padding = Settings.Default.ButtonPadding,
 				ContextMenu = DefaultMenu()
 			}))
 			{
