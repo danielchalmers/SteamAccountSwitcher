@@ -106,5 +106,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ItemHeight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("3500")]
+        public int SwitchWaitTime {
+            get {
+                return ((int)(this["SwitchWaitTime"]));
+            }
+            set {
+                this["SwitchWaitTime"] = value;
+            }
+        }
     }
 }

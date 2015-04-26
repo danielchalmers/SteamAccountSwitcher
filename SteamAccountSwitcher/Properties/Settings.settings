@@ -23,5 +23,8 @@
     <Setting Name="ItemHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">32</Value>
     </Setting>
+    <Setting Name="SwitchWaitTime" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">3500</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

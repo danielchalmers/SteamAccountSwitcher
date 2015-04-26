@@ -106,7 +106,7 @@ namespace SteamAccountSwitcher
 			if (processes.Length > 0)
 			{
 				SteamClient.LogOut();
-				Thread.Sleep(3000);
+				Thread.Sleep(Settings.Default.SwitchWaitTime);
 			}
 			SteamClient.LogIn(_accounts[SelectedIndex]);
 		}
