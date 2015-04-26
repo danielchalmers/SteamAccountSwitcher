@@ -3,6 +3,7 @@
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -43,6 +44,30 @@ namespace SteamAccountSwitcher
 			btnNewAccount.Visibility = Settings.Default.ShowNewAccountButton ? Visibility.Visible : Visibility.Collapsed;
 			// Show "Add Account" button if enabled in options.
 			btnAddAccount.Visibility = Settings.Default.ShowAddAccountButton ? Visibility.Visible : Visibility.Collapsed;
+
+			// Add right click context menu.
+			ContextMenu = DefaultMenu();
+		}
+
+		private ContextMenu DefaultMenu()
+		{
+			var contextMenu = new ContextMenu();
+			var item1 = new MenuItem { Header = "Add..." };
+			item1.Click += delegate { _accountHandler.New(); };
+			var item6 = new MenuItem { Header = "Options..." };
+			item6.Click += delegate { _accountHandler.OpenOptions(); };
+			var item7 = new MenuItem { Header = "Check for Updates" };
+			item7.Click += delegate { ClickOnceHelper.CheckForUpdates(); };
+			var item8 = new MenuItem { Header = "Exit" };
+			item8.Click += delegate { Application.Current.Shutdown(); };
+			contextMenu.Items.Add(item1);
+			contextMenu.Items.Add(new Separator());
+			contextMenu.Items.Add(item6);
+			contextMenu.Items.Add(new Separator());
+			contextMenu.Items.Add(item7);
+			contextMenu.Items.Add(new Separator());
+			contextMenu.Items.Add(item8);
+			return contextMenu;
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)
