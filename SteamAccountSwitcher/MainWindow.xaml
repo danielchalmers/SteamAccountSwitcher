@@ -9,8 +9,7 @@
         Icon="steam.ico">
 	<Grid>
 		<StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
-		<Button x:Name="btnAdd" Content="Add Account" HorizontalAlignment="Left" Margin="184,179,0,0" VerticalAlignment="Top"
-		        Height="32" Width="100" Click="btnAdd_Click" />
-
+		<Button x:Name="btnAdd" Content="Add Account" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+		        Height="23" Width="80" Click="btnAdd_Click" Margin="0,0,10,10" />
 	</Grid>
 </Window>

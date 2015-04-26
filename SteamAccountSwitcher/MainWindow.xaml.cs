@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
 
