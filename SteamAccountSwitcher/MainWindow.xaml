@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d" Height="250" Width="300" ResizeMode="CanResize" Title="Steam Account Switcher"
-        WindowStartupLocation="CenterScreen" Closing="Window_Closing"
-        Icon="steam.ico">
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="steam.ico" MinHeight="100" MinWidth="200">
 	<Grid>
 		<StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
 		<Button x:Name="btnNewAccount" Content="New Account" HorizontalAlignment="Left" VerticalAlignment="Bottom"
