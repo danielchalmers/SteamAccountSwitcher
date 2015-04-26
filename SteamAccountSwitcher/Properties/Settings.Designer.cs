@@ -97,7 +97,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("32")]
+        [global::System.Configuration.DefaultSettingValueAttribute("48")]
         public int ButtonHeight {
             get {
                 return ((int)(this["ButtonHeight"]));
@@ -121,7 +121,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0,0,0,4")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0,0,1")]
         public global::System.Windows.Thickness ButtonMargin {
             get {
                 return ((global::System.Windows.Thickness)(this["ButtonMargin"]));
@@ -133,7 +133,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4,0,0,0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("0,0,0,0")]
         public global::System.Windows.Thickness ButtonPadding {
             get {
                 return ((global::System.Windows.Thickness)(this["ButtonPadding"]));
@@ -145,7 +145,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Left")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Center")]
         public global::System.Windows.HorizontalAlignment ButtonTextAlignment {
             get {
                 return ((global::System.Windows.HorizontalAlignment)(this["ButtonTextAlignment"]));

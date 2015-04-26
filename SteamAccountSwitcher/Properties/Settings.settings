@@ -21,19 +21,19 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">32</Value>
+      <Value Profile="(Default)">48</Value>
     </Setting>
     <Setting Name="SwitchWaitTime" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">3000</Value>
     </Setting>
     <Setting Name="ButtonMargin" Type="System.Windows.Thickness" Scope="User">
-      <Value Profile="(Default)">0,0,0,4</Value>
+      <Value Profile="(Default)">0,0,0,1</Value>
     </Setting>
     <Setting Name="ButtonPadding" Type="System.Windows.Thickness" Scope="User">
-      <Value Profile="(Default)">4,0,0,0</Value>
+      <Value Profile="(Default)">0,0,0,0</Value>
     </Setting>
     <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
-      <Value Profile="(Default)">Left</Value>
+      <Value Profile="(Default)">Center</Value>
     </Setting>
   </Settings>
 </SettingsFile>
