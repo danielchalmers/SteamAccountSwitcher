@@ -166,44 +166,38 @@ namespace SteamAccountSwitcher
 
 		private ContextMenu DefaultMenu()
 		{
-			var contextMenu = new ContextMenu();
-			contextMenu.Opened += SetFocus;
+			var menu = new ContextMenu();
+			menu.Opened += SetFocus;
 
-			var item1 = new MenuItem {Header = "Properties..."};
-			item1.Click += delegate { OpenPropeties(); };
+			var itemProperties = new MenuItem {Header = "Properties..."};
+			itemProperties.Click += delegate { OpenPropeties(); };
+			var itemMoveUp = new MenuItem {Header = "Move Up"};
+			itemMoveUp.Click += delegate { MoveUp(); };
+			var itemMoveDown = new MenuItem {Header = "Move Down"};
+			itemMoveDown.Click += delegate { MoveDown(); };
+			var itemRemove = new MenuItem {Header = "Remove..."};
+			itemRemove.Click += delegate { Remove(); };
+			var itemOptions = new MenuItem {Header = "Options..."};
+			itemOptions.Click += delegate { OpenOptions(); };
+			var itemCheckUpdates = new MenuItem {Header = "Check for Updates"};
+			itemCheckUpdates.Click += delegate { ClickOnceHelper.CheckForUpdates(); };
+			var itemExit = new MenuItem {Header = "Exit"};
+			itemExit.Click += delegate { Application.Current.Shutdown(); };
 
-			var item2 = new MenuItem {Header = "Move Up"};
-			item2.Click += delegate { MoveUp(); };
+			menu.Items.Add(itemProperties);
+			menu.Items.Add(new Separator());
+			menu.Items.Add(itemMoveUp);
+			menu.Items.Add(itemMoveDown);
+			menu.Items.Add(new Separator());
+			menu.Items.Add(itemRemove);
+			menu.Items.Add(new Separator());
+			menu.Items.Add(itemOptions);
+			menu.Items.Add(new Separator());
+			menu.Items.Add(itemCheckUpdates);
+			menu.Items.Add(new Separator());
+			menu.Items.Add(itemExit);
 
-			var item3 = new MenuItem {Header = "Move Down"};
-			item3.Click += delegate { MoveDown(); };
-
-			var item4 = new MenuItem {Header = "Remove..."};
-			item4.Click += delegate { Remove(); };
-
-			var item6 = new MenuItem {Header = "Options..."};
-			item6.Click += delegate { OpenOptions(); };
-
-			var item7 = new MenuItem {Header = "Check for Updates"};
-			item7.Click += delegate { ClickOnceHelper.CheckForUpdates(); };
-
-			var item8 = new MenuItem {Header = "Exit"};
-			item8.Click += delegate { Application.Current.Shutdown(); };
-
-			contextMenu.Items.Add(item1);
-			contextMenu.Items.Add(new Separator());
-			contextMenu.Items.Add(item2);
-			contextMenu.Items.Add(item3);
-			contextMenu.Items.Add(new Separator());
-			contextMenu.Items.Add(item4);
-			contextMenu.Items.Add(new Separator());
-			contextMenu.Items.Add(item6);
-			contextMenu.Items.Add(new Separator());
-			contextMenu.Items.Add(item7);
-			contextMenu.Items.Add(new Separator());
-			contextMenu.Items.Add(item8);
-
-			return contextMenu;
+			return menu;
 		}
 	}
 }
