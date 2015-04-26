@@ -7,7 +7,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-	internal class Steam
+	internal class SteamClient
 	{
 		public static void LogIn(Account account)
 		{

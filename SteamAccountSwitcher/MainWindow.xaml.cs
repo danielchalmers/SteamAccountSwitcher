@@ -30,7 +30,7 @@ namespace SteamAccountSwitcher
 
 			if (stackPanel.Children.Count > 0)
 				stackPanel.Children[0].Focus();
-			
+
 			// Restore window size.
 			if (Settings.Default.Height <= 30)
 				Settings.Default.Height = 250;
@@ -39,7 +39,8 @@ namespace SteamAccountSwitcher
 			Height = Settings.Default.Height;
 			Width = Settings.Default.Width;
 
-			btnNewAccount.Visibility = Settings.Default.ShowNewAccountButton ? Visibility.Visible :  Visibility.Collapsed;
+			// Show "New Account" button if enabled in options.
+			btnNewAccount.Visibility = Settings.Default.ShowNewAccountButton ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)

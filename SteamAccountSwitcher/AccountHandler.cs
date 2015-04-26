@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
@@ -53,22 +54,21 @@ namespace SteamAccountSwitcher
 			_stackPanel.Children.Clear();
 
 			// Add new buttons with saved shortcut data
-			foreach (var account in _accounts)
+			foreach (var btn in _accounts.Select(account => new Button
 			{
-				var btn = new Button
-				{
-					Content =
-						new TextBlock
-						{
-							Text = string.IsNullOrWhiteSpace(account.DisplayName) ? account.Username : account.DisplayName,
-							TextWrapping = TextWrapping.Wrap
-						},
-					Height = 32,
-					HorizontalContentAlignment = HorizontalAlignment.Left,
-					Margin = new Thickness(0, 0, 0, 4),
-					Padding = new Thickness(4, 0, 0, 0),
-					ContextMenu = DefaultMenu()
-				};
+				Content =
+					new TextBlock
+					{
+						Text = string.IsNullOrWhiteSpace(account.DisplayName) ? account.Username : account.DisplayName,
+						TextWrapping = TextWrapping.Wrap
+					},
+				Height = 32,
+				HorizontalContentAlignment = HorizontalAlignment.Left,
+				Margin = new Thickness(0, 0, 0, 4),
+				Padding = new Thickness(4, 0, 0, 0),
+				ContextMenu = DefaultMenu()
+			}))
+			{
 				btn.Click += Button_Click;
 
 				_stackPanel.Children.Add(btn);
@@ -105,10 +105,10 @@ namespace SteamAccountSwitcher
 			var processes = Process.GetProcessesByName("steam");
 			if (processes.Length > 0)
 			{
-				Steam.LogOut();
+				SteamClient.LogOut();
 				Thread.Sleep(3000);
 			}
-			Steam.LogIn(_accounts[SelectedIndex]);
+			SteamClient.LogIn(_accounts[SelectedIndex]);
 		}
 
 		private void OpenPropeties()
@@ -124,7 +124,7 @@ namespace SteamAccountSwitcher
 		{
 			var dialog = new AccountProperties();
 			dialog.ShowDialog();
-            if (!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
+			if (!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
 				Add(dialog.NewAccount);
 			Refresh();
 		}
@@ -133,7 +133,7 @@ namespace SteamAccountSwitcher
 		{
 			var index = i == -2 ? SelectedIndex : i;
 			if (index == 0) return;
-			Swap(_accounts, index, index - 1);
+			_accounts.Swap(index, index - 1);
 			Refresh();
 		}
 
@@ -141,27 +141,27 @@ namespace SteamAccountSwitcher
 		{
 			var index = i == -2 ? SelectedIndex : i;
 			if (_accounts.Count <= index + 1) return;
-			Swap(_accounts, index, index + 1);
+			_accounts.Swap(index, index + 1);
 			Refresh();
 		}
 
-		public void Remove(int i = -2, bool msg = false)
+		public void Remove(int i = -2)
 		{
 			var index = i == -2 ? SelectedIndex : i;
 			if (index < 0 || index > _accounts.Count - 1) return;
-			if (msg &&
-			    Popup.Show($"Are you sure you want to remove this account?\r\n\r\n\"{_accounts[index].Username}\"",
-				    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
+			if (Popup.Show($"Are you sure you want to remove this account?\r\n\r\n\"{_accounts[index].Username}\"",
+				MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
 				return;
 			_accounts.RemoveAt(index);
 			Refresh();
 		}
 
-		private static void Swap<T>(IList<T> list, int indexA, int indexB)
+		public void OpenOptions()
 		{
-			var tmp = list[indexA];
-			list[indexA] = list[indexB];
-			list[indexB] = tmp;
+			// Open options window.
+			var dialog = new Options();
+			dialog.ShowDialog();
+			Refresh();
 		}
 
 		private ContextMenu DefaultMenu()
@@ -179,7 +179,13 @@ namespace SteamAccountSwitcher
 			item3.Click += delegate { MoveDown(); };
 
 			var item4 = new MenuItem {Header = "Remove..."};
-			item4.Click += delegate { Remove(-2, true); };
+			item4.Click += delegate { Remove(); };
+
+			var item6 = new MenuItem {Header = "Options..."};
+			item6.Click += delegate { OpenOptions(); };
+
+			var item7 = new MenuItem {Header = "Check for Updates"};
+			item7.Click += delegate { ClickOnceHelper.CheckForUpdates(); };
 
 			var item8 = new MenuItem {Header = "Exit"};
 			item8.Click += delegate { Application.Current.Shutdown(); };
@@ -190,6 +196,10 @@ namespace SteamAccountSwitcher
 			contextMenu.Items.Add(item3);
 			contextMenu.Items.Add(new Separator());
 			contextMenu.Items.Add(item4);
+			contextMenu.Items.Add(new Separator());
+			contextMenu.Items.Add(item6);
+			contextMenu.Items.Add(new Separator());
+			contextMenu.Items.Add(item7);
 			contextMenu.Items.Add(new Separator());
 			contextMenu.Items.Add(item8);
 

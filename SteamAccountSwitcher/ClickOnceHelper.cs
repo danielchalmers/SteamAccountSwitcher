@@ -45,7 +45,7 @@ namespace SteamAccountSwitcher
 			catch (InvalidOperationException ioe)
 			{
 				MessageBox.Show("This application cannot be updated. It is likely not a ClickOnce application. Error: " +
-								ioe.Message);
+				                ioe.Message);
 				return;
 			}
 
@@ -66,8 +66,8 @@ namespace SteamAccountSwitcher
 				{
 					// Display a message that the app MUST reboot. Display the minimum required version.
 					MessageBox.Show("This application has detected a mandatory update from your current " +
-									"version to version " + info.MinimumRequiredVersion +
-									". The application will now install the update and shutdown.",
+					                "version to version " + info.MinimumRequiredVersion +
+					                ". The application will now install the update and shutdown.",
 						"Update Available", MessageBoxButton.OK,
 						MessageBoxImage.Information);
 				}
@@ -78,7 +78,7 @@ namespace SteamAccountSwitcher
 					{
 						ad.Update();
 						MessageBox.Show("The application has been upgraded, and will now shutdown.");
-						System.Windows.Application.Current.Shutdown();
+						Application.Current.Shutdown();
 					}
 					catch (DeploymentDownloadException dde)
 					{
@@ -98,7 +98,7 @@ namespace SteamAccountSwitcher
 
 			//Path to launch shortcut
 			var startPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs)
-							+ @"\Daniel Chalmers\SteamAccountSwitcher.appref-ms";
+			                + @"\Daniel Chalmers\SteamAccountSwitcher.appref-ms";
 
 			rkApp?.SetValue("SteamAccountSwitcher", startPath);
 		}
