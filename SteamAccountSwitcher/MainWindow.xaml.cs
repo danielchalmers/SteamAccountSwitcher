@@ -30,6 +30,14 @@ namespace SteamAccountSwitcher
 
 			if (stackPanel.Children.Count > 0)
 				stackPanel.Children[0].Focus();
+			
+			// Restore window size.
+			if (Settings.Default.Height <= 30)
+				Settings.Default.Height = 250;
+			if (Settings.Default.Width <= 30)
+				Settings.Default.Width = 350;
+			Height = Settings.Default.Height;
+			Width = Settings.Default.Width;
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)
@@ -40,6 +48,8 @@ namespace SteamAccountSwitcher
 		public void SaveSettings()
 		{
 			// Save settings.
+			Settings.Default.Height = Height;
+			Settings.Default.Width = Width;
 			Settings.Default.Accounts = _accountHandler.Serialize();
 			Settings.Default.Save();
 		}
