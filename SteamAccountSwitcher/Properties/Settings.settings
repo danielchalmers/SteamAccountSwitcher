@@ -32,5 +32,8 @@
     <Setting Name="ButtonPadding" Type="System.Windows.Thickness" Scope="User">
       <Value Profile="(Default)">4,0,0,0</Value>
     </Setting>
+    <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
+      <Value Profile="(Default)">Left</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

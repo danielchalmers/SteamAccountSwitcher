@@ -63,7 +63,7 @@ namespace SteamAccountSwitcher
 						TextWrapping = TextWrapping.Wrap
 					},
 				Height = Settings.Default.ButtonHeight,
-				HorizontalContentAlignment = HorizontalAlignment.Left,
+				HorizontalContentAlignment = Settings.Default.ButtonTextAlignment,
 				Margin = Settings.Default.ButtonMargin,
 				Padding = Settings.Default.ButtonPadding,
 				ContextMenu = DefaultMenu()

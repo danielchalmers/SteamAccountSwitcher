@@ -142,5 +142,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ButtonPadding"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Left")]
+        public global::System.Windows.HorizontalAlignment ButtonTextAlignment {
+            get {
+                return ((global::System.Windows.HorizontalAlignment)(this["ButtonTextAlignment"]));
+            }
+            set {
+                this["ButtonTextAlignment"] = value;
+            }
+        }
     }
 }
