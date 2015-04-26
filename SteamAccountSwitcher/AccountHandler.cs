@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Newtonsoft.Json;
 using SteamAccountSwitcher.Properties;
 
@@ -70,14 +71,25 @@ namespace SteamAccountSwitcher
 					ContextMenu = DefaultMenu()
 				};
 				btn.Click += Button_Click;
-				btn.MouseEnter += delegate { SelectedIndex = _stackPanel.Children.IndexOf(btn); };
 
 				_stackPanel.Children.Add(btn);
 			}
 		}
 
+		private void SetFocus(object sender, MouseEventArgs e)
+		{
+			SelectedIndex = _stackPanel.Children.IndexOf((Button)sender);
+		}
+
+		private void SetFocus(object sender, RoutedEventArgs e)
+		{
+			var btn = (Button) ((ContextMenu) sender).PlacementTarget;
+			SetFocus(btn,null);
+		}
+
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
+			SetFocus(sender, null);
 			var worker = new BackgroundWorker();
 			worker.DoWork += worker_DoWork;
 			worker.RunWorkerCompleted += worker_Completed;
@@ -148,6 +160,7 @@ namespace SteamAccountSwitcher
 		private ContextMenu DefaultMenu()
 		{
 			var contextMenu = new ContextMenu();
+			contextMenu.Opened += SetFocus;
 
 			var item1 = new MenuItem {Header = "Properties..."};
 			item1.Click += delegate { OpenPropeties(); };
