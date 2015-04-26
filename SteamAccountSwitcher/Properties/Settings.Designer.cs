@@ -94,5 +94,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ShowNewAccountButton"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("32")]
+        public int ItemHeight {
+            get {
+                return ((int)(this["ItemHeight"]));
+            }
+            set {
+                this["ItemHeight"] = value;
+            }
+        }
     }
 }

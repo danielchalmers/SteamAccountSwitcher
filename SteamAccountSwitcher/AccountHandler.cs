@@ -62,7 +62,7 @@ namespace SteamAccountSwitcher
 						Text = string.IsNullOrWhiteSpace(account.DisplayName) ? account.Username : account.DisplayName,
 						TextWrapping = TextWrapping.Wrap
 					},
-				Height = 32,
+				Height = Settings.Default.ItemHeight,
 				HorizontalContentAlignment = HorizontalAlignment.Left,
 				Margin = new Thickness(0, 0, 0, 4),
 				Padding = new Thickness(4, 0, 0, 0),
