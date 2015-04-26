@@ -41,6 +41,8 @@ namespace SteamAccountSwitcher
 
 			// Show "New Account" button if enabled in options.
 			btnNewAccount.Visibility = Settings.Default.ShowNewAccountButton ? Visibility.Visible : Visibility.Collapsed;
+			// Show "Add Account" button if enabled in options.
+			btnAddAccount.Visibility = Settings.Default.ShowAddAccountButton ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)

@@ -154,5 +154,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ButtonTextAlignment"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowAddAccountButton {
+            get {
+                return ((bool)(this["ShowAddAccountButton"]));
+            }
+            set {
+                this["ShowAddAccountButton"] = value;
+            }
+        }
     }
 }
