@@ -16,6 +16,7 @@ a {
     text-decoration: underline; }
 
 .btn {
+  min-width: 300px;
   display: inline-block;
   margin-bottom: 1rem;
   color: rgba(255, 255, 255, 0.7);
