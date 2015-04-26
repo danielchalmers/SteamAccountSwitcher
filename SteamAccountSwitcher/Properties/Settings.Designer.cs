@@ -98,36 +98,24 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("32")]
-        public int ItemHeight {
+        public int ButtonHeight {
             get {
-                return ((int)(this["ItemHeight"]));
+                return ((int)(this["ButtonHeight"]));
             }
             set {
-                this["ItemHeight"] = value;
+                this["ButtonHeight"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3500")]
+        [global::System.Configuration.DefaultSettingValueAttribute("3000")]
         public int SwitchWaitTime {
             get {
                 return ((int)(this["SwitchWaitTime"]));
             }
             set {
                 this["SwitchWaitTime"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Setting {
-            get {
-                return ((string)(this["Setting"]));
-            }
-            set {
-                this["Setting"] = value;
             }
         }
         

@@ -20,14 +20,11 @@
     <Setting Name="ShowNewAccountButton" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ItemHeight" Type="System.Int32" Scope="User">
+    <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">32</Value>
     </Setting>
     <Setting Name="SwitchWaitTime" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">3500</Value>
-    </Setting>
-    <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">3000</Value>
     </Setting>
     <Setting Name="ButtonMargin" Type="System.Windows.Thickness" Scope="User">
       <Value Profile="(Default)">0,0,0,4</Value>
