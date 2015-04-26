@@ -32,11 +32,6 @@ namespace SteamAccountSwitcher
 				stackPanel.Children[0].Focus();
 		}
 
-		private void btnAdd_Click(object sender, RoutedEventArgs e)
-		{
-			_accountHandler.New();
-		}
-
 		private void Window_Closing(object sender, CancelEventArgs e)
 		{
 			SaveSettings();
@@ -47,6 +42,16 @@ namespace SteamAccountSwitcher
 			// Save settings.
 			Settings.Default.Accounts = _accountHandler.Serialize();
 			Settings.Default.Save();
+		}
+
+		private void btnAddAccount_Click(object sender, RoutedEventArgs e)
+		{
+			_accountHandler.New();
+		}
+
+		private void btnNewAccount_Click(object sender, RoutedEventArgs e)
+		{
+			Process.Start("https://store.steampowered.com/join/");
 		}
 	}
 }
