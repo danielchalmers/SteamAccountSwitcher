@@ -38,6 +38,8 @@ namespace SteamAccountSwitcher
 				Settings.Default.Width = 350;
 			Height = Settings.Default.Height;
 			Width = Settings.Default.Width;
+
+			btnNewAccount.Visibility = Settings.Default.ShowNewAccountButton ? Visibility.Visible :  Visibility.Collapsed;
 		}
 
 		private void Window_Closing(object sender, CancelEventArgs e)
