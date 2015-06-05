@@ -46,9 +46,9 @@ namespace SteamAccountSwitcher
         {
             var menuList = new List<object>();
 
-            var itemAdd = new MenuItem {Header = "Add..."};
+            var itemAdd = new MenuItem {Header = "Add Account..."};
             itemAdd.Click += delegate { _accountHandler.New(); };
-            var itemRefresh = new MenuItem {Header = "Refresh..."};
+            var itemRefresh = new MenuItem {Header = "Refresh All..."};
             itemRefresh.Click += delegate { _accountHandler.Refresh(); };
             var itemOptions = new MenuItem {Header = "Options..."};
             itemOptions.Click += delegate { _accountHandler.OpenOptions(); };
