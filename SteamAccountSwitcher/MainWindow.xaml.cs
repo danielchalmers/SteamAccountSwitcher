@@ -46,6 +46,11 @@ namespace SteamAccountSwitcher
             // Add right click context menu.
             ContextMenu = new MenuHelper().MainMenu(_accountHandler, this);
 
+            // Auto resize
+            if (Settings.Default.AutoResizeOnStart)
+                AutoResize();
+
+            // Resolve Steam path.
             if (Settings.Default.SteamPath == string.Empty)
                 Settings.Default.SteamPath = SteamClient.ResolvePath();
             if (Settings.Default.SteamPath == string.Empty)
@@ -53,6 +58,24 @@ namespace SteamAccountSwitcher
                 Popup.Show("Steam path could not be located. Application will now exit.");
                 Application.Current.Shutdown();
             }
+        }
+
+        private void AutoResize()
+        {
+            const int snugContentWidth = 350;
+            var snugContentHeight = (_accountHandler.Accounts.Count*Settings.Default.ButtonHeight) +
+                                    ((_accountHandler.Accounts.Count - 1)*Settings.Default.ButtonMargin.Top) +
+                                    (_accountHandler.Accounts.Count*Settings.Default.ButtonMargin.Bottom);
+            var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
+            var verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
+            var captionHeight = SystemParameters.CaptionHeight;
+
+            Width = snugContentWidth + 2*verticalBorderWidth;
+            Height = (snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8;
+
+            btnNewAccount.Visibility = Visibility.Hidden;
+            btnAddAccount.Visibility = Visibility.Hidden;
+            btnOptions.Visibility = Visibility.Hidden;
         }
 
         public void UpdateUI()
