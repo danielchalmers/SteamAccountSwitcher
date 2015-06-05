@@ -8,11 +8,12 @@
         xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
         Title="Options" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
-	<Grid>
-		<xctk:PropertyGrid
-			AutoGenerateProperties="true"
-			SelectedObject="{Binding Source={x:Static properties:Settings.Default}}" IsCategorized="False" />
-		<Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True" Click="btnOK_Click"
-		        HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-	</Grid>
+    <Grid>
+        <xctk:PropertyGrid
+            AutoGenerateProperties="true"
+            SelectedObject="{Binding Source={x:Static properties:Settings.Default}}" IsCategorized="False" />
+        <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
+                Click="btnOK_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+    </Grid>
 </Window>

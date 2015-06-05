@@ -107,6 +107,7 @@
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="ListUtilities.cs" />
+    <Compile Include="MenuHelper.cs" />
     <Compile Include="Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
