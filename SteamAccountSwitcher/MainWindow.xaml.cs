@@ -31,7 +31,9 @@ namespace SteamAccountSwitcher
                     {
                         new Account
                         {
-                            DisplayName = "Example"
+                            DisplayName = "Example",
+                            Username="username",
+                            Password="password"
                         }
                     });
 
