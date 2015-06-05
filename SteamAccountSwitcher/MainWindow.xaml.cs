@@ -45,6 +45,14 @@ namespace SteamAccountSwitcher
 
             // Add right click context menu.
             ContextMenu = new MenuHelper().MainMenu(_accountHandler, this);
+
+            if (Settings.Default.SteamPath == string.Empty)
+                Settings.Default.SteamPath = SteamClient.ResolvePath();
+            if (Settings.Default.SteamPath == string.Empty)
+            {
+                Popup.Show("Steam path could not be located. Application will now exit.");
+                Application.Current.Shutdown();
+            }
         }
 
         public void UpdateUI()

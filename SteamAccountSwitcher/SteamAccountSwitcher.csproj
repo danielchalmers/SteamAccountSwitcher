@@ -114,6 +114,9 @@
     <Compile Include="Popup.cs" />
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="SteamClient.cs" />
+    <Compile Include="SteamPath.xaml.cs">
+      <DependentUpon>SteamPath.xaml</DependentUpon>
+    </Compile>
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -131,6 +134,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SteamPath.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
