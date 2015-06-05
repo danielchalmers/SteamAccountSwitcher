@@ -112,6 +112,7 @@
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
     <Compile Include="Popup.cs" />
+    <Compile Include="SettingsHelper.cs" />
     <Compile Include="SteamClient.cs" />
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>

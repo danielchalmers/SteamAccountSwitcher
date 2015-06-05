@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
@@ -19,13 +20,22 @@ namespace SteamAccountSwitcher
         public MainWindow()
         {
             InitializeComponent();
-            // Upgrade settings from old version.
-            if (Settings.Default.MustUpgrade)
-            {
-                Settings.Default.Upgrade();
-                Settings.Default.MustUpgrade = false;
-                Settings.Default.Save();
-            }
+            // Upgrade settings.
+            SettingsHelper.UpgradeSettings();
+
+
+            // Add default shortcuts.
+            if (Settings.Default.Accounts == string.Empty && ClickOnceHelper.IsFirstRun)
+                Settings.Default.Accounts =
+                    SettingsHelper.SerializeAccounts(new List<Account>
+                    {
+                        new Account
+                        {
+                            DisplayName = "Example"
+                        }
+                    });
+
+            // Setup account handler.
             _accountHandler = new AccountHandler(stackPanel, Hide);
 
             if (stackPanel.Children.Count > 0)
@@ -58,7 +68,7 @@ namespace SteamAccountSwitcher
             // Save settings.
             Settings.Default.Height = Height;
             Settings.Default.Width = Width;
-            Settings.Default.Accounts = _accountHandler.Serialize();
+            Settings.Default.Accounts = SettingsHelper.SerializeAccounts(_accountHandler.Accounts);
             Settings.Default.Save();
         }
 
