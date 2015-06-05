@@ -7,7 +7,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
-        Title="Options" Height="400" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Options" Height="450" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <xctk:PropertyGrid
             AutoGenerateProperties="true"
