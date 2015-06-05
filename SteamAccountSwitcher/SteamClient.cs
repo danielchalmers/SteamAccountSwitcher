@@ -13,12 +13,13 @@ namespace SteamAccountSwitcher
     {
         public static void LogIn(Account account)
         {
-            Process.Start(Settings.Default.SteamPath, $"-login \"{account.Username}\" \"{account.Password}\"");
+            Process.Start(Settings.Default.SteamPath,
+                $"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
         }
 
         public static void LogOut()
         {
-            Process.Start(Settings.Default.SteamPath, "-shutdown");
+            Process.Start(Settings.Default.SteamPath, Resources.SteamShutdownArgument);
         }
 
         public static bool LogOutAuto()
@@ -45,13 +46,10 @@ namespace SteamAccountSwitcher
 
         public static string ResolvePath()
         {
-            const string bit32Path = "C:\\Program Files\\Steam\\Steam.exe";
-            const string bit64Path = "C:\\Program Files (x86)\\Steam\\Steam.exe";
-
-            if (File.Exists(bit32Path))
-                return bit32Path;
-            if (File.Exists(bit64Path))
-                return bit64Path;
+            if (File.Exists(Resources.SteamPath32))
+                return Resources.SteamPath32;
+            if (File.Exists(Resources.SteamPath64))
+                return Resources.SteamPath64;
             Popup.Show("Default Steam path could not be located.\r\n\r\nPlease enter Steam executable location.");
             var dia = new SteamPath();
             dia.ShowDialog();
@@ -60,7 +58,7 @@ namespace SteamAccountSwitcher
 
         public static bool IsSteamOpen()
         {
-            return (Process.GetProcessesByName("steam").Length > 0);
+            return (Process.GetProcessesByName(Resources.Steam).Length > 0);
         }
     }
 }
