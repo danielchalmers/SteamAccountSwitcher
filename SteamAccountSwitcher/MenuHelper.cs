@@ -10,28 +10,21 @@ namespace SteamAccountSwitcher
 {
     internal class MenuHelper
     {
-        private readonly AccountHandler _accountHandler;
-
-        public MenuHelper(AccountHandler accountHandler)
-        {
-            _accountHandler = accountHandler;
-        }
-
-        private IEnumerable<object> AccountMenuItems()
+        private IEnumerable<object> AccountMenuItems(AccountHandler accountHandler)
         {
             var menuList = new List<object>();
 
             var itemProperties = new MenuItem {Header = "Edit..."};
-            itemProperties.Click += delegate { _accountHandler.OpenPropeties(); };
+            itemProperties.Click += delegate { accountHandler.OpenPropeties(); };
 
             var itemMoveUp = new MenuItem {Header = "Move Up"};
-            itemMoveUp.Click += delegate { _accountHandler.MoveUp(); };
+            itemMoveUp.Click += delegate { accountHandler.MoveUp(); };
 
             var itemMoveDown = new MenuItem {Header = "Move Down"};
-            itemMoveDown.Click += delegate { _accountHandler.MoveDown(); };
+            itemMoveDown.Click += delegate { accountHandler.MoveDown(); };
 
             var itemRemove = new MenuItem {Header = "Remove..."};
-            itemRemove.Click += delegate { _accountHandler.Remove(-2, true); };
+            itemRemove.Click += delegate { accountHandler.Remove(-2, true); };
 
             menuList.Add(itemProperties);
             menuList.Add(new Separator());
@@ -42,16 +35,16 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        private IEnumerable<object> MainMenuItems()
+        private IEnumerable<object> MainMenuItems(AccountHandler accountHandler, MainWindow window)
         {
             var menuList = new List<object>();
 
             var itemAdd = new MenuItem {Header = "Add Account..."};
-            itemAdd.Click += delegate { _accountHandler.New(); };
+            itemAdd.Click += delegate { accountHandler.New(); };
             var itemRefresh = new MenuItem {Header = "Refresh All..."};
-            itemRefresh.Click += delegate { _accountHandler.Refresh(); };
+            itemRefresh.Click += delegate { accountHandler.Refresh(); };
             var itemOptions = new MenuItem {Header = "Options..."};
-            itemOptions.Click += delegate { SettingsHelper.OpenOptions(_accountHandler); };
+            itemOptions.Click += delegate { SettingsHelper.OpenOptions(accountHandler, window); };
             var itemCheckUpdates = new MenuItem {Header = "Check for Updates"};
             itemCheckUpdates.Click += delegate { ClickOnceHelper.CheckForUpdates(); };
             var itemExit = new MenuItem {Header = "Exit"};
@@ -69,19 +62,19 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        public ContextMenu AccountMenu()
+        public ContextMenu AccountMenu(AccountHandler accountHandler)
         {
             var menu = new ContextMenu();
-            menu.Opened += _accountHandler.SetFocus;
-            foreach (var item in AccountMenuItems())
+            menu.Opened += accountHandler.SetFocus;
+            foreach (var item in AccountMenuItems(accountHandler))
                 menu.Items.Add(item);
             return menu;
         }
 
-        public ContextMenu MainMenu()
+        public ContextMenu MainMenu(AccountHandler accountHandler, MainWindow window)
         {
             var menu = new ContextMenu();
-            foreach (var item in MainMenuItems())
+            foreach (var item in MainMenuItems(accountHandler,window))
                 menu.Items.Add(item);
             return menu;
         }

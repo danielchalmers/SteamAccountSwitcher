@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Collections.Generic;
+using System.Windows;
 using Newtonsoft.Json;
 using SteamAccountSwitcher.Properties;
 
@@ -22,12 +23,16 @@ namespace SteamAccountSwitcher
                 : JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts));
         }
 
-        public static void OpenOptions(AccountHandler accountHandler)
+        public static void OpenOptions(AccountHandler accountHandler, MainWindow window)
         {
+            Settings.Default.Height = window.Height;
+            Settings.Default.Width = window.Width;
+
             // Open options window.
             var dialog = new Options();
             dialog.ShowDialog();
             accountHandler.Refresh();
+            window.UpdateUI();
         }
 
         public static void UpgradeSettings()

@@ -41,6 +41,14 @@ namespace SteamAccountSwitcher
             if (stackPanel.Children.Count > 0)
                 stackPanel.Children[0].Focus();
 
+            UpdateUI();
+
+            // Add right click context menu.
+            ContextMenu = new MenuHelper().MainMenu(_accountHandler,this);
+        }
+
+        public void UpdateUI()
+        {
             // Restore window size.
             if (Settings.Default.Height <= MinHeight)
                 Settings.Default.Height = 285;
@@ -55,9 +63,6 @@ namespace SteamAccountSwitcher
             btnAddAccount.Visibility = Settings.Default.ShowAddAccountButton ? Visibility.Visible : Visibility.Collapsed;
             // Show "Options" button if enabled in options.
             btnOptions.Visibility = Settings.Default.ShowOptionsButton ? Visibility.Visible : Visibility.Collapsed;
-
-            // Add right click context menu.
-            ContextMenu = new MenuHelper(_accountHandler).MainMenu();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -81,7 +86,7 @@ namespace SteamAccountSwitcher
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
-            SettingsHelper.OpenOptions(_accountHandler);
+            SettingsHelper.OpenOptions(_accountHandler,this);
         }
         
         private void btnNewAccount_Click(object sender, RoutedEventArgs e)
