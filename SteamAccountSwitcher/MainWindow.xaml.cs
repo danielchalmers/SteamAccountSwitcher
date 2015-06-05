@@ -44,7 +44,7 @@ namespace SteamAccountSwitcher
             UpdateUI();
 
             // Add right click context menu.
-            ContextMenu = new MenuHelper().MainMenu(_accountHandler,this);
+            ContextMenu = new MenuHelper().MainMenu(_accountHandler, this);
         }
 
         public void UpdateUI()
@@ -86,9 +86,9 @@ namespace SteamAccountSwitcher
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
-            SettingsHelper.OpenOptions(_accountHandler,this);
+            SettingsHelper.OpenOptions(_accountHandler, this);
         }
-        
+
         private void btnNewAccount_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("https://store.steampowered.com/join/");
