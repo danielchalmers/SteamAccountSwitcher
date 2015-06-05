@@ -169,7 +169,7 @@ namespace SteamAccountSwitcher
 			var menu = new ContextMenu();
 			menu.Opened += SetFocus;
 
-			var itemProperties = new MenuItem {Header = "Properties..."};
+			var itemProperties = new MenuItem {Header = "Edit..."};
 			itemProperties.Click += delegate { OpenPropeties(); };
 			var itemMoveUp = new MenuItem {Header = "Move Up"};
 			itemMoveUp.Click += delegate { MoveUp(); };
