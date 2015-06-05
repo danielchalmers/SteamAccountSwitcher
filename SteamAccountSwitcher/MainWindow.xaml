@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
-        mc:Ignorable="d" Height="250" Width="300" ResizeMode="CanResize" Title="Steam Account Switcher"
-        WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="steam.ico" MinHeight="100" MinWidth="200">
+        mc:Ignorable="d" Height="285" Width="300" ResizeMode="CanResize" Title="Steam Account Switcher"
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="steam.ico" MinHeight="87" MinWidth="245">
     <Grid>
         <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         <Button x:Name="btnNewAccount" Content="New Account" HorizontalAlignment="Right" VerticalAlignment="Bottom"

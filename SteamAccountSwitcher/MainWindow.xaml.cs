@@ -43,7 +43,7 @@ namespace SteamAccountSwitcher
 
             // Restore window size.
             if (Settings.Default.Height <= MinHeight)
-                Settings.Default.Height = 250;
+                Settings.Default.Height = 285;
             if (Settings.Default.Width <= MinWidth)
                 Settings.Default.Width = 350;
             Height = Settings.Default.Height;
