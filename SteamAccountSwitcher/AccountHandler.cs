@@ -81,6 +81,11 @@ namespace SteamAccountSwitcher
             worker.RunWorkerAsync();
             _closeWindow();
         }
+        
+        private bool IsSteamOpen()
+        {
+            return (Process.GetProcessesByName("steam").Length > 0);
+        }
 
         private void worker_Completed(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -89,11 +94,22 @@ namespace SteamAccountSwitcher
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            var processes = Process.GetProcessesByName("steam");
-            if (processes.Length > 0)
+            var timeout = 0;
+            const int maxtimeout = 5000;
+            const int waitstep = 500;
+            if (IsSteamOpen())
             {
                 SteamClient.LogOut();
-                Thread.Sleep(Settings.Default.SwitchWaitTime);
+                while (IsSteamOpen())
+                {
+                    if (timeout >= maxtimeout)
+                    {
+                        Popup.Show("Logout operation has timed out. Please force close steam and try again.");
+                        return;
+                    }
+                    Thread.Sleep(waitstep);
+                    timeout += waitstep;
+                }
             }
             SteamClient.LogIn(Accounts[SelectedIndex]);
         }
