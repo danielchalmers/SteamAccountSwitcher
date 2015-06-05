@@ -24,7 +24,7 @@ namespace SteamAccountSwitcher
             InitializeComponent();
             txtDisplayName.Text = account.DisplayName;
             txtUsername.Text = account.Username;
-            txtPassword.Text = account.Password;
+            txtPassword.Password = account.Password;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -33,13 +33,31 @@ namespace SteamAccountSwitcher
             {
                 DisplayName = txtDisplayName.Text,
                 Username = txtUsername.Text,
-                Password = txtPassword.Text
+                Password = string.IsNullOrWhiteSpace(txtPassword.Password) ? txtPasswordText.Text : txtPassword.Password
             };
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
+        }
+
+        private void chkShowPassword_Checked(object sender, RoutedEventArgs e)
+        {
+            txtPasswordText.Text = txtPassword.Password;
+            txtPassword.Clear();
+            txtPassword.Visibility = Visibility.Hidden;
+            txtPasswordText.Visibility = Visibility.Visible;
+            txtPasswordText.Focus();
+        }
+
+        private void chkShowPassword_Unchecked(object sender, RoutedEventArgs e)
+        {
+            txtPassword.Password = txtPasswordText.Text;
+            txtPasswordText.Clear();
+            txtPasswordText.Visibility = Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Visible;
+            txtPassword.Focus();
         }
     }
 }
