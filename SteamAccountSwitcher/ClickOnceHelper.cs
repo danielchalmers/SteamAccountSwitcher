@@ -18,7 +18,7 @@ namespace SteamAccountSwitcher
         {
             if (!ApplicationDeployment.IsNetworkDeployed)
             {
-                MessageBox.Show("This version was not installed via ClickOnce and cannot be updated automatically.");
+                Popup.Show("This application was not installed via ClickOnce and cannot be updated automatically.");
                 return;
             }
             var ad = ApplicationDeployment.CurrentDeployment;
@@ -30,21 +30,21 @@ namespace SteamAccountSwitcher
             }
             catch (DeploymentDownloadException dde)
             {
-                MessageBox.Show(
+                Popup.Show(
                     "The new version of the application cannot be downloaded at this time. \n\nPlease check your network connection, or try again later. Error: " +
                     dde.Message);
                 return;
             }
             catch (InvalidDeploymentException ide)
             {
-                MessageBox.Show(
-                    "Cannot check for a new version of the application. The ClickOnce deployment is corrupt. Please redeploy the application and try again. Error: " +
+                Popup.Show(
+                    "Cannot check for a new version of the application. The ClickOnce installation is corrupt. Please reinstall the application and try again. Error: " +
                     ide.Message);
                 return;
             }
             catch (InvalidOperationException ioe)
             {
-                MessageBox.Show(
+                Popup.Show(
                     "This application cannot be updated. It is likely not a ClickOnce application. Error: " +
                     ioe.Message);
                 return;
@@ -56,8 +56,8 @@ namespace SteamAccountSwitcher
 
                 if (!info.IsUpdateRequired)
                 {
-                    var dr = MessageBox.Show("An update is available. Would you like to update the application now?",
-                        "Update Available", MessageBoxButton.OKCancel);
+                    var dr = Popup.Show("An update is available. Would you like to update now?",
+                        MessageBoxButton.OKCancel);
                     if (dr != MessageBoxResult.OK)
                     {
                         doUpdate = false;
@@ -66,11 +66,8 @@ namespace SteamAccountSwitcher
                 else
                 {
                     // Display a message that the app MUST reboot. Display the minimum required version.
-                    MessageBox.Show("This application has detected a mandatory update from your current " +
-                                    "version to version " + info.MinimumRequiredVersion +
-                                    ". The application will now install the update and shutdown.",
-                        "Update Available", MessageBoxButton.OK,
-                        MessageBoxImage.Information);
+                    Popup.Show(
+                        "A mandatory update is available. The application will now install the update and restart.");
                 }
 
                 if (doUpdate)
@@ -78,12 +75,11 @@ namespace SteamAccountSwitcher
                     try
                     {
                         ad.Update();
-                        MessageBox.Show("The application has been upgraded, and will now shutdown.");
-                        Application.Current.Shutdown();
+                        Popup.Show("The application will finish updating on next launch.");
                     }
                     catch (DeploymentDownloadException dde)
                     {
-                        MessageBox.Show(
+                        Popup.Show(
                             "Cannot install the latest version of the application. \n\nPlease check your network connection, or try again later. Error: " +
                             dde);
                     }
