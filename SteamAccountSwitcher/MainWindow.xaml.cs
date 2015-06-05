@@ -53,6 +53,8 @@ namespace SteamAccountSwitcher
             btnNewAccount.Visibility = Settings.Default.ShowNewAccountButton ? Visibility.Visible : Visibility.Collapsed;
             // Show "Add Account" button if enabled in options.
             btnAddAccount.Visibility = Settings.Default.ShowAddAccountButton ? Visibility.Visible : Visibility.Collapsed;
+            // Show "Options" button if enabled in options.
+            btnOptions.Visibility = Settings.Default.ShowOptionsButton ? Visibility.Visible : Visibility.Collapsed;
 
             // Add right click context menu.
             ContextMenu = new MenuHelper(_accountHandler).MainMenu();
@@ -77,6 +79,11 @@ namespace SteamAccountSwitcher
             _accountHandler.New();
         }
 
+        private void btnOptions_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsHelper.OpenOptions(_accountHandler);
+        }
+        
         private void btnNewAccount_Click(object sender, RoutedEventArgs e)
         {
             Process.Start("https://store.steampowered.com/join/");

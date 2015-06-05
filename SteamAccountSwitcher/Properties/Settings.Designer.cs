@@ -166,5 +166,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ShowAddAccountButton"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowOptionsButton {
+            get {
+                return ((bool)(this["ShowOptionsButton"]));
+            }
+            set {
+                this["ShowOptionsButton"] = value;
+            }
+        }
     }
 }
