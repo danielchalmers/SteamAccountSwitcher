@@ -72,11 +72,7 @@ namespace SteamAccountSwitcher
         public ContextMenu AccountMenu()
         {
             var menu = new ContextMenu();
-            menu.Opened += _accountHandler.SetFocus;
             foreach (var item in AccountMenuItems())
-                menu.Items.Add(item);
-            menu.Items.Add(new Separator());
-            foreach (var item in MainMenuItems())
                 menu.Items.Add(item);
             return menu;
         }
