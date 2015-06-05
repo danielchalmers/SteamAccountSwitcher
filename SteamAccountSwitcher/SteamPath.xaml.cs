@@ -28,7 +28,7 @@ namespace SteamAccountSwitcher
 
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
-            var dlg = new OpenFileDialog {Filter = "Steam|steam.exe|All Files|*.*" };
+            var dlg = new OpenFileDialog {Filter = "Steam|steam.exe|All Files|*.*"};
             if (dlg.ShowDialog() == true)
                 txtPath.Text = dlg.FileName;
         }

@@ -19,11 +19,12 @@
         <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="10,72,0,0"
                VerticalAlignment="Top" />
         <TextBox x:Name="txtPasswordText" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0"
-                 VerticalAlignment="Top" Width="181"/>
+                 VerticalAlignment="Top" Width="181" />
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0"
-                 VerticalAlignment="Top" Width="181"/>
-        <CheckBox x:Name="chkShowPassword" Visibility="Visible"  HorizontalAlignment="Left" Height="16"
-                 VerticalAlignment="Top" Width="16" RenderTransformOrigin="4.708,4.562" Margin="262,76,0,0" Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"/>
+                     VerticalAlignment="Top" Width="181" />
+        <CheckBox x:Name="chkShowPassword" Visibility="Visible" HorizontalAlignment="Left" Height="16"
+                  VerticalAlignment="Top" Width="16" RenderTransformOrigin="4.708,4.562" Margin="262,76,0,0"
+                  Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" />
         <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
                 Click="btnOK_Click"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" />

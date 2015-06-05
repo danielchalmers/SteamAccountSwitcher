@@ -3,9 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Linq;
-using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using SteamAccountSwitcher.Properties;
@@ -81,11 +79,6 @@ namespace SteamAccountSwitcher
             worker.RunWorkerAsync();
             _closeWindow();
         }
-        
-        private bool IsSteamOpen()
-        {
-            return (Process.GetProcessesByName("steam").Length > 0);
-        }
 
         private void worker_Completed(object sender, RunWorkerCompletedEventArgs e)
         {
@@ -94,24 +87,8 @@ namespace SteamAccountSwitcher
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            var timeout = 0;
-            const int maxtimeout = 5000;
-            const int waitstep = 500;
-            if (IsSteamOpen())
-            {
-                SteamClient.LogOut();
-                while (IsSteamOpen())
-                {
-                    if (timeout >= maxtimeout)
-                    {
-                        Popup.Show("Logout operation has timed out. Please force close steam and try again.");
-                        return;
-                    }
-                    Thread.Sleep(waitstep);
-                    timeout += waitstep;
-                }
-            }
-            SteamClient.LogIn(Accounts[SelectedIndex]);
+            if (SteamClient.LogOutAuto())
+                SteamClient.LogIn(Accounts[SelectedIndex]);
         }
 
         public void OpenPropeties()

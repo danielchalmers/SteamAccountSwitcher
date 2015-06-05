@@ -2,6 +2,7 @@
 
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -20,6 +21,28 @@ namespace SteamAccountSwitcher
             Process.Start(Settings.Default.SteamPath, "-shutdown");
         }
 
+        public static bool LogOutAuto()
+        {
+            var timeout = 0;
+            const int maxtimeout = 5000;
+            const int waitstep = 500;
+            if (IsSteamOpen())
+            {
+                LogOut();
+                while (IsSteamOpen())
+                {
+                    if (timeout >= maxtimeout)
+                    {
+                        Popup.Show("Logout operation has timed out. Please force close steam and try again.");
+                        return false;
+                    }
+                    Thread.Sleep(waitstep);
+                    timeout += waitstep;
+                }
+            }
+            return true;
+        }
+
         public static string ResolvePath()
         {
             const string bit32Path = "C:\\Program Files\\Steam\\Steam.exe";
@@ -33,6 +56,11 @@ namespace SteamAccountSwitcher
             var dia = new SteamPath();
             dia.ShowDialog();
             return dia.Path;
+        }
+
+        public static bool IsSteamOpen()
+        {
+            return (Process.GetProcessesByName("steam").Length > 0);
         }
     }
 }
