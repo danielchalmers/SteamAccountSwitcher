@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+  <configSections>
+    <sectionGroup name="userSettings"
+                  type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="SteamAccountSwitcher.Properties.Settings"
+               type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+               allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+  </startup>
+  <userSettings>
+    <SteamAccountSwitcher.Properties.Settings>
+      <setting name="SteamPath" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="Accounts" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="MustUpgrade" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="Height" serializeAs="String">
+        <value>0</value>
+      </setting>
+      <setting name="Width" serializeAs="String">
+        <value>0</value>
+      </setting>
+      <setting name="ShowNewAccountButton" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="ButtonHeight" serializeAs="String">
+        <value>48</value>
+      </setting>
+      <setting name="ButtonMargin" serializeAs="String">
+        <value>0,0,0,1</value>
+      </setting>
+      <setting name="ButtonPadding" serializeAs="String">
+        <value>0,0,0,0</value>
+      </setting>
+      <setting name="ButtonTextAlignment" serializeAs="String">
+        <value>Center</value>
+      </setting>
+      <setting name="ShowAddAccountButton" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="ShowOptionsButton" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="AutoResizeOnStart" serializeAs="String">
+        <value>False</value>
+      </setting>
+    </SteamAccountSwitcher.Properties.Settings>
+  </userSettings>
+</configuration>
