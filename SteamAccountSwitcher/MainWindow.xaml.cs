@@ -62,7 +62,7 @@ namespace SteamAccountSwitcher
 
         private void AutoResize()
         {
-            const int snugContentWidth = 350;
+            const int snugContentWidth = 400;
             var count = _accountHandler.Accounts.Count == 0 ? 5 : _accountHandler.Accounts.Count;
             var snugContentHeight = (count*Settings.Default.ButtonHeight) +
                                     ((count - 1)*Settings.Default.ButtonMargin.Top) +
