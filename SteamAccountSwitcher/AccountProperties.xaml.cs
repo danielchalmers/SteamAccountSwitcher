@@ -83,22 +83,22 @@ namespace SteamAccountSwitcher
             switch (cbColor.Text)
             {
                 case "Blue":
-                    _color = ConvertColor("#afeeee");
+                    _color = ConvertColor(Properties.Resources.ColorBlue);
                     break;
                 case "Green":
-                    _color = ConvertColor("#b3ffb3");
+                    _color = ConvertColor(Properties.Resources.ColorGreen);
                     break;
                 case "Orange":
-                    _color = ConvertColor("#ffd9b3");
+                    _color = ConvertColor(Properties.Resources.ColorOrange);
                     break;
                 case "Yellow":
-                    _color = ConvertColor("#ffffb3");
+                    _color = ConvertColor(Properties.Resources.ColorYellow);
                     break;
                 case "Pink":
-                    _color = ConvertColor("#fadadd");
+                    _color = ConvertColor(Properties.Resources.ColorPink);
                     break;
                 case "Grey":
-                    _color = ConvertColor("#cccccc");
+                    _color = ConvertColor(Properties.Resources.ColorGrey);
                     break;
                 case "Custom...":
                     var dia = new HexColorChooser(_oldAccount?.Color);

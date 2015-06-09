@@ -61,6 +61,60 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to #afeeee.
+        /// </summary>
+        internal static string ColorBlue {
+            get {
+                return ResourceManager.GetString("ColorBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #b3ffb3.
+        /// </summary>
+        internal static string ColorGreen {
+            get {
+                return ResourceManager.GetString("ColorGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #cccccc.
+        /// </summary>
+        internal static string ColorGrey {
+            get {
+                return ResourceManager.GetString("ColorGrey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #ffd9b3.
+        /// </summary>
+        internal static string ColorOrange {
+            get {
+                return ResourceManager.GetString("ColorOrange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #fadadd.
+        /// </summary>
+        internal static string ColorPink {
+            get {
+                return ResourceManager.GetString("ColorPink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to #ffffb3.
+        /// </summary>
+        internal static string ColorYellow {
+            get {
+                return ResourceManager.GetString("ColorYellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap options {

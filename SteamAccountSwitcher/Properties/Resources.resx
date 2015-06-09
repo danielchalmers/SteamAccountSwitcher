@@ -146,4 +146,22 @@
   <data name="SteamShutdownArgument" xml:space="preserve">
     <value>-shutdown</value>
   </data>
+  <data name="ColorBlue" xml:space="preserve">
+    <value>#afeeee</value>
+  </data>
+  <data name="ColorGreen" xml:space="preserve">
+    <value>#b3ffb3</value>
+  </data>
+  <data name="ColorGrey" xml:space="preserve">
+    <value>#cccccc</value>
+  </data>
+  <data name="ColorOrange" xml:space="preserve">
+    <value>#ffd9b3</value>
+  </data>
+  <data name="ColorPink" xml:space="preserve">
+    <value>#fadadd</value>
+  </data>
+  <data name="ColorYellow" xml:space="preserve">
+    <value>#ffffb3</value>
+  </data>
 </root>
