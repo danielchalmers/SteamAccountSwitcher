@@ -85,18 +85,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowNewAccountButton {
-            get {
-                return ((bool)(this["ShowNewAccountButton"]));
-            }
-            set {
-                this["ShowNewAccountButton"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("48")]
         public int ButtonHeight {
             get {
@@ -140,30 +128,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["ButtonTextAlignment"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowAddAccountButton {
-            get {
-                return ((bool)(this["ShowAddAccountButton"]));
-            }
-            set {
-                this["ShowAddAccountButton"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowOptionsButton {
-            get {
-                return ((bool)(this["ShowOptionsButton"]));
-            }
-            set {
-                this["ShowOptionsButton"] = value;
             }
         }
         

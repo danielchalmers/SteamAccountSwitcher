@@ -1,7 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="SteamPath" Type="System.String" Scope="User">
@@ -19,9 +17,6 @@
     <Setting Name="Width" Type="System.Double" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
-    <Setting Name="ShowNewAccountButton" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">48</Value>
     </Setting>
@@ -33,12 +28,6 @@
     </Setting>
     <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
       <Value Profile="(Default)">Center</Value>
-    </Setting>
-    <Setting Name="ShowAddAccountButton" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="ShowOptionsButton" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="AutoResizeOnStart" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
