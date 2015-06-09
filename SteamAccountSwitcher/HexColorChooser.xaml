@@ -1,0 +1,17 @@
+﻿<Window x:Class="SteamAccountSwitcher.HexColorChooser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SteamAccountSwitcher"
+        mc:Ignorable="d"
+        Title="Choose Hex Color" Height="110" Width="283" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Closing="Window_Closing">
+    <Grid>
+        <TextBox x:Name="txtColor" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0"
+                 VerticalAlignment="Top" Width="257" />
+        <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
+                Click="btnOK_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+    </Grid>
+</Window>

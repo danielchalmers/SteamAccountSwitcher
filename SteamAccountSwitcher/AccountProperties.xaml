@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d"
-        Title="Account Properties" Height="174" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Account Properties" Height="208" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Closing="Window_Closing">
     <Grid>
         <Label x:Name="lblDisplayName" Content="Display Name:" HorizontalAlignment="Left" Margin="10,10,0,0"
@@ -25,6 +25,17 @@
         <CheckBox x:Name="chkShowPassword" Visibility="Visible" HorizontalAlignment="Left" Height="16"
                   VerticalAlignment="Top" Width="16" RenderTransformOrigin="4.708,4.562" Margin="262,76,0,0"
                   Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" />
+        <ComboBox x:Name="cbColor" HorizontalAlignment="Left" Height="23" Margin="101,103,0,0"
+                 VerticalAlignment="Top" Width="181" DropDownClosed="cbColor_SelectionChanged" >
+            <ComboBoxItem Content="Blue" />
+            <ComboBoxItem Content="Green" />
+            <ComboBoxItem Content="Orange" />
+            <ComboBoxItem Content="Pink" />
+            <ComboBoxItem Content="Grey" />
+            <ComboBoxItem Content="Custom..." />
+        </ComboBox>
+        <Label x:Name="lblColor" Content="Color:" HorizontalAlignment="Left" Margin="10,103,0,0"
+               VerticalAlignment="Top" />
         <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
                 Click="btnOK_Click"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" />

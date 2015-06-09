@@ -107,6 +107,9 @@
     </Compile>
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="HexColorChooser.xaml.cs">
+      <DependentUpon>HexColorChooser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListUtilities.cs" />
     <Compile Include="MenuHelper.cs" />
     <Compile Include="Options.xaml.cs">
@@ -119,6 +122,10 @@
       <DependentUpon>SteamPath.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HexColorChooser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

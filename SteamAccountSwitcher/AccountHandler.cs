@@ -51,7 +51,8 @@ namespace SteamAccountSwitcher
                 HorizontalContentAlignment = Settings.Default.ButtonTextAlignment,
                 Margin = Settings.Default.ButtonMargin,
                 Padding = Settings.Default.ButtonPadding,
-                ContextMenu = new MenuHelper().AccountMenu(this)
+                ContextMenu = new MenuHelper().AccountMenu(this),
+                Background = account.Color
             }))
             {
                 btn.Click += Button_Click;
