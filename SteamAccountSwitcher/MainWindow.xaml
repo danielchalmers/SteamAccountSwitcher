@@ -10,10 +10,10 @@
         <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True">
             <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
                 <Button x:Name="btnAddAccount" Width="24" Height="24" HorizontalAlignment="Left" Click="btnAddAccount_Click">
-                    <Image Source="Resources/plus.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16"/>
+                    <Image Source="Resources/plus.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None"/>
                 </Button>
                 <Button x:Name="btnOptions" Width="24" Height="24" HorizontalAlignment="Right" Click="btnOptions_Click">
-                    <Image Source="Resources/options.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Width="16" Height="16"/>
+                    <Image Source="Resources/options.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None"/>
                 </Button>
             </Grid>
             <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top"/>
