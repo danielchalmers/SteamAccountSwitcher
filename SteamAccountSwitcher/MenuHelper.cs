@@ -38,11 +38,7 @@ namespace SteamAccountSwitcher
         private IEnumerable<object> MainMenuItems(AccountHandler accountHandler, MainWindow window)
         {
             var menuList = new List<object>();
-
-            var itemAdd = new MenuItem {Header = "Add Account..."};
-            itemAdd.Click += delegate { accountHandler.New(); };
-            var itemRefresh = new MenuItem {Header = "Refresh All..."};
-            itemRefresh.Click += delegate { accountHandler.Refresh(); };
+            
             var itemOptions = new MenuItem {Header = "Options..."};
             itemOptions.Click += delegate { SettingsHelper.OpenOptions(accountHandler, window); };
             var itemCheckUpdates = new MenuItem {Header = "Check for Updates"};
@@ -50,10 +46,6 @@ namespace SteamAccountSwitcher
             var itemExit = new MenuItem {Header = "Exit"};
             itemExit.Click += delegate { Application.Current.Shutdown(); };
 
-            menuList.Add(itemAdd);
-            menuList.Add(new Separator());
-            menuList.Add(itemRefresh);
-            menuList.Add(new Separator());
             menuList.Add(itemOptions);
             menuList.Add(new Separator());
             menuList.Add(itemCheckUpdates);
