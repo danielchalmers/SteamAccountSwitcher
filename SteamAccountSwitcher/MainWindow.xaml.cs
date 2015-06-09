@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Windows;
+using System.Windows.Controls;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -16,6 +17,7 @@ namespace SteamAccountSwitcher
     public partial class MainWindow : Window
     {
         private readonly AccountHandler _accountHandler;
+        public readonly ContextMenu Menu;
 
         public MainWindow()
         {
@@ -45,8 +47,8 @@ namespace SteamAccountSwitcher
 
             UpdateUI();
 
-            // Add right click context menu.
-            ContextMenu = new MenuHelper().MainMenu(_accountHandler, this);
+            // Assign context menu.
+            Menu = new MenuHelper().MainMenu(_accountHandler, this);
 
             // Resolve Steam path.
             if (Settings.Default.SteamPath == string.Empty)
@@ -101,7 +103,7 @@ namespace SteamAccountSwitcher
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
-            ContextMenu.IsOpen = true;
+            Menu.IsOpen = true;
         }
 
         private void btnAddAccount_Click(object sender, RoutedEventArgs e)
