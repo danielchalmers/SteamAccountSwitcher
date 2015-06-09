@@ -48,10 +48,6 @@ namespace SteamAccountSwitcher
             // Add right click context menu.
             ContextMenu = new MenuHelper().MainMenu(_accountHandler, this);
 
-            // Auto resize
-            if (Settings.Default.AutoResizeOnStart)
-                AutoResize();
-
             // Resolve Steam path.
             if (Settings.Default.SteamPath == string.Empty)
                 Settings.Default.SteamPath = SteamClient.ResolvePath();
@@ -85,6 +81,7 @@ namespace SteamAccountSwitcher
                 Settings.Default.Width = 350;
             Height = Settings.Default.Height;
             Width = Settings.Default.Width;
+            AutoResize();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

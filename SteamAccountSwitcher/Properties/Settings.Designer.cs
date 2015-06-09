@@ -130,17 +130,5 @@ namespace SteamAccountSwitcher.Properties {
                 this["ButtonTextAlignment"] = value;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoResizeOnStart {
-            get {
-                return ((bool)(this["AutoResizeOnStart"]));
-            }
-            set {
-                this["AutoResizeOnStart"] = value;
-            }
-        }
     }
 }

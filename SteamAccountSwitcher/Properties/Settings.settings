@@ -29,8 +29,5 @@
     <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
-    <Setting Name="AutoResizeOnStart" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
   </Settings>
 </SettingsFile>
