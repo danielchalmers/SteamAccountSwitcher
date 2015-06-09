@@ -70,7 +70,7 @@ namespace SteamAccountSwitcher
             var captionHeight = SystemParameters.CaptionHeight;
 
             Width = snugContentWidth + 2*verticalBorderWidth;
-            Height = (snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8;
+            Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) + toolMenu.Height;
         }
 
         public void UpdateUI()
@@ -97,6 +97,16 @@ namespace SteamAccountSwitcher
             Settings.Default.Width = Width;
             Settings.Default.Accounts = SettingsHelper.SerializeAccounts(_accountHandler.Accounts);
             Settings.Default.Save();
+        }
+
+        private void btnOptions_Click(object sender, RoutedEventArgs e)
+        {
+            ContextMenu.IsOpen = true;
+        }
+
+        private void btnAddAccount_Click(object sender, RoutedEventArgs e)
+        {
+            _accountHandler.New();
         }
     }
 }
