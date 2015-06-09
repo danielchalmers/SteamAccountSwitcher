@@ -2,7 +2,6 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using SteamAccountSwitcher.Properties;
@@ -34,13 +33,13 @@ namespace SteamAccountSwitcher
                         new Account
                         {
                             DisplayName = "Example",
-                            Username="username",
-                            Password="password"
+                            Username = "username",
+                            Password = "password"
                         }
                     });
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, Hide,  UpdateUI);
+            _accountHandler = new AccountHandler(stackPanel, Hide, UpdateUI);
 
             if (stackPanel.Children.Count > 0)
                 stackPanel.Children[0].Focus();

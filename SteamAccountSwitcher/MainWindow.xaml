@@ -4,19 +4,23 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
-        mc:Ignorable="d" Height="300" Width="0" ResizeMode="CanMinimize"  Title="Steam Account Switcher"
+        mc:Ignorable="d" Height="300" Width="0" ResizeMode="CanMinimize" Title="Steam Account Switcher"
         WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="steam.ico" MinHeight="87" MinWidth="300">
     <Grid>
         <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True">
-            <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom" DockPanel.Dock="Bottom">
-                <Button x:Name="btnAddAccount" Width="24" Height="24" HorizontalAlignment="Left" Click="btnAddAccount_Click">
-                    <Image Source="Resources/plus.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None"/>
+            <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom"
+                  DockPanel.Dock="Bottom">
+                <Button x:Name="btnAddAccount" Width="24" Height="24" HorizontalAlignment="Left"
+                        Click="btnAddAccount_Click">
+                    <Image Source="Resources/plus.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None" />
                 </Button>
                 <Button x:Name="btnOptions" Width="24" Height="24" HorizontalAlignment="Right" Click="btnOptions_Click">
-                    <Image Source="Resources/options.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None"/>
+                    <Image Source="Resources/options.png" RenderOptions.BitmapScalingMode="NearestNeighbor"
+                           Stretch="None" />
                 </Button>
             </Grid>
-            <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DockPanel.Dock="Top"/>
+            <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                        DockPanel.Dock="Top" />
         </DockPanel>
     </Grid>
 </Window>

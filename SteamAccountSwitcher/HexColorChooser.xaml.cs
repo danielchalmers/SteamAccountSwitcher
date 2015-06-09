@@ -31,7 +31,11 @@ namespace SteamAccountSwitcher
         {
             try
             {
-                Color = (Brush)new BrushConverter().ConvertFromString(txtColor.Text.StartsWith("#") == false ? "#" + txtColor.Text : txtColor.Text);
+                Color =
+                    (Brush)
+                        new BrushConverter().ConvertFromString(txtColor.Text.StartsWith("#") == false
+                            ? "#" + txtColor.Text
+                            : txtColor.Text);
             }
             catch
             {

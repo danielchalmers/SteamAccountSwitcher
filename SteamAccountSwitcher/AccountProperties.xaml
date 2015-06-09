@@ -26,7 +26,7 @@
                   VerticalAlignment="Top" Width="16" RenderTransformOrigin="4.708,4.562" Margin="262,76,0,0"
                   Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" />
         <ComboBox x:Name="cbColor" HorizontalAlignment="Left" Height="23" Margin="101,103,0,0"
-                 VerticalAlignment="Top" Width="181" DropDownClosed="cbColor_SelectionChanged" >
+                  VerticalAlignment="Top" Width="181" DropDownClosed="cbColor_SelectionChanged">
             <ComboBoxItem Content="Blue" />
             <ComboBoxItem Content="Green" />
             <ComboBoxItem Content="Orange" />

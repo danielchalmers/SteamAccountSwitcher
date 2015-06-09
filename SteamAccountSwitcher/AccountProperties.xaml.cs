@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
@@ -15,9 +14,9 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class AccountProperties : Window
     {
-        public Account NewAccount;
+        private readonly Account _oldAccount;
         private Brush _color;
-        private Account _oldAccount;
+        public Account NewAccount;
 
         public AccountProperties()
         {

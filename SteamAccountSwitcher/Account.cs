@@ -1,4 +1,8 @@
-﻿using System.Windows.Media;
+﻿#region
+
+using System.Windows.Media;
+
+#endregion
 
 namespace SteamAccountSwitcher
 {

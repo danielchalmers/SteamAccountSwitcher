@@ -15,8 +15,8 @@ namespace SteamAccountSwitcher
     public class AccountHandler
     {
         private readonly Action _closeWindow;
-        private readonly Action _updateUI;
         private readonly StackPanel _stackPanel;
+        private readonly Action _updateUI;
         public readonly List<Account> Accounts;
         private int SelectedIndex = -1;
 
@@ -109,7 +109,6 @@ namespace SteamAccountSwitcher
             var dialog = new AccountProperties();
             dialog.ShowDialog();
             Add(dialog.NewAccount);
-            Refresh();
         }
 
         public void MoveUp(int i = -2)
