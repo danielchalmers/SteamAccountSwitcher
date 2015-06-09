@@ -15,15 +15,17 @@ namespace SteamAccountSwitcher
     public class AccountHandler
     {
         private readonly Action _closeWindow;
+        private readonly Action _updateUI;
         private readonly StackPanel _stackPanel;
         public readonly List<Account> Accounts;
         private int SelectedIndex = -1;
 
-        public AccountHandler(StackPanel stackPanel, Action closeWindow)
+        public AccountHandler(StackPanel stackPanel, Action closeWindow, Action updateUI)
         {
             _stackPanel = stackPanel;
             Accounts = SettingsHelper.DeserializeAccounts() ?? new List<Account>();
             _closeWindow = closeWindow;
+            _updateUI = updateUI;
             Refresh();
         }
 
@@ -59,6 +61,7 @@ namespace SteamAccountSwitcher
 
                 _stackPanel.Children.Add(btn);
             }
+            _updateUI();
         }
 
         private void SetFocus(object sender)

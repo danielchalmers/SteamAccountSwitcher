@@ -40,7 +40,7 @@ namespace SteamAccountSwitcher
                     });
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, Hide);
+            _accountHandler = new AccountHandler(stackPanel, Hide,  UpdateUI);
 
             if (stackPanel.Children.Count > 0)
                 stackPanel.Children[0].Focus();
@@ -62,6 +62,8 @@ namespace SteamAccountSwitcher
 
         private void AutoResize()
         {
+            if (_accountHandler?.Accounts == null)
+                return;
             const int snugContentWidth = 400;
             var count = _accountHandler.Accounts.Count == 0 ? 5 : _accountHandler.Accounts.Count;
             var snugContentHeight = (count*Settings.Default.ButtonHeight) +
