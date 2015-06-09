@@ -69,24 +69,32 @@ namespace SteamAccountSwitcher
             txtPassword.Focus();
         }
 
+        private Brush ConvertColor(string colorhex)
+        {
+            return (Brush) new BrushConverter().ConvertFromString(colorhex);
+        }
+
         private void cbColor_SelectionChanged(object sender, EventArgs e)
         {
             switch (cbColor.Text)
             {
                 case "Blue":
-                    _color = Brushes.LightBlue;
+                    _color = ConvertColor("#afeeee");
                     break;
                 case "Green":
-                    _color = Brushes.LightGreen;
+                    _color = ConvertColor("#b3ffb3");
                     break;
                 case "Orange":
-                    _color = Brushes.LightSalmon;
+                    _color = ConvertColor("#ffd9b3");
+                    break;
+                case "Yellow":
+                    _color = ConvertColor("#ffffb3");
                     break;
                 case "Pink":
-                    _color = Brushes.LightPink;
+                    _color = ConvertColor("#fadadd");
                     break;
                 case "Grey":
-                    _color = Brushes.LightGray;
+                    _color = ConvertColor("#cccccc");
                     break;
                 default:
                     var dia = new HexColorChooser(_oldAccount?.Color);

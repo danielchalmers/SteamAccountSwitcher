@@ -30,6 +30,7 @@
             <ComboBoxItem Content="Blue" />
             <ComboBoxItem Content="Green" />
             <ComboBoxItem Content="Orange" />
+            <ComboBoxItem Content="Yellow" />
             <ComboBoxItem Content="Pink" />
             <ComboBoxItem Content="Grey" />
             <ComboBoxItem Content="Custom..." />
