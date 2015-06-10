@@ -10,7 +10,8 @@ namespace SteamAccountSwitcher
 {
     internal class MenuHelper
     {
-        private AccountHandler _accountHandler;
+        private readonly AccountHandler _accountHandler;
+
         public MenuHelper(AccountHandler accountHandler)
         {
             _accountHandler = accountHandler;
@@ -41,7 +42,7 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        private IEnumerable<object> MainMenuItems( )
+        private IEnumerable<object> MainMenuItems()
         {
             var menuList = new List<object>();
 
@@ -60,7 +61,34 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        public ContextMenu AccountMenu( )
+        private IEnumerable<object> NotifyItems()
+        {
+            var menuList = new List<object>();
+
+            var itemAddAccount = new MenuItem {Header = "Add Account..."};
+            itemAddAccount.Click += delegate { _accountHandler.New(); };
+
+            if (_accountHandler?.Accounts != null)
+                for (var i = 0; i < _accountHandler.Accounts.Count; i++)
+                {
+                    var item = new MenuItem
+                    {
+                        Header =
+                            string.IsNullOrWhiteSpace(_accountHandler.Accounts[i].DisplayName)
+                                ? _accountHandler.Accounts[i].Username
+                                : _accountHandler.Accounts[i].DisplayName
+                    };
+                    var i1 = i;
+                    item.Click += delegate { _accountHandler.SwitchAccount(i1); };
+                    menuList.Add(item);
+                }
+
+            menuList.Add(new Separator());
+            menuList.Add(itemAddAccount);
+            return menuList;
+        }
+
+        public ContextMenu AccountMenu()
         {
             var menu = new ContextMenu();
             menu.Opened += _accountHandler.SetFocus;
@@ -69,9 +97,20 @@ namespace SteamAccountSwitcher
             return menu;
         }
 
-        public ContextMenu MainMenu( )
+        public ContextMenu MainMenu()
         {
             var menu = new ContextMenu();
+            foreach (var item in MainMenuItems())
+                menu.Items.Add(item);
+            return menu;
+        }
+
+        public ContextMenu NotifyMenu()
+        {
+            var menu = new ContextMenu();
+            foreach (var item in NotifyItems())
+                menu.Items.Add(item);
+            menu.Items.Add(new Separator());
             foreach (var item in MainMenuItems())
                 menu.Items.Add(item);
             return menu;

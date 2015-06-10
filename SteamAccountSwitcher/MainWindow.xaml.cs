@@ -39,12 +39,12 @@ namespace SteamAccountSwitcher
                     });
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, Hide, AutoResize);
+            _accountHandler = new AccountHandler(stackPanel, Hide, UpdateUI);
 
             if (stackPanel.Children.Count > 0)
                 stackPanel.Children[0].Focus();
 
-            AutoResize();
+            UpdateUI();
 
             // Assign context menu.
             Menu = new MenuHelper(_accountHandler).MainMenu();
@@ -59,6 +59,16 @@ namespace SteamAccountSwitcher
             }
         }
 
+        private void UpdateUI()
+        {
+            // Replace tool menu with notify icon or vise versa.
+            notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
+            notifyIcon.Visibility = Settings.Default.NotifyIcon ? Visibility.Visible : Visibility.Hidden;
+            toolMenu.Visibility = Settings.Default.NotifyIcon ? Visibility.Hidden : Visibility.Visible;
+
+            AutoResize();
+        }
+
         private void AutoResize()
         {
             if (_accountHandler?.Accounts == null)
@@ -71,7 +81,7 @@ namespace SteamAccountSwitcher
             var captionHeight = SystemParameters.CaptionHeight;
 
             Width = snugContentWidth + 2*verticalBorderWidth;
-            Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) + toolMenu.Height;
+            Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) + (Settings.Default.NotifyIcon ? 0 : toolMenu.Height);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

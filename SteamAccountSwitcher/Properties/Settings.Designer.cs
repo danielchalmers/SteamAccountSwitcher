@@ -106,5 +106,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["TextColor"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NotifyIcon {
+            get {
+                return ((bool)(this["NotifyIcon"]));
+            }
+            set {
+                this["NotifyIcon"] = value;
+            }
+        }
     }
 }

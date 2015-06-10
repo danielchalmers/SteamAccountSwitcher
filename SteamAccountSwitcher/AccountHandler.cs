@@ -76,14 +76,20 @@ namespace SteamAccountSwitcher
             SetFocus(((ContextMenu) sender).PlacementTarget);
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        public void SwitchAccount(int index)
         {
-            SetFocus(sender);
+            SelectedIndex = index;
             var worker = new BackgroundWorker();
             worker.DoWork += worker_DoWork;
             worker.RunWorkerCompleted += worker_Completed;
             worker.RunWorkerAsync();
             _closeWindow();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SetFocus(sender);
+            SwitchAccount(SelectedIndex);
         }
 
         private void worker_Completed(object sender, RunWorkerCompletedEventArgs e)
