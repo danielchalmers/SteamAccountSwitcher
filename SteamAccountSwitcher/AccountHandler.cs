@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -54,7 +55,8 @@ namespace SteamAccountSwitcher
                 Margin = Settings.Default.ButtonMargin,
                 Padding = Settings.Default.ButtonPadding,
                 ContextMenu = new MenuHelper().AccountMenu(this),
-                Background = account.Color
+                Background = account.Color ?? new SolidColorBrush(Settings.Default.EmptyColor),
+                Foreground = new SolidColorBrush(Settings.Default.TextColor)
             }))
             {
                 btn.Click += Button_Click;

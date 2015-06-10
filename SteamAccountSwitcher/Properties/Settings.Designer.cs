@@ -130,5 +130,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["ButtonTextAlignment"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFFFF")]
+        public global::System.Windows.Media.Color EmptyColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["EmptyColor"]));
+            }
+            set {
+                this["EmptyColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF000000")]
+        public global::System.Windows.Media.Color TextColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["TextColor"]));
+            }
+            set {
+                this["TextColor"] = value;
+            }
+        }
     }
 }
