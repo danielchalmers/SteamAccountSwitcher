@@ -12,9 +12,10 @@
         <tb:TaskbarIcon x:Name="notifyIcon" ToolTipText="Steam Account Switcher" IconSource="steam.ico"
                         Visibility="Hidden" TrayMouseDoubleClick="notifyIcon_TrayMouseDoubleClick" />
 
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+              Background="{x:Static SystemColors.ControlBrush}">
             <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom"
-                  DockPanel.Dock="Bottom" Background="{x:Static SystemColors.ControlBrush}">
+                  DockPanel.Dock="Bottom">
                 <Button x:Name="btnAddAccount" Width="24" Height="24" HorizontalAlignment="Left"
                         Click="btnAddAccount_Click">
                     <Image Source="Resources/plus.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None" />
