@@ -85,7 +85,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FFFFFFFF")]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFE0E0E0")]
         public global::System.Windows.Media.Color EmptyColor {
             get {
                 return ((global::System.Windows.Media.Color)(this["EmptyColor"]));

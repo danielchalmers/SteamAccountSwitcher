@@ -18,7 +18,7 @@
       <Value Profile="(Default)">Center</Value>
     </Setting>
     <Setting Name="EmptyColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)">#FFFFFFFF</Value>
+      <Value Profile="(Default)">#FFE0E0E0</Value>
     </Setting>
     <Setting Name="TextColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FF000000</Value>
