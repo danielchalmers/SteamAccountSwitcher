@@ -25,8 +25,8 @@ namespace SteamAccountSwitcher
         public static bool LogOutAuto()
         {
             var timeout = 0;
-            const int maxtimeout = 5000;
-            const int waitstep = 500;
+            const int maxtimeout = 10000;
+            const int waitstep = 100;
             if (IsSteamOpen())
             {
                 LogOut();
