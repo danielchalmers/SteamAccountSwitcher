@@ -114,5 +114,12 @@ namespace SteamAccountSwitcher
         {
             _accountHandler.New();
         }
+
+        private void notifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            Show();
+            if(WindowState == WindowState.Minimized)
+                WindowState = WindowState.Normal;
+        }
     }
 }
