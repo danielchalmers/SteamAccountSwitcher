@@ -68,7 +68,8 @@ namespace SteamAccountSwitcher
             var itemAddAccount = new MenuItem {Header = "Add Account..."};
             itemAddAccount.Click += delegate { _accountHandler.New(); };
 
-            if (_accountHandler?.Accounts != null)
+            if (_accountHandler?.Accounts != null && _accountHandler.Accounts.Count > 0)
+            {
                 for (var i = 0; i < _accountHandler.Accounts.Count; i++)
                 {
                     var item = new MenuItem
@@ -82,8 +83,9 @@ namespace SteamAccountSwitcher
                     item.Click += delegate { _accountHandler.SwitchAccount(i1); };
                     menuList.Add(item);
                 }
+                menuList.Add(new Separator());
+            }
 
-            menuList.Add(new Separator());
             menuList.Add(itemAddAccount);
             return menuList;
         }
