@@ -27,6 +27,7 @@
                   Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" />
         <ComboBox x:Name="cbColor" HorizontalAlignment="Left" Height="23" Margin="101,103,0,0"
                   VerticalAlignment="Top" Width="181" DropDownClosed="cbColor_SelectionChanged">
+            <ComboBoxItem Content="None" />
             <ComboBoxItem Content="Blue" />
             <ComboBoxItem Content="Green" />
             <ComboBoxItem Content="Orange" />

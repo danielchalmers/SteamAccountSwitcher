@@ -105,6 +105,9 @@ namespace SteamAccountSwitcher
                     dia.ShowDialog();
                     _color = dia.Color;
                     break;
+                default:
+                    _color = null;
+                    break;
             }
         }
     }
