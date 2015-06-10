@@ -142,5 +142,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["AlwaysOn"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AlwaysShowToolMenu {
+            get {
+                return ((bool)(this["AlwaysShowToolMenu"]));
+            }
+            set {
+                this["AlwaysShowToolMenu"] = value;
+            }
+        }
     }
 }

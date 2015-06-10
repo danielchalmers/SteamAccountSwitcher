@@ -80,7 +80,7 @@ namespace SteamAccountSwitcher
             // Replace tool menu with notify icon or vise versa.
             notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
             notifyIcon.Visibility = Settings.Default.NotifyIcon ? Visibility.Visible : Visibility.Hidden;
-            toolMenu.Visibility = Settings.Default.NotifyIcon ? Visibility.Hidden : Visibility.Visible;
+            toolMenu.Visibility =  (Settings.Default.NotifyIcon && !Settings.Default.AlwaysShowToolMenu) ? Visibility.Hidden : Visibility.Visible;
 
             AutoResize();
 
@@ -96,7 +96,7 @@ namespace SteamAccountSwitcher
             var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
             var captionHeight = SystemParameters.CaptionHeight;
             return ((snugContentHeight + captionHeight + 2 * horizontalBorderHeight) + 8) +
-                   (Settings.Default.NotifyIcon ? 0 : toolMenu.Height);
+                   ((Settings.Default.NotifyIcon && !Settings.Default.AlwaysShowToolMenu) ? 0 : toolMenu.Height);
         }
 
         private double CalcWidth()
