@@ -80,7 +80,9 @@ namespace SteamAccountSwitcher
             // Replace tool menu with notify icon or vise versa.
             notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
             notifyIcon.Visibility = Settings.Default.NotifyIcon ? Visibility.Visible : Visibility.Hidden;
-            toolMenu.Visibility =  (Settings.Default.NotifyIcon && !Settings.Default.AlwaysShowToolMenu) ? Visibility.Hidden : Visibility.Visible;
+            toolMenu.Visibility = (Settings.Default.NotifyIcon && !Settings.Default.AlwaysShowToolMenu)
+                ? Visibility.Hidden
+                : Visibility.Visible;
 
             AutoResize();
 
@@ -92,10 +94,10 @@ namespace SteamAccountSwitcher
 
         private double CalcHeight(int count)
         {
-            var snugContentHeight = (count * Settings.Default.ButtonHeight) + (count * 1);
+            var snugContentHeight = (count*Settings.Default.ButtonHeight) + (count*1);
             var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
             var captionHeight = SystemParameters.CaptionHeight;
-            return ((snugContentHeight + captionHeight + 2 * horizontalBorderHeight) + 8) +
+            return ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) +
                    ((Settings.Default.NotifyIcon && !Settings.Default.AlwaysShowToolMenu) ? 0 : toolMenu.Height);
         }
 
@@ -103,7 +105,7 @@ namespace SteamAccountSwitcher
         {
             const int snugContentWidth = 400;
             var verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
-            return snugContentWidth + 2 * verticalBorderWidth;
+            return snugContentWidth + 2*verticalBorderWidth;
         }
 
         private void AutoResize()
@@ -111,7 +113,9 @@ namespace SteamAccountSwitcher
             if (_accountHandler?.Accounts == null)
                 return;
             Width = CalcWidth();
-            Height = CalcHeight(_accountHandler.Accounts.Count) < CalcHeight(3) ? CalcHeight(3) : CalcHeight(_accountHandler.Accounts.Count);
+            Height = CalcHeight(_accountHandler.Accounts.Count) < CalcHeight(3)
+                ? CalcHeight(3)
+                : CalcHeight(_accountHandler.Accounts.Count);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

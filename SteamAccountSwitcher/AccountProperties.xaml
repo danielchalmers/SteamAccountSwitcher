@@ -24,12 +24,13 @@
                      VerticalAlignment="Top" Width="181" GotFocus="txtPassword_GotFocus" />
         <CheckBox x:Name="chkShowPassword" Visibility="Visible" HorizontalAlignment="Left" Height="16"
                   VerticalAlignment="Top" Width="16" Margin="262,76,0,0"
-                  Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" KeyboardNavigation.IsTabStop="False" />
+                  Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
+                  KeyboardNavigation.IsTabStop="False" />
         <ComboBox x:Name="cbColor" HorizontalAlignment="Left" Height="23" Margin="101,103,0,0"
                   VerticalAlignment="Top" Width="181">
             <ComboBox.ItemContainerStyle>
                 <Style>
-                    <EventSetter Event="ComboBoxItem.PreviewMouseUp" Handler="cbItem_PreviewMouseUp"/>
+                    <EventSetter Event="ComboBoxItem.PreviewMouseUp" Handler="cbItem_PreviewMouseUp" />
                 </Style>
             </ComboBox.ItemContainerStyle>
             <ComboBoxItem Content="Default" />
