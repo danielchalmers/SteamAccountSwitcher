@@ -64,7 +64,15 @@ namespace SteamAccountSwitcher
         private void HideUI()
         {
             Hide();
-            notifyIcon.Visibility = Visibility.Hidden;
+            if (!Settings.Default.AlwaysOn)
+                notifyIcon.Visibility = Visibility.Hidden;
+        }
+
+        private void ShowUI()
+        {
+            Show();
+            if (WindowState == WindowState.Minimized)
+                WindowState = WindowState.Normal;
         }
 
         private void UpdateUI()
@@ -75,6 +83,11 @@ namespace SteamAccountSwitcher
             toolMenu.Visibility = Settings.Default.NotifyIcon ? Visibility.Hidden : Visibility.Visible;
 
             AutoResize();
+
+            if (Settings.Default.AlwaysOn)
+                HideUI();
+            else
+                ShowUI();
         }
 
         private void AutoResize()
@@ -95,14 +108,13 @@ namespace SteamAccountSwitcher
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            SaveSettings();
-        }
+            SettingsHelper.SaveSettings(_accountHandler);
 
-        public void SaveSettings()
-        {
-            // Save settings.
-            Settings.Default.Accounts = SettingsHelper.SerializeAccounts(_accountHandler.Accounts);
-            Settings.Default.Save();
+            if (Settings.Default.AlwaysOn)
+            {
+                e.Cancel = true;
+                HideUI();
+            }
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
@@ -117,9 +129,7 @@ namespace SteamAccountSwitcher
 
         private void notifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            Show();
-            if(WindowState == WindowState.Minimized)
-                WindowState = WindowState.Normal;
+            ShowUI();
         }
     }
 }

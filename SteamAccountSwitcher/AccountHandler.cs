@@ -94,7 +94,8 @@ namespace SteamAccountSwitcher
 
         private void worker_Completed(object sender, RunWorkerCompletedEventArgs e)
         {
-            Application.Current.Shutdown();
+            if (!Settings.Default.AlwaysOn)
+                Application.Current.Shutdown();
         }
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)

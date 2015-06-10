@@ -89,15 +89,21 @@ namespace SteamAccountSwitcher
 
         public static void RunOnStartup(bool run)
         {
-            // The path to the key where Windows looks for startup applications
-            var rkApp = Registry.CurrentUser.OpenSubKey(
-                @"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", run);
-
-            //Path to launch shortcut
-            var startPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs)
-                            + @"\Daniel Chalmers\SteamAccountSwitcher.appref-ms";
-
-            rkApp?.SetValue("SteamAccountSwitcher", startPath);
+            try
+            {
+                var startPath = Environment.GetFolderPath(Environment.SpecialFolder.Programs) +
+                                @"\Daniel Chalmers\Steam Account Switcher.appref-ms";
+                var registryKey = Registry.CurrentUser.OpenSubKey
+                    ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+                if (run)
+                    registryKey?.SetValue("SteamAccountSwitcher", "\"" + startPath + "\"");
+                else
+                    registryKey?.DeleteValue("SteamAccountSwitcher");
+            }
+            catch
+            {
+                // ignored
+            }
         }
     }
 }

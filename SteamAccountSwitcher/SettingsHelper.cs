@@ -49,6 +49,15 @@ namespace SteamAccountSwitcher
             refresh();
         }
 
+        public static void SaveSettings(AccountHandler accountHandler)
+        {
+            // Save settings.
+            Settings.Default.Accounts = SerializeAccounts(accountHandler.Accounts);
+            Settings.Default.Save();
+
+            ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
+        }
+
         public static void UpgradeSettings()
         {
             // Upgrade settings from old version.

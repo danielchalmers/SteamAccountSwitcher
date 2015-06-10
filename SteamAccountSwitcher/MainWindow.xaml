@@ -10,7 +10,7 @@
         WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="steam.ico" MinHeight="87" MinWidth="300">
     <Grid>
         <tb:TaskbarIcon x:Name="notifyIcon" ToolTipText="Steam Account Switcher" IconSource="steam.ico"
-                        Visibility="Hidden" TrayMouseDoubleClick="notifyIcon_TrayMouseDoubleClick"/>
+                        Visibility="Hidden" TrayMouseDoubleClick="notifyIcon_TrayMouseDoubleClick" />
 
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom"

@@ -130,5 +130,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["Launches"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AlwaysOn {
+            get {
+                return ((bool)(this["AlwaysOn"]));
+            }
+            set {
+                this["AlwaysOn"] = value;
+            }
+        }
     }
 }
