@@ -9,7 +9,7 @@
     <Grid>
         <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" LastChildFill="True">
             <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom"
-                  DockPanel.Dock="Bottom">
+                  DockPanel.Dock="Bottom" Background="{x:Static SystemColors.ControlBrush}">
                 <Button x:Name="btnAddAccount" Width="24" Height="24" HorizontalAlignment="Left"
                         Click="btnAddAccount_Click">
                     <Image Source="Resources/plus.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None" />
