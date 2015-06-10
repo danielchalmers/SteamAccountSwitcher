@@ -90,20 +90,28 @@ namespace SteamAccountSwitcher
                 ShowUI();
         }
 
+        private double CalcHeight(int count)
+        {
+            var snugContentHeight = (count * Settings.Default.ButtonHeight) + (count * 1);
+            var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
+            var captionHeight = SystemParameters.CaptionHeight;
+            return ((snugContentHeight + captionHeight + 2 * horizontalBorderHeight) + 8) +
+                   (Settings.Default.NotifyIcon ? 0 : toolMenu.Height);
+        }
+
+        private double CalcWidth()
+        {
+            const int snugContentWidth = 400;
+            var verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
+            return snugContentWidth + 2 * verticalBorderWidth;
+        }
+
         private void AutoResize()
         {
             if (_accountHandler?.Accounts == null)
                 return;
-            const int snugContentWidth = 400;
-            var count = _accountHandler.Accounts.Count == 0 ? 5 : _accountHandler.Accounts.Count;
-            var snugContentHeight = (count*Settings.Default.ButtonHeight) + (count*1);
-            var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
-            var verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
-            var captionHeight = SystemParameters.CaptionHeight;
-
-            Width = snugContentWidth + 2*verticalBorderWidth;
-            Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) +
-                     (Settings.Default.NotifyIcon ? 0 : toolMenu.Height);
+            Width = CalcWidth();
+            Height = CalcHeight(_accountHandler.Accounts.Count) < CalcHeight(3) ? CalcHeight(3) : CalcHeight(_accountHandler.Accounts.Count);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
