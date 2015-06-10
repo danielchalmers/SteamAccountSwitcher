@@ -19,12 +19,12 @@
         <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="10,72,0,0"
                VerticalAlignment="Top" />
         <TextBox x:Name="txtPasswordText" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0"
-                 VerticalAlignment="Top" Width="181" />
+                 VerticalAlignment="Top" Width="181" GotFocus="txtPasswordText_GotFocus" />
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0"
-                     VerticalAlignment="Top" Width="181" />
+                     VerticalAlignment="Top" Width="181" GotFocus="txtPassword_GotFocus" />
         <CheckBox x:Name="chkShowPassword" Visibility="Visible" HorizontalAlignment="Left" Height="16"
-                  VerticalAlignment="Top" Width="16" RenderTransformOrigin="4.708,4.562" Margin="262,76,0,0"
-                  Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" />
+                  VerticalAlignment="Top" Width="16" Margin="262,76,0,0"
+                  Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked" KeyboardNavigation.IsTabStop="False" />
         <ComboBox x:Name="cbColor" HorizontalAlignment="Left" Height="23" Margin="101,103,0,0"
                   VerticalAlignment="Top" Width="181" DropDownClosed="cbColor_SelectionChanged">
             <ComboBoxItem Content="None" />

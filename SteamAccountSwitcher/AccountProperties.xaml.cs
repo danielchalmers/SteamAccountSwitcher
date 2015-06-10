@@ -105,5 +105,17 @@ namespace SteamAccountSwitcher
                     break;
             }
         }
+
+        private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (chkShowPassword.IsChecked == true)
+                txtPasswordText.Focus();
+        }
+
+        private void txtPasswordText_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (chkShowPassword.IsChecked == false)
+                txtPassword.Focus();
+        }
     }
 }
