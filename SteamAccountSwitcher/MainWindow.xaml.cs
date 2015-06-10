@@ -40,17 +40,6 @@ namespace SteamAccountSwitcher
                         }
                     });
 
-            // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, HideUI, UpdateUI);
-
-            if (stackPanel.Children.Count > 0)
-                stackPanel.Children[0].Focus();
-
-            UpdateUI();
-
-            // Assign context menu.
-            Menu = new MenuHelper(_accountHandler).MainMenu();
-
             // Resolve Steam path.
             if (Settings.Default.SteamPath == string.Empty)
                 Settings.Default.SteamPath = SteamClient.ResolvePath();
@@ -59,6 +48,17 @@ namespace SteamAccountSwitcher
                 Popup.Show("Steam path could not be located. Application will now exit.");
                 Application.Current.Shutdown();
             }
+
+            // Setup account handler.
+            _accountHandler = new AccountHandler(stackPanel, HideUI, UpdateUI);
+
+            // Assign context menu.
+            Menu = new MenuHelper(_accountHandler).MainMenu();
+
+            UpdateUI();
+
+            if (stackPanel.Children.Count > 0)
+                stackPanel.Children[0].Focus();
         }
 
         private void HideUI()
