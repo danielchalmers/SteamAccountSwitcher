@@ -1,8 +1,9 @@
 ﻿#region
 
-using System;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 #endregion
@@ -14,7 +15,6 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class AccountProperties : Window
     {
-        private readonly Account _oldAccount;
         private Brush _color;
         public Account NewAccount;
 
@@ -26,11 +26,11 @@ namespace SteamAccountSwitcher
         public AccountProperties(Account account)
         {
             InitializeComponent();
-            _oldAccount = account;
             txtDisplayName.Text = account.DisplayName;
             txtUsername.Text = account.Username;
             txtPassword.Password = account.Password;
             cbColor.Text = account.ColorText;
+            _color = account.Color;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -40,7 +40,7 @@ namespace SteamAccountSwitcher
                 DisplayName = txtDisplayName.Text,
                 Username = txtUsername.Text,
                 Password = string.IsNullOrWhiteSpace(txtPassword.Password) ? txtPasswordText.Text : txtPassword.Password,
-                Color = _color,
+                Color = GetSelectedColor(cbColor.Text),
                 ColorText = cbColor.Text
             };
         }
@@ -73,33 +73,35 @@ namespace SteamAccountSwitcher
             return (Brush) new BrushConverter().ConvertFromString(colorhex);
         }
 
-        private void cbColor_SelectionChanged(object sender, EventArgs e)
+        private Brush GetSelectedColor(string text)
         {
-            switch (cbColor.Text)
+            switch (text)
             {
                 case "Blue":
-                    _color = ConvertColor(Properties.Resources.ColorBlue);
-                    break;
+                    return ConvertColor(Properties.Resources.ColorBlue);
                 case "Green":
-                    _color = ConvertColor(Properties.Resources.ColorGreen);
-                    break;
+                    return ConvertColor(Properties.Resources.ColorGreen);
                 case "Orange":
-                    _color = ConvertColor(Properties.Resources.ColorOrange);
-                    break;
+                    return ConvertColor(Properties.Resources.ColorOrange);
                 case "Yellow":
-                    _color = ConvertColor(Properties.Resources.ColorYellow);
-                    break;
+                    return ConvertColor(Properties.Resources.ColorYellow);
                 case "Pink":
-                    _color = ConvertColor(Properties.Resources.ColorPink);
-                    break;
+                    return ConvertColor(Properties.Resources.ColorPink);
                 case "Custom...":
-                    var dia = new HexColorChooser(_oldAccount?.Color);
-                    dia.ShowDialog();
-                    _color = dia.Color;
-                    break;
+                    return _color;
                 default:
-                    _color = null;
-                    break;
+                    return null;
+            }
+        }
+
+        private void cbItem_PreviewMouseUp(object sender, MouseButtonEventArgs e)
+        {
+            if ((((sender as ComboBoxItem).Content) as string) == "Custom...")
+            {
+                cbColor.Text = "Custom...";
+                var dia = new HexColorChooser(_color);
+                dia.ShowDialog();
+                _color = dia.Color;
             }
         }
 
