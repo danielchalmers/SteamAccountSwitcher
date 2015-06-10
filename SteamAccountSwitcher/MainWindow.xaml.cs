@@ -89,7 +89,8 @@ namespace SteamAccountSwitcher
             var captionHeight = SystemParameters.CaptionHeight;
 
             Width = snugContentWidth + 2*verticalBorderWidth;
-            Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) + (Settings.Default.NotifyIcon ? 0 : toolMenu.Height);
+            Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) +
+                     (Settings.Default.NotifyIcon ? 0 : toolMenu.Height);
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)

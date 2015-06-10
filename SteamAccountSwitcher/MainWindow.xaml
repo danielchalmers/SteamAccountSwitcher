@@ -9,7 +9,8 @@
         mc:Ignorable="d" Height="300" Width="0" ResizeMode="CanMinimize" Title="Steam Account Switcher"
         WindowStartupLocation="CenterScreen" Closing="Window_Closing" Icon="steam.ico" MinHeight="87" MinWidth="300">
     <Grid>
-        <tb:TaskbarIcon x:Name="notifyIcon" ToolTipText="Steam Account Switcher" IconSource="steam.ico" Visibility="Hidden"/>
+        <tb:TaskbarIcon x:Name="notifyIcon" ToolTipText="Steam Account Switcher" IconSource="steam.ico"
+                        Visibility="Hidden" />
 
         <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom"

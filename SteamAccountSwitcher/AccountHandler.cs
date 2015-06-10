@@ -53,7 +53,7 @@ namespace SteamAccountSwitcher
                 Height = Settings.Default.ButtonHeight,
                 HorizontalContentAlignment = Settings.Default.ButtonTextAlignment,
                 Margin = new Thickness(0, 0, 0, 1),
-                Padding = new Thickness(4,0,4,0),
+                Padding = new Thickness(4, 0, 4, 0),
                 ContextMenu = new MenuHelper(this).AccountMenu(),
                 Background = account.Color ?? new SolidColorBrush(Settings.Default.EmptyColor),
                 Foreground = new SolidColorBrush(Settings.Default.TextColor)
@@ -116,7 +116,9 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties();
             dialog.ShowDialog();
-            if (string.IsNullOrWhiteSpace(dialog.NewAccount.Username) && string.IsNullOrWhiteSpace(dialog.NewAccount.Password) && string.IsNullOrWhiteSpace(dialog.NewAccount.DisplayName))
+            if (string.IsNullOrWhiteSpace(dialog.NewAccount.Username) &&
+                string.IsNullOrWhiteSpace(dialog.NewAccount.Password) &&
+                string.IsNullOrWhiteSpace(dialog.NewAccount.DisplayName))
                 return;
             Add(dialog.NewAccount);
         }
