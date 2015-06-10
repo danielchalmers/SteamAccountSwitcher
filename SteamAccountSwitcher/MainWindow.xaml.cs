@@ -39,15 +39,15 @@ namespace SteamAccountSwitcher
                     });
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, Hide, UpdateUI);
+            _accountHandler = new AccountHandler(stackPanel, Hide, AutoResize);
 
             if (stackPanel.Children.Count > 0)
                 stackPanel.Children[0].Focus();
 
-            UpdateUI();
+            AutoResize();
 
             // Assign context menu.
-            Menu = new MenuHelper().MainMenu(_accountHandler, this);
+            Menu = new MenuHelper(_accountHandler).MainMenu();
 
             // Resolve Steam path.
             if (Settings.Default.SteamPath == string.Empty)
@@ -65,27 +65,13 @@ namespace SteamAccountSwitcher
                 return;
             const int snugContentWidth = 400;
             var count = _accountHandler.Accounts.Count == 0 ? 5 : _accountHandler.Accounts.Count;
-            var snugContentHeight = (count*Settings.Default.ButtonHeight) +
-                                    ((count - 1)*Settings.Default.ButtonMargin.Top) +
-                                    (count*Settings.Default.ButtonMargin.Bottom);
+            var snugContentHeight = (count*Settings.Default.ButtonHeight) + (count*1);
             var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
             var verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
             var captionHeight = SystemParameters.CaptionHeight;
 
             Width = snugContentWidth + 2*verticalBorderWidth;
             Height = ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) + toolMenu.Height;
-        }
-
-        public void UpdateUI()
-        {
-            // Restore window size.
-            if (Settings.Default.Height <= MinHeight)
-                Settings.Default.Height = 285;
-            if (Settings.Default.Width <= MinWidth)
-                Settings.Default.Width = 350;
-            Height = Settings.Default.Height;
-            Width = Settings.Default.Width;
-            AutoResize();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -96,8 +82,6 @@ namespace SteamAccountSwitcher
         public void SaveSettings()
         {
             // Save settings.
-            Settings.Default.Height = Height;
-            Settings.Default.Width = Width;
             Settings.Default.Accounts = SettingsHelper.SerializeAccounts(_accountHandler.Accounts);
             Settings.Default.Save();
         }

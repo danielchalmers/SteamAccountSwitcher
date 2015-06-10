@@ -11,20 +11,8 @@
     <Setting Name="MustUpgrade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Height" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="Width" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">48</Value>
-    </Setting>
-    <Setting Name="ButtonMargin" Type="System.Windows.Thickness" Scope="User">
-      <Value Profile="(Default)">0,0,0,1</Value>
-    </Setting>
-    <Setting Name="ButtonPadding" Type="System.Windows.Thickness" Scope="User">
-      <Value Profile="(Default)">0,0,0,0</Value>
     </Setting>
     <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
       <Value Profile="(Default)">Center</Value>

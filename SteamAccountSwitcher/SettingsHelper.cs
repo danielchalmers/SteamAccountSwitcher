@@ -41,16 +41,12 @@ namespace SteamAccountSwitcher
             return null;
         }
 
-        public static void OpenOptions(AccountHandler accountHandler, MainWindow window)
+        public static void OpenOptions(Action refresh)
         {
-            Settings.Default.Height = window.Height;
-            Settings.Default.Width = window.Width;
-
             // Open options window.
             var dialog = new Options();
             dialog.ShowDialog();
-            accountHandler.Refresh();
-            window.UpdateUI();
+            refresh();
         }
 
         public static void UpgradeSettings()
