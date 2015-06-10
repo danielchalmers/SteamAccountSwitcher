@@ -17,10 +17,10 @@
     <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
-    <Setting Name="EmptyColor" Type="System.Windows.Media.Color" Scope="User">
+    <Setting Name="ButtonDefaultColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFE0E0E0</Value>
     </Setting>
-    <Setting Name="TextColor" Type="System.Windows.Media.Color" Scope="User">
+    <Setting Name="ButtonTextColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FF000000</Value>
     </Setting>
     <Setting Name="NotifyIcon" Type="System.Boolean" Scope="User">

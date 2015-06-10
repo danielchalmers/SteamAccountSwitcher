@@ -55,8 +55,8 @@ namespace SteamAccountSwitcher
                 Margin = new Thickness(0, 0, 0, 1),
                 Padding = new Thickness(4, 0, 4, 0),
                 ContextMenu = new MenuHelper(this).AccountMenu(),
-                Background = account.Color ?? new SolidColorBrush(Settings.Default.EmptyColor),
-                Foreground = new SolidColorBrush(Settings.Default.TextColor)
+                Background = account.Color ?? new SolidColorBrush(Settings.Default.ButtonDefaultColor),
+                Foreground = new SolidColorBrush(Settings.Default.ButtonTextColor)
             }))
             {
                 btn.Click += Button_Click;

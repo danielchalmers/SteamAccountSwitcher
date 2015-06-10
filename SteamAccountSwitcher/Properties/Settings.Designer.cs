@@ -86,24 +86,24 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFE0E0E0")]
-        public global::System.Windows.Media.Color EmptyColor {
+        public global::System.Windows.Media.Color ButtonDefaultColor {
             get {
-                return ((global::System.Windows.Media.Color)(this["EmptyColor"]));
+                return ((global::System.Windows.Media.Color)(this["ButtonDefaultColor"]));
             }
             set {
-                this["EmptyColor"] = value;
+                this["ButtonDefaultColor"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF000000")]
-        public global::System.Windows.Media.Color TextColor {
+        public global::System.Windows.Media.Color ButtonTextColor {
             get {
-                return ((global::System.Windows.Media.Color)(this["TextColor"]));
+                return ((global::System.Windows.Media.Color)(this["ButtonTextColor"]));
             }
             set {
-                this["TextColor"] = value;
+                this["ButtonTextColor"] = value;
             }
         }
         
