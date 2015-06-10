@@ -43,11 +43,6 @@ namespace SteamAccountSwitcher
                 Color = _color,
                 ColorText = cbColor.Text
             };
-            if (string.IsNullOrWhiteSpace(NewAccount.Username))
-            {
-                Popup.Show("Please enter a username.");
-                e.Cancel = true;
-            }
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
