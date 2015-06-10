@@ -4,6 +4,7 @@ using System;
 using System.Deployment.Application;
 using System.Windows;
 using Microsoft.Win32;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -11,8 +12,7 @@ namespace SteamAccountSwitcher
 {
     internal class ClickOnceHelper
     {
-        public static bool IsFirstRun
-            => (ApplicationDeployment.IsNetworkDeployed && ApplicationDeployment.CurrentDeployment.IsFirstRun);
+        public static bool IsFirstLaunch => Settings.Default.Launches == 1;
 
         public static void CheckForUpdates()
         {

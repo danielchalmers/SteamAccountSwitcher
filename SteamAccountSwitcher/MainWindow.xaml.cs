@@ -24,9 +24,11 @@ namespace SteamAccountSwitcher
             // Upgrade settings.
             SettingsHelper.UpgradeSettings();
 
+            // Increment launch times.
+            Settings.Default.Launches++;
 
             // Add default shortcuts.
-            if (Settings.Default.Accounts == string.Empty && ClickOnceHelper.IsFirstRun)
+            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
                 Settings.Default.Accounts =
                     SettingsHelper.SerializeAccounts(new List<Account>
                     {
