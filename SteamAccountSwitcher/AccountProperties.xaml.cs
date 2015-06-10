@@ -92,9 +92,6 @@ namespace SteamAccountSwitcher
                 case "Pink":
                     _color = ConvertColor(Properties.Resources.ColorPink);
                     break;
-                case "Grey":
-                    _color = ConvertColor(Properties.Resources.ColorGrey);
-                    break;
                 case "Custom...":
                     var dia = new HexColorChooser(_oldAccount?.Color);
                     dia.ShowDialog();

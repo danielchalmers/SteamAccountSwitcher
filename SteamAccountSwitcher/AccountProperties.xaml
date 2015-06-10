@@ -33,7 +33,6 @@
             <ComboBoxItem Content="Orange" />
             <ComboBoxItem Content="Yellow" />
             <ComboBoxItem Content="Pink" />
-            <ComboBoxItem Content="Grey" />
             <ComboBoxItem Content="Custom..." />
         </ComboBox>
         <Label x:Name="lblColor" Content="Color:" HorizontalAlignment="Left" Margin="10,103,0,0"
