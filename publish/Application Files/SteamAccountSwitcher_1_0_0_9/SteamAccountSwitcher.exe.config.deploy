@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+  <configSections>
+    <sectionGroup name="userSettings"
+                  type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="SteamAccountSwitcher.Properties.Settings"
+               type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+               allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+  </startup>
+  <userSettings>
+    <SteamAccountSwitcher.Properties.Settings>
+      <setting name="SteamPath" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="Accounts" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="MustUpgrade" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="ButtonHeight" serializeAs="String">
+        <value>48</value>
+      </setting>
+      <setting name="ButtonTextAlignment" serializeAs="String">
+        <value>Center</value>
+      </setting>
+      <setting name="ButtonDefaultColor" serializeAs="String">
+        <value>#FFE0E0E0</value>
+      </setting>
+      <setting name="ButtonTextColor" serializeAs="String">
+        <value>#FF000000</value>
+      </setting>
+      <setting name="NotifyIcon" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="Launches" serializeAs="String">
+        <value>0</value>
+      </setting>
+      <setting name="AlwaysOn" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="AlwaysShowToolMenu" serializeAs="String">
+        <value>False</value>
+      </setting>
+    </SteamAccountSwitcher.Properties.Settings>
+  </userSettings>
+</configuration>
