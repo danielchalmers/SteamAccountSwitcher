@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -68,6 +69,9 @@ namespace SteamAccountSwitcher
             var itemAddAccount = new MenuItem {Header = "Add Account..."};
             itemAddAccount.Click += delegate { _accountHandler.New(); };
 
+            var itemManageAccounts = new MenuItem {Header = "Manage Accounts"};
+            itemManageAccounts.Click += delegate { _accountHandler._showWindow(); };
+
             if (_accountHandler?.Accounts != null && _accountHandler.Accounts.Count > 0)
             {
                 for (var i = 0; i < _accountHandler.Accounts.Count; i++)
@@ -87,6 +91,8 @@ namespace SteamAccountSwitcher
             }
 
             menuList.Add(itemAddAccount);
+            if (Settings.Default.AlwaysOn)
+                menuList.Add(itemManageAccounts);
             return menuList;
         }
 

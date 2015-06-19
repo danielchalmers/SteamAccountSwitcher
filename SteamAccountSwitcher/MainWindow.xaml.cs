@@ -50,7 +50,7 @@ namespace SteamAccountSwitcher
             }
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, HideUI, UpdateUI);
+            _accountHandler = new AccountHandler(stackPanel, HideUI, ShowUI, UpdateUI);
 
             // Assign context menu.
             Menu = new MenuHelper(_accountHandler).MainMenu();

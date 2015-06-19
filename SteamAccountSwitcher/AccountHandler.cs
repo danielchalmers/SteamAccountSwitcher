@@ -15,17 +15,19 @@ namespace SteamAccountSwitcher
 {
     public class AccountHandler
     {
-        private readonly Action _closeWindow;
+        public readonly Action _hideWindow;
+        public readonly Action _showWindow;
         private readonly StackPanel _stackPanel;
         private readonly Action _updateUI;
         public readonly List<Account> Accounts;
         private int SelectedIndex = -1;
 
-        public AccountHandler(StackPanel stackPanel, Action closeWindow, Action updateUI)
+        public AccountHandler(StackPanel stackPanel, Action hideWindow, Action showWindow, Action updateUI)
         {
             _stackPanel = stackPanel;
             Accounts = SettingsHelper.DeserializeAccounts() ?? new List<Account>();
-            _closeWindow = closeWindow;
+            _hideWindow = hideWindow;
+            _showWindow = showWindow;
             _updateUI = updateUI;
             Refresh();
         }
@@ -83,7 +85,7 @@ namespace SteamAccountSwitcher
             worker.DoWork += worker_DoWork;
             worker.RunWorkerCompleted += worker_Completed;
             worker.RunWorkerAsync();
-            _closeWindow();
+            _hideWindow();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
