@@ -7,13 +7,22 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
-        Title="Options" Height="450" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Options" Height="400" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
         <xctk:PropertyGrid
             AutoGenerateProperties="true"
-            SelectedObject="{Binding Source={x:Static properties:Settings.Default}}" IsCategorized="False" />
-        <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
+            SelectedObject="{Binding Source={x:Static properties:Settings.Default}}" IsCategorized="False"
+            ShowSortOptions="False" ShowSummary="False" ShowTitle="False" ShowSearchBox="True"
+            Background="{x:Static SystemColors.WindowBrush}" />
+        <Button x:Name="btnCancel" Content="Cancel" Margin="0,0,95,10" Width="75" Height="23"
+                Click="btnCancel_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True" Grid.Row="1" />
+        <Button x:Name="btnOK" Content="OK" Margin="0,10,15,10" Width="75" Height="23"
                 Click="btnOK_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" IsDefault="True" Grid.Row="1" />
     </Grid>
 </Window>
