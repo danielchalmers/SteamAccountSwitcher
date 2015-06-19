@@ -164,4 +164,13 @@
   <data name="ColorYellow" xml:space="preserve">
     <value>#ffffb3</value>
   </data>
+  <data name="AppName" xml:space="preserve">
+    <value>Steam Account Switcher</value>
+  </data>
+  <data name="AppPathName" xml:space="preserve">
+    <value>SteamAccountSwitcher</value>
+  </data>
+  <data name="GitHubApiCommits" xml:space="preserve">
+    <value>https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits</value>
+  </data>
 </root>

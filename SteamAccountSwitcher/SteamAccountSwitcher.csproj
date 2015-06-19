@@ -109,8 +109,11 @@
     <Compile Include="AccountProperties.xaml.cs">
       <DependentUpon>AccountProperties.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="GitHubApiCommits.cs" />
     <Compile Include="HexColorChooser.xaml.cs">
       <DependentUpon>HexColorChooser.xaml</DependentUpon>
     </Compile>
@@ -124,6 +127,10 @@
     <Compile Include="SteamClient.cs" />
     <Compile Include="SteamPath.xaml.cs">
       <DependentUpon>SteamPath.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateChecker.cs" />
+    <Compile Include="UpdatePrompt.xaml.cs">
+      <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
@@ -150,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SteamPath.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdatePrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

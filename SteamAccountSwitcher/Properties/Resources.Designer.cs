@@ -61,6 +61,24 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Steam Account Switcher.
+        /// </summary>
+        internal static string AppName {
+            get {
+                return ResourceManager.GetString("AppName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SteamAccountSwitcher.
+        /// </summary>
+        internal static string AppPathName {
+            get {
+                return ResourceManager.GetString("AppPathName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to #afeeee.
         /// </summary>
         internal static string ColorBlue {
@@ -111,6 +129,15 @@ namespace SteamAccountSwitcher.Properties {
         internal static string ColorYellow {
             get {
                 return ResourceManager.GetString("ColorYellow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits.
+        /// </summary>
+        internal static string GitHubApiCommits {
+            get {
+                return ResourceManager.GetString("GitHubApiCommits", resourceCulture);
             }
         }
         

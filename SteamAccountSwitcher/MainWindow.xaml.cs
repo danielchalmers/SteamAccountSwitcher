@@ -55,6 +55,9 @@ namespace SteamAccountSwitcher
             // Assign context menu.
             Menu = new MenuHelper(_accountHandler).MainMenu();
 
+            // Start update checker.
+            UpdateChecker.Start();
+
             UpdateUI();
 
             if (stackPanel.Children.Count > 0)
