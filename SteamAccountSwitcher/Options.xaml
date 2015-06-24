@@ -90,17 +90,18 @@
         <Grid Row="1" Margin="10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="75" />
                 <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="75" />
             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23" />
+            </Grid.RowDefinitions>
 
-            <Button Grid.Column="1" x:Name="btnCancel" Content="Cancel"
-                    Click="btnCancel_Click"
-                    HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True" Width="75" Height="23" />
-            <Button Grid.Column="3" x:Name="btnOK" Content="OK"
-                    Click="btnOK_Click"
-                    HorizontalAlignment="Right" VerticalAlignment="Bottom" IsDefault="True" Width="75" Height="23" />
+            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" IsDefault="True" />
+            <Button Grid.Column="3" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" />
         </Grid>
     </Grid>
 </Window>
