@@ -79,8 +79,14 @@
                      Text="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonHeight, Mode=TwoWay}" />
 
-            <Label Grid.Row="6" Grid.Column="1" Content="Default Button Color:" />
-            <xctk:ColorPicker Grid.Row="6" Grid.Column="2" SelectedColor="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Steam.exe Path:" />
+            <TextBox Grid.Row="5" Grid.Column="1"
+                     Text="{Binding Source={x:Static p:Settings.Default},
+                               Path=SteamPath, Mode=TwoWay}" />
+
+            <TextBlock Grid.Row="6" Grid.Column="0" Text="Default Button Color:" />
+            <xctk:ColorPicker Grid.Row="6" Grid.Column="1"
+                              SelectedColor="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonDefaultColor, Mode=TwoWay}" />
 
             <TextBlock Grid.Row="7" Grid.Column="0" Text="Button Text Color:" />
