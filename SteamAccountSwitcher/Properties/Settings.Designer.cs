@@ -109,18 +109,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool NotifyIcon {
-            get {
-                return ((bool)(this["NotifyIcon"]));
-            }
-            set {
-                this["NotifyIcon"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int Launches {
             get {
@@ -140,18 +128,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["AlwaysOn"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AlwaysShowToolMenu {
-            get {
-                return ((bool)(this["AlwaysShowToolMenu"]));
-            }
-            set {
-                this["AlwaysShowToolMenu"] = value;
             }
         }
         
