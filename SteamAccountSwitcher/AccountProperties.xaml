@@ -4,49 +4,63 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
-        Title="Account Properties" Height="208" Width="308" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="Account Properties" SizeToContent="Height" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
         Closing="Window_Closing">
     <Grid>
-        <Label x:Name="lblDisplayName" Content="Display Name:" HorizontalAlignment="Left" Margin="10,10,0,0"
-               VerticalAlignment="Top" />
-        <TextBox x:Name="txtDisplayName" HorizontalAlignment="Left" Height="23" Margin="101,10,0,0" TextWrapping="Wrap"
-                 VerticalAlignment="Top" Width="181" />
-        <Label x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" Margin="10,41,0,0"
-               VerticalAlignment="Top" />
-        <TextBox x:Name="txtUsername" HorizontalAlignment="Left" Height="23" Margin="101,41,0,0" TextWrapping="Wrap"
-                 VerticalAlignment="Top" Width="181" />
-        <Label x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" Margin="10,72,0,0"
-               VerticalAlignment="Top" />
-        <TextBox x:Name="txtPasswordText" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0"
-                 VerticalAlignment="Top" Width="181" GotFocus="txtPasswordText_GotFocus" />
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Height="23" Margin="101,72,0,0"
-                     VerticalAlignment="Top" Width="181" GotFocus="txtPassword_GotFocus" />
-        <CheckBox x:Name="chkShowPassword" Visibility="Visible" HorizontalAlignment="Left" Height="16"
-                  VerticalAlignment="Top" Width="16" Margin="262,76,0,0"
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="33" />
+            <RowDefinition Height="33" />
+            <RowDefinition Height="33" />
+            <RowDefinition Height="33" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+
+        <Grid.Resources>
+            <Style TargetType="Label">
+                <Setter Property="VerticalAlignment" Value="Center" />
+            </Style>
+        </Grid.Resources>
+
+        <Label Grid.Row="1" Grid.Column="1" x:Name="lblDisplayName" Content="Display Name:" HorizontalAlignment="Left" />
+        <TextBox Grid.Row="1" Grid.Column="3" x:Name="txtDisplayName" HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center" Height="23" />
+
+        <Label Grid.Row="2" Grid.Column="1" x:Name="lblUsername" Content="Username:" HorizontalAlignment="Left" />
+        <TextBox Grid.Row="2" Grid.Column="3" x:Name="txtUsername" HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center" Height="23" />
+
+        <Label Grid.Row="3" Grid.Column="1" x:Name="lblPassword" Content="Password:" HorizontalAlignment="Left" />
+        <TextBox Grid.Row="3" Grid.Column="3" x:Name="txtPasswordText" HorizontalAlignment="Stretch"
+                 VerticalAlignment="Center" Height="23"
+                 GotFocus="txtPasswordText_GotFocus" />
+        <PasswordBox Grid.Row="3" Grid.Column="3" x:Name="txtPassword" HorizontalAlignment="Stretch"
+                     VerticalAlignment="Center" Height="23"
+                     GotFocus="txtPassword_GotFocus" />
+        <CheckBox Grid.Row="3" Grid.Column="3" x:Name="chkShowPassword" Visibility="Visible"
+                  HorizontalAlignment="Right"
                   Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
-                  KeyboardNavigation.IsTabStop="False" />
-        <ComboBox x:Name="cbColor" HorizontalAlignment="Left" Height="23" Margin="101,103,0,0"
-                  VerticalAlignment="Top" Width="181">
-            <ComboBox.ItemContainerStyle>
-                <Style>
-                    <EventSetter Event="ComboBoxItem.PreviewMouseUp" Handler="cbItem_PreviewMouseUp" />
-                </Style>
-            </ComboBox.ItemContainerStyle>
-            <ComboBoxItem Content="Default" />
-            <ComboBoxItem Content="Blue" />
-            <ComboBoxItem Content="Green" />
-            <ComboBoxItem Content="Orange" />
-            <ComboBoxItem Content="Yellow" />
-            <ComboBoxItem Content="Pink" />
-            <ComboBoxItem Content="Custom..." />
-        </ComboBox>
-        <Label x:Name="lblColor" Content="Color:" HorizontalAlignment="Left" Margin="10,103,0,0"
-               VerticalAlignment="Top" />
-        <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
+                  KeyboardNavigation.IsTabStop="False" Margin="0,9,4,9" />
+
+        <Label Grid.Row="4" Grid.Column="1" x:Name="lblColor" Content="Color:" HorizontalAlignment="Left" />
         <xctk:ColorPicker Grid.Row="4" Grid.Column="3" x:Name="txtColor" HorizontalAlignment="Stretch"
                           VerticalAlignment="Center" Height="23" />
+
+        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" x:Name="btnOK" Content="OK" Width="75"
+                IsDefault="True"
                 Click="btnOK_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" />
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" />
+
     </Grid>
 </Window>
