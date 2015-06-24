@@ -5,24 +5,102 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
+        xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
-        Title="Options" Height="400" Width="450" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Options" SizeToContent="Height" Width="300" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <xctk:PropertyGrid
-            AutoGenerateProperties="true"
-            SelectedObject="{Binding Source={x:Static properties:Settings.Default}}" IsCategorized="False"
-            ShowSortOptions="False" ShowSummary="False" ShowTitle="False" ShowSearchBox="True"
-            Background="{x:Static SystemColors.WindowBrush}" />
-        <Button x:Name="btnCancel" Content="Cancel" Margin="0,0,95,10" Width="75" Height="23"
-                Click="btnCancel_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True" Grid.Row="1" />
-        <Button x:Name="btnOK" Content="OK" Margin="0,10,15,10" Width="75" Height="23"
-                Click="btnOK_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" IsDefault="True" Grid.Row="1" />
+        <Grid IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="10"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="10"/>
+            </Grid.RowDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="Margin" Value="0,0,5,0" />
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="Height" Value="23" />
+                </Style>
+                <Style TargetType="xctk:ColorPicker">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="Height" Value="Auto" />
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="VerticalAlignment" Value="Center" />
+                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalContentAlignment" Value="Stretch" />
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </Grid.Resources>
+
+            <Label Grid.Row="1" Grid.Column="1" Content="Always-On Mode:" />
+            <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=AlwaysOn, Mode=TwoWay}" />
+
+            <Label Grid.Row="2" Grid.Column="1" Content="Check For Updates:" />
+            <CheckBox Grid.Row="2" Grid.Column="2" IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=CheckForUpdates, Mode=TwoWay}" />
+
+            <Label Grid.Row="3" Grid.Column="1" Content="Silent Auto-Update:" />
+            <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=AutoUpdate, Mode=TwoWay}" />
+
+            <Label Grid.Row="4" Grid.Column="1" Content="Window Width:" />
+            <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Source={x:Static p:Settings.Default},
+                               Path=Width, Mode=TwoWay}" />
+
+            <Label Grid.Row="5" Grid.Column="1" Content="Button Height" />
+            <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Source={x:Static p:Settings.Default},
+                               Path=ButtonHeight, Mode=TwoWay}" />
+
+            <Label Grid.Row="6" Grid.Column="1" Content="Default Button Color:" />
+            <xctk:ColorPicker Grid.Row="6" Grid.Column="2" SelectedColor="{Binding Source={x:Static p:Settings.Default},
+                               Path=ButtonDefaultColor, Mode=TwoWay}" />
+
+            <Label Grid.Row="7" Grid.Column="1" Content="Button Text Color:" />
+            <xctk:ColorPicker Grid.Row="7" Grid.Column="2" SelectedColor="{Binding Source={x:Static p:Settings.Default},
+                               Path=ButtonTextColor, Mode=TwoWay}" />
+
+
+        </Grid>
+
+        <Grid Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="1" x:Name="btnCancel" Content="Cancel"
+                    Click="btnCancel_Click"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" IsCancel="True" Width="75" Height="23" />
+            <Button Grid.Column="3" x:Name="btnOK" Content="OK"
+                    Click="btnOK_Click"
+                    HorizontalAlignment="Right" VerticalAlignment="Bottom" IsDefault="True" Width="75" Height="23" />
+        </Grid>
     </Grid>
 </Window>
