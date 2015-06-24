@@ -156,9 +156,9 @@ namespace SteamAccountSwitcher
 
         private static string GetAccountDisplayName(Account account)
         {
-            return string.IsNullOrWhiteSpace(account.Username)
-                ? account.DisplayName
-                : account.Username;
+            return string.IsNullOrWhiteSpace(account.DisplayName)
+                ? account.Username
+                : account.DisplayName;
         }
     }
 }
