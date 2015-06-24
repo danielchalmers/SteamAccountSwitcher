@@ -14,15 +14,13 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid IsSharedSizeScope="True">
+        <Grid IsSharedSizeScope="True" Margin="15,10,15,10">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="10"/>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="10"/>
+                <RowDefinition Height="31" SharedSizeGroup="options" />
                 <RowDefinition Height="Auto" SharedSizeGroup="options" />
                 <RowDefinition Height="Auto" SharedSizeGroup="options" />
                 <RowDefinition Height="Auto" SharedSizeGroup="options" />
@@ -30,13 +28,13 @@
                 <RowDefinition Height="Auto" SharedSizeGroup="options" />
                 <RowDefinition Height="Auto" SharedSizeGroup="options" />
                 <RowDefinition Height="Auto" SharedSizeGroup="options" />
-                <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <Grid.Resources>
-                <Style TargetType="Label">
+                <Style TargetType="TextBlock">
                     <Setter Property="VerticalAlignment" Value="Center" />
                     <Setter Property="HorizontalAlignment" Value="Left" />
-                    <Setter Property="Margin" Value="0,0,5,0" />
+                    <Setter Property="Margin" Value="0,5,10,5" />
+                    <Setter Property="Padding" Value="0" />
                 </Style>
                 <Style TargetType="TextBox">
                     <Setter Property="VerticalAlignment" Value="Center" />
@@ -56,38 +54,44 @@
                 </Style>
             </Grid.Resources>
 
-            <Label Grid.Row="1" Grid.Column="1" Content="Always-On Mode:" />
-            <CheckBox Grid.Row="1" Grid.Column="2" IsChecked="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Always-On Mode:" />
+            <CheckBox Grid.Row="0" Grid.Column="1"
+                      IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=AlwaysOn, Mode=TwoWay}" />
 
-            <Label Grid.Row="2" Grid.Column="1" Content="Check For Updates:" />
-            <CheckBox Grid.Row="2" Grid.Column="2" IsChecked="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Check For Updates:" />
+            <CheckBox Grid.Row="1" Grid.Column="1"
+                      IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=CheckForUpdates, Mode=TwoWay}" />
 
-            <Label Grid.Row="3" Grid.Column="1" Content="Silent Auto-Update:" />
-            <CheckBox Grid.Row="3" Grid.Column="2" IsChecked="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Silent Auto-Update:" />
+            <CheckBox Grid.Row="2" Grid.Column="1"
+                      IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=AutoUpdate, Mode=TwoWay}" />
 
-            <Label Grid.Row="4" Grid.Column="1" Content="Window Width:" />
-            <TextBox Grid.Row="4" Grid.Column="2" Text="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Window Width:" />
+            <TextBox Grid.Row="3" Grid.Column="1"
+                     Text="{Binding Source={x:Static p:Settings.Default},
                                Path=Width, Mode=TwoWay}" />
 
-            <Label Grid.Row="5" Grid.Column="1" Content="Button Height" />
-            <TextBox Grid.Row="5" Grid.Column="2" Text="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Button Height" />
+            <TextBox Grid.Row="4" Grid.Column="1"
+                     Text="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonHeight, Mode=TwoWay}" />
 
             <Label Grid.Row="6" Grid.Column="1" Content="Default Button Color:" />
             <xctk:ColorPicker Grid.Row="6" Grid.Column="2" SelectedColor="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonDefaultColor, Mode=TwoWay}" />
 
-            <Label Grid.Row="7" Grid.Column="1" Content="Button Text Color:" />
-            <xctk:ColorPicker Grid.Row="7" Grid.Column="2" SelectedColor="{Binding Source={x:Static p:Settings.Default},
+            <TextBlock Grid.Row="7" Grid.Column="0" Text="Button Text Color:" />
+            <xctk:ColorPicker Grid.Row="7" Grid.Column="1"
+                              SelectedColor="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonTextColor, Mode=TwoWay}" />
 
 
         </Grid>
 
-        <Grid Row="1" Margin="10">
+        <Grid Row="1" Margin="15,0,15,15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="75" />
