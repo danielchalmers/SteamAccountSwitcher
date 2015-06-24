@@ -31,7 +31,7 @@
                 <Setter Property="Margin" Value="0,5,0,5" />
             </Style>
         </Grid.Resources>
-        
+
         <Label Grid.Row="1" Grid.Column="1" x:Name="lblDisplayName" Content="Display Name:" />
         <TextBox Grid.Row="1" Grid.Column="3" x:Name="txtDisplayName" HorizontalAlignment="Stretch"
                  VerticalAlignment="Center" Height="23" />
@@ -50,7 +50,7 @@
         <Label Grid.Row="4" Grid.Column="1" x:Name="lblColor" Content="Color:" />
         <xctk:ColorPicker Grid.Row="4" Grid.Column="3" x:Name="txtColor" HorizontalAlignment="Stretch"
                           VerticalAlignment="Center" Height="23" />
-        
+
         <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" x:Name="btnOK" Content="OK" Width="75"
                 IsDefault="True" Click="btnOK_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" />
     </Grid>

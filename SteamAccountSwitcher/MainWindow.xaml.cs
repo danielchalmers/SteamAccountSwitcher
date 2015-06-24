@@ -50,7 +50,7 @@ namespace SteamAccountSwitcher
             }
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, HideUI, ShowUI, UpdateUI);
+            _accountHandler = new AccountHandler(stackPanel, Hide, Show, UpdateUI);
 
             // Assign context menu.
             Menu = new MenuHelper(_accountHandler).MainMenu();
@@ -64,70 +64,29 @@ namespace SteamAccountSwitcher
                 stackPanel.Children[0].Focus();
         }
 
-        private void HideUI()
-        {
-            Hide();
-            if (!Settings.Default.AlwaysOn)
-                notifyIcon.Visibility = Visibility.Hidden;
-        }
-
-        private void ShowUI()
-        {
-            Show();
-            if (WindowState == WindowState.Minimized)
-                WindowState = WindowState.Normal;
-        }
-
         private void UpdateUI()
         {
             // Replace tool menu with notify icon or vise versa.
             notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
             notifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
-            toolMenu.Visibility = Settings.Default.AlwaysOn ? Visibility.Hidden : Visibility.Visible;
-
-            AutoResize();
+            toolMenu.Visibility = Settings.Default.AlwaysOn ? Visibility.Collapsed : Visibility.Visible;
 
             if (Settings.Default.AlwaysOn)
-                HideUI();
+                Hide();
             else
-                ShowUI();
-        }
-
-        private double CalcHeight(int count)
-        {
-            var snugContentHeight = (count*Settings.Default.ButtonHeight) + (count*1);
-            var horizontalBorderHeight = SystemParameters.ResizeFrameHorizontalBorderHeight;
-            var captionHeight = SystemParameters.CaptionHeight;
-            return ((snugContentHeight + captionHeight + 2*horizontalBorderHeight) + 8) +
-                   ((Settings.Default.AlwaysOn) ? 0 : toolMenu.Height);
-        }
-
-        private double CalcWidth()
-        {
-            const int snugContentWidth = 400;
-            var verticalBorderWidth = SystemParameters.ResizeFrameVerticalBorderWidth;
-            return snugContentWidth + 2*verticalBorderWidth;
-        }
-
-        private void AutoResize()
-        {
-            if (_accountHandler?.Accounts == null)
-                return;
-            Width = CalcWidth();
-            Height = CalcHeight(_accountHandler.Accounts.Count) < CalcHeight(3)
-                ? CalcHeight(3)
-                : CalcHeight(_accountHandler.Accounts.Count);
+                Show();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            SettingsHelper.SaveSettings(_accountHandler);
-
             if (Settings.Default.AlwaysOn)
             {
                 e.Cancel = true;
-                HideUI();
+                Hide();
+                return;
             }
+
+            SettingsHelper.SaveSettings(_accountHandler);
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
@@ -142,7 +101,7 @@ namespace SteamAccountSwitcher
 
         private void notifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            ShowUI();
+            Show();
         }
     }
 }

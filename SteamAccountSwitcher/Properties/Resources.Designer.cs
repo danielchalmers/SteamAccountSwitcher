@@ -22,7 +22,7 @@ namespace SteamAccountSwitcher.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SteamAccountSwitcher.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SteamAccountSwitcher.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace SteamAccountSwitcher.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Steam Account Switcher.
         /// </summary>
-        internal static string AppName {
+        public static string AppName {
             get {
                 return ResourceManager.GetString("AppName", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to SteamAccountSwitcher.
         /// </summary>
-        internal static string AppPathName {
+        public static string AppPathName {
             get {
                 return ResourceManager.GetString("AppPathName", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #afeeee.
         /// </summary>
-        internal static string ColorBlue {
+        public static string ColorBlue {
             get {
                 return ResourceManager.GetString("ColorBlue", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #b3ffb3.
         /// </summary>
-        internal static string ColorGreen {
+        public static string ColorGreen {
             get {
                 return ResourceManager.GetString("ColorGreen", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #cccccc.
         /// </summary>
-        internal static string ColorGrey {
+        public static string ColorGrey {
             get {
                 return ResourceManager.GetString("ColorGrey", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #ffd9b3.
         /// </summary>
-        internal static string ColorOrange {
+        public static string ColorOrange {
             get {
                 return ResourceManager.GetString("ColorOrange", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #fadadd.
         /// </summary>
-        internal static string ColorPink {
+        public static string ColorPink {
             get {
                 return ResourceManager.GetString("ColorPink", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to #ffffb3.
         /// </summary>
-        internal static string ColorYellow {
+        public static string ColorYellow {
             get {
                 return ResourceManager.GetString("ColorYellow", resourceCulture);
             }
@@ -135,7 +135,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits.
         /// </summary>
-        internal static string GitHubApiCommits {
+        public static string GitHubApiCommits {
             get {
                 return ResourceManager.GetString("GitHubApiCommits", resourceCulture);
             }
@@ -144,7 +144,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap options {
+        public static System.Drawing.Bitmap options {
             get {
                 object obj = ResourceManager.GetObject("options", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -154,7 +154,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap plus {
+        public static System.Drawing.Bitmap plus {
             get {
                 object obj = ResourceManager.GetObject("plus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -164,7 +164,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to steam.
         /// </summary>
-        internal static string Steam {
+        public static string Steam {
             get {
                 return ResourceManager.GetString("Steam", resourceCulture);
             }
@@ -173,7 +173,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to -login.
         /// </summary>
-        internal static string SteamLoginArgument {
+        public static string SteamLoginArgument {
             get {
                 return ResourceManager.GetString("SteamLoginArgument", resourceCulture);
             }
@@ -182,7 +182,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to https://store.steampowered.com/join/.
         /// </summary>
-        internal static string SteamNewAccount {
+        public static string SteamNewAccount {
             get {
                 return ResourceManager.GetString("SteamNewAccount", resourceCulture);
             }
@@ -191,7 +191,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to C:\Program Files\Steam\Steam.exe.
         /// </summary>
-        internal static string SteamPath32 {
+        public static string SteamPath32 {
             get {
                 return ResourceManager.GetString("SteamPath32", resourceCulture);
             }
@@ -200,7 +200,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to C:\Program Files (x86)\Steam\Steam.exe.
         /// </summary>
-        internal static string SteamPath64 {
+        public static string SteamPath64 {
             get {
                 return ResourceManager.GetString("SteamPath64", resourceCulture);
             }
@@ -209,7 +209,7 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to -shutdown.
         /// </summary>
-        internal static string SteamShutdownArgument {
+        public static string SteamShutdownArgument {
             get {
                 return ResourceManager.GetString("SteamShutdownArgument", resourceCulture);
             }

@@ -49,7 +49,7 @@ namespace SteamAccountSwitcher
                 Content =
                     new TextBlock
                     {
-                        Text = string.IsNullOrWhiteSpace(account.DisplayName) ? account.Username : account.DisplayName,
+                        Text = GetAccountDisplayName(account),
                         TextWrapping = TextWrapping.Wrap
                     },
                 Height = Settings.Default.ButtonHeight,
@@ -146,15 +146,20 @@ namespace SteamAccountSwitcher
         {
             var index = i == -2 ? SelectedIndex : i;
             if (index < 0 || index > Accounts.Count - 1) return;
-            var accName = string.IsNullOrWhiteSpace(Accounts[index].Username)
-                ? Accounts[index].DisplayName
-                : Accounts[index].Username;
             if (msg &&
-                Popup.Show($"Are you sure you want to delete this account?\r\n\r\n\"{accName}\"",
+                Popup.Show(
+                    $"Are you sure you want to delete this account?\r\n\r\n\"{GetAccountDisplayName(Accounts[index])}\"",
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
                 return;
             Accounts.RemoveAt(index);
             Refresh();
+        }
+
+        private static string GetAccountDisplayName(Account account)
+        {
+            return string.IsNullOrWhiteSpace(account.Username)
+                ? account.DisplayName
+                : account.Username;
         }
     }
 }
