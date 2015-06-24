@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Windows.Media;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -11,7 +12,6 @@ namespace SteamAccountSwitcher
         public string DisplayName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public Brush Color { get; set; }
-        public string ColorText { get; set; }
+        public SolidColorBrush Color { get; set; } = new SolidColorBrush(Settings.Default.ButtonDefaultColor);
     }
 }

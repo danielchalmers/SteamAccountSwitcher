@@ -44,6 +44,8 @@
         <Label x:Name="lblColor" Content="Color:" HorizontalAlignment="Left" Margin="10,103,0,0"
                VerticalAlignment="Top" />
         <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
+        <xctk:ColorPicker Grid.Row="4" Grid.Column="3" x:Name="txtColor" HorizontalAlignment="Stretch"
+                          VerticalAlignment="Center" Height="23" />
                 Click="btnOK_Click"
                 HorizontalAlignment="Right" VerticalAlignment="Bottom" />
     </Grid>

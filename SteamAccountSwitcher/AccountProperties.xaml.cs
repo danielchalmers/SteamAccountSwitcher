@@ -2,8 +2,6 @@
 
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
 using System.Windows.Media;
 
 #endregion
@@ -15,22 +13,17 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class AccountProperties : Window
     {
-        private Brush _color;
         public Account NewAccount;
 
-        public AccountProperties()
+        public AccountProperties(Account account = null)
         {
             InitializeComponent();
-        }
-
-        public AccountProperties(Account account)
-        {
-            InitializeComponent();
+            if (account == null)
+                account = new Account();
             txtDisplayName.Text = account.DisplayName;
             txtUsername.Text = account.Username;
             txtPassword.Password = account.Password;
-            cbColor.Text = account.ColorText;
-            _color = account.Color;
+            txtColor.SelectedColor = account.Color.Color;
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -40,8 +33,7 @@ namespace SteamAccountSwitcher
                 DisplayName = txtDisplayName.Text,
                 Username = txtUsername.Text,
                 Password = string.IsNullOrWhiteSpace(txtPassword.Password) ? txtPasswordText.Text : txtPassword.Password,
-                Color = GetSelectedColor(cbColor.Text),
-                ColorText = cbColor.Text
+                Color = new SolidColorBrush(txtColor.SelectedColor)
             };
         }
 
@@ -66,43 +58,6 @@ namespace SteamAccountSwitcher
             txtPasswordText.Visibility = Visibility.Hidden;
             txtPassword.Visibility = Visibility.Visible;
             txtPassword.Focus();
-        }
-
-        private Brush ConvertColor(string colorhex)
-        {
-            return (Brush) new BrushConverter().ConvertFromString(colorhex);
-        }
-
-        private Brush GetSelectedColor(string text)
-        {
-            switch (text)
-            {
-                case "Blue":
-                    return ConvertColor(Properties.Resources.ColorBlue);
-                case "Green":
-                    return ConvertColor(Properties.Resources.ColorGreen);
-                case "Orange":
-                    return ConvertColor(Properties.Resources.ColorOrange);
-                case "Yellow":
-                    return ConvertColor(Properties.Resources.ColorYellow);
-                case "Pink":
-                    return ConvertColor(Properties.Resources.ColorPink);
-                case "Custom...":
-                    return _color;
-                default:
-                    return null;
-            }
-        }
-
-        private void cbItem_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if ((((sender as ComboBoxItem).Content) as string) == "Custom...")
-            {
-                cbColor.Text = "Custom...";
-                var dia = new HexColorChooser(_color);
-                dia.ShowDialog();
-                _color = dia.Color;
-            }
         }
 
         private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
