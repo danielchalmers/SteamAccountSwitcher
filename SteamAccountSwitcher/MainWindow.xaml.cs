@@ -52,8 +52,9 @@ namespace SteamAccountSwitcher
             // Setup account handler.
             _accountHandler = new AccountHandler(stackPanel, Hide, Show, UpdateUI);
 
-            // Assign context menu.
+            // Assign context menus.
             Menu = new MenuHelper(_accountHandler).MainMenu();
+            notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
 
             // Start update checker.
             UpdateChecker.Start();
@@ -67,7 +68,6 @@ namespace SteamAccountSwitcher
         private void UpdateUI()
         {
             // Replace tool menu with notify icon or vise versa.
-            notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
             notifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
             toolMenu.Visibility = Settings.Default.AlwaysOn ? Visibility.Collapsed : Visibility.Visible;
 
