@@ -18,6 +18,7 @@ namespace SteamAccountSwitcher
         public AccountProperties(Account account = null)
         {
             InitializeComponent();
+            Title = account == null ? "New Account" : "Edit Account";
             if (account == null)
                 account = new Account();
             txtDisplayName.Text = account.DisplayName;
