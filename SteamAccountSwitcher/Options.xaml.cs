@@ -15,6 +15,7 @@ namespace SteamAccountSwitcher
         public Options()
         {
             InitializeComponent();
+            Settings.Default.Save();
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
