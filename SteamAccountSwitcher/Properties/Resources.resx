@@ -173,4 +173,7 @@
   <data name="GitHubApiCommits" xml:space="preserve">
     <value>https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits</value>
   </data>
+  <data name="SteamNotLoggedInTitle" xml:space="preserve">
+    <value>Steam Login</value>
+  </data>
 </root>

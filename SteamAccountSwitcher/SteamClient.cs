@@ -22,6 +22,18 @@ namespace SteamAccountSwitcher
             Process.Start(Settings.Default.SteamPath, Resources.SteamShutdownArgument);
         }
 
+        public static void ForceClose()
+        {
+            using (var proc = Process.GetProcessesByName(Resources.Steam)[0])
+                proc.CloseMainWindow();
+        }
+
+        public static string GetSteamTitle()
+        {
+            using (var proc = Process.GetProcessesByName(Resources.Steam)[0])
+                return proc.MainWindowTitle;
+        }
+
         public static bool LogOutAuto()
         {
             var timeout = 0;
@@ -29,7 +41,10 @@ namespace SteamAccountSwitcher
             const int waitstep = 100;
             if (IsSteamOpen())
             {
-                LogOut();
+                if (GetSteamTitle() == Resources.SteamNotLoggedInTitle)
+                    ForceClose();
+                else
+                    LogOut();
                 while (IsSteamOpen())
                 {
                     if (timeout >= maxtimeout)

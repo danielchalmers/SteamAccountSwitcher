@@ -189,6 +189,15 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Steam Login.
+        /// </summary>
+        public static string SteamNotLoggedInTitle {
+            get {
+                return ResourceManager.GetString("SteamNotLoggedInTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to C:\Program Files\Steam\Steam.exe.
         /// </summary>
         public static string SteamPath32 {
