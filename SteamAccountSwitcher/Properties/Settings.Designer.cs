@@ -201,5 +201,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["BigPictureMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SteamLaunchArgs {
+            get {
+                return ((string)(this["SteamLaunchArgs"]));
+            }
+            set {
+                this["SteamLaunchArgs"] = value;
+            }
+        }
     }
 }
