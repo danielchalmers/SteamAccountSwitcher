@@ -69,7 +69,6 @@ namespace SteamAccountSwitcher
         {
             // Replace tool menu with notify icon or vise versa.
             notifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
-            toolMenu.Visibility = Settings.Default.AlwaysOn ? Visibility.Collapsed : Visibility.Visible;
 
             if (Settings.Default.AlwaysOn)
                 Hide();
