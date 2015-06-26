@@ -125,19 +125,12 @@ namespace SteamAccountSwitcher
 
         public static void RunOnStartup(bool runonstartup)
         {
-            try
-            {
-                var registryKey = Registry.CurrentUser.OpenSubKey
-                    ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-                if (runonstartup)
-                    registryKey?.SetValue(Resources.AppPathName, AppPath);
-                else
-                    registryKey?.DeleteValue(Resources.AppPathName);
-            }
-            catch
-            {
-                // ignored
-            }
+            var registryKey = Registry.CurrentUser.OpenSubKey
+                ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            if (runonstartup)
+                registryKey?.SetValue(Resources.AppPathName, AppPath);
+            else
+                registryKey?.DeleteValue(Resources.AppPathName, false);
         }
     }
 }

@@ -84,7 +84,10 @@ namespace SteamAccountSwitcher
                 Hide();
                 return;
             }
+        }
 
+        private void Window_Closed(object sender, System.EventArgs e)
+        {
             SettingsHelper.SaveSettings(_accountHandler);
         }
 

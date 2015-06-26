@@ -43,23 +43,22 @@ namespace SteamAccountSwitcher
 
         public static void OpenOptions(AccountHandler accountHandler)
         {
-            accountHandler.SaveAccounts();
-
             // Open options window.
-            var dialog = new Options();
+            var dialog = new Options(accountHandler);
             dialog.ShowDialog();
 
-            accountHandler.ReloadAccounts();
             accountHandler.Refresh();
+            SaveSettings(accountHandler, false);
         }
 
-        public static void SaveSettings(AccountHandler accountHandler)
+        public static void SaveSettings(AccountHandler accountHandler, bool full = true)
         {
             // Save settings.
             accountHandler.SaveAccounts();
             Settings.Default.Save();
 
-            ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
+            if (full)
+                ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
         }
 
         public static void UpgradeSettings()

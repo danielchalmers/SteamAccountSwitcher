@@ -13,9 +13,11 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class Options : Window
     {
-        public Options()
+        private readonly AccountHandler _accountHandler;
+        public Options(AccountHandler accountHandler)
         {
             InitializeComponent();
+            _accountHandler = accountHandler;
             Settings.Default.Save();
         }
 
@@ -55,13 +57,15 @@ namespace SteamAccountSwitcher
             if (
                 Popup.Show(
                     "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
-                Settings.Default.Accounts = dialog.TextData;
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
+                return;
+            Settings.Default.Accounts = dialog.TextData;
+            _accountHandler.ReloadAccounts();
         }
 
         private void menuItemExport_OnClick(object sender, EventArgs e)
         {
-            var dialog = new InputBox(Settings.Default.Accounts);
+            var dialog = new InputBox(SettingsHelper.SerializeAccounts(_accountHandler.Accounts));
             dialog.ShowDialog();
         }
 
