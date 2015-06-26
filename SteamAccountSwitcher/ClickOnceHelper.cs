@@ -73,7 +73,7 @@ namespace SteamAccountSwitcher
                 {
                     try
                     {
-                        ad.Update();
+                        ad.UpdateAsync();
                         RestartApplication();
                     }
                     catch
@@ -96,7 +96,7 @@ namespace SteamAccountSwitcher
                     case UpdatePrompt.UpdateResponse.UpdateNow:
                         try
                         {
-                            ad.Update();
+                            ad.UpdateAsync();
                             RestartApplication();
                         }
                         catch (DeploymentDownloadException dde)
