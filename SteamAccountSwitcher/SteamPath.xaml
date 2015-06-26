@@ -5,16 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d"
-        Title="Find Steam Path" Height="110" Width="283" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Closing="Window_Closing">
+        Title="Find Steam Path" SizeToContent="Height" Width="300" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
     <Grid>
-        <TextBox x:Name="txtPath" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap"
-                 VerticalAlignment="Top" Width="212" />
-        <Button x:Name="btnOK" Content="OK" Margin="0,0,10,10" Width="75" Height="23" IsDefault="True"
-                Click="btnOK_Click"
-                HorizontalAlignment="Right" VerticalAlignment="Bottom" />
-        <Button x:Name="btnBrowse" Content="..." HorizontalAlignment="Left" Margin="227,10,0,0" VerticalAlignment="Top"
-                Width="30" Height="23" Click="btnBrowse_Click" />
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="15" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="15" />
+            </Grid.RowDefinitions>
+            <TextBox Grid.Row="1" x:Name="txtPath" HorizontalAlignment="Stretch" Height="23" Margin="15,0,0,0" />
+            <Button Grid.Row="1" Grid.Column="1" x:Name="btnBrowse" Content="..." Margin="5,0,15,0" Width="23"
+                    Height="23"
+                    Click="btnBrowse_Click" />
+        </Grid>
 
+        <Button Grid.Row="1" Grid.Column="1" x:Name="btnOK" Content="OK" Width="75"
+                IsDefault="True" Click="btnOK_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23"
+                Margin="0,0,15,15" />
     </Grid>
 </Window>

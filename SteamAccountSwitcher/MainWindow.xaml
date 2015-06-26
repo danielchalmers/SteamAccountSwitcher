@@ -7,12 +7,16 @@
         ResizeMode="CanMinimize" Title="{x:Static p:Resources.AppName}" WindowStartupLocation="CenterScreen"
         Closing="Window_Closing" Icon="steam.ico"
         Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}" Closed="Window_Closed">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis" />
+    </Window.Resources>
     <Grid>
         <tb:TaskbarIcon x:Name="notifyIcon" ToolTipText="{x:Static p:Resources.AppName}" IconSource="steam.ico"
-                        TrayMouseDoubleClick="notifyIcon_TrayMouseDoubleClick" />
+                        TrayMouseDoubleClick="notifyIcon_TrayMouseDoubleClick"
+                        Visibility="{Binding Source={x:Static p:Settings.Default}, Path=AlwaysOn, Mode=OneWay, Converter={StaticResource BoolToVis}}" />
         <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Background="{x:Static SystemColors.ControlBrush}">
-            <StackPanel x:Name="stackPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+            <StackPanel x:Name="spAccounts" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                         DockPanel.Dock="Top" />
             <Grid x:Name="toolMenu" HorizontalAlignment="Stretch" Height="24" VerticalAlignment="Bottom"
                   DockPanel.Dock="Bottom">

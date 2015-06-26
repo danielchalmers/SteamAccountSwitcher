@@ -1,7 +1,9 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using SteamAccountSwitcher.Properties;
@@ -41,7 +43,7 @@ namespace SteamAccountSwitcher
                     });
 
             // Resolve Steam path.
-            if (Settings.Default.SteamPath == string.Empty)
+            if (Settings.Default.SteamPath == string.Empty || !File.Exists(Settings.Default.SteamPath))
                 Settings.Default.SteamPath = SteamClient.ResolvePath();
             if (Settings.Default.SteamPath == string.Empty)
             {
@@ -50,7 +52,7 @@ namespace SteamAccountSwitcher
             }
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(stackPanel, Hide, Show, UpdateUI);
+            _accountHandler = new AccountHandler(spAccounts, Hide, Show);
 
             // Assign context menus.
             Menu = new MenuHelper(_accountHandler).MainMenu();
@@ -62,16 +64,8 @@ namespace SteamAccountSwitcher
             // Start update checker.
             UpdateChecker.Start();
 
-            UpdateUI();
-
-            if (stackPanel.Children.Count > 0)
-                stackPanel.Children[0].Focus();
-        }
-
-        private void UpdateUI()
-        {
-            // Replace tool menu with notify icon or vise versa.
-            notifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
+            if (spAccounts.Children.Count > 0)
+                spAccounts.Children[0].Focus();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
@@ -80,11 +74,10 @@ namespace SteamAccountSwitcher
             {
                 e.Cancel = true;
                 Hide();
-                return;
             }
         }
 
-        private void Window_Closed(object sender, System.EventArgs e)
+        private void Window_Closed(object sender, EventArgs e)
         {
             SettingsHelper.SaveSettings(_accountHandler);
         }

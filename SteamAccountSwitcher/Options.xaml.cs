@@ -14,6 +14,7 @@ namespace SteamAccountSwitcher
     public partial class Options : Window
     {
         private readonly AccountHandler _accountHandler;
+
         public Options(AccountHandler accountHandler)
         {
             InitializeComponent();

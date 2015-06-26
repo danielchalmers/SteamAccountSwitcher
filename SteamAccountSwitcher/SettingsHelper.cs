@@ -50,7 +50,7 @@ namespace SteamAccountSwitcher
             dialog.ShowDialog();
 
             if (alwaysOn != Settings.Default.AlwaysOn)
-                if(Settings.Default.AlwaysOn)
+                if (Settings.Default.AlwaysOn)
                     accountHandler._hideWindow();
                 else
                     accountHandler._showWindow();
