@@ -19,17 +19,28 @@ namespace SteamAccountSwitcher
         public readonly Action _showWindow;
         private readonly StackPanel _stackPanel;
         private readonly Action _updateUI;
-        public readonly List<Account> Accounts;
+        public List<Account> Accounts;
         private int SelectedIndex = -1;
 
         public AccountHandler(StackPanel stackPanel, Action hideWindow, Action showWindow, Action updateUI)
         {
             _stackPanel = stackPanel;
-            Accounts = SettingsHelper.DeserializeAccounts() ?? new List<Account>();
             _hideWindow = hideWindow;
             _showWindow = showWindow;
             _updateUI = updateUI;
+            ReloadAccounts();
             Refresh();
+        }
+
+        public void ReloadAccounts()
+        {
+            var accounts = SettingsHelper.DeserializeAccounts();
+            Accounts = accounts ?? new List<Account>();
+        }
+
+        public void SaveAccounts()
+        {
+            Settings.Default.Accounts = SettingsHelper.SerializeAccounts(Accounts);
         }
 
         public void Add(Account account)

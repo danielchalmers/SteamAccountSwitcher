@@ -97,8 +97,24 @@
 
         </Grid>
 
+        <Button Grid.Row="1" Grid.Column="0" x:Name="btnExtra" Click="btnExtra_Click" Width="28" Height="24"
+                HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,0,0,15">
+            <Button.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menuItemDefaults" Header="Defaults..." Click="menuItemDefaults_OnClick" />
+                    <Separator />
+                    <MenuItem x:Name="menuItemImport" Header="Import Accounts..." Click="menuItemImport_OnClick" />
+                    <MenuItem x:Name="menuItemExport" Header="Export Accounts..." Click="menuItemExport_OnClick" />
+                    <Separator />
+                    <MenuItem x:Name="menuItemAdvanced" Header="Advanced..." Click="menuItemAdvanced_OnClick" />
+                </ContextMenu>
+            </Button.ContextMenu>
+            <Image Source="Resources/menu.png" RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="None" />
+        </Button>
+
         <Grid Row="1" Margin="15,0,15,15">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="28" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="75" />
                 <ColumnDefinition Width="5" />
@@ -108,9 +124,9 @@
                 <RowDefinition Height="23" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
+            <Button Grid.Column="2" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" IsDefault="True" />
-            <Button Grid.Column="3" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
+            <Button Grid.Column="4" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" />
         </Grid>
     </Grid>

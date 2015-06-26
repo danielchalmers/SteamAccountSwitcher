@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
 
@@ -28,6 +29,46 @@ namespace SteamAccountSwitcher
         {
             Settings.Default.Reload();
             DialogResult = true;
+        }
+
+        private void btnExtra_Click(object sender, RoutedEventArgs e)
+        {
+            btnExtra.ContextMenu.IsOpen = true;
+        }
+
+        private void menuItemDefaults_OnClick(object sender, EventArgs e)
+        {
+            if (
+                Popup.Show(
+                    "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                Settings.Default.Reset();
+                Popup.Show("All settings have been restored to default.\n\nYou may need to restart this application.");
+            }
+        }
+
+        private void menuItemImport_OnClick(object sender, EventArgs e)
+        {
+            var dialog = new InputBox();
+            dialog.ShowDialog();
+            if (
+                Popup.Show(
+                    "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+                Settings.Default.Accounts = dialog.TextData;
+        }
+
+        private void menuItemExport_OnClick(object sender, EventArgs e)
+        {
+            var dialog = new InputBox(Settings.Default.Accounts);
+            dialog.ShowDialog();
+        }
+
+        private void menuItemAdvanced_OnClick(object sender, EventArgs e)
+        {
+            var dialog = new AdvancedOptions();
+            dialog.ShowDialog();
         }
     }
 }

@@ -1,0 +1,30 @@
+﻿<Window x:Class="SteamAccountSwitcher.AdvancedOptions"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SteamAccountSwitcher"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
+        mc:Ignorable="d"
+        Title="Advanced Options" Width="500" Height="600" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <xctk:PropertyGrid Grid.ColumnSpan="4"
+                           AutoGenerateProperties="true"
+                           SelectedObject="{Binding Source={x:Static properties:Settings.Default}}"
+                           IsCategorized="False"
+                           ShowSortOptions="False" ShowSummary="False" ShowTitle="False" ShowSearchBox="True"
+                           Background="{x:Static SystemColors.WindowBrush}" />
+        <Button Grid.Column="1" x:Name="btnOK" Content="OK" Margin="15" Width="75" Height="23"
+                Click="btnOK_Click"
+                HorizontalAlignment="Right" VerticalAlignment="Bottom" IsDefault="True" Grid.Row="1" />
+    </Grid>
+</Window>

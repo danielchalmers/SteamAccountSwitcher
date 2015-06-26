@@ -109,11 +109,17 @@
     <Compile Include="AccountProperties.xaml.cs">
       <DependentUpon>AccountProperties.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdvancedOptions.xaml.cs">
+      <DependentUpon>AdvancedOptions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="GitHubApiCommits.cs" />
+    <Compile Include="InputBox.xaml.cs">
+      <DependentUpon>InputBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListUtilities.cs" />
     <Compile Include="MenuHelper.cs" />
     <Compile Include="Options.xaml.cs">
@@ -130,6 +136,14 @@
       <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdvancedOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InputBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -207,6 +221,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\options.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\menu.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

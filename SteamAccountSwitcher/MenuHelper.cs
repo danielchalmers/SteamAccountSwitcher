@@ -48,7 +48,7 @@ namespace SteamAccountSwitcher
             var menuList = new List<object>();
 
             var itemOptions = new MenuItem {Header = "Options..."};
-            itemOptions.Click += delegate { SettingsHelper.OpenOptions(_accountHandler.Refresh); };
+            itemOptions.Click += delegate { SettingsHelper.OpenOptions(_accountHandler); };
             var itemCheckUpdates = new MenuItem {Header = "Check for Updates"};
             itemCheckUpdates.Click += delegate { ClickOnceHelper.CheckForUpdates(); };
             var itemExit = new MenuItem {Header = "Exit"};
