@@ -56,6 +56,9 @@ namespace SteamAccountSwitcher
             Menu = new MenuHelper(_accountHandler).MainMenu();
             notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
 
+            if (Settings.Default.AlwaysOn)
+                Hide();
+
             // Start update checker.
             UpdateChecker.Start();
 
@@ -69,11 +72,6 @@ namespace SteamAccountSwitcher
         {
             // Replace tool menu with notify icon or vise versa.
             notifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
-
-            if (Settings.Default.AlwaysOn)
-                Hide();
-            else
-                Show();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
