@@ -177,5 +177,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["Width"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NotifyMenuShowSteamSection {
+            get {
+                return ((bool)(this["NotifyMenuShowSteamSection"]));
+            }
+            set {
+                this["NotifyMenuShowSteamSection"] = value;
+            }
+        }
     }
 }

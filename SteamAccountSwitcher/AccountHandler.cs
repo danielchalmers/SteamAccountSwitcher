@@ -109,7 +109,7 @@ namespace SteamAccountSwitcher
 
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            if (SteamClient.LogOutAuto())
+            if (SteamClient.LogOutTimeout())
                 SteamClient.LogIn(Accounts[SelectedIndex]);
         }
 

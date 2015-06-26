@@ -11,6 +11,11 @@ namespace SteamAccountSwitcher
 {
     internal class SteamClient
     {
+        public static void Launch()
+        {
+            Process.Start(Settings.Default.SteamPath);
+        }
+
         public static void LogIn(Account account)
         {
             Process.Start(Settings.Default.SteamPath,
@@ -34,17 +39,22 @@ namespace SteamAccountSwitcher
                 return proc.MainWindowTitle;
         }
 
-        public static bool LogOutAuto()
+        public static void LogOutAuto()
+        {
+            if (GetSteamTitle() == Resources.SteamNotLoggedInTitle)
+                ForceClose();
+            else
+                LogOut();
+        }
+
+        public static bool LogOutTimeout()
         {
             var timeout = 0;
             const int maxtimeout = 10000;
             const int waitstep = 100;
             if (IsSteamOpen())
             {
-                if (GetSteamTitle() == Resources.SteamNotLoggedInTitle)
-                    ForceClose();
-                else
-                    LogOut();
+                LogOutAuto();
                 while (IsSteamOpen())
                 {
                     if (timeout >= maxtimeout)

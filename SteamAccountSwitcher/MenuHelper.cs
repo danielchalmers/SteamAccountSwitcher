@@ -72,6 +72,12 @@ namespace SteamAccountSwitcher
             var itemManageAccounts = new MenuItem {Header = "Manage Accounts"};
             itemManageAccounts.Click += delegate { _accountHandler._showWindow(); };
 
+            var itemExitSteam = new MenuItem {Header = "Exit Steam"};
+            itemExitSteam.Click += delegate { SteamClient.LogOutAuto(); };
+
+            var itemStartSteam = new MenuItem {Header = "Open Steam"};
+            itemStartSteam.Click += delegate { SteamClient.Launch(); };
+
             if (_accountHandler?.Accounts != null && _accountHandler.Accounts.Count > 0)
             {
                 for (var i = 0; i < _accountHandler.Accounts.Count; i++)
@@ -91,8 +97,13 @@ namespace SteamAccountSwitcher
             }
 
             menuList.Add(itemAddAccount);
-            if (Settings.Default.AlwaysOn)
-                menuList.Add(itemManageAccounts);
+            menuList.Add(itemManageAccounts);
+            if (Settings.Default.NotifyMenuShowSteamSection)
+            {
+                menuList.Add(new Separator());
+                menuList.Add(itemStartSteam);
+                menuList.Add(itemExitSteam);
+            }
             return menuList;
         }
 
