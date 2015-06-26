@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
@@ -16,10 +17,20 @@ namespace SteamAccountSwitcher
             Process.Start(Settings.Default.SteamPath);
         }
 
+        public static void BigPicture()
+        {
+            Process.Start(Settings.Default.SteamPath, Resources.SteamBigPictureArg);
+        }
+
         public static void LogIn(Account account)
         {
-            Process.Start(Settings.Default.SteamPath,
-                $"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
+            var args = new List<string>();
+
+            args.Add($"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
+            if (Settings.Default.BigPictureMode)
+                args.Add(Resources.SteamBigPictureArg);
+
+            Process.Start(Settings.Default.SteamPath, string.Join(" ", args));
         }
 
         public static void LogOut()

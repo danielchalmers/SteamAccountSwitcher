@@ -181,6 +181,15 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -tenfoot.
+        /// </summary>
+        public static string SteamBigPictureArg {
+            get {
+                return ResourceManager.GetString("SteamBigPictureArg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -login.
         /// </summary>
         public static string SteamLoginArgument {

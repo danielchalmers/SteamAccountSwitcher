@@ -189,5 +189,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["NotifyMenuShowSteamSection"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool BigPictureMode {
+            get {
+                return ((bool)(this["BigPictureMode"]));
+            }
+            set {
+                this["BigPictureMode"] = value;
+            }
+        }
     }
 }
