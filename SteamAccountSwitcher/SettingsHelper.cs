@@ -56,17 +56,14 @@ namespace SteamAccountSwitcher
                     accountHandler._showWindow();
 
             accountHandler.Refresh();
-            SaveSettings(accountHandler, false);
+            SaveSettings(accountHandler);
         }
 
-        public static void SaveSettings(AccountHandler accountHandler, bool full = true)
+        public static void SaveSettings(AccountHandler accountHandler)
         {
             // Save settings.
             accountHandler.SaveAccounts();
             Settings.Default.Save();
-
-            if (full)
-                ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
         }
 
         public static void UpgradeSettings()
