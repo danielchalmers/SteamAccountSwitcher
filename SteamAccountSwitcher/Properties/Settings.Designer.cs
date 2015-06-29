@@ -213,5 +213,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["SteamLaunchArgs"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OnStartLoginName {
+            get {
+                return ((string)(this["OnStartLoginName"]));
+            }
+            set {
+                this["OnStartLoginName"] = value;
+            }
+        }
     }
 }

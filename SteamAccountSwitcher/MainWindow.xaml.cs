@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using SteamAccountSwitcher.Properties;
@@ -60,6 +61,15 @@ namespace SteamAccountSwitcher
 
             if (Settings.Default.AlwaysOn)
                 Hide();
+
+            if (Settings.Default.OnStartLoginName != "" && Settings.Default.AlwaysOn)
+            {
+                foreach (var account in _accountHandler.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName))
+                {
+                    _accountHandler.SwitchAccount(_accountHandler.Accounts.IndexOf(account));
+                    break;
+                }
+            }
 
             // Start update checker.
             UpdateChecker.Start();
