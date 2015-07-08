@@ -119,7 +119,7 @@ namespace SteamAccountSwitcher
 
         public static void RestartApplication()
         {
-            Process.Start(IsUpdateable ? AppPath : Application.ResourceAssembly.Location);
+            Process.Start(IsUpdateable ? AppPath : Application.ResourceAssembly.Location, "--restarting");
             Application.Current.Shutdown();
         }
 
