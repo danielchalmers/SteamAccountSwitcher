@@ -110,6 +110,8 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties(Accounts[SelectedIndex]);
             dialog.ShowDialog();
+            if (dialog.NewAccount == null)
+                return;
             if (!string.IsNullOrWhiteSpace(dialog.NewAccount.Username))
                 Accounts[SelectedIndex] = dialog.NewAccount;
             Refresh();
@@ -119,6 +121,8 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties();
             dialog.ShowDialog();
+            if (dialog.NewAccount == null)
+                return;
             if (string.IsNullOrWhiteSpace(dialog.NewAccount.Username) &&
                 string.IsNullOrWhiteSpace(dialog.NewAccount.Password) &&
                 string.IsNullOrWhiteSpace(dialog.NewAccount.DisplayName))

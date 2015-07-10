@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Windows.Media;
 using SteamAccountSwitcher.Properties;
 
@@ -7,11 +8,12 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    public class Account
+    public class Account : ICloneable
     {
         public string DisplayName { get; set; } = "";
         public string Username { get; set; } = "";
         public string Password { get; set; } = "";
         public Color Color { get; set; } = Settings.Default.ButtonDefaultColor;
+        public object Clone() { return MemberwiseClone(); }
     }
 }

@@ -53,7 +53,21 @@
         <xctk:ColorPicker Grid.Row="4" Grid.Column="3" x:Name="txtColor" HorizontalAlignment="Stretch"
                           VerticalAlignment="Center" Height="23" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
 
-        <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" x:Name="btnOK" Content="OK" Width="75"
-                IsDefault="True" Click="btnOK_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" />
+        <Grid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="75" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" IsDefault="True" />
+            <Button Grid.Column="3" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" />
+        </Grid>
     </Grid>
 </Window>

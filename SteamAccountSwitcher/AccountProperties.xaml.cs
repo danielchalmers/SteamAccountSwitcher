@@ -17,7 +17,11 @@ namespace SteamAccountSwitcher
         {
             InitializeComponent();
             Title = account == null ? "New Account" : "Edit Account";
-            NewAccount = account ?? new Account();
+
+            if (account == null)
+                NewAccount = new Account();
+            else
+                NewAccount = (Account) account.Clone();
 
             DataContext = NewAccount;
 
@@ -26,6 +30,12 @@ namespace SteamAccountSwitcher
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = true;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            NewAccount = null;
             DialogResult = true;
         }
 
