@@ -8,11 +8,11 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal class UpdateChecker
+    internal class UpdateCheckScheduler
     {
         private static readonly DispatcherTimer _updateTimer = new DispatcherTimer();
 
-        static UpdateChecker()
+        static UpdateCheckScheduler()
         {
             _updateTimer.Tick += (sender, args) =>
             {

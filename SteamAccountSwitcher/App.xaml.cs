@@ -60,7 +60,7 @@ namespace SteamAccountSwitcher
             SteamClient.ResolvePathShutdown();
 
             // Start update checker.
-            UpdateChecker.Start();
+            UpdateCheckScheduler.Start();
             AutoSaveScheduler.Start();
         }
 

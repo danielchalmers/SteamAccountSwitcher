@@ -137,7 +137,8 @@
     <Compile Include="SteamPath.xaml.cs">
       <DependentUpon>SteamPath.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UpdateChecker.cs" />
+    <Compile Include="UpdateCheck.cs" />
+    <Compile Include="UpdateCheckScheduler.cs" />
     <Compile Include="UpdatePrompt.xaml.cs">
       <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>

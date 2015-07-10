@@ -21,60 +21,39 @@ namespace SteamAccountSwitcher
 
         public static void CheckForUpdates(bool silent = false)
         {
+            new UpdateCheck().CheckForUpdates(x => CheckForUpdates(x, silent));
+        }
+
+        private static void CheckForUpdates(UpdateCheckInfo info, bool silent = false)
+        {
             if (!ApplicationDeployment.IsNetworkDeployed)
             {
                 if (!silent)
                     Popup.Show("This application was not installed via ClickOnce and cannot be updated automatically.");
                 return;
             }
-            var ad = ApplicationDeployment.CurrentDeployment;
 
-            UpdateCheckInfo info;
-            try
-            {
-                info = ad.CheckForDetailedUpdate();
-            }
-            catch (DeploymentDownloadException dde)
+            if (info == null)
             {
                 if (!silent)
                     Popup.Show(
-                        "The new version of the application cannot be downloaded at this time.\n\nPlease check your network connection, and try again later.\n\nError: " +
-                        dde.Message);
-                return;
-            }
-            catch (InvalidDeploymentException ide)
-            {
-                if (!silent)
-                    Popup.Show(
-                        "Cannot check for a new version of the application. The ClickOnce installation is corrupt. Please reinstall the application and try again.\n\nError: " +
-                        ide.Message);
-                return;
-            }
-            catch (InvalidOperationException ioe)
-            {
-                if (!silent)
-                    Popup.Show(
-                        "This application cannot be updated. It is likely not a ClickOnce application.\n\nError: " +
-                        ioe.Message);
-                return;
-            }
-            catch (Exception ex)
-            {
-                if (!silent)
-                    Popup.Show(
-                        "An error occurred while trying to check for updates.\n\nError: " +
-                        ex.Message);
+                        "An error occurred while trying to check for updates.");
                 return;
             }
 
             if (info.UpdateAvailable)
             {
+                if (AssemblyInfo.GetVersion().Major != Settings.Default.ForgetUpdateVersion.Major &&
+                    Settings.Default.ForgetUpdateVersion.Major == info.AvailableVersion.Major)
+                    return;
+
+                var ad = ApplicationDeployment.CurrentDeployment;
+                ad.UpdateCompleted += (sender, args) => RestartApplication();
                 if (silent && Settings.Default.AutoUpdate)
                 {
                     try
                     {
                         ad.UpdateAsync();
-                        RestartApplication();
                     }
                     catch
                     {
@@ -83,7 +62,7 @@ namespace SteamAccountSwitcher
                     return;
                 }
                 if (silent && info.AvailableVersion == Settings.Default.ForgetUpdateVersion) return;
-                UpdateChecker.Stop();
+                UpdateCheckScheduler.Stop();
 
                 var updateDialog = new UpdatePrompt(info.AvailableVersion, info.IsUpdateRequired);
                 updateDialog.ShowDialog();
@@ -97,7 +76,6 @@ namespace SteamAccountSwitcher
                         try
                         {
                             ad.UpdateAsync();
-                            RestartApplication();
                         }
                         catch (DeploymentDownloadException dde)
                         {
@@ -107,7 +85,7 @@ namespace SteamAccountSwitcher
                         }
                         break;
                 }
-                UpdateChecker.Start();
+                UpdateCheckScheduler.Start();
             }
             else
             {
