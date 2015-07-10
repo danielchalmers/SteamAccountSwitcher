@@ -19,16 +19,22 @@ namespace SteamAccountSwitcher
 
         public static string GetVersionString()
         {
-            var obj = ApplicationDeployment.IsNetworkDeployed
-                ? ApplicationDeployment.CurrentDeployment.
-                    CurrentVersion
-                : Assembly.GetExecutingAssembly().GetName().Version;
-            return $"{obj.Major}.{obj.Minor}.{obj.Build}";
+            return GetVersionString(GetVersion());
+        }
+
+        public static string GetVersionStringFull()
+        {
+            return GetVersionStringFull(GetVersion());
         }
 
         public static string GetVersionString(Version version)
         {
             return $"{version.Major}.{version.Minor}.{version.Build}";
+        }
+
+        public static string GetVersionStringFull(Version version)
+        {
+            return version.ToString();
         }
 
         public static Version GetVersion()
