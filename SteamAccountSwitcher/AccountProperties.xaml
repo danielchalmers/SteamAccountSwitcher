@@ -32,7 +32,7 @@
             </Style>
         </Grid.Resources>
 
-        <Label Grid.Row="1" Grid.Column="1" x:Name="lblDisplayName" Content="Display Name:" />
+        <Label Grid.Row="1" Grid.Column="1" x:Name="lblDisplayName" Content="Alias:" />
         <TextBox Grid.Row="1" Grid.Column="3" x:Name="txtDisplayName" HorizontalAlignment="Stretch"
                  VerticalAlignment="Center" Height="23" Text="{Binding Path=DisplayName, Mode=TwoWay}" />
         <Label Grid.Row="2" Grid.Column="1" x:Name="lblUsername" Content="Username:" />
