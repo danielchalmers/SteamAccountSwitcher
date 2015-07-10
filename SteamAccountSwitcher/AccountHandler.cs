@@ -18,7 +18,7 @@ namespace SteamAccountSwitcher
         public readonly Action _hideWindow;
         public readonly Action _showWindow;
         private readonly StackPanel _stackPanel;
-        public List<Account> Accounts;
+        public AccountData AccountData;
         private int SelectedIndex = -1;
 
         public AccountHandler(StackPanel stackPanel, Action hideWindow, Action showWindow)
@@ -30,15 +30,21 @@ namespace SteamAccountSwitcher
             Refresh();
         }
 
+        public List<Account> Accounts
+        {
+            get { return AccountData.Accounts; }
+            set { AccountData.Accounts = value; }
+        }
+
         public void ReloadAccounts()
         {
             var accounts = SettingsHelper.DeserializeAccounts();
-            Accounts = accounts ?? new List<Account>();
+            AccountData = accounts ?? new AccountData();
         }
 
         public void SaveAccounts()
         {
-            Settings.Default.Accounts = SettingsHelper.SerializeAccounts(Accounts);
+            Settings.Default.AccountData = SettingsHelper.SerializeAccounts(AccountData);
         }
 
         public void Add(Account account)

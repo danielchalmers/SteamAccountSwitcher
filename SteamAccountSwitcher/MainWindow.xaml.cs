@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Newtonsoft.Json;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -31,16 +32,28 @@ namespace SteamAccountSwitcher
             Settings.Default.Launches++;
 
             // Add default shortcuts.
-            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
-                Settings.Default.Accounts =
-                    SettingsHelper.SerializeAccounts(new List<Account>
+            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.AccountData == string.Empty)
+                Settings.Default.AccountData =
+                    SettingsHelper.SerializeAccounts(new AccountData
                     {
-                        new Account
+                        Accounts = new List<Account>
                         {
-                            DisplayName = "Example",
-                            Username = "username",
-                            Password = "password"
+                            new Account
+                            {
+                                DisplayName = "Example",
+                                Username = "username",
+                                Password = "password"
+                            }
                         }
+                    });
+
+            if (!string.IsNullOrWhiteSpace(Settings.Default.Accounts))
+                Settings.Default.AccountData =
+                    SettingsHelper.SerializeAccounts(new AccountData
+                    {
+                        Accounts =
+                            JsonConvert.DeserializeObject<List<Account>>(
+                                new Encryption().Decrypt(Settings.Default.Accounts))
                     });
 
             // Resolve Steam path.
@@ -64,7 +77,10 @@ namespace SteamAccountSwitcher
 
             if (Settings.Default.OnStartLoginName != "" && Settings.Default.AlwaysOn)
             {
-                foreach (var account in _accountHandler.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName))
+                foreach (
+                    var account in
+                        _accountHandler.AccountData.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName)
+                    )
                 {
                     _accountHandler.SwitchAccount(_accountHandler.Accounts.IndexOf(account));
                     break;
@@ -78,7 +94,9 @@ namespace SteamAccountSwitcher
                 spAccounts.Children[0].Focus();
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
+        private
+            void Window_Closing
+            (object sender, CancelEventArgs e)
         {
             if (Settings.Default.AlwaysOn)
             {
@@ -89,22 +107,30 @@ namespace SteamAccountSwitcher
             Application.Current.Shutdown();
         }
 
-        private void Window_Closed(object sender, EventArgs e)
+        private
+            void Window_Closed
+            (object sender, EventArgs e)
         {
             SettingsHelper.SaveSettings(_accountHandler);
         }
 
-        private void btnOptions_Click(object sender, RoutedEventArgs e)
+        private
+            void btnOptions_Click
+            (object sender, RoutedEventArgs e)
         {
             Menu.IsOpen = true;
         }
 
-        private void btnAddAccount_Click(object sender, RoutedEventArgs e)
+        private
+            void btnAddAccount_Click
+            (object sender, RoutedEventArgs e)
         {
             _accountHandler.New();
         }
 
-        private void notifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        private
+            void notifyIcon_TrayMouseDoubleClick
+            (object sender, RoutedEventArgs e)
         {
             Show();
         }

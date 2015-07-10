@@ -1,7 +1,6 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
 using System.Windows;
 using Newtonsoft.Json;
 using SteamAccountSwitcher.Properties;
@@ -12,7 +11,7 @@ namespace SteamAccountSwitcher
 {
     internal class SettingsHelper
     {
-        public static string SerializeAccounts(List<Account> accounts)
+        public static string SerializeAccounts(AccountData accounts)
         {
             try
             {
@@ -25,13 +24,13 @@ namespace SteamAccountSwitcher
             return string.Empty;
         }
 
-        public static List<Account> DeserializeAccounts()
+        public static AccountData DeserializeAccounts()
         {
             try
             {
-                return string.IsNullOrWhiteSpace(Settings.Default.Accounts)
-                    ? new List<Account>()
-                    : JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts));
+                return string.IsNullOrWhiteSpace(Settings.Default.AccountData)
+                    ? new AccountData()
+                    : JsonConvert.DeserializeObject<AccountData>(new Encryption().Decrypt(Settings.Default.AccountData));
             }
             catch (Exception)
             {

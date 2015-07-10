@@ -66,7 +66,7 @@ namespace SteamAccountSwitcher
 
         private void menuItemExport_OnClick(object sender, EventArgs e)
         {
-            var dialog = new InputBox(SettingsHelper.SerializeAccounts(_accountHandler.Accounts));
+            var dialog = new InputBox(SettingsHelper.SerializeAccounts(_accountHandler.AccountData));
             dialog.ShowDialog();
         }
 
