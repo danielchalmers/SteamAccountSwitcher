@@ -182,4 +182,8 @@
   <data name="SteamBigPictureArg" xml:space="preserve">
     <value>-tenfoot</value>
   </data>
+  <data name="GitHubCommits" xml:space="preserve">
+    <value>https://github.com/danielchalmers/SteamAccountSwitcher/commits</value>
+    <comment>GitHub Commits</comment>
+  </data>
 </root>

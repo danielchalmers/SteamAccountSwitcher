@@ -142,6 +142,15 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://github.com/danielchalmers/SteamAccountSwitcher/commits.
+        /// </summary>
+        public static string GitHubCommits {
+            get {
+                return ResourceManager.GetString("GitHubCommits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap menu {
