@@ -20,6 +20,8 @@ namespace SteamAccountSwitcher
             InitializeComponent();
             _accountHandler = accountHandler;
             Settings.Default.Save();
+            lblVersion.Text = $"v{AssemblyInfo.GetVersionString()}";
+            lblVersion.ToolTip = lblVersion.Text;
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
