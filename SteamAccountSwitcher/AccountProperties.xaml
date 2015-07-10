@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d" Title="Account Properties" SizeToContent="Height" Width="300" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="10" />
@@ -34,14 +34,14 @@
 
         <Label Grid.Row="1" Grid.Column="1" x:Name="lblDisplayName" Content="Display Name:" />
         <TextBox Grid.Row="1" Grid.Column="3" x:Name="txtDisplayName" HorizontalAlignment="Stretch"
-                 VerticalAlignment="Center" Height="23" />
+                 VerticalAlignment="Center" Height="23" Text="{Binding Path=DisplayName, Mode=TwoWay}" />
         <Label Grid.Row="2" Grid.Column="1" x:Name="lblUsername" Content="Username:" />
         <TextBox Grid.Row="2" Grid.Column="3" x:Name="txtUsername" HorizontalAlignment="Stretch" Height="23"
-                 VerticalAlignment="Center" />
+                 VerticalAlignment="Center" Text="{Binding Path=Username, Mode=TwoWay}" />
         <Label Grid.Row="3" Grid.Column="1" x:Name="lblPassword" Content="Password:" />
         <Grid Grid.Row="3" Grid.Column="3" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden" />
-            <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus" />
+            <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden" Text="{Binding Path=Password, Mode=TwoWay}" />
+            <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus" PasswordChanged="txtPassword_OnPasswordChanged" />
             <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center"
                       Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
                       KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"
@@ -49,7 +49,7 @@
         </Grid>
         <Label Grid.Row="4" Grid.Column="1" x:Name="lblColor" Content="Color:" />
         <xctk:ColorPicker Grid.Row="4" Grid.Column="3" x:Name="txtColor" HorizontalAlignment="Stretch"
-                          VerticalAlignment="Center" Height="23" />
+                          VerticalAlignment="Center" Height="23" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
 
         <Button Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="4" x:Name="btnOK" Content="OK" Width="75"
                 IsDefault="True" Click="btnOK_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="23" />

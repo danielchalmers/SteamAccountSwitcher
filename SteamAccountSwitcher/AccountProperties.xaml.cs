@@ -19,23 +19,11 @@ namespace SteamAccountSwitcher
         {
             InitializeComponent();
             Title = account == null ? "New Account" : "Edit Account";
-            if (account == null)
-                account = new Account();
-            txtDisplayName.Text = account.DisplayName;
-            txtUsername.Text = account.Username;
-            txtPassword.Password = account.Password;
-            txtColor.SelectedColor = account.Color.Color;
-        }
+            NewAccount = account ?? new Account();
 
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            NewAccount = new Account
-            {
-                DisplayName = txtDisplayName.Text,
-                Username = txtUsername.Text,
-                Password = string.IsNullOrWhiteSpace(txtPassword.Password) ? txtPasswordText.Text : txtPassword.Password,
-                Color = new SolidColorBrush(txtColor.SelectedColor)
-            };
+            DataContext = NewAccount;
+
+            txtPassword.Password = NewAccount.Password;
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
@@ -61,6 +49,11 @@ namespace SteamAccountSwitcher
             txtPassword.Focus();
         }
 
+        private void txtPassword_OnPasswordChanged(object sender, RoutedEventArgs e)
+        {
+            NewAccount.Password = txtPassword.Password;
+        }
+        
         private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             if (chkShowPassword.IsChecked == true)
