@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using System.Windows;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -91,6 +92,17 @@ namespace SteamAccountSwitcher
             var dia = new SteamPath();
             dia.ShowDialog();
             return dia.Path;
+        }
+
+        public static void ResolvePathShutdown()
+        {
+            if (Settings.Default.SteamPath == string.Empty || !File.Exists(Settings.Default.SteamPath))
+                Settings.Default.SteamPath = ResolvePath();
+            if (Settings.Default.SteamPath == string.Empty)
+            {
+                Popup.Show("Steam path could not be located. Application will now exit.");
+                Application.Current.Shutdown();
+            }
         }
 
         public static bool IsSteamOpen()

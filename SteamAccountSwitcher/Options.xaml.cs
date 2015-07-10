@@ -61,12 +61,12 @@ namespace SteamAccountSwitcher
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
                 return;
             Settings.Default.Accounts = dialog.TextData;
-            _accountHandler.ReloadAccounts();
+            App.AccountData = SettingsHelper.DeserializeAccounts();
         }
 
         private void menuItemExport_OnClick(object sender, EventArgs e)
         {
-            var dialog = new InputBox(SettingsHelper.SerializeAccounts(_accountHandler.AccountData));
+            var dialog = new InputBox(SettingsHelper.SerializeAccounts(App.AccountData));
             dialog.ShowDialog();
         }
 

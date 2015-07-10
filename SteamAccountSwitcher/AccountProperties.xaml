@@ -40,8 +40,10 @@
                  VerticalAlignment="Center" Text="{Binding Path=Username, Mode=TwoWay}" />
         <Label Grid.Row="3" Grid.Column="1" x:Name="lblPassword" Content="Password:" />
         <Grid Grid.Row="3" Grid.Column="3" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Center">
-            <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden" Text="{Binding Path=Password, Mode=TwoWay}" />
-            <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus" PasswordChanged="txtPassword_OnPasswordChanged" />
+            <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden"
+                     Text="{Binding Path=Password, Mode=TwoWay}" />
+            <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus"
+                         PasswordChanged="txtPassword_OnPasswordChanged" />
             <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center"
                       Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
                       KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"

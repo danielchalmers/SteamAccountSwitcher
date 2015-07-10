@@ -55,13 +55,13 @@ namespace SteamAccountSwitcher
                     accountHandler._showWindow();
 
             accountHandler.Refresh();
-            SaveSettings(accountHandler);
+            SaveSettings();
         }
 
-        public static void SaveSettings(AccountHandler accountHandler)
+        public static void SaveSettings()
         {
             // Save settings.
-            accountHandler.SaveAccounts();
+            Settings.Default.AccountData = SerializeAccounts(App.AccountData);
             Settings.Default.Save();
         }
 
@@ -74,6 +74,11 @@ namespace SteamAccountSwitcher
                 Settings.Default.MustUpgrade = false;
                 Settings.Default.Save();
             }
+        }
+
+        public static void IncrementLaunches()
+        {
+            Settings.Default.Launches++;
         }
     }
 }

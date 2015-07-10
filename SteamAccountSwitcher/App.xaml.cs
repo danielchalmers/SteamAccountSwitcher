@@ -19,6 +19,8 @@ namespace SteamAccountSwitcher
         public static Mutex _mutex = new Mutex(false,
             $"{SteamAccountSwitcher.Properties.Resources.AppName} SingleInstance");
 
+        public static AccountData AccountData;
+
         public App()
         {
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;
@@ -34,13 +36,38 @@ namespace SteamAccountSwitcher
                     Popup.Show("You can only run one instance at a time.");
                     Shutdown();
                 }
+
+            Init();
+        }
+
+        private void Init()
+        {
+            // Upgrade settings.
+            SettingsHelper.UpgradeSettings();
+
+            // Increment launch times.
+            SettingsHelper.IncrementLaunches();
+
+            // Add default shortcuts.
+            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.AccountData == string.Empty)
+                Settings.Default.AccountData = AccountDataHelper.DefaultData();
+
+            AccountDataHelper.UpgradeAccounts();
+
+            AccountData = SettingsHelper.DeserializeAccounts();
+
+            // Resolve Steam path.
+            SteamClient.ResolvePathShutdown();
+
+            // Start update checker.
+            UpdateChecker.Start();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
 
-            Settings.Default.Save();
+            SettingsHelper.SaveSettings();
             ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
         }
 

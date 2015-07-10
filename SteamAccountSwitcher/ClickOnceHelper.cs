@@ -16,7 +16,7 @@ namespace SteamAccountSwitcher
         public static readonly string AppPath =
             $"\"{Environment.GetFolderPath(Environment.SpecialFolder.Programs)}\\Daniel Chalmers\\{Resources.AppName}.appref-ms\"";
 
-        public static bool IsFirstLaunch => Settings.Default.Launches == 1;
+        public static bool IsFirstLaunch => Settings.Default.Launches == 1 || Settings.Default.Launches == 0;
         public static bool IsUpdateable => ApplicationDeployment.IsNetworkDeployed;
 
         public static void CheckForUpdates(bool silent = false)

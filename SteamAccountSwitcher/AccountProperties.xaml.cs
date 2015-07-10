@@ -1,8 +1,6 @@
 ﻿#region
 
-using System.ComponentModel;
 using System.Windows;
-using System.Windows.Media;
 
 #endregion
 
@@ -53,7 +51,7 @@ namespace SteamAccountSwitcher
         {
             NewAccount.Password = txtPassword.Password;
         }
-        
+
         private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             if (chkShowPassword.IsChecked == true)

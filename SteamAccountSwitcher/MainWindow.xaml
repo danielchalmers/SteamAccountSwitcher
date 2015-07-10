@@ -6,7 +6,7 @@
         xmlns:tb="http://www.hardcodet.net/taskbar" mc:Ignorable="d" SizeToContent="Height"
         ResizeMode="CanMinimize" Title="{x:Static p:Resources.AppName}" WindowStartupLocation="CenterScreen"
         Closing="Window_Closing" Icon="steam.ico"
-        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}" Closed="Window_Closed">
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
     </Window.Resources>
