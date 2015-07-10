@@ -118,6 +118,7 @@
       <DependentUpon>AdvancedOptions.xaml</DependentUpon>
     </Compile>
     <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="AutoSaveScheduler.cs" />
     <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />

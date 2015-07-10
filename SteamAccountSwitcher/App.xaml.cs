@@ -61,6 +61,7 @@ namespace SteamAccountSwitcher
 
             // Start update checker.
             UpdateChecker.Start();
+            AutoSaveScheduler.Start();
         }
 
         protected override void OnExit(ExitEventArgs e)
