@@ -130,20 +130,46 @@ namespace SteamAccountSwitcher
             Add(dialog.NewAccount);
         }
 
-        public void MoveUp(int i = -2)
+        public void MoveTop(int i = -2, bool update = true)
         {
             var index = i == -2 ? SelectedIndex : i;
-            if (index == 0) return;
-            Accounts.Swap(index, index - 1);
-            Refresh();
+            var account = Accounts[index];
+            Accounts.Remove(account);
+            Accounts.Insert(0, account);
+            if (update)
+                Refresh();
         }
 
-        public void MoveDown(int i = -2)
+        public void MoveBottom(int i = -2, bool update = true)
         {
             var index = i == -2 ? SelectedIndex : i;
-            if (Accounts.Count <= index + 1) return;
-            Accounts.Swap(index, index + 1);
-            Refresh();
+            var account = Accounts[index];
+            Accounts.Remove(account);
+            Accounts.Insert(Accounts.Count, account);
+            if (update)
+                Refresh();
+        }
+
+        public void MoveUp(int i = -2, bool update = true)
+        {
+            var index = i == -2 ? SelectedIndex : i;
+            if (index == 0)
+                MoveBottom(index, false);
+            else
+                Accounts.Swap(index, index - 1);
+            if(update)
+                Refresh();
+        }
+
+        public void MoveDown(int i = -2, bool update = true)
+        {
+            var index = i == -2 ? SelectedIndex : i;
+            if (Accounts.Count <= index + 1)
+                MoveTop(index, false);
+            else
+                Accounts.Swap(index, index + 1);
+            if (update)
+                Refresh();
         }
 
         public void Remove(int i = -2, bool msg = false)
