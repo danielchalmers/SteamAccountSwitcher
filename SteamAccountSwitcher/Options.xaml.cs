@@ -47,6 +47,7 @@ namespace SteamAccountSwitcher
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
             {
                 Settings.Default.Reset();
+                AccountDataHelper.ReloadData();
                 Popup.Show("All settings have been restored to default.\n\nYou may need to restart this application.");
             }
         }
@@ -61,7 +62,7 @@ namespace SteamAccountSwitcher
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
                 return;
             Settings.Default.Accounts = dialog.TextData;
-            App.AccountData = SettingsHelper.DeserializeAccounts();
+            AccountDataHelper.ReloadData();
         }
 
         private void menuItemExport_OnClick(object sender, EventArgs e)

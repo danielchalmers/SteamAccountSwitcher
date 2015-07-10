@@ -54,7 +54,7 @@ namespace SteamAccountSwitcher
 
             AccountDataHelper.UpgradeAccounts();
 
-            AccountData = SettingsHelper.DeserializeAccounts();
+            AccountDataHelper.ReloadData();
 
             // Resolve Steam path.
             SteamClient.ResolvePathShutdown();

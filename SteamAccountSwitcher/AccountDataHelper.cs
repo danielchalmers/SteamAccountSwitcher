@@ -37,5 +37,10 @@ namespace SteamAccountSwitcher
                                 new Encryption().Decrypt(Settings.Default.Accounts))
                     });
         }
+
+        public static void ReloadData()
+        {
+            App.AccountData = SettingsHelper.DeserializeAccounts();
+        }
     }
 }
