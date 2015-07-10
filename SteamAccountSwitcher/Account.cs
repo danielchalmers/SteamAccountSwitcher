@@ -12,6 +12,6 @@ namespace SteamAccountSwitcher
         public string DisplayName { get; set; } = "";
         public string Username { get; set; } = "";
         public string Password { get; set; } = "";
-        public SolidColorBrush Color { get; set; } = new SolidColorBrush(Settings.Default.ButtonDefaultColor);
+        public Color Color { get; set; } = Settings.Default.ButtonDefaultColor;
     }
 }
