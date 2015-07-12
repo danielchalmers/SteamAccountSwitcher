@@ -217,18 +217,6 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string AccountData {
-            get {
-                return ((string)(this["AccountData"]));
-            }
-            set {
-                this["AccountData"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Accounts {
             get {
                 return ((string)(this["Accounts"]));

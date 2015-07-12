@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -36,10 +37,10 @@ namespace SteamAccountSwitcher
             {
                 foreach (
                     var account in
-                        App.AccountData.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName)
+                        App.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName)
                     )
                 {
-                    _accountHandler.SwitchAccount(_accountHandler.Accounts.IndexOf(account));
+                    _accountHandler.SwitchAccount(App.Accounts.IndexOf(account));
                     break;
                 }
             }

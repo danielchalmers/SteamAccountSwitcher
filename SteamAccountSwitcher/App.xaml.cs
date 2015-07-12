@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -19,7 +20,7 @@ namespace SteamAccountSwitcher
         public static Mutex _mutex = new Mutex(false,
             $"{SteamAccountSwitcher.Properties.Resources.AppName} SingleInstance");
 
-        public static AccountData AccountData;
+        public static List<Account> Accounts;
 
         public App()
         {
@@ -49,10 +50,8 @@ namespace SteamAccountSwitcher
             SettingsHelper.IncrementLaunches();
 
             // Add default shortcuts.
-            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.AccountData == string.Empty)
-                Settings.Default.AccountData = AccountDataHelper.DefaultData();
-
-            AccountDataHelper.UpgradeAccounts();
+            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
+                Settings.Default.Accounts = AccountDataHelper.DefaultData();
 
             AccountDataHelper.ReloadData();
 

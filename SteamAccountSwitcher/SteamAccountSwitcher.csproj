@@ -108,7 +108,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Account.cs" />
-    <Compile Include="AccountData.cs" />
     <Compile Include="AccountDataHelper.cs" />
     <Compile Include="AccountHandler.cs" />
     <Compile Include="AccountProperties.xaml.cs">

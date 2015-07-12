@@ -2,6 +2,7 @@
 
 using System;
 using System.Windows;
+using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -69,7 +70,7 @@ namespace SteamAccountSwitcher
 
         private void menuItemExport_OnClick(object sender, EventArgs e)
         {
-            var dialog = new InputBox(SettingsHelper.SerializeAccounts(App.AccountData));
+            var dialog = new InputBox(SettingsHelper.SerializeAccounts(App.Accounts));
             dialog.ShowDialog();
         }
 

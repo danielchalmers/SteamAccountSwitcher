@@ -1,17 +1,17 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using SteamAccountSwitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
 
-namespace SteamAccountSwitcher
+namespace SteamAccountswitcher
 {
     public class AccountHandler
     {
@@ -28,15 +28,9 @@ namespace SteamAccountSwitcher
             Refresh();
         }
 
-        public List<Account> Accounts
-        {
-            get { return App.AccountData.Accounts; }
-            set { App.AccountData.Accounts = value; }
-        }
-
         public void Add(Account account)
         {
-            Accounts.Add(account);
+            App.Accounts.Add(account);
             Refresh();
         }
 
@@ -46,7 +40,7 @@ namespace SteamAccountSwitcher
             _stackPanel.Children.Clear();
 
             // Add new buttons with saved shortcut data
-            foreach (var btn in Accounts.Select(account => new Button
+            foreach (var btn in App.Accounts.Select(account => new Button
             {
                 Content =
                     new TextBlock
@@ -103,16 +97,16 @@ namespace SteamAccountSwitcher
         private void worker_DoWork(object sender, DoWorkEventArgs e)
         {
             if (SteamClient.LogOutTimeout())
-                SteamClient.LogIn(Accounts[SelectedIndex]);
+                SteamClient.LogIn(App.Accounts[SelectedIndex]);
         }
 
         public void OpenPropeties()
         {
-            var dialog = new AccountProperties(Accounts[SelectedIndex]);
+            var dialog = new AccountProperties(App.Accounts[SelectedIndex]);
             dialog.ShowDialog();
             if (dialog.NewAccount == null)
                 return;
-            Accounts[SelectedIndex] = dialog.NewAccount;
+            App.Accounts[SelectedIndex] = dialog.NewAccount;
             Refresh();
         }
 
@@ -132,9 +126,9 @@ namespace SteamAccountSwitcher
         public void MoveTop(int i = -2, bool update = true)
         {
             var index = i == -2 ? SelectedIndex : i;
-            var account = Accounts[index];
-            Accounts.Remove(account);
-            Accounts.Insert(0, account);
+            var account = App.Accounts[index];
+            App.Accounts.Remove(account);
+            App.Accounts.Insert(0, account);
             if (update)
                 Refresh();
         }
@@ -142,9 +136,9 @@ namespace SteamAccountSwitcher
         public void MoveBottom(int i = -2, bool update = true)
         {
             var index = i == -2 ? SelectedIndex : i;
-            var account = Accounts[index];
-            Accounts.Remove(account);
-            Accounts.Insert(Accounts.Count, account);
+            var account = App.Accounts[index];
+            App.Accounts.Remove(account);
+            App.Accounts.Insert(App.Accounts.Count, account);
             if (update)
                 Refresh();
         }
@@ -155,7 +149,7 @@ namespace SteamAccountSwitcher
             if (index == 0)
                 MoveBottom(index, false);
             else
-                Accounts.Swap(index, index - 1);
+                App.Accounts.Swap(index, index - 1);
             if(update)
                 Refresh();
         }
@@ -163,10 +157,10 @@ namespace SteamAccountSwitcher
         public void MoveDown(int i = -2, bool update = true)
         {
             var index = i == -2 ? SelectedIndex : i;
-            if (Accounts.Count <= index + 1)
+            if (App.Accounts.Count <= index + 1)
                 MoveTop(index, false);
             else
-                Accounts.Swap(index, index + 1);
+                App.Accounts.Swap(index, index + 1);
             if (update)
                 Refresh();
         }
@@ -174,13 +168,13 @@ namespace SteamAccountSwitcher
         public void Remove(int i = -2, bool msg = false)
         {
             var index = i == -2 ? SelectedIndex : i;
-            if (index < 0 || index > Accounts.Count - 1) return;
+            if (index < 0 || index > App.Accounts.Count - 1) return;
             if (msg &&
                 Popup.Show(
-                    $"Are you sure you want to delete this account?\r\n\r\n\"{GetAccountDisplayName(Accounts[index])}\"",
+                    $"Are you sure you want to delete this account?\r\n\r\n\"{GetAccountDisplayName(App.Accounts[index])}\"",
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
                 return;
-            Accounts.RemoveAt(index);
+            App.Accounts.RemoveAt(index);
             Refresh();
         }
 

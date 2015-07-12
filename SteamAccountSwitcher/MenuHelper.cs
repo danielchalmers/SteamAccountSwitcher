@@ -3,6 +3,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -78,16 +79,16 @@ namespace SteamAccountSwitcher
             var itemStartSteam = new MenuItem {Header = "Open Steam"};
             itemStartSteam.Click += delegate { SteamClient.Launch(); };
 
-            if (_accountHandler?.Accounts != null && _accountHandler.Accounts.Count > 0)
+            if (App.Accounts != null && App.Accounts.Count > 0)
             {
-                for (var i = 0; i < _accountHandler.Accounts.Count; i++)
+                for (var i = 0; i < App.Accounts.Count; i++)
                 {
                     var item = new MenuItem
                     {
                         Header =
-                            string.IsNullOrWhiteSpace(_accountHandler.Accounts[i].DisplayName)
-                                ? _accountHandler.Accounts[i].Username
-                                : _accountHandler.Accounts[i].DisplayName
+                            string.IsNullOrWhiteSpace(App.Accounts[i].DisplayName)
+                                ? App.Accounts[i].Username
+                                : App.Accounts[i].DisplayName
                     };
                     var i1 = i;
                     item.Click += delegate { _accountHandler.SwitchAccount(i1); };
