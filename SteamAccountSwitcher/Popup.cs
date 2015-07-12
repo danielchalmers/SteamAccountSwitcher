@@ -1,6 +1,8 @@
 ﻿#region
 
 using System.Windows;
+using System.Windows.Media;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -15,13 +17,13 @@ namespace SteamAccountSwitcher
             {
                 Visibility = Visibility.Hidden,
                 AllowsTransparency = true,
-                Background = System.Windows.Media.Brushes.Transparent,
+                Background = Brushes.Transparent,
                 WindowStyle = WindowStyle.None,
                 ShowInTaskbar = false
             };
 
             window.Show();
-            var msg = MessageBox.Show(window, text, Properties.Resources.AppName, btn, img, defaultbtn);
+            var msg = MessageBox.Show(window, text, Resources.AppName, btn, img, defaultbtn);
             window.Close();
             return msg;
         }

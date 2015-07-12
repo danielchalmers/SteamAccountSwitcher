@@ -2,7 +2,6 @@
 
 using System;
 using System.Windows;
-using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -14,12 +13,9 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class Options : Window
     {
-        private readonly AccountHandler _accountHandler;
-
-        public Options(AccountHandler accountHandler)
+        public Options()
         {
             InitializeComponent();
-            _accountHandler = accountHandler;
             Settings.Default.Save();
             lblVersion.Text = $"v{AssemblyInfo.GetVersionStringFull()}";
             lblVersion.ToolTip = lblVersion.Text;

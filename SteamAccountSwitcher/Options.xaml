@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
@@ -97,8 +97,8 @@
 
 
         </Grid>
-        
-        <TextBlock Grid.Row="0" Grid.Column="0" x:Name="lblVersion" FontSize="8" HorizontalAlignment="Right" Margin="5"/>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" x:Name="lblVersion" FontSize="8" HorizontalAlignment="Right" Margin="5" />
 
         <Button Grid.Row="2" Grid.Column="0" x:Name="btnExtra" Click="btnExtra_Click" Width="28" Height="24"
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="15,0,0,15">

@@ -14,6 +14,10 @@ namespace SteamAccountSwitcher
         public string Username { get; set; } = "";
         public string Password { get; set; } = "";
         public Color Color { get; set; } = Settings.Default.ButtonDefaultColor;
-        public object Clone() { return MemberwiseClone(); }
+
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
     }
 }

@@ -47,7 +47,7 @@ namespace SteamAccountSwitcher
             var alwaysOn = Settings.Default.AlwaysOn;
 
             // Open options window.
-            var dialog = new Options(accountHandler);
+            var dialog = new Options();
             dialog.ShowDialog();
 
             if (alwaysOn != Settings.Default.AlwaysOn)

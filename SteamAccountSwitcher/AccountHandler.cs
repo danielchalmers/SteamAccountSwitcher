@@ -150,7 +150,7 @@ namespace SteamAccountswitcher
                 MoveBottom(index, false);
             else
                 App.Accounts.Swap(index, index - 1);
-            if(update)
+            if (update)
                 Refresh();
         }
 
