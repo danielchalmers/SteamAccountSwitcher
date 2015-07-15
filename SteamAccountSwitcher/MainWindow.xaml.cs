@@ -57,7 +57,6 @@ namespace SteamAccountSwitcher
                 Hide();
                 return;
             }
-            Application.Current.Shutdown();
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
