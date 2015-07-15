@@ -12,23 +12,36 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class InputBox : Window
     {
+        public bool Cancelled;
         public string TextData;
 
-        public InputBox(string displayData = "")
+        public InputBox(string title, string displayData = null)
         {
             InitializeComponent();
-            if (displayData != "")
+            if (displayData != null)
             {
                 txtData.Text = displayData;
                 txtData.IsReadOnly = true;
                 txtData.SelectAll();
                 //Clipboard.SetText(displayData);
+                btnCancel.Visibility = Visibility.Collapsed;
             }
+            else
+            {
+                btnCancel.Visibility = Visibility.Visible;
+            }
+            Title = title;
             txtData.Focus();
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            DialogResult = true;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Cancelled = true;
             DialogResult = true;
         }
 

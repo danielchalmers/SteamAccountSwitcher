@@ -20,8 +20,21 @@
         <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" x:Name="txtData" HorizontalAlignment="Stretch"
                  VerticalAlignment="Stretch" Margin="15" TextWrapping="Wrap" AcceptsReturn="True" />
 
-        <Button Grid.Column="1" Grid.Row="1" x:Name="btnOK" Content="OK" Margin="0,0,15,15" Width="75" Height="23"
-                IsDefault="True"
-                Click="btnOK_Click" VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+        <Grid Row="1" Column="0" ColumnSpan="2" Margin="15,0,15,15">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23" />
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch" IsDefault="True" Width="75" />
+            <Button Grid.Column="2" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
+                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" Width="75"
+                    Margin="5,0,0,0" />
+        </Grid>
     </Grid>
 </Window>

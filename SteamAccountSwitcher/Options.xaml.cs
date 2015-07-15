@@ -53,20 +53,21 @@ namespace SteamAccountSwitcher
 
         private void menuItemImport_OnClick(object sender, EventArgs e)
         {
-            var dialog = new InputBox();
+            var dialog = new InputBox("Import Accounts");
             dialog.ShowDialog();
-            if (
+            if (dialog.Cancelled == false &&
                 Popup.Show(
                     "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
-                return;
-            Settings.Default.Accounts = dialog.TextData;
-            AccountDataHelper.ReloadData();
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                Settings.Default.Accounts = dialog.TextData;
+                AccountDataHelper.ReloadData();
+            }
         }
 
         private void menuItemExport_OnClick(object sender, EventArgs e)
         {
-            var dialog = new InputBox(SettingsHelper.SerializeAccounts(App.Accounts));
+            var dialog = new InputBox("Export Accounts", SettingsHelper.SerializeAccounts(App.Accounts));
             dialog.ShowDialog();
         }
 
