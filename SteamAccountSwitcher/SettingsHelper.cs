@@ -82,5 +82,19 @@ namespace SteamAccountSwitcher
         {
             Settings.Default.Launches++;
         }
+
+        public static void ResetSettings(bool msg = true)
+        {
+            if (msg && Popup.Show(
+                "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
+                return;
+            Settings.Default.Reset();
+            Settings.Default.MustUpgrade = false;
+            Settings.Default.Accounts = AccountDataHelper.DefaultData();
+            AccountDataHelper.ReloadData();
+            Popup.Show("All settings have been restored to default.\n\nThis application will now restart.");
+            ClickOnceHelper.RestartApplication();
+        }
     }
 }

@@ -55,7 +55,6 @@ namespace SteamAccountSwitcher
             {
                 e.Cancel = true;
                 Hide();
-                return;
             }
         }
 

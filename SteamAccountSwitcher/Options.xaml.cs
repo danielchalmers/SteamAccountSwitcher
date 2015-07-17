@@ -40,15 +40,7 @@ namespace SteamAccountSwitcher
 
         private void menuItemDefaults_OnClick(object sender, EventArgs e)
         {
-            if (
-                Popup.Show(
-                    "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
-            {
-                Settings.Default.Reset();
-                AccountDataHelper.ReloadData();
-                Popup.Show("All settings have been restored to default.\n\nYou may need to restart this application.");
-            }
+            SettingsHelper.ResetSettings();
         }
 
         private void menuItemImport_OnClick(object sender, EventArgs e)

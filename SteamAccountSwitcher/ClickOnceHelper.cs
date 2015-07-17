@@ -62,7 +62,7 @@ namespace SteamAccountSwitcher
                     return;
                 }
                 if (silent && info.AvailableVersion == Settings.Default.ForgetUpdateVersion) return;
-                UpdateCheckScheduler.Stop();
+                App.UpdateScheduler.Stop();
 
                 var updateDialog = new UpdatePrompt(info.AvailableVersion, info.IsUpdateRequired);
                 updateDialog.ShowDialog();
@@ -85,7 +85,7 @@ namespace SteamAccountSwitcher
                         }
                         break;
                 }
-                UpdateCheckScheduler.Start();
+                App.UpdateScheduler.Start();
             }
             else
             {
@@ -97,7 +97,12 @@ namespace SteamAccountSwitcher
 
         public static void RestartApplication()
         {
-            Process.Start(IsUpdateable ? AppPath : Application.ResourceAssembly.Location, "--restarting");
+            Process.Start(IsUpdateable ? AppPath : Application.ResourceAssembly.Location, "-restarting");
+            ShutdownApplication();
+        }
+
+        public static void ShutdownApplication()
+        {
             Application.Current.Shutdown();
         }
 

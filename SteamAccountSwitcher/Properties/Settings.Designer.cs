@@ -225,5 +225,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["MinWidth"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ResetSettingsOnNextLaunch {
+            get {
+                return ((bool)(this["ResetSettingsOnNextLaunch"]));
+            }
+            set {
+                this["ResetSettingsOnNextLaunch"] = value;
+            }
+        }
     }
 }

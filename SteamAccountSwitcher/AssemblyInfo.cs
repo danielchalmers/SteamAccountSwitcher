@@ -3,6 +3,7 @@
 using System;
 using System.Deployment.Application;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 #endregion
 
@@ -17,43 +18,20 @@ namespace SteamAccountSwitcher
             return value.Invoke(attribute);
         }
 
-        public static string GetVersionString()
-        {
-            return GetVersionString(GetVersion());
-        }
-
-        public static string GetVersionStringFull()
-        {
-            return GetVersionStringFull(GetVersion());
-        }
-
-        public static string GetVersionString(Version version)
-        {
-            return $"{version.Major}.{version.Minor}.{version.Build}";
-        }
-
-        public static string GetVersionStringFull(Version version)
-        {
-            return version.ToString();
-        }
+        public static string GetVersionString() => GetVersionString(GetVersion());
+        public static string GetVersionStringFull() => GetVersionStringFull(GetVersion());
+        public static string GetVersionString(Version version) => $"{version.Major}.{version.Minor}.{version.Build}";
+        public static string GetVersionStringFull(Version version) => version.ToString();
 
         public static Version GetVersion()
-        {
-            var obj = ApplicationDeployment.IsNetworkDeployed
-                ? ApplicationDeployment.CurrentDeployment.
-                    CurrentVersion
-                : Assembly.GetExecutingAssembly().GetName().Version;
-            return obj;
-        }
+            =>
+                (ApplicationDeployment.IsNetworkDeployed
+                    ? ApplicationDeployment.CurrentDeployment.CurrentVersion
+                    : Assembly.GetExecutingAssembly().GetName().Version);
 
-        public static string GetCopyright()
-        {
-            return GetAssemblyAttribute<AssemblyCopyrightAttribute>(a => a.Copyright);
-        }
-
-        public static string GetTitle()
-        {
-            return GetAssemblyAttribute<AssemblyTitleAttribute>(a => a.Title);
-        }
+        public static string GetCopyright() => GetAssemblyAttribute<AssemblyCopyrightAttribute>(a => a.Copyright);
+        public static string GetTitle() => GetAssemblyAttribute<AssemblyTitleAttribute>(a => a.Title);
+        public static string GetDescription() => GetAssemblyAttribute<AssemblyDescriptionAttribute>(a => a.Description);
+        public static string GetGuid() => GetAssemblyAttribute<GuidAttribute>(a => a.Value);
     }
 }

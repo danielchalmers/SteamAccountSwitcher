@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -17,9 +16,10 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class App : Application
     {
-        public static Mutex _mutex = new Mutex(false,
-            $"{SteamAccountSwitcher.Properties.Resources.AppName} SingleInstance");
-
+        public static Mutex AppMutex;
+        public static List<string> Arguments;
+        public static TaskScheduler UpdateScheduler;
+        public static TaskScheduler AutoSaveScheduler;
         public static List<Account> Accounts;
 
         public App()
@@ -30,45 +30,23 @@ namespace SteamAccountSwitcher
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            if (Settings.Default.AlwaysOn)
-                if (!e.Args.Contains("--restarting") && !_mutex.WaitOne(TimeSpan.Zero))
-                {
-                    Popup.Show("You can only run one instance at a time.");
-                    Shutdown();
-                }
-
-            Init();
-        }
-
-        private void Init()
-        {
-            // Upgrade settings.
-            SettingsHelper.UpgradeSettings();
-
-            // Increment launch times.
-            SettingsHelper.IncrementLaunches();
-
-            // Add default shortcuts.
-            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
-                Settings.Default.Accounts = AccountDataHelper.DefaultData();
-
-            AccountDataHelper.ReloadData();
-
-            // Resolve Steam path.
-            SteamClient.ResolvePathShutdown();
-
-            // Start update checker.
-            UpdateCheckScheduler.Start();
-            AutoSaveScheduler.Start();
+            Arguments = e.Args.ToList();
+            AppInitHelper.Initialize();
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
-            base.OnExit(e);
+            try
+            {
+                base.OnExit(e);
 
-            SettingsHelper.SaveSettings();
-            ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
+                SettingsHelper.SaveSettings();
+                ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
+            }
+            catch
+            {
+                // ignored
+            }
         }
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

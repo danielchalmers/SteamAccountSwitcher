@@ -116,8 +116,8 @@
     <Compile Include="AdvancedOptions.xaml.cs">
       <DependentUpon>AdvancedOptions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AppInitHelper.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="AutoSaveScheduler.cs" />
     <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />
@@ -136,8 +136,8 @@
     <Compile Include="SteamPath.xaml.cs">
       <DependentUpon>SteamPath.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TaskScheduler.cs" />
     <Compile Include="UpdateCheck.cs" />
-    <Compile Include="UpdateCheckScheduler.cs" />
     <Compile Include="UpdatePrompt.xaml.cs">
       <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>
