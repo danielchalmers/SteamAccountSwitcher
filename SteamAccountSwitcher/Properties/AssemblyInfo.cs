@@ -13,12 +13,12 @@ using System.Windows;
 [assembly: AssemblyTitle("Steam Account Switcher")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Daniel Chalmers Software")]
 [assembly: AssemblyProduct("Steam Account Switcher")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright Daniel Chalmers \u00A9 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-
+[assembly: Guid("22E1FAEA-639E-400B-9DCB-F2D04EC126E1")]
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
 // COM, set the ComVisible attribute to true on that type.
