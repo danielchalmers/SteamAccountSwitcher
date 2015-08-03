@@ -309,5 +309,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ShowFullErrors"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DontShowPopups {
+            get {
+                return ((bool)(this["DontShowPopups"]));
+            }
+            set {
+                this["DontShowPopups"] = value;
+            }
+        }
     }
 }
