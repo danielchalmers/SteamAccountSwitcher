@@ -285,5 +285,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["LastUpdateCheck"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("180")]
+        public int UpdateCheckIntervalMinutes {
+            get {
+                return ((int)(this["UpdateCheckIntervalMinutes"]));
+            }
+            set {
+                this["UpdateCheckIntervalMinutes"] = value;
+            }
+        }
     }
 }

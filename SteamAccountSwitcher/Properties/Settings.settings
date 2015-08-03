@@ -68,5 +68,8 @@
     <Setting Name="LastUpdateCheck" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">2000-01-01</Value>
     </Setting>
+    <Setting Name="UpdateCheckIntervalMinutes" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">180</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
