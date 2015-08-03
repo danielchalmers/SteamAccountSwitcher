@@ -50,8 +50,9 @@ namespace SteamAccountSwitcher
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            var errorMessage = $"An unhandled exception occurred:\n\n{e.Exception.Message}";
-            MessageBox.Show(errorMessage, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            Popup.Show(
+               $"An unhandled exception occurred:\r\n\r\n{(Settings.Default.ShowFullErrors ? e.Exception.ToString() : e.Exception.Message)}",
+               MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
         }
     }

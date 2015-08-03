@@ -297,5 +297,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["UpdateCheckIntervalMinutes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowFullErrors {
+            get {
+                return ((bool)(this["ShowFullErrors"]));
+            }
+            set {
+                this["ShowFullErrors"] = value;
+            }
+        }
     }
 }
