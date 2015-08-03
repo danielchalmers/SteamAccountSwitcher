@@ -60,7 +60,7 @@ namespace SteamAccountSwitcher
                             continue;
                         str.AppendLine(isVersion ? $"{(firstVersion ? "" : Environment.NewLine)}{commit}" : $" {commit}");
                     }
-                    str.Append($"\nYou can view the rest of the changelog at {Resources.GitHubCommits}");
+                    str.Append($"\nYou can view the full changelog at {Resources.GitHubCommits}");
                     _updateText = str.ToString();
                 }
             }
