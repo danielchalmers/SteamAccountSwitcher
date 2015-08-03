@@ -24,12 +24,12 @@ namespace SteamAccountSwitcher.OptionsPages
 
         private void menuItemImport_OnClick(object sender, EventArgs e)
         {
-            SettingsHelper.ImportSettings();
+            AccountDataHelper.ImportAccounts();
         }
 
         private void menuItemExport_OnClick(object sender, EventArgs e)
         {
-            SettingsHelper.ExportSettings();
+            AccountDataHelper.ExportAccounts();
         }
     }
 }
