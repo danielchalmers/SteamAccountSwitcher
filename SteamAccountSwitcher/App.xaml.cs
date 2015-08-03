@@ -19,7 +19,6 @@ namespace SteamAccountSwitcher
         public static Mutex AppMutex;
         public static List<string> Arguments;
         public static TaskScheduler UpdateScheduler;
-        public static TaskScheduler AutoSaveScheduler;
         public static List<Account> Accounts;
 
         public App()
