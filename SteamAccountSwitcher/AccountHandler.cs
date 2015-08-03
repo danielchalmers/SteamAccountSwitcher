@@ -36,6 +36,7 @@ namespace SteamAccountswitcher
 
         public void Refresh()
         {
+            Settings.Default.Save();
             // Remove all buttons.
             _stackPanel.Children.Clear();
 
