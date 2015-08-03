@@ -20,6 +20,7 @@ namespace SteamAccountSwitcher
         public static List<string> Arguments;
         public static TaskScheduler UpdateScheduler;
         public static List<Account> Accounts;
+        public static HelperWindow HelperWindow;
 
         public App()
         {

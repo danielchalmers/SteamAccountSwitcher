@@ -119,6 +119,9 @@
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="GitHubApiCommits.cs" />
+    <Compile Include="HelperWindow.xaml.cs">
+      <DependentUpon>HelperWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="InputBox.xaml.cs">
       <DependentUpon>InputBox.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountProperties.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HelperWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

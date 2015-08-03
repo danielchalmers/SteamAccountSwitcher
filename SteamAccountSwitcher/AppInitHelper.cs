@@ -12,6 +12,7 @@ namespace SteamAccountSwitcher
     {
         public static void Initialize()
         {
+            App.HelperWindow = new HelperWindow();
             CheckSingleInstanceStatus();
             LoadSettings();
             SteamClient.ResolvePathShutdown();
