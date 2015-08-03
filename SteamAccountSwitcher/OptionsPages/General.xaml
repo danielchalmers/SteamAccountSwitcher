@@ -1,0 +1,27 @@
+﻿<Page x:Class="SteamAccountSwitcher.OptionsPages.General"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:SteamAccountSwitcher.OptionsPages"
+      xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      mc:Ignorable="d" Title="General">
+    <StackPanel>
+
+        <TextBlock Text="Always-On Mode:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=AlwaysOn, Mode=TwoWay}" />
+
+        <TextBlock Text="Check For Updates:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=CheckForUpdates, Mode=TwoWay}" />
+
+        <TextBlock Text="Silent Auto-Update:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=AutoUpdate, Mode=TwoWay}" />
+    </StackPanel>
+</Page>

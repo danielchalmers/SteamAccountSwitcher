@@ -1,0 +1,41 @@
+﻿<Page x:Class="SteamAccountSwitcher.OptionsPages.Advanced"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:SteamAccountSwitcher.OptionsPages"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
+      mc:Ignorable="d"
+      Title="Advanced">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0,0,5,0" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                    <Setter Property="Width" Value="75" />
+                    <Setter Property="Height" Value="23" />
+                </Style>
+            </StackPanel.Resources>
+
+            <Button Content="Import..." Click="menuItemImport_OnClick" />
+            <Button Content="Export..." Click="menuItemExport_OnClick" />
+            <Button Content="Defaults..." Click="menuItemDefaults_OnClick" />
+        </StackPanel>
+
+        <xctk:PropertyGrid Grid.Row="1"
+                           AutoGenerateProperties="true"
+                           SelectedObject="{Binding Source={x:Static properties:Settings.Default}}"
+                           IsCategorized="False"
+                           ShowSortOptions="False" ShowSummary="False" ShowTitle="False" ShowSearchBox="True"
+                           Background="{x:Static SystemColors.WindowBrush}" />
+    </Grid>
+</Page>

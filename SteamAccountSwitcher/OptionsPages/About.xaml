@@ -1,0 +1,19 @@
+﻿<Page x:Class="SteamAccountSwitcher.OptionsPages.About"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
+      mc:Ignorable="d"
+      Title="About">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Margin="10" Grid.Row="0"
+                   Text="{x:Static properties:Resources.AppName}" FontSize="24" />
+        <TextBlock Grid.Row="1" x:Name="txtDescription" TextWrapping="Wrap" />
+    </Grid>
+</Page>

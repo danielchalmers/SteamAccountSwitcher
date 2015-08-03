@@ -113,9 +113,6 @@
     <Compile Include="AccountProperties.xaml.cs">
       <DependentUpon>AccountProperties.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdvancedOptions.xaml.cs">
-      <DependentUpon>AdvancedOptions.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AppInitHelper.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ChangelogDownloader.cs" />
@@ -130,6 +127,21 @@
     <Compile Include="Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OptionsPages\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsPages\Advanced.xaml.cs">
+      <DependentUpon>Advanced.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsPages\Steam.xaml.cs">
+      <DependentUpon>Steam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsPages\Style.xaml.cs">
+      <DependentUpon>Style.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OptionsPages\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Popup.cs" />
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="SteamClient.cs" />
@@ -142,10 +154,6 @@
       <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>
     <Page Include="AccountProperties.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AdvancedOptions.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +174,26 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Options.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OptionsPages\About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OptionsPages\Advanced.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OptionsPages\Steam.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OptionsPages\Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OptionsPages\General.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -229,7 +257,7 @@
     <Resource Include="Resources\options.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\menu.png" />
+    <Resource Include="Resources\About.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

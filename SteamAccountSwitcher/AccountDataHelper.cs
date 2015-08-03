@@ -1,6 +1,8 @@
 ﻿#region
 
 using System.Collections.Generic;
+using System.Windows;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -24,6 +26,26 @@ namespace SteamAccountSwitcher
         public static void ReloadData()
         {
             App.Accounts = SettingsHelper.DeserializeAccounts();
+        }
+
+        public static void ImportAccounts()
+        {
+            var dialog = new InputBox("Import Accounts");
+            dialog.ShowDialog();
+            if (dialog.Cancelled == false &&
+                Popup.Show(
+                    "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
+                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+            {
+                Settings.Default.Accounts = dialog.TextData;
+                ReloadData();
+            }
+        }
+
+        public static void ExportAccounts()
+        {
+            var dialog = new InputBox("Export Accounts", SettingsHelper.SerializeAccounts(App.Accounts));
+            dialog.ShowDialog();
         }
     }
 }

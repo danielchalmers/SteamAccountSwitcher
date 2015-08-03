@@ -1,8 +1,14 @@
 ﻿#region
 
-using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Navigation;
+using SteamAccountSwitcher.OptionsPages;
 using SteamAccountSwitcher.Properties;
+using Style = SteamAccountSwitcher.OptionsPages.Style;
 
 #endregion
 
@@ -13,16 +19,37 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class Options : Window
     {
+        private readonly List<Page> _pages;
+
         public Options()
         {
             InitializeComponent();
+
+            _pages = new List<Page>();
+            LoadPages();
+
             Settings.Default.Save();
-            lblVersion.Text = $"v{AssemblyInfo.GetVersionStringFull()}";
-            lblVersion.ToolTip = lblVersion.Text;
+        }
+
+        private void LoadPages()
+        {
+            _pages.Add(new General());
+            _pages.Add(new Style());
+            _pages.Add(new Steam());
+            _pages.Add(new Advanced());
+            _pages.Add(new About());
+            for (var i = 0; i < _pages.Count; i++)
+                NavBar.Items.Add(new ListBoxItem
+                {
+                    Content = _pages[i].Title,
+                    Tag = i
+                });
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            foreach (var be in _pages.SelectMany(BindingOperations.GetSourceUpdatingBindings))
+                be.UpdateSource();
             Settings.Default.Save();
             DialogResult = true;
         }
@@ -33,40 +60,17 @@ namespace SteamAccountSwitcher
             DialogResult = true;
         }
 
-        private void btnExtra_Click(object sender, RoutedEventArgs e)
+        private void frame_LoadCompleted(object sender, NavigationEventArgs e)
         {
-            btnExtra.ContextMenu.IsOpen = true;
+            var content = OptionsFrame.Content as FrameworkElement;
+            if (content == null)
+                return;
+            content.Style = (System.Windows.Style) FindResource("OptionsStyle");
         }
 
-        private void menuItemDefaults_OnClick(object sender, EventArgs e)
+        private void NavBar_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            SettingsHelper.ResetSettings();
-        }
-
-        private void menuItemImport_OnClick(object sender, EventArgs e)
-        {
-            var dialog = new InputBox("Import Accounts");
-            dialog.ShowDialog();
-            if (dialog.Cancelled == false &&
-                Popup.Show(
-                    "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
-            {
-                Settings.Default.Accounts = dialog.TextData;
-                AccountDataHelper.ReloadData();
-            }
-        }
-
-        private void menuItemExport_OnClick(object sender, EventArgs e)
-        {
-            var dialog = new InputBox("Export Accounts", SettingsHelper.SerializeAccounts(App.Accounts));
-            dialog.ShowDialog();
-        }
-
-        private void menuItemAdvanced_OnClick(object sender, EventArgs e)
-        {
-            var dialog = new AdvancedOptions();
-            dialog.ShowDialog();
+            OptionsFrame.Navigate(_pages[NavBar.SelectedIndex]);
         }
     }
 }
