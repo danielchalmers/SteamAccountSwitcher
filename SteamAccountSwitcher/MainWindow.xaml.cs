@@ -55,7 +55,9 @@ namespace SteamAccountSwitcher
             {
                 e.Cancel = true;
                 Hide();
+                return;
             }
+            App.HelperWindow.Close();
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
