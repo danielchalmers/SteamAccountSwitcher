@@ -12,7 +12,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Margin="10" Grid.Row="0"
+        <TextBlock Margin="10,10,10,0" Grid.Row="0"
                    Text="{x:Static properties:Resources.AppName}" FontSize="24" />
         <TextBox Grid.Row="1" x:Name="txtDescription" Background="Transparent" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap" Height="Auto"/>
     </Grid>
