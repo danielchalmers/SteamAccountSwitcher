@@ -39,75 +39,84 @@ namespace SteamAccountSwitcher
 
         public static void CheckForUpdates(UpdateCheckInfo info, bool auto)
         {
-            if (!ApplicationDeployment.IsNetworkDeployed)
+            try
             {
-                if (!auto)
-                    Popup.Show("This application was not installed via ClickOnce and cannot be updated automatically.");
-                return;
-            }
-
-            if (info == null)
-            {
-                if (!auto)
-                    Popup.Show(
-                        "An error occurred while trying to check for updates.");
-                return;
-            }
-
-            Settings.Default.LastUpdateCheck = DateTime.Now;
-            if (info.UpdateAvailable)
-            {
-                if (AssemblyInfo.GetVersion().Major != ForgetUpdateVersion.Major &&
-                    ForgetUpdateVersion.Major == info.AvailableVersion.Major)
-                    return;
-
-                var ad = ApplicationDeployment.CurrentDeployment;
-                ad.UpdateCompleted += (sender, args) => RestartApplication();
-                if (auto && Settings.Default.AutoUpdate)
+                if (!ApplicationDeployment.IsNetworkDeployed)
                 {
-                    try
-                    {
-                        ad.UpdateAsync();
-                    }
-                    catch
-                    {
-                        // ignored
-                    }
+                    if (!auto)
+                        Popup.Show(
+                            "This application was not installed via ClickOnce and cannot be updated automatically.");
                     return;
                 }
-                if (auto && info.AvailableVersion == ForgetUpdateVersion)
-                    return;
-                App.UpdateScheduler.Stop();
 
-                var updateDialog = new UpdatePrompt(info.AvailableVersion, info.IsUpdateRequired);
-                updateDialog.ShowDialog();
-
-                switch (updateDialog.UserResponse)
+                if (info == null)
                 {
-                    case UpdatePrompt.UpdateResponse.RemindNever:
-                        Settings.Default.ForgetUpdateVersion = info.AvailableVersion;
-                        break;
-                    case UpdatePrompt.UpdateResponse.UpdateNow:
+                    if (!auto)
+                        Popup.Show(
+                            "An error occurred while trying to check for updates.");
+                    return;
+                }
+
+                Settings.Default.LastUpdateCheck = DateTime.Now;
+                if (info.UpdateAvailable)
+                {
+                    if (AssemblyInfo.GetVersion().Major != ForgetUpdateVersion.Major &&
+                        ForgetUpdateVersion.Major == info.AvailableVersion.Major)
+                        return;
+
+                    var ad = ApplicationDeployment.CurrentDeployment;
+                    ad.UpdateCompleted += (sender, args) => RestartApplication();
+                    if (auto && Settings.Default.AutoUpdate)
+                    {
                         try
                         {
                             ad.UpdateAsync();
                         }
-                        catch (DeploymentDownloadException dde)
+                        catch
                         {
-                            Popup.Show(
-                                "Cannot download the latest version of this application.\n\nPlease check your network connection, or try again later.\n\nError: " +
-                                dde);
+                            // ignored
                         }
-                        break;
-                }
+                        return;
+                    }
+                    if (auto && info.AvailableVersion == ForgetUpdateVersion)
+                        return;
+                    App.UpdateScheduler.Stop();
 
-                App.UpdateScheduler.Start();
+                    var updateDialog = new UpdatePrompt(info.AvailableVersion, info.IsUpdateRequired);
+                    updateDialog.ShowDialog();
+
+                    switch (updateDialog.UserResponse)
+                    {
+                        case UpdatePrompt.UpdateResponse.RemindNever:
+                            Settings.Default.ForgetUpdateVersion = info.AvailableVersion;
+                            break;
+                        case UpdatePrompt.UpdateResponse.UpdateNow:
+                            try
+                            {
+                                ad.UpdateAsync();
+                            }
+                            catch (DeploymentDownloadException dde)
+                            {
+                                Popup.Show(
+                                    "Cannot download the latest version of this application.\n\nPlease check your network connection, or try again later.\n\nError: " +
+                                    dde);
+                            }
+                            break;
+                    }
+
+                    App.UpdateScheduler.Start();
+                }
+                else
+                {
+                    if (!auto)
+                        Popup.Show(
+                            "There are no new updates available.");
+                }
             }
-            else
+            catch (Exception)
             {
                 if (!auto)
-                    Popup.Show(
-                        "There are no new updates available.");
+                    throw;
             }
         }
 
