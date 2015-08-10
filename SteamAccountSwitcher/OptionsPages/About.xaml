@@ -14,6 +14,6 @@
         </Grid.RowDefinitions>
         <TextBlock Margin="10" Grid.Row="0"
                    Text="{x:Static properties:Resources.AppName}" FontSize="24" />
-        <TextBlock Grid.Row="1" x:Name="txtDescription" TextWrapping="Wrap" />
+        <TextBox Grid.Row="1" x:Name="txtDescription" Background="Transparent" BorderThickness="0" IsReadOnly="True" TextWrapping="Wrap" Height="Auto"/>
     </Grid>
 </Page>
