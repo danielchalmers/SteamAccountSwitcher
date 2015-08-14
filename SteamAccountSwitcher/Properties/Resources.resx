@@ -195,4 +195,7 @@
   <data name="Website" xml:space="preserve">
     <value>https://danielchalmers.github.io/SteamAccountSwitcher/</value>
   </data>
+  <data name="SteamSilentArg" xml:space="preserve">
+    <value>-silent</value>
+  </data>
 </root>

@@ -280,6 +280,15 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to -silent.
+        /// </summary>
+        public static string SteamSilentArg {
+            get {
+                return ResourceManager.GetString("SteamSilentArg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://danielchalmers.github.io/SteamAccountSwitcher/.
         /// </summary>
         public static string Website {

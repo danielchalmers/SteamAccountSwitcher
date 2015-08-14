@@ -30,6 +30,8 @@ namespace SteamAccountSwitcher
             args.Add($"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
             if (Settings.Default.BigPictureMode)
                 args.Add(Resources.SteamBigPictureArg);
+            if (Settings.Default.StartSteamMinimized)
+                args.Add(Resources.SteamSilentArg);
             args.Add(Settings.Default.SteamLaunchArgs);
 
             Process.Start(Settings.Default.SteamPath, string.Join(" ", args));

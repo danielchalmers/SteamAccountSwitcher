@@ -321,5 +321,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["DontShowPopups"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool StartSteamMinimized {
+            get {
+                return ((bool)(this["StartSteamMinimized"]));
+            }
+            set {
+                this["StartSteamMinimized"] = value;
+            }
+        }
     }
 }

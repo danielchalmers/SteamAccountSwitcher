@@ -13,6 +13,10 @@
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=BigPictureMode, Mode=TwoWay}" />
+        <TextBlock Text="Start Minimized:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=StartSteamMinimized, Mode=TwoWay}" />
         <TextBlock Text="Launch Login Username:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
