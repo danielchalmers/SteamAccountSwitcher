@@ -56,12 +56,6 @@
     <Setting Name="ResetSettingsOnNextLaunch" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="OptionsWidth" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">550</Value>
-    </Setting>
-    <Setting Name="OptionsHeight" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">450</Value>
-    </Setting>
     <Setting Name="OptionsIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>

@@ -240,30 +240,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("550")]
-        public double OptionsWidth {
-            get {
-                return ((double)(this["OptionsWidth"]));
-            }
-            set {
-                this["OptionsWidth"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("450")]
-        public double OptionsHeight {
-            get {
-                return ((double)(this["OptionsHeight"]));
-            }
-            set {
-                this["OptionsHeight"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int OptionsIndex {
             get {
