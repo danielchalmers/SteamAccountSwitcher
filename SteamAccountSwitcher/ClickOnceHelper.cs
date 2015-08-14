@@ -80,7 +80,7 @@ namespace SteamAccountSwitcher
                     }
                     if (auto && info.AvailableVersion == ForgetUpdateVersion)
                         return;
-                    App.UpdateScheduler.Stop();
+                    App.UpdateScheduler?.Stop();
 
                     var updateDialog = new UpdatePrompt(info.AvailableVersion, info.IsUpdateRequired);
                     updateDialog.ShowDialog();
@@ -104,7 +104,7 @@ namespace SteamAccountSwitcher
                             break;
                     }
 
-                    App.UpdateScheduler.Start();
+                    App.UpdateScheduler?.Start();
                 }
                 else
                 {
