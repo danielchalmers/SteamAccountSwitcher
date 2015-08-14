@@ -37,7 +37,7 @@ namespace SteamAccountSwitcher
         {
             bool aIsNewInstance;
             App.AppMutex = new Mutex(true, AssemblyInfo.GetGuid(), out aIsNewInstance);
-            if (!App.Arguments.Contains("-restarting") && !App.Arguments.Contains("-multiinstance") && !aIsNewInstance)
+            if (!App.Arguments.Contains("-restarting") && !App.Arguments.Contains("-multiinstance") && !Settings.Default.MultiInstance && !aIsNewInstance)
             {
                 Popup.Show("You can only run one instance at a time.");
                 ClickOnceHelper.ShutdownApplication();
