@@ -3,7 +3,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:p="clr-namespace:SteamAccountSwitcher.Properties" mc:Ignorable="d" Title="Options" Width="600" Height="550"
+        xmlns:p="clr-namespace:SteamAccountSwitcher.Properties" mc:Ignorable="d" Title="Options" Width="600" Height="500"
         ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="OptionsStyle">
