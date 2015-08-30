@@ -17,7 +17,7 @@
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=StartSteamMinimized, Mode=TwoWay}" />
-        <TextBlock Text="Launch Login Username:" />
+        <TextBlock Text="Startup Login Username:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
                                Path=OnStartLoginName, Mode=TwoWay}" />

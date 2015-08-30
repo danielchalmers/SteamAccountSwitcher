@@ -32,7 +32,7 @@ namespace SteamAccountSwitcher
             if (Settings.Default.AlwaysOn)
                 Hide();
 
-            if (Settings.Default.OnStartLoginName != "" && Settings.Default.AlwaysOn)
+            if (Settings.Default.OnStartLoginName != "" && Settings.Default.AlwaysOn && App.Arguments.Contains("-systemstartup"))
             {
                 foreach (
                     var account in

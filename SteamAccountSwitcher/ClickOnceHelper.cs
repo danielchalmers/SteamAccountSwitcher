@@ -120,9 +120,9 @@ namespace SteamAccountSwitcher
             }
         }
 
-        public static void RestartApplication()
+        public static void RestartApplication(string args = "")
         {
-            Process.Start(IsUpdateable ? AppPath : Application.ResourceAssembly.Location, "-restarting");
+            Process.Start(IsUpdateable ? AppPath : Application.ResourceAssembly.Location, $"-restarting {args}");
             ShutdownApplication();
         }
 
@@ -136,7 +136,7 @@ namespace SteamAccountSwitcher
             var registryKey = Registry.CurrentUser.OpenSubKey
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (runonstartup)
-                registryKey?.SetValue(Resources.AppPathName, AppPath);
+                registryKey?.SetValue(Resources.AppPathName, AppPath + " -systemstartup");
             else
                 registryKey?.DeleteValue(Resources.AppPathName, false);
         }
