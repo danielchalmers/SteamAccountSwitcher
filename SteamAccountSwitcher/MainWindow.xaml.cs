@@ -24,11 +24,10 @@ namespace SteamAccountSwitcher
             InitializeComponent();
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(spAccounts, Hide, Show);
+            _accountHandler = new AccountHandler(spAccounts, Hide, Show, Refresh);
 
             // Assign context menus.
             Menu = new MenuHelper(_accountHandler).MainMenu();
-            notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
 
             if (Settings.Default.AlwaysOn)
                 Hide();
@@ -45,8 +44,16 @@ namespace SteamAccountSwitcher
                 }
             }
 
+            Refresh();
+
             if (spAccounts.Children.Count > 0)
                 spAccounts.Children[0].Focus();
+        }
+
+        public void Refresh()
+        {
+            if (Settings.Default.AlwaysOn)
+                notifyIcon.ContextMenu = new MenuHelper(_accountHandler).NotifyMenu();
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
