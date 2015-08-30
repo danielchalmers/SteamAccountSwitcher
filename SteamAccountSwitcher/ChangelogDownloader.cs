@@ -58,7 +58,7 @@ namespace SteamAccountSwitcher
 
                         if (!versionDetected)
                             continue;
-                        str.AppendLine(isVersion ? $"{(firstVersion ? "" : Environment.NewLine)}{commit}" : $" {commit}");
+                        str.AppendLine(isVersion ? $"{(firstVersion ? "" : Environment.NewLine)}{commit} ({DateTime.Parse(j.commit.committer.date).ToString("yyyy-MM-dd")})" : $" {commit}");
                     }
                     str.Append($"\nYou can view the full changelog at {Resources.GitHubCommits}");
                     _updateText = str.ToString();
