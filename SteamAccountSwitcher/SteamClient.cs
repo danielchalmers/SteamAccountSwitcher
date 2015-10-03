@@ -33,15 +33,18 @@ namespace SteamAccountSwitcher
             StartSteam(Resources.SteamBigPictureArg);
         }
 
-        public static void LogIn(Account account)
+        public static void LogIn(Account account, bool onStart = false)
         {
             var args = new List<string>();
 
             args.Add($"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
             if (Settings.Default.BigPictureMode)
                 args.Add(Resources.SteamBigPictureArg);
-            if (Settings.Default.StartSteamMinimized)
+
+            if ((Settings.Default.StartSteamMinimized && Settings.Default.StartSteamMinimizedOnlyOnStartup && onStart) ||
+                (Settings.Default.StartSteamMinimized && !Settings.Default.StartSteamMinimizedOnlyOnStartup))
                 args.Add(Resources.SteamSilentArg);
+
             args.Add(Settings.Default.SteamLaunchArgs);
 
             StartSteam(string.Join(" ", args));

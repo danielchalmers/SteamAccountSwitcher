@@ -76,7 +76,7 @@ namespace SteamAccountSwitcher
             SetFocus(((ContextMenu) sender).PlacementTarget);
         }
 
-        public void SwitchAccount(int index)
+        public void SwitchAccount(int index, bool onStart = false)
         {
             SelectedIndex = index;
             _hideWindow();
@@ -84,7 +84,7 @@ namespace SteamAccountSwitcher
             worker.DoWork += delegate
             {
                 if (SteamClient.LogOutTimeout())
-                    SteamClient.LogIn(App.Accounts[SelectedIndex]);
+                    SteamClient.LogIn(App.Accounts[SelectedIndex], onStart);
             };
             worker.RunWorkerCompleted += delegate
             {

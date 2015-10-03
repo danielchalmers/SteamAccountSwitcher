@@ -357,5 +357,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ButtonPadding"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool StartSteamMinimizedOnlyOnStartup {
+            get {
+                return ((bool)(this["StartSteamMinimizedOnlyOnStartup"]));
+            }
+            set {
+                this["StartSteamMinimizedOnlyOnStartup"] = value;
+            }
+        }
     }
 }
