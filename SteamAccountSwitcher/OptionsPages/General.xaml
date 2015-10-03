@@ -11,22 +11,22 @@
 
         <TextBlock Text="Always-On Mode:" />
         <CheckBox ToolTip="Run application in system tray and launch on system startup"
-            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                  IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=AlwaysOn, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Check For Updates:" />
         <CheckBox ToolTip="Automatically check for updates on a regular interval"
-            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                  IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=CheckForUpdates, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Silent Auto-Update:" />
         <CheckBox ToolTip="Automatically download and apply updates without user interaction"
-            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                  IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=AutoUpdate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Enable Advanced Mode:" />
         <CheckBox ToolTip="Enable advanced options (Requires restart)"
-            IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=EnableAdvancedMode, Mode=TwoWay, UpdateSourceTrigger=Explicit}" /> 
+                  IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=EnableAdvancedMode, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
     </StackPanel>
 </Page>

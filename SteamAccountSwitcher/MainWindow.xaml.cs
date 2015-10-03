@@ -5,7 +5,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using Hardcodet.Wpf.TaskbarNotification;
-using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -30,10 +29,8 @@ namespace SteamAccountSwitcher
             // Assign context menus.
             Menu = new MenuHelper(_accountHandler).MainMenu();
 
-            if (Settings.Default.AlwaysOn)
-                Hide();
-
-            if (Settings.Default.OnStartLoginName != "" && Settings.Default.AlwaysOn && App.Arguments.Contains("-systemstartup"))
+            if (!string.IsNullOrWhiteSpace(Settings.Default.OnStartLoginName) && Settings.Default.AlwaysOn &&
+                App.Arguments.Contains("-systemstartup"))
             {
                 foreach (
                     var account in
@@ -93,7 +90,9 @@ namespace SteamAccountSwitcher
 
         public void ShowRunningInTrayBalloon()
         {
-            ShowTrayBalloon($"{Properties.Resources.AppName} is running in system tray.\nDouble click icon to show window.", BalloonIcon.Info);
+            ShowTrayBalloon(
+                $"{Properties.Resources.AppName} is running in system tray.\nDouble click icon to show window.",
+                BalloonIcon.Info);
         }
 
         public void ShowTrayBalloon(string text, BalloonIcon icon)

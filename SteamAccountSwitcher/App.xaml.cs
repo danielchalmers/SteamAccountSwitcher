@@ -58,8 +58,8 @@ namespace SteamAccountSwitcher
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             Popup.Show(
-               $"An unhandled exception occurred:\r\n\r\n{(Settings.Default.ShowFullErrors ? e.Exception.ToString() : e.Exception.Message)}",
-               MessageBoxButton.OK, MessageBoxImage.Error);
+                $"An unhandled exception occurred:\r\n\r\n{(Settings.Default.ShowFullErrors ? e.Exception.ToString() : e.Exception.Message)}",
+                MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
         }
     }

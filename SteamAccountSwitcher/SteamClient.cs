@@ -1,11 +1,9 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
-using System.Windows;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
 
@@ -102,7 +100,7 @@ namespace SteamAccountSwitcher
             try
             {
                 using (var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam"))
-                    path = (string)registryKey.GetValue("SteamExe");
+                    path = (string) registryKey.GetValue("SteamExe");
             }
             catch
             {

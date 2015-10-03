@@ -6,18 +6,17 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using SteamAccountSwitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion
 
-namespace SteamAccountswitcher
+namespace SteamAccountSwitcher
 {
     public class AccountHandler
     {
         public readonly Action _hideWindow;
-        public readonly Action _showWindow;
         public readonly Action _refreshWindow;
+        public readonly Action _showWindow;
         private readonly StackPanel _stackPanel;
         private int SelectedIndex = -1;
 
@@ -80,29 +79,25 @@ namespace SteamAccountswitcher
         public void SwitchAccount(int index)
         {
             SelectedIndex = index;
-            var worker = new BackgroundWorker();
-            worker.DoWork += worker_DoWork;
-            worker.RunWorkerCompleted += worker_Completed;
-            worker.RunWorkerAsync();
             _hideWindow();
+            var worker = new BackgroundWorker();
+            worker.DoWork += delegate
+            {
+                if (SteamClient.LogOutTimeout())
+                    SteamClient.LogIn(App.Accounts[SelectedIndex]);
+            };
+            worker.RunWorkerCompleted += delegate
+            {
+                if (!Settings.Default.AlwaysOn)
+                    Application.Current.Shutdown();
+            };
+            worker.RunWorkerAsync();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             SetFocus(sender);
             SwitchAccount(SelectedIndex);
-        }
-
-        private void worker_Completed(object sender, RunWorkerCompletedEventArgs e)
-        {
-            if (!Settings.Default.AlwaysOn)
-                Application.Current.Shutdown();
-        }
-
-        private void worker_DoWork(object sender, DoWorkEventArgs e)
-        {
-            if (SteamClient.LogOutTimeout())
-                SteamClient.LogIn(App.Accounts[SelectedIndex]);
         }
 
         public void OpenPropeties()

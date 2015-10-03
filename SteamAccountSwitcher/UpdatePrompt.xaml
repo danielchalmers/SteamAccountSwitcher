@@ -40,7 +40,8 @@
             </Grid.Resources>
             <Button Grid.Column="0" x:Name="btnRemindLater" Content="Ask Later" Click="btnRemindLater_Click" />
             <Button Grid.Column="1" x:Name="btnNo" Content="No Thanks" Margin="5,0,0,0" Click="btnNo_Click" />
-            <Button Grid.Column="2" x:Name="btnOK" Content="Update Now" IsDefault="True" Click="btnOK_Click" HorizontalAlignment="Right" />
+            <Button Grid.Column="2" x:Name="btnOK" Content="Update Now" IsDefault="True" Click="btnOK_Click"
+                    HorizontalAlignment="Right" />
         </Grid>
     </Grid>
 </Window>

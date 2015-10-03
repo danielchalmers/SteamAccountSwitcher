@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Windows;
 using Newtonsoft.Json;
-using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
 #endregion

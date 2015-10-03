@@ -48,7 +48,8 @@
                          Text="{Binding Path=Password, Mode=TwoWay}" />
                 <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus"
                              PasswordChanged="txtPassword_OnPasswordChanged" />
-                <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center" ToolTip="Show password"
+                <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center"
+                          ToolTip="Show password"
                           Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
                           KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Center" />
