@@ -12,16 +12,16 @@
         <TextBlock Text="Always-On Mode:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=AlwaysOn, Mode=TwoWay}" />
+                               Path=AlwaysOn, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Check For Updates:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=CheckForUpdates, Mode=TwoWay}" />
+                               Path=CheckForUpdates, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Silent Auto-Update:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=AutoUpdate, Mode=TwoWay}" />
+                               Path=AutoUpdate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
     </StackPanel>
 </Page>

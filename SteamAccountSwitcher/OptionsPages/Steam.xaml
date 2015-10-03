@@ -12,22 +12,22 @@
         <TextBlock Text="Big Picture Mode:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=BigPictureMode, Mode=TwoWay}" />
+                               Path=BigPictureMode, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
         <TextBlock Text="Start Minimized:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=StartSteamMinimized, Mode=TwoWay}" />
+                               Path=StartSteamMinimized, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
         <TextBlock Text="Startup Login Username:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
-                               Path=OnStartLoginName, Mode=TwoWay}" />
+                               Path=OnStartLoginName, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
         <TextBlock Text="Steam.exe Path:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
-                               Path=SteamPath, Mode=TwoWay}" />
+                               Path=SteamPath, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
         <TextBlock Text="Steam Launch Args:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
-                               Path=SteamLaunchArgs, Mode=TwoWay}" />
+                               Path=SteamLaunchArgs, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
     </StackPanel>
 </Page>

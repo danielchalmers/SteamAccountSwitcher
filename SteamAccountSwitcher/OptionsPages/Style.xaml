@@ -11,31 +11,31 @@
         <TextBlock Text="Window Width:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
-                               Path=Width, Mode=TwoWay}" />
+                               Path=Width, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Button Height:" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonHeight, Mode=TwoWay}" />
+                               Path=ButtonHeight, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Button Text Alignment:" />
         <ComboBox x:Name="cbTextAlignment"
                   SelectedItem="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonTextAlignment, Mode=TwoWay}" />
+                               Path=ButtonTextAlignment, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Default Button Color:" />
         <xctk:ColorPicker
             SelectedColor="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonDefaultColor, Mode=TwoWay}" />
+                               Path=ButtonDefaultColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Button Text Color:" />
         <xctk:ColorPicker
             SelectedColor="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonTextColor, Mode=TwoWay}" />
+                               Path=ButtonTextColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Show Steam Open/Exit menu items:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=NotifyMenuShowSteamSection, Mode=TwoWay}" />
+                               Path=NotifyMenuShowSteamSection, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
     </StackPanel>
 </Page>
