@@ -93,7 +93,14 @@ namespace SteamAccountSwitcher
 
         public void ShowRunningInTrayBalloon()
         {
-            notifyIcon.ShowBalloonTip(Properties.Resources.AppName, $"{Properties.Resources.AppName} is running in system tray.\nDouble click icon to show window.", BalloonIcon.Info);
+            ShowTrayBalloon($"{Properties.Resources.AppName} is running in system tray.\nDouble click icon to show window.", BalloonIcon.Info);
+        }
+
+        public void ShowTrayBalloon(string text, BalloonIcon icon)
+        {
+            if (!Settings.Default.ShowTrayNotifications)
+                return;
+            notifyIcon.ShowBalloonTip(Properties.Resources.AppName, text, icon);
         }
     }
 }

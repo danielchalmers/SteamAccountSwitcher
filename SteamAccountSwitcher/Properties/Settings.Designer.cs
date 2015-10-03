@@ -333,5 +333,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["EnableAdvancedMode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ShowTrayNotifications {
+            get {
+                return ((bool)(this["ShowTrayNotifications"]));
+            }
+            set {
+                this["ShowTrayNotifications"] = value;
+            }
+        }
     }
 }
