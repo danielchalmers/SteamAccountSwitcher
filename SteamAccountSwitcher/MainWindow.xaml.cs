@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountswitcher;
 using SteamAccountSwitcher.Properties;
 
@@ -24,7 +25,7 @@ namespace SteamAccountSwitcher
             InitializeComponent();
 
             // Setup account handler.
-            _accountHandler = new AccountHandler(spAccounts, Hide, Show, Refresh);
+            _accountHandler = new AccountHandler(spAccounts, HideWindow, Show, Refresh);
 
             // Assign context menus.
             Menu = new MenuHelper(_accountHandler).MainMenu();
@@ -61,7 +62,7 @@ namespace SteamAccountSwitcher
             if (Settings.Default.AlwaysOn)
             {
                 e.Cancel = true;
-                Hide();
+                HideWindow();
                 return;
             }
             ClickOnceHelper.ShutdownApplication();
@@ -80,6 +81,19 @@ namespace SteamAccountSwitcher
         private void notifyIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
             Show();
+        }
+
+        private void HideWindow()
+        {
+            var visible = Visibility == Visibility.Visible;
+            Hide();
+            if (visible && Settings.Default.AlwaysOn)
+                ShowRunningInTrayBalloon();
+        }
+
+        public void ShowRunningInTrayBalloon()
+        {
+            notifyIcon.ShowBalloonTip(Properties.Resources.AppName, $"{Properties.Resources.AppName} is running in system tray.\nDouble click icon to show window.", BalloonIcon.Info);
         }
     }
 }

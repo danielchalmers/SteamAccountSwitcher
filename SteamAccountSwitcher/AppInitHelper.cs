@@ -38,6 +38,7 @@ namespace SteamAccountSwitcher
             {
                 var helper = new WindowInteropHelper(App.SwitchWindow);
                 helper.EnsureHandle();
+                App.SwitchWindow.ShowRunningInTrayBalloon();
             }
             else
             {
