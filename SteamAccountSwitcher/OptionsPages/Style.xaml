@@ -33,7 +33,7 @@
             SelectedColor="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonTextColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
-        <TextBlock Text="Show Steam Open/Exit menu items:" />
+        <TextBlock Text="Show Steam Open/Exit tray menu items:" />
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=NotifyMenuShowSteamSection, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
