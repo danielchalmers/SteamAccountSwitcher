@@ -30,16 +30,16 @@ namespace SteamAccountSwitcher
         {
             try
             {
-                return string.IsNullOrWhiteSpace(Settings.Default.Accounts)
-                    ? new List<Account>()
-                    : JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts));
+                return
+                    JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts)) ??
+                    new List<Account>();
             }
             catch (Exception)
             {
                 Popup.Show("Existing account data is corrupt.\r\n\r\nAll accounts cleared.", MessageBoxButton.OK,
                     MessageBoxImage.Warning);
             }
-            return null;
+            return new List<Account>();
         }
 
         public static void OpenOptions(AccountHandler accountHandler)
