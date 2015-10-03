@@ -62,9 +62,9 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Center")]
-        public global::System.Windows.HorizontalAlignment ButtonTextAlignment {
+        public global::SteamAccountSwitcher.TextHorizontalAlignment ButtonTextAlignment {
             get {
-                return ((global::System.Windows.HorizontalAlignment)(this["ButtonTextAlignment"]));
+                return ((global::SteamAccountSwitcher.TextHorizontalAlignment)(this["ButtonTextAlignment"]));
             }
             set {
                 this["ButtonTextAlignment"] = value;

@@ -118,7 +118,9 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
+    <Compile Include="CustomEnums.cs" />
     <Compile Include="Encryption.cs" />
+    <Compile Include="EnumUtilities.cs" />
     <Compile Include="GitHubApiCommits.cs" />
     <Compile Include="HelperWindow.xaml.cs">
       <DependentUpon>HelperWindow.xaml</DependentUpon>

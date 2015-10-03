@@ -11,7 +11,7 @@
     <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">48</Value>
     </Setting>
-    <Setting Name="ButtonTextAlignment" Type="System.Windows.HorizontalAlignment" Scope="User">
+    <Setting Name="ButtonTextAlignment" Type="SteamAccountSwitcher.TextHorizontalAlignment" Scope="User">
       <Value Profile="(Default)">Center</Value>
     </Setting>
     <Setting Name="ButtonDefaultColor" Type="System.Windows.Media.Color" Scope="User">
