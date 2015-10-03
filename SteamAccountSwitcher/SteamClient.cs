@@ -76,7 +76,7 @@ namespace SteamAccountSwitcher
                 {
                     if (timeout >= maxtimeout)
                     {
-                        Popup.Show("Logout operation has timed out. Please force close steam and try again.");
+                        Popup.Show("Log out operation has timed out. Please close Steam and try again.");
                         return false;
                     }
                     Thread.Sleep(waitstep);
