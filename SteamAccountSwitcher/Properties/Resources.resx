@@ -135,14 +135,6 @@
     <value>https://store.steampowered.com/join/</value>
     <comment>Steam Create Account page</comment>
   </data>
-  <data name="SteamPath32" xml:space="preserve">
-    <value>C:\Program Files\Steam\Steam.exe</value>
-    <comment>Steam Path for 32bit Windows</comment>
-  </data>
-  <data name="SteamPath64" xml:space="preserve">
-    <value>C:\Program Files (x86)\Steam\Steam.exe</value>
-    <comment>Steam Path for 64bit Windows</comment>
-  </data>
   <data name="SteamShutdownArgument" xml:space="preserve">
     <value>-shutdown</value>
   </data>

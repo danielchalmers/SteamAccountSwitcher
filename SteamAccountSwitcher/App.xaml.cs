@@ -33,7 +33,10 @@ namespace SteamAccountSwitcher
             base.OnStartup(e);
             Arguments = e.Args.ToList();
             if (!AppInitHelper.Initialize())
+            {
+                ClickOnceHelper.ShutdownApplication();
                 return;
+            }
             MainWindow = SwitchWindow;
         }
 

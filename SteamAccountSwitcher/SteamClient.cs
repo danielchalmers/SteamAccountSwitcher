@@ -1,10 +1,12 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows;
+using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -84,27 +86,33 @@ namespace SteamAccountSwitcher
             return true;
         }
 
-        public static string ResolvePath()
+        public static string GetPath()
         {
-            if (File.Exists(Resources.SteamPath32))
-                return Resources.SteamPath32;
-            if (File.Exists(Resources.SteamPath64))
-                return Resources.SteamPath64;
+            string path;
+            try
+            {
+                using (var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam"))
+                    path = (string)registryKey.GetValue("SteamExe");
+            }
+            catch
+            {
+                path = "";
+            }
+
+            if (!string.IsNullOrWhiteSpace(path))
+                return path;
+
             Popup.Show("Default Steam path could not be located.\r\n\r\nPlease enter Steam executable location.");
             var dia = new SteamPath();
             dia.ShowDialog();
             return dia.Path;
         }
 
-        public static void ResolvePathShutdown()
+        public static bool ResolvePath()
         {
-            if (Settings.Default.SteamPath == string.Empty || !File.Exists(Settings.Default.SteamPath))
-                Settings.Default.SteamPath = ResolvePath();
-            if (Settings.Default.SteamPath == string.Empty)
-            {
-                Popup.Show("Steam path could not be located. Application will now exit.");
-                Application.Current.Shutdown();
-            }
+            if (string.IsNullOrWhiteSpace(Settings.Default.SteamPath) || !File.Exists(Settings.Default.SteamPath))
+                Settings.Default.SteamPath = GetPath();
+            return !string.IsNullOrWhiteSpace(Settings.Default.SteamPath);
         }
 
         public static bool IsSteamOpen()

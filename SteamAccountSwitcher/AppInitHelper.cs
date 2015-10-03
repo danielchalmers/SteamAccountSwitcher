@@ -17,11 +17,14 @@ namespace SteamAccountSwitcher
             if (IsExistingInstanceRunning())
             {
                 Popup.Show("You can only run one instance at a time.");
-                ClickOnceHelper.ShutdownApplication();
                 return false;
             }
             LoadSettings();
-            SteamClient.ResolvePathShutdown();
+            if (!SteamClient.ResolvePath())
+            {
+                Popup.Show("Steam path could not be located. Application will now exit.");
+                return false;
+            }
             StartScheduledTasks();
             LoadAccounts();
             InitMainWindow();

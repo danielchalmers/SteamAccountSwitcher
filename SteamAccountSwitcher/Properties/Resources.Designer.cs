@@ -253,24 +253,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to C:\Program Files\Steam\Steam.exe.
-        /// </summary>
-        public static string SteamPath32 {
-            get {
-                return ResourceManager.GetString("SteamPath32", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to C:\Program Files (x86)\Steam\Steam.exe.
-        /// </summary>
-        public static string SteamPath64 {
-            get {
-                return ResourceManager.GetString("SteamPath64", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to -shutdown.
         /// </summary>
         public static string SteamShutdownArgument {
