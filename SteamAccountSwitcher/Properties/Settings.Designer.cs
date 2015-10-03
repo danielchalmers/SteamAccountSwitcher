@@ -321,5 +321,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["MultiInstance"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool EnableAdvancedMode {
+            get {
+                return ((bool)(this["EnableAdvancedMode"]));
+            }
+            set {
+                this["EnableAdvancedMode"] = value;
+            }
+        }
     }
 }

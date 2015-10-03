@@ -36,7 +36,8 @@ namespace SteamAccountSwitcher
             _pages.Add(new General());
             _pages.Add(new Style());
             _pages.Add(new Steam());
-            _pages.Add(new Advanced());
+            if(Settings.Default.EnableAdvancedMode)
+                _pages.Add(new Advanced());
             _pages.Add(new About());
             for (var i = 0; i < _pages.Count; i++)
                 NavBar.Items.Add(new ListBoxItem

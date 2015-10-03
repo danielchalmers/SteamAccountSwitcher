@@ -23,5 +23,10 @@
         <CheckBox
             IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=AutoUpdate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
+        <TextBlock Text="Enable Advanced Mode:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=EnableAdvancedMode, Mode=TwoWay, UpdateSourceTrigger=Explicit}" /> 
     </StackPanel>
 </Page>
