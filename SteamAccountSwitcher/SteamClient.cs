@@ -79,7 +79,7 @@ namespace SteamAccountSwitcher
         {
             var timeout = 0;
             const int maxtimeout = 10000;
-            const int waitstep = 100;
+            const int waitstep = 50;
             if (IsSteamOpen())
             {
                 LogOutAuto();
