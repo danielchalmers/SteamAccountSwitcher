@@ -15,14 +15,24 @@ namespace SteamAccountSwitcher
 {
     internal class SteamClient
     {
+        public static void StartSteam(string args = "")
+        {
+            if (!ResolvePath())
+            {
+                Popup.Show("Steam path could not be located.");
+                return;
+            }
+            Process.Start(Settings.Default.SteamPath, args);
+        }
+
         public static void Launch()
         {
-            Process.Start(Settings.Default.SteamPath);
+            StartSteam();
         }
 
         public static void BigPicture()
         {
-            Process.Start(Settings.Default.SteamPath, Resources.SteamBigPictureArg);
+            StartSteam(Resources.SteamBigPictureArg);
         }
 
         public static void LogIn(Account account)
@@ -36,12 +46,12 @@ namespace SteamAccountSwitcher
                 args.Add(Resources.SteamSilentArg);
             args.Add(Settings.Default.SteamLaunchArgs);
 
-            Process.Start(Settings.Default.SteamPath, string.Join(" ", args));
+            StartSteam(string.Join(" ", args));
         }
 
         public static void LogOut()
         {
-            Process.Start(Settings.Default.SteamPath, Resources.SteamShutdownArgument);
+            StartSteam(Resources.SteamShutdownArgument);
         }
 
         public static void ForceClose()
@@ -110,9 +120,14 @@ namespace SteamAccountSwitcher
 
         public static bool ResolvePath()
         {
-            if (string.IsNullOrWhiteSpace(Settings.Default.SteamPath) || !File.Exists(Settings.Default.SteamPath))
+            if (!FileExists(Settings.Default.SteamPath))
                 Settings.Default.SteamPath = GetPath();
-            return !string.IsNullOrWhiteSpace(Settings.Default.SteamPath);
+            return FileExists(Settings.Default.SteamPath);
+        }
+
+        public static bool FileExists(string path)
+        {
+            return (!string.IsNullOrWhiteSpace(path) && File.Exists(path));
         }
 
         public static bool IsSteamOpen()
