@@ -8,12 +8,12 @@
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" Title="Style">
     <StackPanel>
-        <TextBlock Text="Window Width:" />
+        <TextBlock Text="Window Width (px):" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
                                Path=Width, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
-        <TextBlock Text="Button Height:" />
+        <TextBlock Text="Button Height (px):" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonHeight, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
