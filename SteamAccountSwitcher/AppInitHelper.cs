@@ -2,6 +2,7 @@
 
 using System;
 using System.Threading;
+using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -30,7 +31,15 @@ namespace SteamAccountSwitcher
         private static void InitMainWindow()
         {
             App.SwitchWindow = new MainWindow();
-            App.SwitchWindow.Show();
+            if (Settings.Default.AlwaysOn)
+            {
+                var helper = new WindowInteropHelper(App.SwitchWindow);
+                helper.EnsureHandle();
+            }
+            else
+            {
+                App.SwitchWindow.Show();
+            }
         }
 
         private static void StartScheduledTasks()
