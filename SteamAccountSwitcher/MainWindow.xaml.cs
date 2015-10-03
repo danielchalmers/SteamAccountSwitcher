@@ -64,7 +64,7 @@ namespace SteamAccountSwitcher
                 Hide();
                 return;
             }
-            App.HelperWindow.Close();
+            ClickOnceHelper.ShutdownApplication();
         }
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)

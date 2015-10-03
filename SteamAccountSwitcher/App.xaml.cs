@@ -21,6 +21,7 @@ namespace SteamAccountSwitcher
         public static TaskScheduler UpdateScheduler;
         public static List<Account> Accounts;
         public static HelperWindow HelperWindow;
+        public static MainWindow SwitchWindow;
 
         public App()
         {
@@ -31,7 +32,9 @@ namespace SteamAccountSwitcher
         {
             base.OnStartup(e);
             Arguments = e.Args.ToList();
-            AppInitHelper.Initialize();
+            if (!AppInitHelper.Initialize())
+                return;
+            MainWindow = SwitchWindow;
         }
 
         protected override void OnExit(ExitEventArgs e)

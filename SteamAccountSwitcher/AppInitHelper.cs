@@ -10,14 +10,27 @@ namespace SteamAccountSwitcher
 {
     internal class AppInitHelper
     {
-        public static void Initialize()
+        public static bool Initialize()
         {
             App.HelperWindow = new HelperWindow();
-            CheckSingleInstanceStatus();
+            if (IsExistingInstanceRunning())
+            {
+                Popup.Show("You can only run one instance at a time.");
+                ClickOnceHelper.ShutdownApplication();
+                return false;
+            }
             LoadSettings();
             SteamClient.ResolvePathShutdown();
             StartScheduledTasks();
             LoadAccounts();
+            InitMainWindow();
+            return true;
+        }
+
+        private static void InitMainWindow()
+        {
+            App.SwitchWindow = new MainWindow();
+            App.SwitchWindow.Show();
         }
 
         private static void StartScheduledTasks()
@@ -33,15 +46,12 @@ namespace SteamAccountSwitcher
             }
         }
 
-        private static void CheckSingleInstanceStatus()
+        private static bool IsExistingInstanceRunning()
         {
-            bool aIsNewInstance;
-            App.AppMutex = new Mutex(true, AssemblyInfo.GetGuid(), out aIsNewInstance);
-            if (!App.Arguments.Contains("-restarting") && !App.Arguments.Contains("-multiinstance") && !Settings.Default.MultiInstance && !aIsNewInstance)
-            {
-                Popup.Show("You can only run one instance at a time.");
-                ClickOnceHelper.ShutdownApplication();
-            }
+            bool isNewInstance;
+            App.AppMutex = new Mutex(true, AssemblyInfo.GetGuid(), out isNewInstance);
+            return !(App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
+                Settings.Default.MultiInstance || isNewInstance);
         }
 
         private static void LoadAccounts()
