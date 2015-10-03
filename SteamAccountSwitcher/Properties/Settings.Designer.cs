@@ -345,5 +345,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ShowTrayNotifications"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("4,4,4,4")]
+        public global::System.Windows.Thickness ButtonPadding {
+            get {
+                return ((global::System.Windows.Thickness)(this["ButtonPadding"]));
+            }
+            set {
+                this["ButtonPadding"] = value;
+            }
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace SteamAccountswitcher
                     },
                 Height = Settings.Default.ButtonHeight,
                 HorizontalContentAlignment = Settings.Default.ButtonTextAlignment.ToHorizontalAlignment(),
-                Padding = new Thickness(4),
+                Padding = Settings.Default.ButtonPadding,
                 ContextMenu = new MenuHelper(this).AccountMenu(),
                 Background = new SolidColorBrush(account.Color),
                 Foreground = new SolidColorBrush(Settings.Default.ButtonTextColor)

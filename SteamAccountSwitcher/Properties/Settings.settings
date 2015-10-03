@@ -83,5 +83,8 @@
     <Setting Name="ShowTrayNotifications" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="ButtonPadding" Type="System.Windows.Thickness" Scope="User">
+      <Value Profile="(Default)">4,4,4,4</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
