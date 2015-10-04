@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
 
@@ -100,6 +101,48 @@ namespace SteamAccountSwitcher
             if (!Settings.Default.ShowTrayNotifications)
                 return;
             notifyIcon.ShowBalloonTip(Properties.Resources.AppName, text, icon);
+        }
+
+        private void MainWindow_OnPreviewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (!Settings.Default.NumberHotkeys)
+                return;
+            var num = 0;
+            switch (e.Key)
+            {
+                case Key.D1:
+                    num = 1;
+                    break;
+                case Key.D2:
+                    num = 2;
+                    break;
+                case Key.D3:
+                    num = 3;
+                    break;
+                case Key.D4:
+                    num = 4;
+                    break;
+                case Key.D5:
+                    num = 5;
+                    break;
+                case Key.D6:
+                    num = 6;
+                    break;
+                case Key.D7:
+                    num = 7;
+                    break;
+                case Key.D8:
+                    num = 8;
+                    break;
+                case Key.D9:
+                    num = 9;
+                    break;
+                case Key.D0:
+                    num = 10;
+                    break;
+            }
+            if (num > 0 && spAccounts.Children.Count >= num)
+                _accountHandler.SwitchAccount(num - 1);
         }
     }
 }

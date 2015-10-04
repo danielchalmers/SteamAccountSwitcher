@@ -24,6 +24,11 @@
                   IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=AutoUpdate, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
+        <TextBlock Text="Number Hotkeys:" />
+        <CheckBox ToolTip="Enable 1-9 keyboard hotkeys to switch accounts"
+                  IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=NumberHotkeys, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
         <TextBlock Text="Enable Advanced Mode:" />
         <CheckBox ToolTip="Enable advanced options (Requires restart)"
                   IsChecked="{Binding Source={x:Static p:Settings.Default},

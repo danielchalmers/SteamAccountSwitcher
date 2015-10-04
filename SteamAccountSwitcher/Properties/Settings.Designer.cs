@@ -369,5 +369,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["StartSteamMinimizedOnlyOnStartup"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool NumberHotkeys {
+            get {
+                return ((bool)(this["NumberHotkeys"]));
+            }
+            set {
+                this["NumberHotkeys"] = value;
+            }
+        }
     }
 }
