@@ -22,6 +22,7 @@ namespace SteamAccountSwitcher
         public static List<Account> Accounts;
         public static HelperWindow HelperWindow;
         public static MainWindow SwitchWindow;
+        public static bool SuccessfullyLoaded;
 
         public App()
         {
@@ -38,6 +39,7 @@ namespace SteamAccountSwitcher
                 return;
             }
             MainWindow = SwitchWindow;
+            SuccessfullyLoaded = true;
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -57,10 +59,17 @@ namespace SteamAccountSwitcher
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
+            var exception = (Settings.Default.ShowFullErrors
+                ? e.Exception.ToString()
+                : e.Exception.Message);
             Popup.Show(
-                $"An unhandled exception occurred:\r\n\r\n{(Settings.Default.ShowFullErrors ? e.Exception.ToString() : e.Exception.Message)}",
+                SuccessfullyLoaded
+                    ? $"An unhandled exception occurred:\n\n{exception}"
+                    : $"A critical exception occurred:\n\n{exception}\n\nApplication will now exit.",
                 MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
+            if (!SuccessfullyLoaded)
+                ClickOnceHelper.ShutdownApplication();
         }
     }
 }
