@@ -95,7 +95,8 @@ namespace SteamAccountSwitcher
                 }
                 else
                 {
-                    versionCommits.Add(commit);
+                    if (commit != "Minor code cleanup")
+                        versionCommits.Add(commit);
                 }
             }
             return versionLog;
