@@ -52,8 +52,10 @@ namespace SteamAccountSwitcher
 
             foreach (var x in changelogData)
             {
+                var changes = x.Changes.ToList();
+                changes.Sort();
                 str.Append($"{x.Version} ({x.PublishDate.ToString("yyyy-MM-dd")})");
-                foreach (var y in x.Changes)
+                foreach (var y in changes)
                     str.Append($"\n {y}");
                 str.AppendLine();
                 str.AppendLine();
