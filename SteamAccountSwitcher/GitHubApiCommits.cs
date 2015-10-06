@@ -6,8 +6,16 @@ using System.Collections.Generic;
 
 namespace SteamAccountSwitcher
 {
-    internal class GitHubApiCommits
+    public class GitHubApiCommitsRootObject
     {
+        public string sha { get; set; }
+        public Commit commit { get; set; }
+        public string url { get; set; }
+        public string html_url { get; set; }
+        public string comments_url { get; set; }
+        public Author2 author { get; set; }
+        public Committer2 committer { get; set; }
+        public List<Parent> parents { get; set; }
     }
 
     public class Author
@@ -87,17 +95,5 @@ namespace SteamAccountSwitcher
         public string sha { get; set; }
         public string url { get; set; }
         public string html_url { get; set; }
-    }
-
-    public class GitHubApiCommitsRootObject
-    {
-        public string sha { get; set; }
-        public Commit commit { get; set; }
-        public string url { get; set; }
-        public string html_url { get; set; }
-        public string comments_url { get; set; }
-        public Author2 author { get; set; }
-        public Committer2 committer { get; set; }
-        public List<Parent> parents { get; set; }
     }
 }
