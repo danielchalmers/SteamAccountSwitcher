@@ -20,7 +20,7 @@ namespace SteamAccountSwitcher
             bw.DoWork += delegate
             {
                 if (ApplicationDeployment.IsNetworkDeployed)
-                    updateInfo = ApplicationDeployment.CurrentDeployment.CheckForDetailedUpdate(false);
+                    updateInfo = ApplicationDeployment.CurrentDeployment.CheckForDetailedUpdate();
             };
             bw.RunWorkerCompleted += (sender, args) => CheckForUpdates(updateInfo, auto);
             bw.RunWorkerAsync();
