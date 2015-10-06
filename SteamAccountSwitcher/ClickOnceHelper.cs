@@ -23,6 +23,9 @@ namespace SteamAccountSwitcher
 
         public static void CheckForUpdatesAsync(bool auto)
         {
+            if (FullscreenHelper.DoesAnyMonitorHaveFullscreenApp())
+                return;
+
             UpdateCheckInfo updateInfo = null;
             var bw = new BackgroundWorker();
             bw.DoWork += delegate
