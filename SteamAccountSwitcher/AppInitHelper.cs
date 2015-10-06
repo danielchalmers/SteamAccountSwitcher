@@ -62,7 +62,7 @@ namespace SteamAccountSwitcher
         private static bool IsExistingInstanceRunning()
         {
             bool isNewInstance;
-            App.AppMutex = new Mutex(true, AssemblyInfo.GetGuid(), out isNewInstance);
+            App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out isNewInstance);
             return !(App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
                      Settings.Default.MultiInstance || isNewInstance);
         }

@@ -15,11 +15,11 @@ namespace SteamAccountSwitcher.OptionsPages
         {
             InitializeComponent();
 
-            txtDescription.Text = string.Format(Properties.Resources.About, AssemblyInfo.GetTitle(),
-                AssemblyInfo.GetVersion(),
+            txtDescription.Text = string.Format(Properties.Resources.About, AssemblyInfo.Title,
+                AssemblyInfo.Version,
                 Properties.Resources.Website, Properties.Resources.GitHubIssues, Properties.Resources.DonateLink,
                 Properties.Resources.GitHubCommits,
-                AssemblyInfo.GetCopyright());
+                AssemblyInfo.Copyright);
         }
     }
 }

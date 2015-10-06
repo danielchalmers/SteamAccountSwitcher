@@ -49,7 +49,7 @@ namespace SteamAccountSwitcher
                 Settings.Default.LastUpdateCheck = DateTime.Now;
                 if (info.UpdateAvailable)
                 {
-                    if (AssemblyInfo.GetVersion().Major != ForgetUpdateVersion.Major &&
+                    if (AssemblyInfo.Version.Major != ForgetUpdateVersion.Major &&
                         ForgetUpdateVersion.Major == info.AvailableVersion.Major)
                         return;
 

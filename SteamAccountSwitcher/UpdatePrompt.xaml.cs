@@ -27,20 +27,20 @@ namespace SteamAccountSwitcher
 
             if (!isRequired)
             {
-                if (updateVersion.Major != AssemblyInfo.GetVersion().Major)
+                if (updateVersion.Major != AssemblyInfo.Version.Major)
                 {
                     txtUpdateSubMsg.Text =
-                        $"A new major release, {AssemblyInfo.GetTitle()} {updateVersion.Major}.{updateVersion.Minor} is now available!";
+                        $"A new major release, {AssemblyInfo.Title} {updateVersion.Major}.{updateVersion.Minor} is now available!";
                 }
-                else if (updateVersion.Revision != AssemblyInfo.GetVersion().Revision)
+                else if (updateVersion.Revision != AssemblyInfo.Version.Revision)
                 {
                     txtUpdateSubMsg.Text =
-                        $"{AssemblyInfo.GetTitle()} {AssemblyInfo.GetVersionStringFull(updateVersion)} is now available!";
+                        $"{AssemblyInfo.Title} {AssemblyInfo.GetVersionStringFull(updateVersion)} is now available!";
                 }
                 else
                 {
                     txtUpdateSubMsg.Text =
-                        $"{AssemblyInfo.GetTitle()} {AssemblyInfo.GetVersionString(updateVersion)} is now available!";
+                        $"{AssemblyInfo.Title} {AssemblyInfo.GetVersionString(updateVersion)} is now available!";
                 }
                 txtUpdateSubMsg.Text += "\nDo you want to update to the latest version?";
             }
