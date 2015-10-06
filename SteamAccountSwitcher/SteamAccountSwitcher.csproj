@@ -159,6 +159,7 @@
     </Compile>
     <Compile Include="TaskScheduler.cs" />
     <Compile Include="UpdateCheck.cs" />
+    <Compile Include="UpdateHelper.cs" />
     <Compile Include="UpdatePrompt.xaml.cs">
       <DependentUpon>UpdatePrompt.xaml</DependentUpon>
     </Compile>

@@ -52,8 +52,8 @@ namespace SteamAccountSwitcher
             {
                 App.UpdateScheduler = new TaskScheduler();
                 App.UpdateScheduler.ScheduleTask(() =>
-                    ClickOnceHelper.CheckForUpdatesAsync(true),
-                    (Settings.Default.CheckForUpdates && ClickOnceHelper.IsUpdateable),
+                    UpdateHelper.CheckForUpdatesAsync(true),
+                    (Settings.Default.CheckForUpdates && UpdateHelper.IsUpdateable),
                     TimeSpan.FromMinutes(Settings.Default.UpdateCheckIntervalMinutes));
                 App.UpdateScheduler.Start();
             }
