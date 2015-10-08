@@ -1,6 +1,8 @@
 ﻿#region
 
+using System;
 using System.Collections.Generic;
+using System.Deployment.Application;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -32,7 +34,14 @@ namespace SteamAccountSwitcher
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            Arguments = e.Args.ToList();
+
+            if (ApplicationDeployment.IsNetworkDeployed &&
+                AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null &&
+                AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0)
+                Arguments = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0].Split(',').ToList();
+            else
+                Arguments = e.Args.ToList();
+
             if (!AppInitHelper.Initialize())
             {
                 ClickOnceHelper.ShutdownApplication();
