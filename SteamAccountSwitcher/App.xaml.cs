@@ -2,11 +2,13 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Deployment.Application;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -21,9 +23,10 @@ namespace SteamAccountSwitcher
         public static Mutex AppMutex;
         public static List<string> Arguments;
         public static TaskScheduler UpdateScheduler;
-        public static List<Account> Accounts;
+        public static ObservableCollection<Account> Accounts;
         public static HelperWindow HelperWindow;
-        public static MainWindow SwitchWindow;
+        public static SwitchWindow SwitchWindow;
+        public static TaskbarIcon NotifyIcon;
         public static bool SuccessfullyLoaded;
 
         public App()
@@ -38,7 +41,8 @@ namespace SteamAccountSwitcher
             if (ApplicationDeployment.IsNetworkDeployed &&
                 AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null &&
                 AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0)
-                Arguments = AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0].Split(',').ToList();
+                Arguments =
+                    AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0].Split(',').ToList();
             else
                 Arguments = e.Args.ToList();
 

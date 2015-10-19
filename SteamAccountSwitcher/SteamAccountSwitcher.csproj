@@ -112,7 +112,7 @@
     </ApplicationDefinition>
     <Compile Include="Account.cs" />
     <Compile Include="AccountDataHelper.cs" />
-    <Compile Include="AccountHandler.cs" />
+    <Compile Include="AccountHelper.cs" />
     <Compile Include="AccountProperties.xaml.cs">
       <DependentUpon>AccountProperties.xaml</DependentUpon>
     </Compile>
@@ -120,6 +120,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
+    <Compile Include="Converters.cs" />
     <Compile Include="CustomEnums.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="EnumUtilities.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="InputBox.xaml.cs">
       <DependentUpon>InputBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KeyHelper.cs" />
     <Compile Include="ListUtilities.cs" />
     <Compile Include="MenuHelper.cs" />
     <Compile Include="Options.xaml.cs">
@@ -157,7 +159,9 @@
     <Compile Include="SteamPath.xaml.cs">
       <DependentUpon>SteamPath.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SwitchWindowHelper.cs" />
     <Compile Include="TaskScheduler.cs" />
+    <Compile Include="TrayIconHelper.cs" />
     <Compile Include="UpdateCheck.cs" />
     <Compile Include="UpdateHelper.cs" />
     <Compile Include="UpdatePrompt.xaml.cs">
@@ -178,7 +182,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="SwitchWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -186,8 +190,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="SwitchWindow.xaml.cs">
+      <DependentUpon>SwitchWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Options.xaml">
@@ -243,7 +247,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />

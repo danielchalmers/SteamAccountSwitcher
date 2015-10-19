@@ -12,7 +12,7 @@ namespace SteamAccountSwitcher
 {
     internal class SettingsHelper
     {
-        public static string SerializeAccounts(List<Account> accounts)
+        public static string SerializeAccounts(IEnumerable<Account> accounts)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace SteamAccountSwitcher
             return string.Empty;
         }
 
-        public static List<Account> DeserializeAccounts()
+        public static IEnumerable<Account> DeserializeAccounts()
         {
             try
             {
@@ -41,7 +41,7 @@ namespace SteamAccountSwitcher
             return new List<Account>();
         }
 
-        public static void OpenOptions(AccountHandler accountHandler)
+        public static void OpenOptions()
         {
             var alwaysOn = Settings.Default.AlwaysOn;
 
@@ -50,12 +50,18 @@ namespace SteamAccountSwitcher
             dialog.ShowDialog();
 
             if (alwaysOn != Settings.Default.AlwaysOn)
+            {
                 if (Settings.Default.AlwaysOn)
-                    accountHandler._hideWindow();
+                {
+                    TrayIconHelper.CreateTrayIcon();
+                    SwitchWindowHelper.HideSwitcherWindow();
+                }
                 else
-                    accountHandler._showWindow();
+                {
+                    SwitchWindowHelper.ShowSwitcherWindow();
+                }
+            }
 
-            accountHandler.Refresh();
             SaveSettings();
         }
 

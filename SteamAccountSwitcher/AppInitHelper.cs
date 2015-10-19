@@ -1,8 +1,8 @@
 ﻿#region
 
 using System;
+using System.Linq;
 using System.Threading;
-using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -27,22 +27,40 @@ namespace SteamAccountSwitcher
             }
             StartScheduledTasks();
             LoadAccounts();
+            if (Settings.Default.AlwaysOn)
+                TrayIconHelper.CreateTrayIcon();
             InitMainWindow();
+
+            LaunchStartAccount();
+
             return true;
+        }
+
+        private static void LaunchStartAccount()
+        {
+            if (!string.IsNullOrWhiteSpace(Settings.Default.OnStartLoginName) && Settings.Default.AlwaysOn &&
+                App.Arguments.Contains("-systemstartup"))
+            {
+                foreach (
+                    var account in
+                        App.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName)
+                    )
+                {
+                    account.SwitchTo(true);
+                    break;
+                }
+            }
         }
 
         private static void InitMainWindow()
         {
-            App.SwitchWindow = new MainWindow();
             if (Settings.Default.AlwaysOn)
             {
-                var helper = new WindowInteropHelper(App.SwitchWindow);
-                helper.EnsureHandle();
-                App.SwitchWindow.ShowRunningInTrayBalloon();
+                TrayIconHelper.ShowRunningInTrayBalloon();
             }
             else
             {
-                App.SwitchWindow.Show();
+                SwitchWindowHelper.ShowSwitcherWindow();
             }
         }
 

@@ -19,5 +19,12 @@ namespace SteamAccountSwitcher
         {
             return MemberwiseClone();
         }
+
+        public string GetDisplayName()
+        {
+            return string.IsNullOrWhiteSpace(DisplayName)
+                ? Username
+                : DisplayName;
+        }
     }
 }

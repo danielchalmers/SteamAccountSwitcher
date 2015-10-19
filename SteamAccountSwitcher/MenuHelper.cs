@@ -11,28 +11,21 @@ namespace SteamAccountSwitcher
 {
     internal class MenuHelper
     {
-        private readonly AccountHandler _accountHandler;
-
-        public MenuHelper(AccountHandler accountHandler)
-        {
-            _accountHandler = accountHandler;
-        }
-
-        private IEnumerable<object> AccountMenuItems()
+        private static IEnumerable<object> AccountMenuItems()
         {
             var menuList = new List<object>();
 
             var itemProperties = new MenuItem {Header = "Edit..."};
-            itemProperties.Click += delegate { _accountHandler.OpenPropeties(); };
+            itemProperties.Click += delegate { App.SwitchWindow.SelectedAccount.Edit(); };
 
             var itemMoveUp = new MenuItem {Header = "Move Up"};
-            itemMoveUp.Click += delegate { _accountHandler.MoveUp(); };
+            itemMoveUp.Click += delegate { App.SwitchWindow.SelectedAccount.MoveUp(); };
 
             var itemMoveDown = new MenuItem {Header = "Move Down"};
-            itemMoveDown.Click += delegate { _accountHandler.MoveDown(); };
+            itemMoveDown.Click += delegate { App.SwitchWindow.SelectedAccount.MoveDown(); };
 
             var itemRemove = new MenuItem {Header = "Remove..."};
-            itemRemove.Click += delegate { _accountHandler.Remove(-2, true); };
+            itemRemove.Click += delegate { App.SwitchWindow.SelectedAccount.Remove(true); };
 
             menuList.Add(itemProperties);
             menuList.Add(new Separator());
@@ -43,12 +36,13 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        private IEnumerable<object> MainMenuItems()
+        private static IEnumerable<object> MainMenuItems()
         {
             var menuList = new List<object>();
 
             var itemOptions = new MenuItem {Header = "Options..."};
-            itemOptions.Click += delegate { SettingsHelper.OpenOptions(_accountHandler); };
+            itemOptions.Click +=
+                delegate { SettingsHelper.OpenOptions(); };
             var itemCheckUpdates = new MenuItem {Header = "Check for Updates"};
             itemCheckUpdates.Click += delegate { UpdateHelper.CheckForUpdatesAsync(false); };
             var itemExit = new MenuItem {Header = "Exit"};
@@ -62,15 +56,15 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        private IEnumerable<object> NotifyItems()
+        private static IEnumerable<object> NotifyItems()
         {
             var menuList = new List<object>();
 
             var itemAddAccount = new MenuItem {Header = "Add Account..."};
-            itemAddAccount.Click += delegate { _accountHandler.New(); };
+            itemAddAccount.Click += delegate { AccountHelper.New(); };
 
             var itemManageAccounts = new MenuItem {Header = "Manage Accounts"};
-            itemManageAccounts.Click += delegate { _accountHandler._showWindow(); };
+            itemManageAccounts.Click += delegate { SwitchWindowHelper.ShowSwitcherWindow(); };
 
             var itemExitSteam = new MenuItem {Header = "Exit Steam"};
             itemExitSteam.Click += delegate { SteamClient.LogOutAuto(); };
@@ -90,7 +84,7 @@ namespace SteamAccountSwitcher
                                 : App.Accounts[i].DisplayName
                     };
                     var i1 = i;
-                    item.Click += delegate { _accountHandler.SwitchAccount(i1); };
+                    item.Click += delegate { App.Accounts[i1].SwitchTo(); };
                     menuList.Add(item);
                 }
                 menuList.Add(new Separator());
@@ -107,16 +101,15 @@ namespace SteamAccountSwitcher
             return menuList;
         }
 
-        public ContextMenu AccountMenu()
+        public static ContextMenu AccountMenu()
         {
             var menu = new ContextMenu();
-            menu.Opened += _accountHandler.SetFocus;
             foreach (var item in AccountMenuItems())
                 menu.Items.Add(item);
             return menu;
         }
 
-        public ContextMenu MainMenu()
+        public static ContextMenu MainMenu()
         {
             var menu = new ContextMenu();
             foreach (var item in MainMenuItems())
@@ -124,7 +117,7 @@ namespace SteamAccountSwitcher
             return menu;
         }
 
-        public ContextMenu NotifyMenu()
+        public static ContextMenu NotifyMenu()
         {
             var menu = new ContextMenu();
             foreach (var item in NotifyItems())
