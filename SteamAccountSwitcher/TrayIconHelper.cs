@@ -40,7 +40,7 @@ namespace SteamAccountSwitcher
             logo.EndInit();
             App.NotifyIcon.IconSource = logo;
             App.NotifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
-            App.NotifyIcon.TrayMouseDoubleClick += (sender, args) => SwitchWindowHelper.ShowSwitcherWindow();
+            App.NotifyIcon.TrayMouseDoubleClick += (sender, args) => SwitchWindowHelper.ActivateSwitchWindow();
             App.Accounts.CollectionChanged += (sender, args) => RefreshTrayIcon();
 
             RefreshTrayIcon();
