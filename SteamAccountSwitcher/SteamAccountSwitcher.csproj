@@ -126,9 +126,6 @@
     <Compile Include="EnumUtilities.cs" />
     <Compile Include="FullscreenHelper.cs" />
     <Compile Include="GitHubApiCommits.cs" />
-    <Compile Include="HelperWindow.xaml.cs">
-      <DependentUpon>HelperWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="InputBox.xaml.cs">
       <DependentUpon>InputBox.xaml</DependentUpon>
     </Compile>
@@ -172,10 +169,6 @@
     <Compile Include="Win32RECT.cs" />
     <Compile Include="WindowHelper.cs" />
     <Page Include="AccountProperties.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="HelperWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

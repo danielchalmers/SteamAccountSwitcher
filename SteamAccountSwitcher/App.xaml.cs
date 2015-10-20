@@ -24,7 +24,6 @@ namespace SteamAccountSwitcher
         public static List<string> Arguments;
         public static TaskScheduler UpdateScheduler;
         public static ObservableCollection<Account> Accounts;
-        public static HelperWindow HelperWindow;
         public static SwitchWindow SwitchWindow;
         public static TaskbarIcon NotifyIcon;
         public static bool SuccessfullyLoaded;

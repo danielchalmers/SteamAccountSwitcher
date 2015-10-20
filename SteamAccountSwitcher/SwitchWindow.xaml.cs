@@ -1,9 +1,11 @@
 ﻿#region
 
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -84,6 +86,15 @@ namespace SteamAccountSwitcher
         {
             if (e.ChangedButton == MouseButton.Right)
                 AccountMenu.IsOpen = true;
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            base.OnSourceInitialized(e);
+
+            var mainWindowPtr = new WindowInteropHelper(this).Handle;
+            var mainWindowSrc = HwndSource.FromHwnd(mainWindowPtr);
+            mainWindowSrc?.AddHook(SingleInstanceHelper.WndProc);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace SteamAccountSwitcher
     {
         public static bool Initialize()
         {
-            InitHelperWindow();
+            InitMainWindow();
             if (IsExistingInstanceRunning())
             {
                 //Popup.Show("You can only run one instance at a time.");
@@ -30,7 +30,6 @@ namespace SteamAccountSwitcher
             LoadAccounts();
             if (Settings.Default.AlwaysOn)
                 TrayIconHelper.CreateTrayIcon();
-            InitMainWindow();
 
             LaunchStartAccount();
 
@@ -53,15 +52,10 @@ namespace SteamAccountSwitcher
             }
         }
 
-        private static void InitHelperWindow()
-        {
-            App.HelperWindow = new HelperWindow();
-            var helper = new WindowInteropHelper(App.HelperWindow);
-            helper.EnsureHandle();
-        }
-
         private static void InitMainWindow()
         {
+            App.SwitchWindow = new SwitchWindow();
+            new WindowInteropHelper(App.SwitchWindow).EnsureHandle();
             if (Settings.Default.AlwaysOn)
             {
                 TrayIconHelper.ShowRunningInTrayBalloon();
