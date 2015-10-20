@@ -155,6 +155,7 @@
     </Compile>
     <Compile Include="Popup.cs" />
     <Compile Include="SettingsHelper.cs" />
+    <Compile Include="SingleInstanceHelper.cs" />
     <Compile Include="SteamClient.cs" />
     <Compile Include="SteamPath.xaml.cs">
       <DependentUpon>SteamPath.xaml</DependentUpon>

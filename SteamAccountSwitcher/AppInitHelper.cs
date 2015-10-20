@@ -3,6 +3,7 @@
 using System;
 using System.Linq;
 using System.Threading;
+using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
 
 #endregion
@@ -13,10 +14,10 @@ namespace SteamAccountSwitcher
     {
         public static bool Initialize()
         {
-            App.HelperWindow = new HelperWindow();
+            InitHelperWindow();
             if (IsExistingInstanceRunning())
             {
-                Popup.Show("You can only run one instance at a time.");
+                //Popup.Show("You can only run one instance at a time.");
                 return false;
             }
             LoadSettings();
@@ -52,6 +53,13 @@ namespace SteamAccountSwitcher
             }
         }
 
+        private static void InitHelperWindow()
+        {
+            App.HelperWindow = new HelperWindow();
+            var helper = new WindowInteropHelper(App.HelperWindow);
+            helper.EnsureHandle();
+        }
+
         private static void InitMainWindow()
         {
             if (Settings.Default.AlwaysOn)
@@ -81,8 +89,12 @@ namespace SteamAccountSwitcher
         {
             bool isNewInstance;
             App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out isNewInstance);
-            return !(App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
-                     Settings.Default.MultiInstance || isNewInstance);
+            if (App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
+                Settings.Default.MultiInstance || isNewInstance)
+                return false;
+            SingleInstanceHelper.ShowExistingInstance();
+            ClickOnceHelper.ShutdownApplication();
+            return true;
         }
 
         private static void LoadAccounts()
