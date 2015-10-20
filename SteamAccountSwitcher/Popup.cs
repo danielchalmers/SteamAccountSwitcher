@@ -14,7 +14,7 @@ namespace SteamAccountSwitcher
         {
             if (Settings.Default.DontShowPopups)
                 return MessageBoxResult.Yes;
-            var msg = MessageBox.Show(App.SwitchWindow, text, Resources.AppName, btn, img, defaultbtn);
+            var msg = MessageBox.Show(text, Resources.AppName, btn, img, defaultbtn);
             return msg;
         }
     }
