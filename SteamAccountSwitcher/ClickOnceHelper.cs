@@ -26,6 +26,7 @@ namespace SteamAccountSwitcher
 
         public static void ShutdownApplication()
         {
+            App.IsShuttingDown = true;
             Application.Current.Shutdown();
         }
 

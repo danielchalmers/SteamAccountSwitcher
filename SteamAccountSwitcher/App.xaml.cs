@@ -27,6 +27,7 @@ namespace SteamAccountSwitcher
         public static SwitchWindow SwitchWindow;
         public static TaskbarIcon NotifyIcon;
         public static bool SuccessfullyLoaded;
+        public static bool IsShuttingDown;
 
         public App()
         {

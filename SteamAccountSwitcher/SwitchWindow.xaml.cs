@@ -35,6 +35,8 @@ namespace SteamAccountSwitcher
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            if (App.IsShuttingDown)
+                return;
             if (Settings.Default.AlwaysOn)
             {
                 e.Cancel = true;
