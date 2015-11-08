@@ -117,7 +117,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">#FFF0F0F0</Value>
     </Setting>
   </Settings>
 </SettingsFile>

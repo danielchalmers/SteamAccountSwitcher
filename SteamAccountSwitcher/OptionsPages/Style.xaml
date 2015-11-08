@@ -43,10 +43,15 @@
             SelectedColor="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonDefaultColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
-        <TextBlock Text="Button Text Color:" />
+        <TextBlock Text="Default Button Text Color:" />
         <xctk:ColorPicker
             SelectedColor="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonTextColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+                               Path=ButtonDefaultTextColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
+        <TextBlock Text="Window Color:" />
+        <xctk:ColorPicker
+            SelectedColor="{Binding Source={x:Static p:Settings.Default},
+                               Path=WindowColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
         <TextBlock Text="Show Steam Open/Exit tray menu items:" />
         <CheckBox

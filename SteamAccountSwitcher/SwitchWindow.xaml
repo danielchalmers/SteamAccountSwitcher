@@ -93,7 +93,7 @@
     <Window.ContextMenu>
         <ContextMenu ItemsSource="{StaticResource MainMenuItems}" />
     </Window.ContextMenu>
-    <Grid Background="{x:Static SystemColors.ControlBrush}">
+    <Grid Background="{Binding Source={x:Static p:Settings.Default}, Path=WindowColor, Mode=OneWay, Converter={StaticResource ColorToSolidBrushConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="24" />
