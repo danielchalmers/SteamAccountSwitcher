@@ -17,9 +17,6 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class SwitchWindow : Window
     {
-        public readonly ContextMenu AccountMenu;
-        public readonly ContextMenu Menu;
-
         public SwitchWindow()
         {
             InitializeComponent();
@@ -36,20 +33,16 @@ namespace SteamAccountSwitcher
                 WindowStartupLocation = WindowStartupLocation.CenterScreen;
             }
 
-            // Assign context menus.
-            Menu = MenuHelper.MainMenu();
-            AccountMenu = MenuHelper.AccountMenu();
-
             ReloadAccountListBinding();
         }
+
+        public Account SelectedAccount { get; private set; }
 
         public void ReloadAccountListBinding()
         {
             AccountView.DataContext = null;
             AccountView.DataContext = App.Accounts;
         }
-
-        public Account SelectedAccount { get; private set; }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -68,7 +61,7 @@ namespace SteamAccountSwitcher
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
-            Menu.IsOpen = true;
+            ContextMenu.IsOpen = true;
         }
 
         private void btnAddAccount_Click(object sender, RoutedEventArgs e)
@@ -119,10 +112,39 @@ namespace SteamAccountSwitcher
             SetFocus(sender);
         }
 
-        private void btnAccount_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        private void menuItemEdit_OnClick(object sender, RoutedEventArgs e)
         {
-            if (e.ChangedButton == MouseButton.Right)
-                AccountMenu.IsOpen = true;
+            SelectedAccount.Edit();
+        }
+
+        private void menuItemMoveUp_OnClick(object sender, RoutedEventArgs e)
+        {
+            SelectedAccount.MoveUp();
+        }
+
+        private void menuItemMoveDown_OnClick(object sender, RoutedEventArgs e)
+        {
+            SelectedAccount.MoveDown();
+        }
+
+        private void menuItemRemove_OnClick(object sender, RoutedEventArgs e)
+        {
+            SelectedAccount.Remove(true);
+        }
+
+        private void menuItemOptions_OnClick(object sender, RoutedEventArgs e)
+        {
+            SettingsHelper.OpenOptions();
+        }
+
+        private void menuItemCheckUpdates_OnClick(object sender, RoutedEventArgs e)
+        {
+            UpdateHelper.CheckForUpdatesAsync(false);
+        }
+
+        private void menuItemExit_OnClick(object sender, RoutedEventArgs e)
+        {
+            ClickOnceHelper.ShutdownApplication();
         }
     }
 }

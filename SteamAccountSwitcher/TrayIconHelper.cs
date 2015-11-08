@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
@@ -25,7 +27,7 @@ namespace SteamAccountSwitcher
         public static void RefreshTrayIconMenu()
         {
             if (Settings.Default.AlwaysOn)
-                App.NotifyIcon.ContextMenu = MenuHelper.NotifyMenu();
+                App.NotifyIcon.ContextMenu = ContextMenu();
         }
 
         public static void RefreshTrayIconVisibility()
@@ -51,6 +53,63 @@ namespace SteamAccountSwitcher
 
             RefreshTrayIconMenu();
             RefreshTrayIconVisibility();
+            ShowRunningInTrayBalloon();
+        }
+
+        private static IEnumerable<object> ContextMenuItems()
+        {
+            var menuList = new List<object>();
+
+            var itemAddAccount = new MenuItem {Header = "Add Account..."};
+            itemAddAccount.Click += delegate { AccountHelper.New(); };
+
+            var itemManageAccounts = new MenuItem {Header = "Manage Accounts"};
+            itemManageAccounts.Click += delegate { SwitchWindowHelper.ShowSwitcherWindow(); };
+
+            var itemExitSteam = new MenuItem {Header = "Exit Steam"};
+            itemExitSteam.Click += delegate { SteamClient.LogOutAuto(); };
+
+            var itemStartSteam = new MenuItem {Header = "Open Steam"};
+            itemStartSteam.Click += delegate { SteamClient.Launch(); };
+
+            if (App.Accounts != null && App.Accounts.Count > 0)
+            {
+                for (var i = 0; i < App.Accounts.Count; i++)
+                {
+                    var item = new MenuItem
+                    {
+                        Header =
+                            string.IsNullOrWhiteSpace(App.Accounts[i].DisplayName)
+                                ? App.Accounts[i].Username
+                                : App.Accounts[i].DisplayName
+                    };
+                    var i1 = i;
+                    item.Click += delegate { App.Accounts[i1].SwitchTo(); };
+                    menuList.Add(item);
+                }
+                menuList.Add(new Separator());
+            }
+
+            menuList.Add(itemAddAccount);
+            menuList.Add(itemManageAccounts);
+            if (Settings.Default.NotifyMenuShowSteamSection)
+            {
+                menuList.Add(new Separator());
+                menuList.Add(itemStartSteam);
+                menuList.Add(itemExitSteam);
+            }
+            return menuList;
+        }
+
+        private static ContextMenu ContextMenu()
+        {
+            var menu = new ContextMenu();
+            var items = new List<object>();
+            items.AddRange(ContextMenuItems());
+            items.Add(new Separator());
+            items.AddRange((object[]) App.SwitchWindow.FindResource("MainMenuItems"));
+            menu.ItemsSource = items;
+            return menu;
         }
     }
 }

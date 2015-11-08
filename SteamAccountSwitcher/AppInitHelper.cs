@@ -28,10 +28,9 @@ namespace SteamAccountSwitcher
             StartScheduledTasks();
             App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LoadAccounts();
+            InitMainWindow();
             if (Settings.Default.AlwaysOn)
                 TrayIconHelper.CreateTrayIcon();
-
-            InitMainWindow();
 
             LaunchStartAccount();
 
@@ -60,7 +59,6 @@ namespace SteamAccountSwitcher
             new WindowInteropHelper(App.SwitchWindow).EnsureHandle();
             if (Settings.Default.AlwaysOn)
             {
-                TrayIconHelper.ShowRunningInTrayBalloon();
             }
             else
             {

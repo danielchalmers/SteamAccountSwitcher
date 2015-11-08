@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d" SizeToContent="Height"
         ResizeMode="CanMinimize"
         Closing="Window_Closing" Icon="steam.ico" MinWidth="100"
@@ -30,7 +31,18 @@
             <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
             <Setter Property="Stretch" Value="None" />
         </Style>
+
+        <x:Array x:Shared="False" Type="{x:Type sys:Object}" x:Key="MainMenuItems">
+            <MenuItem Header="Options..." Click="menuItemOptions_OnClick" />
+            <Separator />
+            <MenuItem Header="Check for Updates..." Click="menuItemCheckUpdates_OnClick" />
+            <Separator />
+            <MenuItem Header="Exit" Click="menuItemExit_OnClick" />
+        </x:Array>
     </Window.Resources>
+    <Window.ContextMenu>
+        <ContextMenu ItemsSource="{StaticResource MainMenuItems}" />
+    </Window.ContextMenu>
     <Grid Background="{x:Static SystemColors.ControlBrush}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -46,8 +58,18 @@
                                 Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
                                 Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
                                 Click="btnAccount_OnClick"
-                                PreviewMouseRightButtonUp="btnAccount_OnPreviewMouseRightButtonUp"
-                                MouseRightButtonUp="btnAccount_OnMouseRightButtonUp" />
+                                PreviewMouseRightButtonUp="btnAccount_OnPreviewMouseRightButtonUp">
+                            <Button.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Edit..." Click="menuItemEdit_OnClick" />
+                                    <Separator />
+                                    <MenuItem Header="Move Up" Click="menuItemMoveUp_OnClick" />
+                                    <MenuItem Header="Move Down" Click="menuItemMoveDown_OnClick" />
+                                    <Separator />
+                                    <MenuItem Header="Remove..." Click="menuItemRemove_OnClick" />
+                                </ContextMenu>
+                            </Button.ContextMenu>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
