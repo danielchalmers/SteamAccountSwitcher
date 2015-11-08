@@ -40,6 +40,12 @@ namespace SteamAccountSwitcher
             Menu = MenuHelper.MainMenu();
             AccountMenu = MenuHelper.AccountMenu();
 
+            ReloadAccountListBinding();
+        }
+
+        public void ReloadAccountListBinding()
+        {
+            AccountView.DataContext = null;
             AccountView.DataContext = App.Accounts;
         }
 

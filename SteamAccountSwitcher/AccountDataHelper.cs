@@ -13,7 +13,7 @@ namespace SteamAccountSwitcher
     {
         public static string DefaultData()
         {
-            return SettingsHelper.SerializeAccounts(new List<Account>
+            return SettingsHelper.SerializeAccounts(new ObservableCollection<Account>
             {
                 new Account
                 {
@@ -27,6 +27,7 @@ namespace SteamAccountSwitcher
         public static void ReloadData()
         {
             App.Accounts = new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts());
+            App.SwitchWindow?.ReloadAccountListBinding();
         }
 
         public static void ImportAccounts()
