@@ -45,9 +45,9 @@
                                 Tag="{Binding Path=.}"
                                 Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
                                 Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                Click="btnAccount_Click"
-                                MouseUp="btnAccount_MouseUp"
-                                PreviewMouseDown="btnAccount_PreviewMouseDown" />
+                                Click="btnAccount_OnClick"
+                                PreviewMouseRightButtonUp="btnAccount_OnPreviewMouseRightButtonUp"
+                                MouseRightButtonUp="btnAccount_OnMouseRightButtonUp" />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

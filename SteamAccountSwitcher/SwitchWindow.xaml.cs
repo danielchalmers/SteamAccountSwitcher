@@ -87,20 +87,9 @@ namespace SteamAccountSwitcher
                 App.Accounts[num - 1].SwitchTo();
         }
 
-        private void btnAccount_Click(object sender, RoutedEventArgs e)
-        {
-            SelectedAccount.SwitchTo();
-        }
-
-        private void btnAccount_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void SetFocus(object sender)
         {
             SelectedAccount = ((sender as Control)?.Tag as Account);
-        }
-
-        private void btnAccount_MouseUp(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Right)
-                AccountMenu.IsOpen = true;
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -110,6 +99,23 @@ namespace SteamAccountSwitcher
             var mainWindowPtr = new WindowInteropHelper(this).Handle;
             var mainWindowSrc = HwndSource.FromHwnd(mainWindowPtr);
             mainWindowSrc?.AddHook(SingleInstanceHelper.WndProc);
+        }
+
+        private void btnAccount_OnClick(object sender, RoutedEventArgs e)
+        {
+            SetFocus(sender);
+            SelectedAccount.SwitchTo();
+        }
+
+        private void btnAccount_OnPreviewMouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            SetFocus(sender);
+        }
+
+        private void btnAccount_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Right)
+                AccountMenu.IsOpen = true;
         }
     }
 }
