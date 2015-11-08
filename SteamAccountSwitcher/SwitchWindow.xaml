@@ -65,6 +65,30 @@
                                     <Separator />
                                     <MenuItem Header="Move Up" Click="menuItemMoveUp_OnClick" />
                                     <MenuItem Header="Move Down" Click="menuItemMoveDown_OnClick" />
+                                    <MenuItem Header="Sort All By (Ascending)">
+                                        <MenuItem.ItemsSource>
+                                            <CompositeCollection>
+                                                <MenuItem Header="Alias" Click="menuItemSortAlias_OnClick" />
+                                                <MenuItem Header="Username" Click="menuItemSortUsername_OnClick" />
+                                                <MenuItem Header="Add Date" Click="menuItemSortAddDate_OnClick" />
+                                                <MenuItem Header="Last Modified"
+                                                          Click="menuItemSortModifiedDate_OnClick" />
+                                            </CompositeCollection>
+                                        </MenuItem.ItemsSource>
+                                    </MenuItem>
+                                    <MenuItem Header="Sort All By (Descending)">
+                                        <MenuItem.ItemsSource>
+                                            <CompositeCollection>
+                                                <MenuItem Header="Alias" Click="menuItemSortDescendingAlias_OnClick" />
+                                                <MenuItem Header="Username"
+                                                          Click="menuItemSortDescendingUsername_OnClick" />
+                                                <MenuItem Header="Add Date"
+                                                          Click="menuItemSortDescendingAddDate_OnClick" />
+                                                <MenuItem Header="Last Modified"
+                                                          Click="menuItemSortDescendingModifiedDate_OnClick" />
+                                            </CompositeCollection>
+                                        </MenuItem.ItemsSource>
+                                    </MenuItem>
                                     <Separator />
                                     <MenuItem Header="Remove..." Click="menuItemRemove_OnClick" />
                                 </ContextMenu>

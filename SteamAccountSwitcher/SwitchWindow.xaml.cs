@@ -2,6 +2,7 @@
 
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -145,6 +146,46 @@ namespace SteamAccountSwitcher
         private void menuItemExit_OnClick(object sender, RoutedEventArgs e)
         {
             ClickOnceHelper.ShutdownApplication();
+        }
+
+        private void menuItemSortAlias_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderBy(x => x.DisplayName).Reload();
+        }
+
+        private void menuItemSortUsername_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderBy(x => x.Username).Reload();
+        }
+
+        private void menuItemSortAddDate_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderBy(x => x.AddDate).Reload();
+        }
+
+        private void menuItemSortModifiedDate_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderBy(x => x.LastModifiedDate).Reload();
+        }
+
+        private void menuItemSortDescendingAlias_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderByDescending(x => x.DisplayName).Reload();
+        }
+
+        private void menuItemSortDescendingUsername_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderByDescending(x => x.Username).Reload();
+        }
+
+        private void menuItemSortDescendingAddDate_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderByDescending(x => x.AddDate).Reload();
+        }
+
+        private void menuItemSortDescendingModifiedDate_OnClick(object sender, RoutedEventArgs e)
+        {
+            App.Accounts.OrderByDescending(x => x.LastModifiedDate).Reload();
         }
     }
 }

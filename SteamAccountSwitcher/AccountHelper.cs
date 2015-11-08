@@ -1,5 +1,8 @@
 ﻿#region
 
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
@@ -12,6 +15,7 @@ namespace SteamAccountSwitcher
     {
         public static void Add(Account account)
         {
+            account.AddDate = DateTime.Now;
             App.Accounts.Add(account);
         }
 
@@ -36,9 +40,11 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties(account);
             dialog.ShowDialog();
-            if (dialog.NewAccount == null)
+            var newAccount = dialog.NewAccount;
+            if (newAccount == null)
                 return;
-            App.Accounts[App.Accounts.IndexOf(account)] = dialog.NewAccount;
+            newAccount.LastModifiedDate = DateTime.Now;
+            App.Accounts[App.Accounts.IndexOf(account)] = newAccount;
         }
 
         public static void New()
@@ -94,6 +100,13 @@ namespace SteamAccountSwitcher
                 else
                     App.Accounts.Swap(index, index + 1);
             }
+        }
+
+        public static void Reload(this IEnumerable<Account> accounts)
+        {
+            App.Accounts = new ObservableCollection<Account>(accounts);
+            SettingsHelper.SaveSettings();
+            AccountDataHelper.ReloadData();
         }
     }
 }
