@@ -95,7 +95,7 @@ namespace SteamAccountSwitcher
             }
             else
             {
-                if (App.Accounts.Count < index)
+                if (App.Accounts.Count - 1 < index + 1)
                     MoveUp(account, true);
                 else
                     App.Accounts.Swap(index, index + 1);
