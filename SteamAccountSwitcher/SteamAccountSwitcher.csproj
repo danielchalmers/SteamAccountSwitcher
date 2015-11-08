@@ -150,6 +150,7 @@
       <DependentUpon>General.xaml</DependentUpon>
     </Compile>
     <Compile Include="Popup.cs" />
+    <Compile Include="SaveTimer.cs" />
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="SingleInstanceHelper.cs" />
     <Compile Include="SteamClient.cs" />

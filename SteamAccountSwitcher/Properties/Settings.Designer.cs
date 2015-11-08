@@ -417,5 +417,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["SwitchWindowKeepCentered"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("00:00:30")]
+        public global::System.TimeSpan SaveDelay {
+            get {
+                return ((global::System.TimeSpan)(this["SaveDelay"]));
+            }
+            set {
+                this["SaveDelay"] = value;
+            }
+        }
     }
 }

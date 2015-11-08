@@ -1,6 +1,5 @@
 ﻿#region
 
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
@@ -27,6 +26,7 @@ namespace SteamAccountSwitcher
         public static void ReloadData()
         {
             App.Accounts = new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts());
+            App.Accounts.CollectionChanged += (sender, args) => App.SaveTimer.DelaySave();
             App.SwitchWindow?.ReloadAccountListBinding();
         }
 

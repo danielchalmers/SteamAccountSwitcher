@@ -26,6 +26,7 @@ namespace SteamAccountSwitcher
                 return false;
             }
             StartScheduledTasks();
+            App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LoadAccounts();
             if (Settings.Default.AlwaysOn)
                 TrayIconHelper.CreateTrayIcon();

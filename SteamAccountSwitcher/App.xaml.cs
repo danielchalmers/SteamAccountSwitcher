@@ -27,6 +27,7 @@ namespace SteamAccountSwitcher
         public static ObservableCollection<Account> Accounts;
         public static SwitchWindow SwitchWindow;
         public static TaskbarIcon NotifyIcon;
+        public static SaveTimer SaveTimer;
         public static bool SuccessfullyLoaded;
         public static bool IsShuttingDown;
 
