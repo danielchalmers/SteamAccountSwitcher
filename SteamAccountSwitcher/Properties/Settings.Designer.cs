@@ -549,5 +549,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["FontWeight"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ContextMenuIgnoreDefaultColor {
+            get {
+                return ((bool)(this["ContextMenuIgnoreDefaultColor"]));
+            }
+            set {
+                this["ContextMenuIgnoreDefaultColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ContextMenuIgnoreDefaultTextColor {
+            get {
+                return ((bool)(this["ContextMenuIgnoreDefaultTextColor"]));
+            }
+            set {
+                this["ContextMenuIgnoreDefaultTextColor"] = value;
+            }
+        }
     }
 }

@@ -136,5 +136,11 @@
     <Setting Name="FontWeight" Type="System.Windows.FontWeight" Scope="User">
       <Value Profile="(Default)">Normal</Value>
     </Setting>
+    <Setting Name="ContextMenuIgnoreDefaultColor" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ContextMenuIgnoreDefaultTextColor" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -82,17 +82,30 @@ namespace SteamAccountSwitcher
                         Header =
                             string.IsNullOrWhiteSpace(App.Accounts[i].DisplayName)
                                 ? App.Accounts[i].Username
-                                : App.Accounts[i].DisplayName,
-                        Background =
-                            Settings.Default.ColorCodeAccountMenuItems
-                                ? new SolidColorBrush(App.Accounts[i].Color)
-                                : null,
-                        Foreground =
-                            Settings.Default.ColorCodeAccountMenuItems
-                                ? new SolidColorBrush(App.Accounts[i].TextColor)
-                                : Brushes.Black
+                                : App.Accounts[i].DisplayName
                     };
                     var i1 = i;
+
+                    if (Settings.Default.ColorCodeAccountMenuItems)
+                    {
+                        if (Settings.Default.ContextMenuIgnoreDefaultColor &&
+                            App.Accounts[i].Color == Settings.Default.ButtonDefaultColor)
+                        {
+                        }
+                        else
+                        {
+                            item.Background = new SolidColorBrush(App.Accounts[i1].Color);
+                        }
+                        if (Settings.Default.ContextMenuIgnoreDefaultTextColor &&
+                            App.Accounts[i].TextColor == Settings.Default.ButtonDefaultTextColor)
+                        {
+                        }
+                        else
+                        {
+                            item.Foreground = new SolidColorBrush(App.Accounts[i1].TextColor);
+                        }
+                    }
+
                     item.Click += delegate { App.Accounts[i1].SwitchTo(); };
                     menuList.Add(item);
                 }
