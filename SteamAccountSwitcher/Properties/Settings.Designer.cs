@@ -465,5 +465,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ScrollBarVisibility"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool ColorCodeAccountMenuItems {
+            get {
+                return ((bool)(this["ColorCodeAccountMenuItems"]));
+            }
+            set {
+                this["ColorCodeAccountMenuItems"] = value;
+            }
+        }
     }
 }

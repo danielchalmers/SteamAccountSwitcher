@@ -115,5 +115,8 @@
     <Setting Name="ScrollBarVisibility" Type="System.Windows.Controls.ScrollBarVisibility" Scope="User">
       <Value Profile="(Default)">Auto</Value>
     </Setting>
+    <Setting Name="ColorCodeAccountMenuItems" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

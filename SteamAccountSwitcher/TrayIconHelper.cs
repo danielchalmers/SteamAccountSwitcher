@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
@@ -81,7 +82,11 @@ namespace SteamAccountSwitcher
                         Header =
                             string.IsNullOrWhiteSpace(App.Accounts[i].DisplayName)
                                 ? App.Accounts[i].Username
-                                : App.Accounts[i].DisplayName
+                                : App.Accounts[i].DisplayName,
+                        Background =
+                            Settings.Default.ColorCodeAccountMenuItems
+                                ? new SolidColorBrush(App.Accounts[i].Color)
+                                : null
                     };
                     var i1 = i;
                     item.Click += delegate { App.Accounts[i1].SwitchTo(); };
