@@ -99,10 +99,8 @@
         </x:Array>
 
         <ContextMenu x:Shared="False" x:Key="AccountContextMenu" ItemsSource="{StaticResource AccountItems}" />
+        <ContextMenu x:Shared="False" x:Key="MainContextMenu" ItemsSource="{StaticResource MainMenuItems}" />
     </Window.Resources>
-    <Window.ContextMenu>
-        <ContextMenu ItemsSource="{StaticResource MainMenuItems}" />
-    </Window.ContextMenu>
     <Grid
         Background="{Binding Source={x:Static p:Settings.Default}, Path=WindowColor, Mode=OneWay, Converter={StaticResource ColorToSolidBrushConverter}}">
         <Grid.RowDefinitions>
