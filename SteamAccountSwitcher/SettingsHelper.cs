@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Collections.Generic;
 using System.Windows;
 using Newtonsoft.Json;
@@ -14,31 +13,14 @@ namespace SteamAccountSwitcher
     {
         public static string SerializeAccounts(IEnumerable<Account> accounts)
         {
-            try
-            {
-                return new Encryption().Encrypt(JsonConvert.SerializeObject(accounts));
-            }
-            catch (Exception)
-            {
-                //Popup.Show("Could not save account data.", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }
-            return string.Empty;
+            return new Encryption().Encrypt(JsonConvert.SerializeObject(accounts));
         }
 
-        public static IEnumerable<Account> DeserializeAccounts()
+        public static IEnumerable<Account> DeserializeAccounts(string data)
         {
-            try
-            {
-                return
-                    JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(Settings.Default.Accounts)) ??
-                    new List<Account>();
-            }
-            catch (Exception)
-            {
-                Popup.Show("Existing account data is corrupt.\r\n\r\nAll accounts cleared.", MessageBoxButton.OK,
-                    MessageBoxImage.Warning);
-            }
-            return new List<Account>();
+            return
+                JsonConvert.DeserializeObject<List<Account>>(new Encryption().Decrypt(data)) ??
+                new List<Account>();
         }
 
         public static void OpenOptions()

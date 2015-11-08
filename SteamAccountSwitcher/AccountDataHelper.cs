@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Collections.ObjectModel;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
@@ -25,7 +26,18 @@ namespace SteamAccountSwitcher
 
         public static void ReloadData()
         {
-            App.Accounts = new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts());
+            try
+            {
+                App.Accounts =
+                    new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(Settings.Default.Accounts));
+            }
+            catch
+            {
+                App.Accounts = new ObservableCollection<Account>();
+                Popup.Show(
+                    $"Existing account data is corrupt.{Environment.NewLine}{Environment.NewLine}All accounts have been reset.",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
             App.Accounts.CollectionChanged += (sender, args) => App.SaveTimer.DelaySave();
             App.SwitchWindow?.ReloadAccountListBinding();
         }
@@ -39,8 +51,22 @@ namespace SteamAccountSwitcher
                     "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
             {
-                Settings.Default.Accounts = dialog.TextData;
-                ReloadData();
+                try
+                {
+                    // Test import data before overwriting existing accounts.
+                    var testAccounts =
+                        new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(dialog.TextData));
+
+                    Settings.Default.Accounts = dialog.TextData;
+                    ReloadData();
+                    SettingsHelper.SaveSettings();
+                }
+                catch
+                {
+                    Popup.Show(
+                        $"Import failed. Data may be corrupt.{Environment.NewLine}{Environment.NewLine}No changes have been made.",
+                        MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
             }
         }
 
