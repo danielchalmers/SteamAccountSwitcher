@@ -86,12 +86,12 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FF000000")]
-        public global::System.Windows.Media.Color ButtonTextColor {
+        public global::System.Windows.Media.Color ButtonDefaultTextColor {
             get {
-                return ((global::System.Windows.Media.Color)(this["ButtonTextColor"]));
+                return ((global::System.Windows.Media.Color)(this["ButtonDefaultTextColor"]));
             }
             set {
-                this["ButtonTextColor"] = value;
+                this["ButtonDefaultTextColor"] = value;
             }
         }
         
@@ -475,6 +475,17 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["ColorCodeAccountMenuItems"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Windows.Media.Color WindowColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["WindowColor"]));
+            }
+            set {
+                this["WindowColor"] = value;
             }
         }
     }

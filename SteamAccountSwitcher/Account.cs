@@ -14,6 +14,7 @@ namespace SteamAccountSwitcher
         public string Username { get; set; } = "";
         public string Password { get; set; } = "";
         public Color Color { get; set; } = Settings.Default.ButtonDefaultColor;
+        public Color TextColor { get; set; } = Settings.Default.ButtonDefaultTextColor;
         public DateTime AddDate { get; set; } = DateTime.Now;
         public DateTime LastModifiedDate { get; set; } = DateTime.Now;
 

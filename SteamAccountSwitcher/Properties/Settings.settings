@@ -1,7 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="SteamPath" Type="System.String" Scope="User">
@@ -19,7 +17,7 @@
     <Setting Name="ButtonDefaultColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFE0E0E0</Value>
     </Setting>
-    <Setting Name="ButtonTextColor" Type="System.Windows.Media.Color" Scope="User">
+    <Setting Name="ButtonDefaultTextColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FF000000</Value>
     </Setting>
     <Setting Name="Launches" Type="System.Int32" Scope="User">
@@ -117,6 +115,9 @@
     </Setting>
     <Setting Name="ColorCodeAccountMenuItems" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

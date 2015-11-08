@@ -21,6 +21,7 @@
                 <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
                 <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
                 <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
+                <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
             </Grid.RowDefinitions>
             <Grid.Resources>
                 <Style TargetType="TextBlock">
@@ -57,6 +58,10 @@
             <TextBlock Grid.Row="3" Grid.Column="0" x:Name="lblColor" Text="Color:" />
             <xctk:ColorPicker Grid.Row="3" Grid.Column="1" x:Name="txtColor" HorizontalAlignment="Stretch"
                               VerticalAlignment="Center" Height="23" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
+            <TextBlock Grid.Row="4" Grid.Column="0" x:Name="lblTextColor" Text="Text Color:" />
+            <xctk:ColorPicker Grid.Row="4" Grid.Column="1" x:Name="txtTextColor" HorizontalAlignment="Stretch"
+                              VerticalAlignment="Center" Height="23"
+                              SelectedColor="{Binding Path=TextColor, Mode=TwoWay}" />
         </Grid>
 
         <Grid Grid.Column="0" Grid.Row="1" Margin="0,0,15,15">

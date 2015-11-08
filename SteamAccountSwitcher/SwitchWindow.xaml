@@ -25,8 +25,6 @@
                     Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonTextAlignment, Mode=OneWay, Converter={StaticResource ButtonTextAlignmentToHorizontalAlignmentConverter}}" />
             <Setter Property="Padding"
                     Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonPadding, Mode=OneWay}" />
-            <Setter Property="Foreground"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonTextColor, Mode=OneWay}" />
         </Style>
 
         <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
@@ -112,6 +110,7 @@
                                     Style="{StaticResource StyleButton}"
                                     Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
                                     Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
+                                    Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
                                     Click="btnAccount_OnClick"
                                     PreviewMouseRightButtonUp="btnAccount_OnPreviewMouseRightButtonUp" />
                             <Button Tag="{Binding Path=.}" ContextMenu="{StaticResource AccountContextMenu}"
