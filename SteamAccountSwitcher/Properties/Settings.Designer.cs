@@ -441,5 +441,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["AccountHelperButtons"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
+        public double MaxHeight {
+            get {
+                return ((double)(this["MaxHeight"]));
+            }
+            set {
+                this["MaxHeight"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Auto")]
+        public global::System.Windows.Controls.ScrollBarVisibility ScrollBarVisibility {
+            get {
+                return ((global::System.Windows.Controls.ScrollBarVisibility)(this["ScrollBarVisibility"]));
+            }
+            set {
+                this["ScrollBarVisibility"] = value;
+            }
+        }
     }
 }

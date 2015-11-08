@@ -109,5 +109,11 @@
     <Setting Name="AccountHelperButtons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="MaxHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">NaN</Value>
+    </Setting>
+    <Setting Name="ScrollBarVisibility" Type="System.Windows.Controls.ScrollBarVisibility" Scope="User">
+      <Value Profile="(Default)">Auto</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

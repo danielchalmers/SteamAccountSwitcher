@@ -10,7 +10,8 @@
         Closing="Window_Closing" Icon="steam.ico" MinWidth="100"
         PreviewKeyDown="MainWindow_OnPreviewKeyDown"
         Title="{x:Static p:Resources.AppName}"
-        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}">
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}"
+        MaxHeight="{Binding Source={x:Static p:Settings.Default}, Path=MaxHeight, Mode=OneWay}">
     <Window.Resources>
         <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
         <local:TextAlignmentToHorizontalAlignmentConverter x:Key="ButtonTextAlignmentToHorizontalAlignmentConverter" />
@@ -100,7 +101,9 @@
             <RowDefinition Height="24" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden">
+        <ScrollViewer
+            VerticalScrollBarVisibility="{Binding Source={x:Static p:Settings.Default}, Path=ScrollBarVisibility, Mode=OneWay}"
+            HorizontalScrollBarVisibility="Hidden">
             <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>

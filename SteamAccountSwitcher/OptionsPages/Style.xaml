@@ -23,6 +23,11 @@
             Text="{Binding Source={x:Static p:Settings.Default},
                                Path=Width, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
+        <TextBlock Text="Max Window Height (px):" />
+        <TextBox
+            Text="{Binding Source={x:Static p:Settings.Default},
+                               Path=MaxHeight, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
         <TextBlock Text="Button Height (px):" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
