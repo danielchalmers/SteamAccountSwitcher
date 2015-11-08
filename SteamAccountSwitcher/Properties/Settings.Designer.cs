@@ -381,5 +381,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["NumberHotkeys"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
+        public double SwitchWindowLeft {
+            get {
+                return ((double)(this["SwitchWindowLeft"]));
+            }
+            set {
+                this["SwitchWindowLeft"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
+        public double SwitchWindowTop {
+            get {
+                return ((double)(this["SwitchWindowTop"]));
+            }
+            set {
+                this["SwitchWindowTop"] = value;
+            }
+        }
     }
 }

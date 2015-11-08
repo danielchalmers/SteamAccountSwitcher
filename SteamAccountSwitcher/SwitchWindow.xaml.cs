@@ -24,6 +24,17 @@ namespace SteamAccountSwitcher
         {
             InitializeComponent();
 
+            if (!double.IsNaN(Settings.Default.SwitchWindowLeft) || !double.IsNaN(Settings.Default.SwitchWindowTop))
+            {
+                WindowStartupLocation = WindowStartupLocation.Manual;
+                Left = Settings.Default.SwitchWindowLeft;
+                Top = Settings.Default.SwitchWindowTop;
+            }
+            else
+            {
+                WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            }
+
             // Assign context menus.
             Menu = MenuHelper.MainMenu();
             AccountMenu = MenuHelper.AccountMenu();
@@ -35,6 +46,8 @@ namespace SteamAccountSwitcher
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            Settings.Default.SwitchWindowLeft = Left;
+            Settings.Default.SwitchWindowTop = Top;
             if (App.IsShuttingDown)
                 return;
             if (Settings.Default.AlwaysOn)
