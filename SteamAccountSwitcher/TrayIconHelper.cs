@@ -22,10 +22,17 @@ namespace SteamAccountSwitcher
             App.NotifyIcon.ShowBalloonTip(Resources.AppName, text, icon);
         }
 
-        public static void RefreshTrayIcon()
+        public static void RefreshTrayIconMenu()
         {
             if (Settings.Default.AlwaysOn)
                 App.NotifyIcon.ContextMenu = MenuHelper.NotifyMenu();
+        }
+
+        public static void RefreshTrayIconVisibility()
+        {
+            if (App.NotifyIcon == null)
+                return;
+            App.NotifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
         }
 
         public static void CreateTrayIcon()
@@ -39,11 +46,11 @@ namespace SteamAccountSwitcher
                 new Uri($"pack://application:,,,/SteamAccountSwitcher;component/steam.ico");
             logo.EndInit();
             App.NotifyIcon.IconSource = logo;
-            App.NotifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
             App.NotifyIcon.TrayMouseDoubleClick += (sender, args) => SwitchWindowHelper.ActivateSwitchWindow();
-            App.Accounts.CollectionChanged += (sender, args) => RefreshTrayIcon();
+            App.Accounts.CollectionChanged += (sender, args) => RefreshTrayIconMenu();
 
-            RefreshTrayIcon();
+            RefreshTrayIconMenu();
+            RefreshTrayIconVisibility();
         }
     }
 }

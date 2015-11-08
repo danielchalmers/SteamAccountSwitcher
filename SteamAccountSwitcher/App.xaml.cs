@@ -3,6 +3,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Deployment.Application;
 using System.Linq;
 using System.Threading;
@@ -32,6 +33,13 @@ namespace SteamAccountSwitcher
         public App()
         {
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;
+            Settings.Default.PropertyChanged += Settings_OnPropertyChanged;
+        }
+
+        private void Settings_OnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
+        {
+            if (propertyChangedEventArgs.PropertyName == nameof(Settings.Default.AlwaysOn))
+                TrayIconHelper.RefreshTrayIconVisibility();
         }
 
         protected override void OnStartup(StartupEventArgs e)
