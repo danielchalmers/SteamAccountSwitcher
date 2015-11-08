@@ -24,7 +24,8 @@ namespace SteamAccountSwitcher
         {
             InitializeComponent();
 
-            if (!double.IsNaN(Settings.Default.SwitchWindowLeft) || !double.IsNaN(Settings.Default.SwitchWindowTop))
+            if (!Settings.Default.SwitchWindowKeepCentered &&
+                (!double.IsNaN(Settings.Default.SwitchWindowLeft) || !double.IsNaN(Settings.Default.SwitchWindowTop)))
             {
                 WindowStartupLocation = WindowStartupLocation.Manual;
                 Left = Settings.Default.SwitchWindowLeft;

@@ -100,5 +100,8 @@
     <Setting Name="SwitchWindowTop" Type="System.Double" Scope="User">
       <Value Profile="(Default)">NaN</Value>
     </Setting>
+    <Setting Name="SwitchWindowKeepCentered" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

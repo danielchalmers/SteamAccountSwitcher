@@ -8,6 +8,11 @@
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" Title="Style">
     <StackPanel>
+        <TextBlock Text="Keep Window Centered:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=SwitchWindowKeepCentered, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
         <TextBlock Text="Window Width (px):" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
