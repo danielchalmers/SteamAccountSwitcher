@@ -25,6 +25,16 @@
                     Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonTextAlignment, Mode=OneWay, Converter={StaticResource ButtonTextAlignmentToHorizontalAlignmentConverter}}" />
             <Setter Property="Padding"
                     Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonPadding, Mode=OneWay}" />
+            <Setter Property="FontFamily"
+                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontFamily, Mode=OneWay}" />
+            <Setter Property="FontSize"
+                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontSize, Mode=OneWay}" />
+            <Setter Property="FontStretch"
+                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontStretch, Mode=OneWay}" />
+            <Setter Property="FontStyle"
+                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontStyle, Mode=OneWay}" />
+            <Setter Property="FontWeight"
+                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontWeight, Mode=OneWay}" />
         </Style>
 
         <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
@@ -93,7 +103,8 @@
     <Window.ContextMenu>
         <ContextMenu ItemsSource="{StaticResource MainMenuItems}" />
     </Window.ContextMenu>
-    <Grid Background="{Binding Source={x:Static p:Settings.Default}, Path=WindowColor, Mode=OneWay, Converter={StaticResource ColorToSolidBrushConverter}}">
+    <Grid
+        Background="{Binding Source={x:Static p:Settings.Default}, Path=WindowColor, Mode=OneWay, Converter={StaticResource ColorToSolidBrushConverter}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="24" />
