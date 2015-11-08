@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Globalization;
+using System.Linq;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
+using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
@@ -42,6 +45,21 @@ namespace SteamAccountSwitcher
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class MultiBooleanToVisibilityConverter : IMultiValueConverter
+    {
+        public object Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return Settings.Default.AccountHelperButtons
+                ? value.Any(val => (bool) val) ? Visibility.Visible : Visibility.Collapsed
+                : Visibility.Collapsed;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

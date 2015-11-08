@@ -13,6 +13,11 @@
             IsChecked="{Binding Source={x:Static p:Settings.Default},
                                Path=SwitchWindowKeepCentered, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
+        <TextBlock Text="Show Account Helper Buttons:" />
+        <CheckBox
+            IsChecked="{Binding Source={x:Static p:Settings.Default},
+                               Path=AccountHelperButtons, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+
         <TextBlock Text="Window Width (px):" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},

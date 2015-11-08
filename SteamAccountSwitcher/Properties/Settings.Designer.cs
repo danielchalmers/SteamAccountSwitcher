@@ -429,5 +429,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["SaveDelay"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool AccountHelperButtons {
+            get {
+                return ((bool)(this["AccountHelperButtons"]));
+            }
+            set {
+                this["AccountHelperButtons"] = value;
+            }
+        }
     }
 }

@@ -187,5 +187,11 @@ namespace SteamAccountSwitcher
         {
             App.Accounts.OrderByDescending(x => x.LastModifiedDate).Reload();
         }
+
+        private void btnAccountHelper_OnClick(object sender, RoutedEventArgs e)
+        {
+            SetFocus(sender);
+            ((Button) sender).ContextMenu.IsOpen = true;
+        }
     }
 }
