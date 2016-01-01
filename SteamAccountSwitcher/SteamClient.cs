@@ -52,6 +52,8 @@ namespace SteamAccountSwitcher
 
         public static void LogOut()
         {
+            if (!IsSteamOpen())
+                return;
             StartSteam(Resources.SteamShutdownArgument);
         }
 
