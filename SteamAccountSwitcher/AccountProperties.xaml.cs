@@ -1,6 +1,7 @@
 ﻿#region
 
 using System.Windows;
+using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -25,7 +26,15 @@ namespace SteamAccountSwitcher
 
             DataContext = NewAccount;
 
-            txtPassword.Password = NewAccount.Password;
+            if (Settings.Default.PreventViewingPasswords)
+            {
+                chkShowPassword.Visibility = Visibility.Collapsed;
+                txtPasswordText.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                txtPassword.Password = NewAccount.Password;
+            }
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
