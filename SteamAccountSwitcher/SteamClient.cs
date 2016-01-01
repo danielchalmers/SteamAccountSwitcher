@@ -55,16 +55,20 @@ namespace SteamAccountSwitcher
             StartSteam(Resources.SteamShutdownArgument);
         }
 
+        private static Process GetSteamProcess()
+        {
+            var processes = Process.GetProcessesByName(Resources.Steam);
+            return processes.Length > 0 ? processes[0] : null;
+        }
+
         public static void ForceClose()
         {
-            using (var proc = Process.GetProcessesByName(Resources.Steam)[0])
-                proc.CloseMainWindow();
+            GetSteamProcess()?.CloseMainWindow();
         }
 
         public static string GetSteamTitle()
         {
-            using (var proc = Process.GetProcessesByName(Resources.Steam)[0])
-                return proc.MainWindowTitle;
+            return GetSteamProcess()?.MainWindowTitle;
         }
 
         public static void LogOutAuto()
