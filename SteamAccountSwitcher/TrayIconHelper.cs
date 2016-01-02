@@ -20,8 +20,6 @@ namespace SteamAccountSwitcher
 
         public static void ShowTrayBalloon(string text, BalloonIcon icon)
         {
-            if (!Settings.Default.ShowTrayNotifications)
-                return;
             App.NotifyIcon.ShowBalloonTip(Resources.AppName, text, icon);
         }
 
@@ -86,25 +84,8 @@ namespace SteamAccountSwitcher
                     };
                     var i1 = i;
 
-                    if (Settings.Default.ColorCodeAccountMenuItems)
-                    {
-                        if (Settings.Default.ContextMenuIgnoreDefaultColor &&
-                            App.Accounts[i].Color == Settings.Default.ButtonDefaultColor)
-                        {
-                        }
-                        else
-                        {
-                            item.Background = new SolidColorBrush(App.Accounts[i1].Color);
-                        }
-                        if (Settings.Default.ContextMenuIgnoreDefaultTextColor &&
-                            App.Accounts[i].TextColor == Settings.Default.ButtonDefaultTextColor)
-                        {
-                        }
-                        else
-                        {
-                            item.Foreground = new SolidColorBrush(App.Accounts[i1].TextColor);
-                        }
-                    }
+                    item.Background = new SolidColorBrush(App.Accounts[i1].Color);
+                    item.Foreground = new SolidColorBrush(App.Accounts[i1].TextColor);
 
                     item.Click += delegate { App.Accounts[i1].SwitchTo(); };
                     menuList.Add(item);
@@ -114,12 +95,9 @@ namespace SteamAccountSwitcher
 
             menuList.Add(itemAddAccount);
             menuList.Add(itemManageAccounts);
-            if (Settings.Default.NotifyMenuShowSteamSection)
-            {
-                menuList.Add(new Separator());
-                menuList.Add(itemStartSteam);
-                menuList.Add(itemExitSteam);
-            }
+            menuList.Add(new Separator());
+            menuList.Add(itemStartSteam);
+            menuList.Add(itemExitSteam);
             return menuList;
         }
 

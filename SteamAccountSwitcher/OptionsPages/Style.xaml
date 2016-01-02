@@ -23,39 +23,14 @@
             Text="{Binding Source={x:Static p:Settings.Default},
                                Path=Width, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
-        <TextBlock Text="Max Window Height (px):" />
-        <TextBox
-            Text="{Binding Source={x:Static p:Settings.Default},
-                               Path=MaxHeight, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
-
         <TextBlock Text="Button Height (px):" />
         <TextBox
             Text="{Binding Source={x:Static p:Settings.Default},
                                Path=ButtonHeight, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
 
-        <TextBlock Text="Button Text Alignment:" />
-        <ComboBox x:Name="cbTextAlignment"
-                  SelectedItem="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonTextAlignment, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
-
-        <TextBlock Text="Default Button Color:" />
-        <xctk:ColorPicker
-            SelectedColor="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonDefaultColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
-
-        <TextBlock Text="Default Button Text Color:" />
-        <xctk:ColorPicker
-            SelectedColor="{Binding Source={x:Static p:Settings.Default},
-                               Path=ButtonDefaultTextColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
-
         <TextBlock Text="Window Color:" />
         <xctk:ColorPicker
             SelectedColor="{Binding Source={x:Static p:Settings.Default},
                                Path=WindowColor, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
-
-        <TextBlock Text="Show Steam Open/Exit tray menu items:" />
-        <CheckBox
-            IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=NotifyMenuShowSteamSection, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
     </StackPanel>
 </Page>

@@ -119,9 +119,7 @@
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Converters.cs" />
-    <Compile Include="CustomEnums.cs" />
     <Compile Include="Encryption.cs" />
-    <Compile Include="EnumUtilities.cs" />
     <Compile Include="InputBox.xaml.cs">
       <DependentUpon>InputBox.xaml</DependentUpon>
     </Compile>

@@ -89,7 +89,7 @@ namespace SteamAccountSwitcher
         {
             SettingsHelper.UpgradeSettings();
 
-            if (Settings.Default.ResetSettingsOnNextLaunch || App.Arguments.Contains("-reset"))
+            if (App.Arguments.Contains("-reset"))
                 SettingsHelper.ResetSettings();
 
             SettingsHelper.IncrementLaunches();

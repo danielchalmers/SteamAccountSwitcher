@@ -11,23 +11,11 @@
     <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">48</Value>
     </Setting>
-    <Setting Name="ButtonTextAlignment" Type="SteamAccountSwitcher.TextHorizontalAlignment" Scope="User">
-      <Value Profile="(Default)">Center</Value>
-    </Setting>
-    <Setting Name="ButtonDefaultColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)">#FFE0E0E0</Value>
-    </Setting>
-    <Setting Name="ButtonDefaultTextColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)">#FF000000</Value>
-    </Setting>
     <Setting Name="Launches" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="AlwaysOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="NotifyMenuShowSteamSection" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="BigPictureMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -44,17 +32,8 @@
     <Setting Name="Width" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">400</Value>
     </Setting>
-    <Setting Name="ResetSettingsOnNextLaunch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="OptionsIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="ShowFullErrors" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="DontShowPopups" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="StartSteamMinimized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -64,12 +43,6 @@
     </Setting>
     <Setting Name="EnableAdvancedMode" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="ShowTrayNotifications" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="ButtonPadding" Type="System.Windows.Thickness" Scope="User">
-      <Value Profile="(Default)">4,4,4,4</Value>
     </Setting>
     <Setting Name="StartSteamMinimizedOnlyOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -92,38 +65,8 @@
     <Setting Name="AccountHelperButtons" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="MaxHeight" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">NaN</Value>
-    </Setting>
-    <Setting Name="ScrollBarVisibility" Type="System.Windows.Controls.ScrollBarVisibility" Scope="User">
-      <Value Profile="(Default)">Auto</Value>
-    </Setting>
-    <Setting Name="ColorCodeAccountMenuItems" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFF0F0F0</Value>
-    </Setting>
-    <Setting Name="FontFamily" Type="System.Windows.Media.FontFamily" Scope="User">
-      <Value Profile="(Default)">Segoe UI</Value>
-    </Setting>
-    <Setting Name="FontSize" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">12</Value>
-    </Setting>
-    <Setting Name="FontStretch" Type="System.Windows.FontStretch" Scope="User">
-      <Value Profile="(Default)">Normal</Value>
-    </Setting>
-    <Setting Name="FontStyle" Type="System.Windows.FontStyle" Scope="User">
-      <Value Profile="(Default)">Normal</Value>
-    </Setting>
-    <Setting Name="FontWeight" Type="System.Windows.FontWeight" Scope="User">
-      <Value Profile="(Default)">Normal</Value>
-    </Setting>
-    <Setting Name="ContextMenuIgnoreDefaultColor" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="ContextMenuIgnoreDefaultTextColor" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="PreventViewingPasswords" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

@@ -15,7 +15,6 @@ namespace SteamAccountSwitcher.OptionsPages
         public Style()
         {
             InitializeComponent();
-            cbTextAlignment.ItemsSource = Enum.GetValues(typeof (TextHorizontalAlignment));
         }
     }
 }

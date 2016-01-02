@@ -61,42 +61,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Center")]
-        public global::SteamAccountSwitcher.TextHorizontalAlignment ButtonTextAlignment {
-            get {
-                return ((global::SteamAccountSwitcher.TextHorizontalAlignment)(this["ButtonTextAlignment"]));
-            }
-            set {
-                this["ButtonTextAlignment"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FFE0E0E0")]
-        public global::System.Windows.Media.Color ButtonDefaultColor {
-            get {
-                return ((global::System.Windows.Media.Color)(this["ButtonDefaultColor"]));
-            }
-            set {
-                this["ButtonDefaultColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FF000000")]
-        public global::System.Windows.Media.Color ButtonDefaultTextColor {
-            get {
-                return ((global::System.Windows.Media.Color)(this["ButtonDefaultTextColor"]));
-            }
-            set {
-                this["ButtonDefaultTextColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int Launches {
             get {
@@ -116,18 +80,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["AlwaysOn"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool NotifyMenuShowSteamSection {
-            get {
-                return ((bool)(this["NotifyMenuShowSteamSection"]));
-            }
-            set {
-                this["NotifyMenuShowSteamSection"] = value;
             }
         }
         
@@ -193,18 +145,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ResetSettingsOnNextLaunch {
-            get {
-                return ((bool)(this["ResetSettingsOnNextLaunch"]));
-            }
-            set {
-                this["ResetSettingsOnNextLaunch"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("0")]
         public int OptionsIndex {
             get {
@@ -212,30 +152,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["OptionsIndex"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool ShowFullErrors {
-            get {
-                return ((bool)(this["ShowFullErrors"]));
-            }
-            set {
-                this["ShowFullErrors"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DontShowPopups {
-            get {
-                return ((bool)(this["DontShowPopups"]));
-            }
-            set {
-                this["DontShowPopups"] = value;
             }
         }
         
@@ -272,30 +188,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["EnableAdvancedMode"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ShowTrayNotifications {
-            get {
-                return ((bool)(this["ShowTrayNotifications"]));
-            }
-            set {
-                this["ShowTrayNotifications"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4,4,4,4")]
-        public global::System.Windows.Thickness ButtonPadding {
-            get {
-                return ((global::System.Windows.Thickness)(this["ButtonPadding"]));
-            }
-            set {
-                this["ButtonPadding"] = value;
             }
         }
         
@@ -385,42 +277,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
-        public double MaxHeight {
-            get {
-                return ((double)(this["MaxHeight"]));
-            }
-            set {
-                this["MaxHeight"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Auto")]
-        public global::System.Windows.Controls.ScrollBarVisibility ScrollBarVisibility {
-            get {
-                return ((global::System.Windows.Controls.ScrollBarVisibility)(this["ScrollBarVisibility"]));
-            }
-            set {
-                this["ScrollBarVisibility"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ColorCodeAccountMenuItems {
-            get {
-                return ((bool)(this["ColorCodeAccountMenuItems"]));
-            }
-            set {
-                this["ColorCodeAccountMenuItems"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFF0F0F0")]
         public global::System.Windows.Media.Color WindowColor {
             get {
@@ -428,90 +284,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["WindowColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Segoe UI")]
-        public global::System.Windows.Media.FontFamily FontFamily {
-            get {
-                return ((global::System.Windows.Media.FontFamily)(this["FontFamily"]));
-            }
-            set {
-                this["FontFamily"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("12")]
-        public double FontSize {
-            get {
-                return ((double)(this["FontSize"]));
-            }
-            set {
-                this["FontSize"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public global::System.Windows.FontStretch FontStretch {
-            get {
-                return ((global::System.Windows.FontStretch)(this["FontStretch"]));
-            }
-            set {
-                this["FontStretch"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public global::System.Windows.FontStyle FontStyle {
-            get {
-                return ((global::System.Windows.FontStyle)(this["FontStyle"]));
-            }
-            set {
-                this["FontStyle"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Normal")]
-        public global::System.Windows.FontWeight FontWeight {
-            get {
-                return ((global::System.Windows.FontWeight)(this["FontWeight"]));
-            }
-            set {
-                this["FontWeight"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ContextMenuIgnoreDefaultColor {
-            get {
-                return ((bool)(this["ContextMenuIgnoreDefaultColor"]));
-            }
-            set {
-                this["ContextMenuIgnoreDefaultColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ContextMenuIgnoreDefaultTextColor {
-            get {
-                return ((bool)(this["ContextMenuIgnoreDefaultTextColor"]));
-            }
-            set {
-                this["ContextMenuIgnoreDefaultTextColor"] = value;
             }
         }
         

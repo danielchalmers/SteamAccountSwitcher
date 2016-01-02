@@ -80,13 +80,10 @@ namespace SteamAccountSwitcher
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            var exception = (Settings.Default.ShowFullErrors
-                ? e.Exception.ToString()
-                : e.Exception.Message);
             Popup.Show(
                 SuccessfullyLoaded
-                    ? $"An unhandled exception occurred:\n\n{exception}"
-                    : $"A critical exception occurred:\n\n{exception}\n\nApplication will now exit.",
+                    ? $"An unhandled exception occurred:\n\n{e.Exception.Message}"
+                    : $"A critical exception occurred:\n\n{e.Exception.Message}\n\nApplication will now exit.",
                 MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
             if (!SuccessfullyLoaded)

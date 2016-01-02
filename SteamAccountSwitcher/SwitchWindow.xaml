@@ -14,27 +14,12 @@
         MaxHeight="{Binding Source={x:Static p:Settings.Default}, Path=MaxHeight, Mode=OneWay}">
     <Window.Resources>
         <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
-        <local:TextAlignmentToHorizontalAlignmentConverter x:Key="ButtonTextAlignmentToHorizontalAlignmentConverter" />
         <local:ColorToSolidBrushConverter x:Key="ColorToSolidBrushConverter" />
         <local:MultiBooleanToVisibilityConverter x:Key="MultiBooleanToVisibilityConverter" />
 
         <Style TargetType="{x:Type Button}" x:Key="StyleButton">
             <Setter Property="Height"
                     Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
-            <Setter Property="HorizontalContentAlignment"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonTextAlignment, Mode=OneWay, Converter={StaticResource ButtonTextAlignmentToHorizontalAlignmentConverter}}" />
-            <Setter Property="Padding"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonPadding, Mode=OneWay}" />
-            <Setter Property="FontFamily"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontFamily, Mode=OneWay}" />
-            <Setter Property="FontSize"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontSize, Mode=OneWay}" />
-            <Setter Property="FontStretch"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontStretch, Mode=OneWay}" />
-            <Setter Property="FontStyle"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontStyle, Mode=OneWay}" />
-            <Setter Property="FontWeight"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=FontWeight, Mode=OneWay}" />
         </Style>
 
         <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
@@ -106,9 +91,7 @@
             <RowDefinition Height="24" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer
-            VerticalScrollBarVisibility="{Binding Source={x:Static p:Settings.Default}, Path=ScrollBarVisibility, Mode=OneWay}"
-            HorizontalScrollBarVisibility="Hidden">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
