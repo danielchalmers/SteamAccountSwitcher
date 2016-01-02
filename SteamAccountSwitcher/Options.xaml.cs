@@ -8,7 +8,6 @@ using System.Windows.Data;
 using System.Windows.Navigation;
 using SteamAccountSwitcher.OptionsPages;
 using SteamAccountSwitcher.Properties;
-using Style = SteamAccountSwitcher.OptionsPages.Style;
 
 #endregion
 
@@ -34,10 +33,6 @@ namespace SteamAccountSwitcher
         private void LoadPages()
         {
             _pages.Add(new General());
-            _pages.Add(new Style());
-            _pages.Add(new Steam());
-            if (Settings.Default.EnableAdvancedMode)
-                _pages.Add(new Advanced());
             _pages.Add(new About());
             for (var i = 0; i < _pages.Count; i++)
                 NavBar.Items.Add(new ListBoxItem
@@ -49,8 +44,6 @@ namespace SteamAccountSwitcher
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            foreach (var be in _pages.SelectMany(BindingOperations.GetSourceUpdatingBindings))
-                be.UpdateSource();
             Settings.Default.Save();
             DialogResult = true;
         }
@@ -59,14 +52,6 @@ namespace SteamAccountSwitcher
         {
             Settings.Default.Reload();
             DialogResult = true;
-        }
-
-        private void frame_LoadCompleted(object sender, NavigationEventArgs e)
-        {
-            var content = OptionsFrame.Content as FrameworkElement;
-            if (content == null)
-                return;
-            content.Style = (System.Windows.Style) FindResource("OptionsStyle");
         }
 
         private void NavBar_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

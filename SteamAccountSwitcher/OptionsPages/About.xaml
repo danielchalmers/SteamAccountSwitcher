@@ -12,9 +12,10 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Margin="10,10,10,0" Grid.Row="0"
-                   Text="{x:Static properties:Resources.AppName}" FontSize="24" />
+        <TextBlock Margin="10,0,10,0" Grid.Row="0"
+                   Text="{x:Static properties:Resources.AppName}" FontSize="24" VerticalAlignment="Center"
+                   HorizontalAlignment="Left" />
         <TextBox Grid.Row="1" x:Name="txtDescription" Background="Transparent" BorderThickness="0" IsReadOnly="True"
-                 TextWrapping="Wrap" Height="Auto" />
+                 TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" />
     </Grid>
 </Page>

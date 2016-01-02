@@ -131,15 +131,6 @@
     <Compile Include="OptionsPages\About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OptionsPages\Advanced.xaml.cs">
-      <DependentUpon>Advanced.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OptionsPages\Steam.xaml.cs">
-      <DependentUpon>Steam.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OptionsPages\Style.xaml.cs">
-      <DependentUpon>Style.xaml</DependentUpon>
-    </Compile>
     <Compile Include="OptionsPages\General.xaml.cs">
       <DependentUpon>General.xaml</DependentUpon>
     </Compile>
@@ -179,18 +170,6 @@
     <Page Include="OptionsPages\About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OptionsPages\Advanced.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OptionsPages\Steam.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="OptionsPages\Style.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="OptionsPages\General.xaml">
       <SubType>Designer</SubType>

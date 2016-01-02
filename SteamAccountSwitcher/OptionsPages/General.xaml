@@ -6,22 +6,61 @@
       xmlns:local="clr-namespace:SteamAccountSwitcher.OptionsPages"
       xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      mc:Ignorable="d" Title="General">
+      mc:Ignorable="d" Title="Options">
+    <Page.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Page.Resources>
     <StackPanel>
+        <StackPanel Margin="15,0,0,15" Orientation="Horizontal" HorizontalAlignment="Center"
+                    Visibility="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Margin" Value="0,0,5,0" />
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                    <Setter Property="Width" Value="75" />
+                    <Setter Property="Height" Value="23" />
+                </Style>
+            </StackPanel.Resources>
 
-        <TextBlock Text="Always-On Mode:" />
-        <CheckBox ToolTip="Run application in system tray and launch on system startup"
-                  IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=AlwaysOn, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+            <Button Content="Import..." Click="menuItemImport_OnClick" />
+            <Button Content="Export..." Click="menuItemExport_OnClick" />
+            <Button Content="Defaults..." Click="menuItemDefaults_OnClick" />
+        </StackPanel>
+        <xctk:PropertyGrid
+                           SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
+                           NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
+                           Background="{x:Static SystemColors.WindowBrush}"
+                           AutoGenerateProperties="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"
+                           IsCategorized="True"
+                           ShowSortOptions="True"
+                           ShowSummary="False"
+                           ShowTitle="False"
+                           ShowAdvancedOptions="False">
+            <xctk:PropertyGrid.PropertyDefinitions>
+                <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn" DisplayName="Always-On Mode" />
+                <xctk:PropertyDefinition Category="General" TargetProperties="NumberHotkeys"
+                                         DisplayName="Number Hotkeys" />
 
-        <TextBlock Text="Number Hotkeys:" />
-        <CheckBox ToolTip="Enable 1-9 keyboard hotkeys to switch accounts"
-                  IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=NumberHotkeys, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+                <xctk:PropertyDefinition Category="Steam" TargetProperties="BigPictureMode"
+                                         DisplayName="Big Picture Mode" />
+                <xctk:PropertyDefinition Category="Steam" TargetProperties="StartSteamMinimized"
+                                         DisplayName="Start Minimized" />
+                <xctk:PropertyDefinition Category="Steam" TargetProperties="OnStartLoginName"
+                                         DisplayName="Startup Login Username" />
+                <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamPath" DisplayName="Steam.exe Path" />
+                <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamLaunchArgs"
+                                         DisplayName="Steam Launch Args" />
 
-        <TextBlock Text="Enable Advanced Mode:" />
-        <CheckBox ToolTip="Enable advanced options (Requires restart)"
-                  IsChecked="{Binding Source={x:Static p:Settings.Default},
-                               Path=EnableAdvancedMode, Mode=TwoWay, UpdateSourceTrigger=Explicit}" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="SwitchWindowKeepCentered"
+                                         DisplayName="Keep Window Centered" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="AccountHelperButtons"
+                                         DisplayName="Show Account Helper Buttons" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="Width" DisplayName="Window Width (px)" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="ButtonHeight"
+                                         DisplayName="Button Height (px)" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="WindowColor" DisplayName="Window Color" />
+            </xctk:PropertyGrid.PropertyDefinitions>
+        </xctk:PropertyGrid>
     </StackPanel>
 </Page>

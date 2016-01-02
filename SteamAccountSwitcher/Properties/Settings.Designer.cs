@@ -286,5 +286,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["PreventViewingPasswords"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("200")]
+        public double PropertyGridNameColumnWidth {
+            get {
+                return ((double)(this["PropertyGridNameColumnWidth"]));
+            }
+            set {
+                this["PropertyGridNameColumnWidth"] = value;
+            }
+        }
     }
 }

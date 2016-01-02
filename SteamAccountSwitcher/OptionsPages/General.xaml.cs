@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.Windows.Controls;
 
 #endregion
@@ -14,6 +15,21 @@ namespace SteamAccountSwitcher.OptionsPages
         public General()
         {
             InitializeComponent();
+        }
+
+        private void menuItemDefaults_OnClick(object sender, EventArgs e)
+        {
+            SettingsHelper.ResetSettings();
+        }
+
+        private void menuItemImport_OnClick(object sender, EventArgs e)
+        {
+            AccountDataHelper.ImportAccounts();
+        }
+
+        private void menuItemExport_OnClick(object sender, EventArgs e)
+        {
+            AccountDataHelper.ExportAccounts();
         }
     }
 }
