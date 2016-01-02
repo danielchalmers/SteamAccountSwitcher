@@ -38,7 +38,7 @@ namespace SteamAccountSwitcher
                     $"Existing account data is corrupt.{Environment.NewLine}{Environment.NewLine}All accounts have been reset.",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            App.Accounts.CollectionChanged += (sender, args) => App.SaveTimer.DelaySave();
+            App.Accounts.CollectionChanged += (sender, args) => Settings.Default.Save();
             App.SwitchWindow?.ReloadAccountListBinding();
         }
 

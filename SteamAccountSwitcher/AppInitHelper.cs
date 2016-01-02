@@ -25,7 +25,6 @@ namespace SteamAccountSwitcher
                 Popup.Show("Steam path could not be located. Application will now exit.");
                 return false;
             }
-            App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LoadAccounts();
             InitMainWindow();
             if (Settings.Default.AlwaysOn)
