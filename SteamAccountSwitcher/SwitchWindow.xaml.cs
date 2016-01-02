@@ -62,7 +62,7 @@ namespace SteamAccountSwitcher
 
         private void btnOptions_Click(object sender, RoutedEventArgs e)
         {
-            ((ContextMenu)FindResource("MainContextMenu")).IsOpen = true;
+            new Options().ShowDialog();
         }
 
         private void btnAddAccount_Click(object sender, RoutedEventArgs e)
