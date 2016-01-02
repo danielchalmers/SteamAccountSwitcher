@@ -26,15 +26,6 @@
     <Setting Name="AlwaysOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ForgetUpdateVersion" Type="System.Version" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="CheckForUpdates" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="AutoUpdate" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="NotifyMenuShowSteamSection" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
@@ -58,12 +49,6 @@
     </Setting>
     <Setting Name="OptionsIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
-    </Setting>
-    <Setting Name="LastUpdateCheck" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)">2000-01-01</Value>
-    </Setting>
-    <Setting Name="UpdateCheckIntervalMinutes" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">180</Value>
     </Setting>
     <Setting Name="ShowFullErrors" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

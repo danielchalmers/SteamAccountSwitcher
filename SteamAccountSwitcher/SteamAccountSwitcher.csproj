@@ -117,14 +117,11 @@
     </Compile>
     <Compile Include="AppInitHelper.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="ChangelogDownloader.cs" />
     <Compile Include="ClickOnceHelper.cs" />
     <Compile Include="Converters.cs" />
     <Compile Include="CustomEnums.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="EnumUtilities.cs" />
-    <Compile Include="FullscreenHelper.cs" />
-    <Compile Include="GitHubApiCommits.cs" />
     <Compile Include="InputBox.xaml.cs">
       <DependentUpon>InputBox.xaml</DependentUpon>
     </Compile>
@@ -157,16 +154,7 @@
       <DependentUpon>SteamPath.xaml</DependentUpon>
     </Compile>
     <Compile Include="SwitchWindowHelper.cs" />
-    <Compile Include="TaskScheduler.cs" />
     <Compile Include="TrayIconHelper.cs" />
-    <Compile Include="UpdateCheck.cs" />
-    <Compile Include="UpdateHelper.cs" />
-    <Compile Include="UpdatePrompt.xaml.cs">
-      <DependentUpon>UpdatePrompt.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Win32App.cs" />
-    <Compile Include="Win32RECT.cs" />
-    <Compile Include="WindowHelper.cs" />
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,10 +200,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SteamPath.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UpdatePrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

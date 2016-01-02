@@ -121,41 +121,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Version ForgetUpdateVersion {
-            get {
-                return ((global::System.Version)(this["ForgetUpdateVersion"]));
-            }
-            set {
-                this["ForgetUpdateVersion"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool CheckForUpdates {
-            get {
-                return ((bool)(this["CheckForUpdates"]));
-            }
-            set {
-                this["CheckForUpdates"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AutoUpdate {
-            get {
-                return ((bool)(this["AutoUpdate"]));
-            }
-            set {
-                this["AutoUpdate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool NotifyMenuShowSteamSection {
             get {
@@ -247,30 +212,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["OptionsIndex"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2000-01-01")]
-        public global::System.DateTime LastUpdateCheck {
-            get {
-                return ((global::System.DateTime)(this["LastUpdateCheck"]));
-            }
-            set {
-                this["LastUpdateCheck"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("180")]
-        public int UpdateCheckIntervalMinutes {
-            get {
-                return ((int)(this["UpdateCheckIntervalMinutes"]));
-            }
-            set {
-                this["UpdateCheckIntervalMinutes"] = value;
             }
         }
         

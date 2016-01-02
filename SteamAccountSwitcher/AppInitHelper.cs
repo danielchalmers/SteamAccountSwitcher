@@ -25,7 +25,6 @@ namespace SteamAccountSwitcher
                 Popup.Show("Steam path could not be located. Application will now exit.");
                 return false;
             }
-            StartScheduledTasks();
             App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LoadAccounts();
             InitMainWindow();
@@ -65,20 +64,7 @@ namespace SteamAccountSwitcher
                 SwitchWindowHelper.ShowSwitcherWindow();
             }
         }
-
-        private static void StartScheduledTasks()
-        {
-            if (Settings.Default.UpdateCheckIntervalMinutes > 0)
-            {
-                App.UpdateScheduler = new TaskScheduler();
-                App.UpdateScheduler.ScheduleTask(() =>
-                    UpdateHelper.CheckForUpdatesAsync(true),
-                    (Settings.Default.CheckForUpdates && UpdateHelper.IsUpdateable),
-                    TimeSpan.FromMinutes(Settings.Default.UpdateCheckIntervalMinutes));
-                App.UpdateScheduler.Start();
-            }
-        }
-
+        
         private static bool IsExistingInstanceRunning()
         {
             bool isNewInstance;

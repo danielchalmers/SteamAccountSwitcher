@@ -137,12 +137,7 @@ namespace SteamAccountSwitcher
         {
             SettingsHelper.OpenOptions();
         }
-
-        private void menuItemCheckUpdates_OnClick(object sender, RoutedEventArgs e)
-        {
-            UpdateHelper.CheckForUpdatesAsync(false);
-        }
-
+        
         private void menuItemExit_OnClick(object sender, RoutedEventArgs e)
         {
             ClickOnceHelper.ShutdownApplication();

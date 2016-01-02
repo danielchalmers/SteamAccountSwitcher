@@ -23,7 +23,6 @@ namespace SteamAccountSwitcher
     {
         public static Mutex AppMutex;
         public static List<string> Arguments;
-        public static TaskScheduler UpdateScheduler;
         public static ObservableCollection<Account> Accounts;
         public static SwitchWindow SwitchWindow;
         public static TaskbarIcon NotifyIcon;
