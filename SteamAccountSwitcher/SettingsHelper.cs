@@ -80,8 +80,7 @@ namespace SteamAccountSwitcher
             Settings.Default.MustUpgrade = false;
             Settings.Default.Accounts = AccountDataHelper.DefaultData();
             AccountDataHelper.ReloadData();
-            Popup.Show("All settings have been restored to default.\n\nThis application will now restart.");
-            AppHelper.RestartApplication();
+            Popup.Show("All settings have been restored to default.");
         }
     }
 }
