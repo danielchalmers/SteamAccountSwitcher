@@ -64,7 +64,7 @@ namespace SteamAccountSwitcher
         {
             if (msg &&
                 Popup.Show(
-                    $"Are you sure you want to delete this account?\r\n\r\n\"{account.GetDisplayName()}\"",
+                    $"Are you sure you want to remove \"{account.GetDisplayName()}\" account?",
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
                 return;
             App.Accounts.Remove(account);
