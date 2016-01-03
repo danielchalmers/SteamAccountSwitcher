@@ -12,9 +12,11 @@ namespace SteamAccountSwitcher
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (!ConverterHelper.IsValueValid(value))
+                return DependencyProperty.UnsetValue;
             var val = value as Account;
             if (val == null)
-                return Binding.DoNothing;
+                return DependencyProperty.UnsetValue;
             return val.GetDisplayName();
         }
 
@@ -28,6 +30,8 @@ namespace SteamAccountSwitcher
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (!ConverterHelper.IsValueValid(value))
+                return DependencyProperty.UnsetValue;
             return new SolidColorBrush((Color) value);
         }
 
@@ -41,6 +45,8 @@ namespace SteamAccountSwitcher
     {
         public object Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (!ConverterHelper.IsValueValid(value))
+                return DependencyProperty.UnsetValue;
             return Settings.Default.AccountHelperButtons
                 ? value.Any(val => (bool) val) ? Visibility.Visible : Visibility.Collapsed
                 : Visibility.Collapsed;

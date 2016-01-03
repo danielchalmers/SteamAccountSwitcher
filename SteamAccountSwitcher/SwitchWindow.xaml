@@ -5,134 +5,89 @@
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d" SizeToContent="Height"
         ResizeMode="CanMinimize"
         Closing="Window_Closing" Icon="steam.ico" MinWidth="100"
-        PreviewKeyDown="MainWindow_OnPreviewKeyDown"
         Title="{x:Static p:Resources.AppName}"
         Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}"
-        MaxHeight="{Binding Source={x:Static p:Settings.Default}, Path=MaxHeight, Mode=OneWay}">
+        Left="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowLeft, Mode=OneWay}"
+        Top="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowTop, Mode=OneWay}">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="PreviewKeyDown">
+            <command:EventToCommand Command="{Binding PreviewKeyDown}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Window.DataContext>
+        <local:SwitchWindowViewModel />
+    </Window.DataContext>
     <Window.Resources>
         <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
         <local:ColorToSolidBrushConverter x:Key="ColorToSolidBrushConverter" />
         <local:MultiBooleanToVisibilityConverter x:Key="MultiBooleanToVisibilityConverter" />
-
-        <Style TargetType="{x:Type Button}" x:Key="StyleButton">
-            <Setter Property="Height"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
-        </Style>
-
-        <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
-            <Setter Property="Width"
-                    Value="24" />
-            <Setter Property="Height"
-                    Value="24" />
-            <Setter Property="MaxWidth"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
-            <Setter Property="MaxHeight"
-                    Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
-            <Setter Property="VerticalAlignment" Value="Top" />
-            <Setter Property="HorizontalAlignment" Value="Right" />
-            <Setter Property="Focusable" Value="False" />
-        </Style>
-
-        <Style TargetType="{x:Type Image}" x:Key="StyleToolImage">
-            <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
-            <Setter Property="Stretch" Value="None" />
-        </Style>
-
-        <x:Array x:Shared="False" Type="{x:Type sys:Object}" x:Key="MainMenuItems">
-            <MenuItem Header="Options..." Click="menuItemOptions_OnClick" />
-            <Separator />
-            <MenuItem Header="Exit" Click="menuItemExit_OnClick" />
-        </x:Array>
-
-        <x:Array x:Shared="False" Type="{x:Type sys:Object}" x:Key="AccountItems">
-            <MenuItem Header="Edit..." Click="menuItemEdit_OnClick" />
-            <Separator />
-            <MenuItem Header="Move Up" Click="menuItemMoveUp_OnClick" />
-            <MenuItem Header="Move Down" Click="menuItemMoveDown_OnClick" />
-            <MenuItem Header="Sort All By (Ascending)">
-                <MenuItem.ItemsSource>
-                    <CompositeCollection>
-                        <MenuItem Header="Alias" Click="menuItemSortAlias_OnClick" />
-                        <MenuItem Header="Username" Click="menuItemSortUsername_OnClick" />
-                        <MenuItem Header="Add Date" Click="menuItemSortAddDate_OnClick" />
-                        <MenuItem Header="Last Modified"
-                                  Click="menuItemSortModifiedDate_OnClick" />
-                    </CompositeCollection>
-                </MenuItem.ItemsSource>
-            </MenuItem>
-            <MenuItem Header="Sort All By (Descending)">
-                <MenuItem.ItemsSource>
-                    <CompositeCollection>
-                        <MenuItem Header="Alias"
-                                  Click="menuItemSortDescendingAlias_OnClick" />
-                        <MenuItem Header="Username"
-                                  Click="menuItemSortDescendingUsername_OnClick" />
-                        <MenuItem Header="Add Date"
-                                  Click="menuItemSortDescendingAddDate_OnClick" />
-                        <MenuItem Header="Last Modified"
-                                  Click="menuItemSortDescendingModifiedDate_OnClick" />
-                    </CompositeCollection>
-                </MenuItem.ItemsSource>
-            </MenuItem>
-            <Separator />
-            <MenuItem Header="Remove..." Click="menuItemRemove_OnClick" />
-        </x:Array>
-
-        <ContextMenu x:Shared="False" x:Key="AccountContextMenu" ItemsSource="{StaticResource AccountItems}" />
-        <ContextMenu x:Shared="False" x:Key="MainContextMenu" ItemsSource="{StaticResource MainMenuItems}" />
     </Window.Resources>
-    <Grid
-        Background="{Binding Source={x:Static p:Settings.Default}, Path=WindowColor, Mode=OneWay, Converter={StaticResource ColorToSolidBrushConverter}}">
+    <Window.Background>
+        <Binding Source="{x:Static p:Settings.Default}" Path="WindowColor" Mode="OneWay"
+                 Converter="{StaticResource ColorToSolidBrushConverter}" />
+    </Window.Background>
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="24" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
-        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <Button Tag="{Binding Path=.}" ContextMenu="{StaticResource AccountContextMenu}"
-                                    Style="{StaticResource StyleButton}"
-                                    Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
-                                    Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                    Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                    Click="btnAccount_OnClick"
-                                    PreviewMouseRightButtonUp="btnAccount_OnPreviewMouseRightButtonUp" />
-                            <Button Tag="{Binding Path=.}" ContextMenu="{StaticResource AccountContextMenu}"
-                                    Style="{StaticResource StyleHelperButton}"
-                                    Click="btnAccountHelper_OnClick"
-                                    PreviewMouseRightButtonUp="btnAccount_OnPreviewMouseRightButtonUp">
-                                <Button.Visibility>
-                                    <MultiBinding
-                                        Converter="{StaticResource MultiBooleanToVisibilityConverter}">
-                                        <Binding Path="IsMouseOver"
-                                                 RelativeSource="{RelativeSource AncestorType={x:Type Grid}}" />
-                                        <Binding Path="ContextMenu.IsOpen" RelativeSource="{RelativeSource Self}" />
-                                    </MultiBinding>
-                                </Button.Visibility>
-                                <Image Source="Resources/options.png" Style="{StaticResource StyleToolImage}" />
-                            </Button>
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+        <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="GotFocus">
+                                <command:EventToCommand
+                                    Command="{Binding DataContext.Focus, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseDown">
+                                <command:EventToCommand
+                                    Command="{Binding DataContext.Focus, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="MouseRightButtonUp">
+                                <command:EventToCommand
+                                    Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                    CommandParameter="{Binding}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Button Style="{StaticResource StyleButton}"
+                                Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
+                                Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
+                                Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}" />
+                        <Button Style="{StaticResource StyleHelperButton}"
+                                Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                            <Image Source="Resources/options.png" Style="{StaticResource StyleToolImage}" />
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
         <Grid Grid.Row="1">
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Width" Value="24" />
+                    <Setter Property="Height" Value="24" />
+                </Style>
+            </Grid.Resources>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="24" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Click="btnAddAccount_Click">
+            <Button Grid.Column="0" Command="{Binding AddAccount}">
                 <Image Source="Resources/plus.png" Style="{StaticResource StyleToolImage}" />
             </Button>
-            <Button Grid.Column="2" Click="btnOptions_Click">
+            <Button Grid.Column="2" Command="{Binding Options}">
                 <Image Source="Resources/options.png" Style="{StaticResource StyleToolImage}" />
             </Button>
         </Grid>

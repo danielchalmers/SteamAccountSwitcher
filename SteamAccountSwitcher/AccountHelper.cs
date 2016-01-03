@@ -13,7 +13,7 @@ namespace SteamAccountSwitcher
 {
     public static class AccountHelper
     {
-        public static void Add(Account account)
+        private static void Add(Account account)
         {
             account.AddDate = DateTime.Now;
             App.Accounts.Add(account);
@@ -31,7 +31,7 @@ namespace SteamAccountSwitcher
             worker.RunWorkerCompleted += delegate
             {
                 if (!Settings.Default.AlwaysOn)
-                    ClickOnceHelper.ShutdownApplication();
+                    AppHelper.ShutdownApplication();
             };
             worker.RunWorkerAsync();
         }

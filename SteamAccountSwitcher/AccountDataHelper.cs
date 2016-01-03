@@ -9,7 +9,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal class AccountDataHelper
+    internal static class AccountDataHelper
     {
         public static string DefaultData()
         {
@@ -38,7 +38,11 @@ namespace SteamAccountSwitcher
                     $"Existing account data is corrupt.{Environment.NewLine}{Environment.NewLine}All accounts have been reset.",
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
-            App.Accounts.CollectionChanged += (sender, args) => Settings.Default.Save();
+            App.Accounts.CollectionChanged += (sender, args) =>
+            {
+                Settings.Default.Save();
+                TrayIconHelper.RefreshTrayIconMenu();
+            };
             App.SwitchWindow?.ReloadAccountListBinding();
         }
 

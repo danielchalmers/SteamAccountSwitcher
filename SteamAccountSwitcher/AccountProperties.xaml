@@ -37,13 +37,13 @@
                 </Style>
             </Grid.Resources>
 
-            <TextBlock Grid.Row="0" Grid.Column="0" x:Name="lblDisplayName" Text="Alias:" />
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtDisplayName" HorizontalAlignment="Stretch"
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Alias:" />
+            <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch"
                      VerticalAlignment="Center" Height="23" Text="{Binding Path=DisplayName, Mode=TwoWay}" />
-            <TextBlock Grid.Row="1" Grid.Column="0" x:Name="lblUsername" Text="Username:" />
-            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtUsername" HorizontalAlignment="Stretch" Height="23"
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Username:" />
+            <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" Height="23"
                      VerticalAlignment="Center" Text="{Binding Path=Username, Mode=TwoWay}" />
-            <TextBlock Grid.Row="2" Grid.Column="0" x:Name="lblPassword" Text="Password:" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" />
             <Grid Grid.Row="2" Grid.Column="1" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden"
                          Text="{Binding Path=Password, Mode=TwoWay}" />
@@ -55,11 +55,11 @@
                           KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Center" />
             </Grid>
-            <TextBlock Grid.Row="3" Grid.Column="0" x:Name="lblColor" Text="Color:" />
-            <xctk:ColorPicker Grid.Row="3" Grid.Column="1" x:Name="txtColor" HorizontalAlignment="Stretch"
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Color:" />
+            <xctk:ColorPicker Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch"
                               VerticalAlignment="Center" Height="23" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
-            <TextBlock Grid.Row="4" Grid.Column="0" x:Name="lblTextColor" Text="Text Color:" />
-            <xctk:ColorPicker Grid.Row="4" Grid.Column="1" x:Name="txtTextColor" HorizontalAlignment="Stretch"
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Text Color:" />
+            <xctk:ColorPicker Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch"
                               VerticalAlignment="Center" Height="23"
                               SelectedColor="{Binding Path=TextColor, Mode=TwoWay}" />
         </Grid>
@@ -75,9 +75,9 @@
                 <RowDefinition Height="23" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
+            <Button Grid.Column="1" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" IsDefault="True" />
-            <Button Grid.Column="3" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
+            <Button Grid.Column="3" Content="Cancel" Click="btnCancel_Click"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" />
         </Grid>
     </Grid>

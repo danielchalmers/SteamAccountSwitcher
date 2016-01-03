@@ -44,17 +44,17 @@ namespace SteamAccountSwitcher
             return _encoder.GetString(Decrypt(Convert.FromBase64String(encrypted)));
         }
 
-        public byte[] Encrypt(byte[] buffer)
+        private byte[] Encrypt(byte[] buffer)
         {
             return Transform(buffer, _encryptor);
         }
 
-        public byte[] Decrypt(byte[] buffer)
+        private byte[] Decrypt(byte[] buffer)
         {
             return Transform(buffer, _decryptor);
         }
 
-        protected byte[] Transform(byte[] buffer, ICryptoTransform transform)
+        private byte[] Transform(byte[] buffer, ICryptoTransform transform)
         {
             var stream = new MemoryStream();
             using (var cs = new CryptoStream(stream, transform, CryptoStreamMode.Write))

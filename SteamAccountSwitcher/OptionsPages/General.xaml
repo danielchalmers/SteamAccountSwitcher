@@ -28,15 +28,15 @@
             <Button Content="Defaults..." Click="menuItemDefaults_OnClick" />
         </StackPanel>
         <xctk:PropertyGrid
-                           SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
-                           NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
-                           Background="{x:Static SystemColors.WindowBrush}"
-                           AutoGenerateProperties="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"
-                           IsCategorized="True"
-                           ShowSortOptions="True"
-                           ShowSummary="False"
-                           ShowTitle="False"
-                           ShowAdvancedOptions="False">
+            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
+            NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
+            Background="{x:Static SystemColors.WindowBrush}"
+            AutoGenerateProperties="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"
+            IsCategorized="True"
+            ShowSortOptions="True"
+            ShowSummary="False"
+            ShowTitle="False"
+            ShowAdvancedOptions="False">
             <xctk:PropertyGrid.PropertyDefinitions>
                 <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn" DisplayName="Always-On Mode" />
                 <xctk:PropertyDefinition Category="General" TargetProperties="NumberHotkeys"

@@ -11,9 +11,9 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal class SteamClient
+    internal static class SteamClient
     {
-        public static void StartSteam(string args = "")
+        private static void StartSteam(string args = "")
         {
             if (!ResolvePath())
             {
@@ -26,11 +26,6 @@ namespace SteamAccountSwitcher
         public static void Launch()
         {
             StartSteam();
-        }
-
-        public static void BigPicture()
-        {
-            StartSteam(Resources.SteamBigPictureArg);
         }
 
         public static void LogIn(Account account, bool onStart = false)
@@ -50,7 +45,7 @@ namespace SteamAccountSwitcher
             StartSteam(string.Join(" ", args));
         }
 
-        public static void LogOut()
+        private static void LogOut()
         {
             if (!IsSteamOpen())
                 return;
@@ -63,12 +58,12 @@ namespace SteamAccountSwitcher
             return processes.Length > 0 ? processes[0] : null;
         }
 
-        public static void ForceClose()
+        private static void ForceClose()
         {
             GetSteamProcess()?.CloseMainWindow();
         }
 
-        public static string GetSteamTitle()
+        private static string GetSteamTitle()
         {
             return GetSteamProcess()?.MainWindowTitle;
         }
@@ -103,13 +98,13 @@ namespace SteamAccountSwitcher
             return true;
         }
 
-        public static string GetPath()
+        private static string GetPath()
         {
             string path;
             try
             {
                 using (var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam"))
-                    path = (string) registryKey.GetValue("SteamExe");
+                    path = registryKey?.GetValue("SteamExe").ToString();
             }
             catch
             {
@@ -132,14 +127,14 @@ namespace SteamAccountSwitcher
             return FileExists(Settings.Default.SteamPath);
         }
 
-        public static bool FileExists(string path)
+        private static bool FileExists(string path)
         {
-            return (!string.IsNullOrWhiteSpace(path) && File.Exists(path));
+            return !string.IsNullOrWhiteSpace(path) && File.Exists(path);
         }
 
-        public static bool IsSteamOpen()
+        private static bool IsSteamOpen()
         {
-            return (Process.GetProcessesByName(Resources.Steam).Length > 0);
+            return Process.GetProcessesByName(Resources.Steam).Length > 0;
         }
     }
 }

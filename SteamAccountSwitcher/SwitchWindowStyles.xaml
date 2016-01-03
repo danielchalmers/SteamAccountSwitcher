@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:SteamAccountSwitcher"
+                    xmlns:p="clr-namespace:SteamAccountSwitcher.Properties">
+
+    <Style TargetType="{x:Type Button}" x:Key="StyleButton">
+        <Setter Property="Height"
+                Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
+    </Style>
+
+    <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
+        <Setter Property="Width"
+                Value="24" />
+        <Setter Property="Height"
+                Value="24" />
+        <Setter Property="MaxWidth"
+                Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
+        <Setter Property="MaxHeight"
+                Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+    </Style>
+
+    <Style TargetType="{x:Type Image}" x:Key="StyleToolImage">
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
+        <Setter Property="Stretch" Value="None" />
+    </Style>
+</ResourceDictionary>

@@ -9,7 +9,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal class SettingsHelper
+    internal static class SettingsHelper
     {
         public static string SerializeAccounts(IEnumerable<Account> accounts)
         {
@@ -42,10 +42,6 @@ namespace SteamAccountSwitcher
                 {
                     SwitchWindowHelper.ShowSwitcherWindow();
                 }
-            }
-            else if (Settings.Default.AlwaysOn)
-            {
-                TrayIconHelper.RefreshTrayIconMenu();
             }
 
             SaveSettings();
@@ -85,7 +81,7 @@ namespace SteamAccountSwitcher
             Settings.Default.Accounts = AccountDataHelper.DefaultData();
             AccountDataHelper.ReloadData();
             Popup.Show("All settings have been restored to default.\n\nThis application will now restart.");
-            ClickOnceHelper.RestartApplication();
+            AppHelper.RestartApplication();
         }
     }
 }

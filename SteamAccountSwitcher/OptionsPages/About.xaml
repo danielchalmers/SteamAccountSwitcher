@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:properties="clr-namespace:SteamAccountSwitcher.Properties"
+      xmlns:steamAccountSwitcher="clr-namespace:SteamAccountSwitcher"
       mc:Ignorable="d"
       Title="About">
 
@@ -12,10 +13,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <TextBlock Margin="10,0,10,0" Grid.Row="0"
+        <TextBlock Grid.Row="0"
                    Text="{x:Static properties:Resources.AppName}" FontSize="24" VerticalAlignment="Center"
                    HorizontalAlignment="Left" />
-        <TextBox Grid.Row="1" x:Name="txtDescription" Background="Transparent" BorderThickness="0" IsReadOnly="True"
+        <TextBox Grid.Row="1" Text="{x:Static steamAccountSwitcher:AssemblyInfo.CustomDescription}"
+                 Background="Transparent"
+                 BorderThickness="0" IsReadOnly="True"
                  TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" />
     </Grid>
 </Page>

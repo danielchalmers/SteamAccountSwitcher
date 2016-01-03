@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal class TrayIconHelper
+    internal static class TrayIconHelper
     {
+        public static readonly ObservableCollection<object> AccountMenuItems = new ObservableCollection<object>();
+
         public static void ShowRunningInTrayBalloon()
         {
             ShowTrayBalloon(
@@ -18,41 +19,26 @@ namespace SteamAccountSwitcher
                 BalloonIcon.Info);
         }
 
-        public static void ShowTrayBalloon(string text, BalloonIcon icon)
+        private static void ShowTrayBalloon(string text, BalloonIcon icon)
         {
-            App.NotifyIcon.ShowBalloonTip(Resources.AppName, text, icon);
-        }
-
-        public static void RefreshTrayIconMenu()
-        {
-            if (Settings.Default.AlwaysOn)
-                App.NotifyIcon.ContextMenu = ContextMenu();
-        }
-
-        public static void RefreshTrayIconVisibility()
-        {
-            if (App.NotifyIcon == null)
-                return;
-            App.NotifyIcon.Visibility = Settings.Default.AlwaysOn ? Visibility.Visible : Visibility.Hidden;
+            App.TrayIcon.ShowBalloonTip(Resources.AppName, text, icon);
         }
 
         public static void CreateTrayIcon()
         {
-            if (App.NotifyIcon != null)
+            if (App.TrayIcon != null)
                 return;
-            App.NotifyIcon = new TaskbarIcon {ToolTipText = Resources.AppName};
-            var logo = new BitmapImage();
-            logo.BeginInit();
-            logo.UriSource =
-                new Uri($"pack://application:,,,/SteamAccountSwitcher;component/steam.ico");
-            logo.EndInit();
-            App.NotifyIcon.IconSource = logo;
-            App.NotifyIcon.TrayMouseDoubleClick += (sender, args) => SwitchWindowHelper.ActivateSwitchWindow();
-            App.Accounts.CollectionChanged += (sender, args) => RefreshTrayIconMenu();
-
+            App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
             RefreshTrayIconMenu();
-            RefreshTrayIconVisibility();
             ShowRunningInTrayBalloon();
+        }
+
+        public static void RefreshTrayIconMenu()
+        {
+            AccountMenuItems.Clear();
+            var items = ContextMenuItems();
+            foreach (var item in items)
+                AccountMenuItems.Add(item);
         }
 
         private static IEnumerable<object> ContextMenuItems()
@@ -98,18 +84,8 @@ namespace SteamAccountSwitcher
             menuList.Add(new Separator());
             menuList.Add(itemStartSteam);
             menuList.Add(itemExitSteam);
+            menuList.Add(new Separator());
             return menuList;
-        }
-
-        private static ContextMenu ContextMenu()
-        {
-            var menu = new ContextMenu();
-            var items = new List<object>();
-            items.AddRange(ContextMenuItems());
-            items.Add(new Separator());
-            items.AddRange((object[]) App.SwitchWindow.FindResource("MainMenuItems"));
-            menu.ItemsSource = items;
-            return menu;
         }
     }
 }

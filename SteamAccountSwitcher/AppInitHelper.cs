@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Linq;
 using System.Threading;
 using System.Windows.Interop;
@@ -10,7 +9,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal class AppInitHelper
+    internal static class AppInitHelper
     {
         public static bool Initialize()
         {
@@ -63,7 +62,7 @@ namespace SteamAccountSwitcher
                 SwitchWindowHelper.ShowSwitcherWindow();
             }
         }
-        
+
         private static bool IsExistingInstanceRunning()
         {
             bool isNewInstance;
@@ -72,13 +71,13 @@ namespace SteamAccountSwitcher
                 Settings.Default.MultiInstance || isNewInstance)
                 return false;
             SingleInstanceHelper.ShowExistingInstance();
-            ClickOnceHelper.ShutdownApplication();
+            AppHelper.ShutdownApplication();
             return true;
         }
 
         private static void LoadAccounts()
         {
-            if (ClickOnceHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
+            if (AppHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
                 Settings.Default.Accounts = AccountDataHelper.DefaultData();
 
             AccountDataHelper.ReloadData();

@@ -30,7 +30,7 @@
                 <RowDefinition Height="23" />
             </Grid.RowDefinitions>
 
-            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
+            <Button Grid.Column="1" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch" IsDefault="True" Width="75" />
             <Button Grid.Column="2" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" Width="75"

@@ -41,18 +41,22 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="23" />
             </Grid.RowDefinitions>
-            <CheckBox Grid.Column="0" Content="Advanced" IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"/>
-            <Button Grid.Column="2" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch" IsDefault="True" />
-            <Button Grid.Column="4" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" />
+            <Grid.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="Width" Value="75" />
+                </Style>
+            </Grid.Resources>
+            <CheckBox Grid.Column="0" Content="Advanced"
+                      IsChecked="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}" />
+            <Button Grid.Column="2" Content="OK" Click="btnOK_Click" IsDefault="True" />
+            <Button Grid.Column="4" Content="Cancel" Click="btnCancel_Click" IsCancel="True" />
         </Grid>
     </Grid>
 </Window>

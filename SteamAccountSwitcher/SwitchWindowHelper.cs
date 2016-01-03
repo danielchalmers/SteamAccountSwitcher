@@ -1,6 +1,6 @@
 ﻿namespace SteamAccountSwitcher
 {
-    internal class SwitchWindowHelper
+    internal static class SwitchWindowHelper
     {
         public static void ShowSwitcherWindow()
         {

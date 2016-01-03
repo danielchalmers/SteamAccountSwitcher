@@ -3,7 +3,6 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Deployment.Application;
 using System.Linq;
 using System.Threading;
@@ -23,23 +22,17 @@ namespace SteamAccountSwitcher
     {
         public static Mutex AppMutex;
         public static List<string> Arguments;
-        public static ObservableCollection<Account> Accounts;
         public static SwitchWindow SwitchWindow;
-        public static TaskbarIcon NotifyIcon;
-        public static bool SuccessfullyLoaded;
-        public static bool IsShuttingDown;
+        public static TaskbarIcon TrayIcon;
 
         public App()
         {
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;
-            Settings.Default.PropertyChanged += Settings_OnPropertyChanged;
         }
 
-        private void Settings_OnPropertyChanged(object sender, PropertyChangedEventArgs propertyChangedEventArgs)
-        {
-            if (propertyChangedEventArgs.PropertyName == nameof(Settings.Default.AlwaysOn))
-                TrayIconHelper.RefreshTrayIconVisibility();
-        }
+        public static ObservableCollection<Account> Accounts { get; set; }
+        private static bool SuccessfullyLoaded { get; set; }
+        public static bool IsShuttingDown { get; set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -55,7 +48,7 @@ namespace SteamAccountSwitcher
 
             if (!AppInitHelper.Initialize())
             {
-                ClickOnceHelper.ShutdownApplication();
+                AppHelper.ShutdownApplication();
                 return;
             }
             MainWindow = SwitchWindow;
@@ -69,7 +62,7 @@ namespace SteamAccountSwitcher
                 base.OnExit(e);
 
                 SettingsHelper.SaveSettings();
-                ClickOnceHelper.RunOnStartup(Settings.Default.AlwaysOn);
+                AppHelper.SetRunOnStartup(Settings.Default.AlwaysOn);
             }
             catch
             {
@@ -86,7 +79,7 @@ namespace SteamAccountSwitcher
                 MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
             if (!SuccessfullyLoaded)
-                ClickOnceHelper.ShutdownApplication();
+                AppHelper.ShutdownApplication();
         }
     }
 }
