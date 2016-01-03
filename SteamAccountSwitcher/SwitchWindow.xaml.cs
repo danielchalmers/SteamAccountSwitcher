@@ -18,6 +18,9 @@ namespace SteamAccountSwitcher
         public SwitchWindow()
         {
             InitializeComponent();
+            WindowStartupLocation = Settings.Default.SwitchWindowKeepCentered
+                ? WindowStartupLocation.CenterScreen
+                : WindowStartupLocation.Manual;
             ReloadAccountListBinding();
         }
 
