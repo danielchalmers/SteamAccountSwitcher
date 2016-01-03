@@ -44,7 +44,7 @@ namespace SteamAccountSwitcher
                         App.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName)
                     )
                 {
-                    account.SwitchTo(true);
+                    account.SwitchTo(onStart: true);
                     break;
                 }
             }

@@ -19,9 +19,10 @@ namespace SteamAccountSwitcher
             App.Accounts.Add(account);
         }
 
-        public static void SwitchTo(this Account account, bool onStart = false)
+        public static void SwitchTo(this Account account, bool hideWindow = true, bool onStart = false)
         {
-            App.SwitchWindow.HideWindow();
+            if (hideWindow)
+                App.SwitchWindow.HideWindow();
             var worker = new BackgroundWorker();
             worker.DoWork += delegate
             {
