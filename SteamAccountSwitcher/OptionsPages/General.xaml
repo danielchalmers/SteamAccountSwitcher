@@ -53,7 +53,7 @@
                                          DisplayName="Steam Launch Args" />
 
                 <xctk:PropertyDefinition Category="Style" TargetProperties="SwitchWindowKeepCentered"
-                                         DisplayName="Keep Window Centered" />
+                                         DisplayName="Center Window On Startup" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="AccountHelperButtons"
                                          DisplayName="Show Account Helper Buttons" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="Width" DisplayName="Window Width (px)" />
