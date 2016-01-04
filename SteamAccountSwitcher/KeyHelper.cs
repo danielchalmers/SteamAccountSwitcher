@@ -6,41 +6,30 @@ namespace SteamAccountSwitcher
     {
         public static int KeyToInt(Key key)
         {
-            var num = 0;
             switch (key)
             {
                 case Key.D1:
-                    num = 1;
-                    break;
+                    return 1;
                 case Key.D2:
-                    num = 2;
-                    break;
+                    return 2;
                 case Key.D3:
-                    num = 3;
-                    break;
+                    return 3;
                 case Key.D4:
-                    num = 4;
-                    break;
+                    return 4;
                 case Key.D5:
-                    num = 5;
-                    break;
+                    return 5;
                 case Key.D6:
-                    num = 6;
-                    break;
+                    return 6;
                 case Key.D7:
-                    num = 7;
-                    break;
+                    return 7;
                 case Key.D8:
-                    num = 8;
-                    break;
+                    return 8;
                 case Key.D9:
-                    num = 9;
-                    break;
+                    return 9;
                 case Key.D0:
-                    num = 10;
-                    break;
+                    return 10;
             }
-            return num;
+            return 0;
         }
     }
 }
