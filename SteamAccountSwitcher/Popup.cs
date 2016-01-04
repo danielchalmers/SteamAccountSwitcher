@@ -14,7 +14,7 @@ namespace SteamAccountSwitcher
         {
             try
             {
-                return MessageBox.Show(App.SwitchWindow, text, Resources.AppName, button, image, defaultButton);
+                return MessageBox.Show(text, Resources.AppName, button, image, defaultButton);
             }
             catch
             {
