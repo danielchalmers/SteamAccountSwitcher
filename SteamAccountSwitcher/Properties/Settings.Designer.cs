@@ -346,5 +346,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["ColorCodeAccountMenuItems"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool AccountPropertiesIsExpanded {
+            get {
+                return ((bool)(this["AccountPropertiesIsExpanded"]));
+            }
+            set {
+                this["AccountPropertiesIsExpanded"] = value;
+            }
+        }
     }
 }
