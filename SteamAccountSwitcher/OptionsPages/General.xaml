@@ -39,6 +39,8 @@
             ShowAdvancedOptions="False">
             <xctk:PropertyGrid.PropertyDefinitions>
                 <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn" DisplayName="Always-On Mode" />
+                <xctk:PropertyDefinition Category="General" TargetProperties="ExitOnSwitch"
+                                         DisplayName="Exit On Switch" />
                 <xctk:PropertyDefinition Category="General" TargetProperties="NumberHotkeys"
                                          DisplayName="Number Hotkeys" />
 
