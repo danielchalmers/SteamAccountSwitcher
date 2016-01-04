@@ -62,6 +62,10 @@
                 <xctk:PropertyDefinition Category="Style" TargetProperties="ButtonHeight"
                                          DisplayName="Button Height (px)" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="WindowColor" DisplayName="Window Color" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="DefaultButtonColor"
+                                         DisplayName="Default Button Color" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="DefaultButtonTextColor"
+                                         DisplayName="Default Button Text Color" />
             </xctk:PropertyGrid.PropertyDefinitions>
         </xctk:PropertyGrid>
     </StackPanel>

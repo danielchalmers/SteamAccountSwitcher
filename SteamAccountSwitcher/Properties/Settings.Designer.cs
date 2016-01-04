@@ -310,5 +310,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["ExitOnSwitch"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFE0E0E0")]
+        public global::System.Windows.Media.Color DefaultButtonColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["DefaultButtonColor"]));
+            }
+            set {
+                this["DefaultButtonColor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF000000")]
+        public global::System.Windows.Media.Color DefaultButtonTextColor {
+            get {
+                return ((global::System.Windows.Media.Color)(this["DefaultButtonTextColor"]));
+            }
+            set {
+                this["DefaultButtonTextColor"] = value;
+            }
+        }
     }
 }
