@@ -61,22 +61,22 @@ namespace SteamAccountSwitcher
             {
                 for (var i = 0; i < App.Accounts.Count; i++)
                 {
+                    var index = i;
                     var item = new MenuItem
                     {
                         Header =
-                            string.IsNullOrWhiteSpace(App.Accounts[i].DisplayName)
-                                ? App.Accounts[i].Username
-                                : App.Accounts[i].DisplayName
+                            string.IsNullOrWhiteSpace(App.Accounts[index].DisplayName)
+                                ? App.Accounts[index].Username
+                                : App.Accounts[index].DisplayName
                     };
-                    var i1 = i;
 
                     if (Settings.Default.ColorCodeAccountMenuItems)
                     {
-                        item.Background = new SolidColorBrush(App.Accounts[i1].Color);
-                        item.Foreground = new SolidColorBrush(App.Accounts[i1].TextColor);
+                        item.Background = new SolidColorBrush(App.Accounts[index].Color);
+                        item.Foreground = new SolidColorBrush(App.Accounts[index].TextColor);
                     }
 
-                    item.Click += delegate { App.Accounts[i1].SwitchTo(false); };
+                    item.Click += delegate { App.Accounts[index].SwitchTo(false); };
                     menuList.Add(item);
                 }
                 menuList.Add(new Separator());
