@@ -57,7 +57,27 @@ namespace SteamAccountSwitcher
 
             var mainWindowPtr = new WindowInteropHelper(this).Handle;
             var mainWindowSrc = HwndSource.FromHwnd(mainWindowPtr);
-            mainWindowSrc?.AddHook(SingleInstanceHelper.WndProc);
+            mainWindowSrc?.AddHook(WndProc);
+        }
+
+        private static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (msg == NativeMethods.WM_ACTIVATE)
+            {
+                if (Settings.Default.AlwaysOn)
+                {
+                    if (App.SwitchWindow == null || App.SwitchWindow.Visibility != Visibility.Visible)
+                        TrayIconHelper.ShowRunningInTrayBalloon();
+                    else
+                        SwitchWindowHelper.ActivateSwitchWindow();
+                }
+                else
+                {
+                    SwitchWindowHelper.ActivateSwitchWindow();
+                }
+            }
+
+            return IntPtr.Zero;
         }
     }
 }

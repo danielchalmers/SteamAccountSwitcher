@@ -65,7 +65,7 @@ namespace SteamAccountSwitcher
             if (App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
                 Settings.Default.MultiInstance || isNewInstance)
                 return false;
-            SingleInstanceHelper.ShowExistingInstance();
+            NativeMethods.ShowExistingInstance();
             AppHelper.ShutdownApplication();
             return true;
         }
