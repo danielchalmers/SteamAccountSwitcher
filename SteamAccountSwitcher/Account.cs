@@ -17,6 +17,7 @@ namespace SteamAccountSwitcher
         public Color TextColor { get; set; } = Settings.Default.DefaultButtonTextColor;
         public DateTime AddDate { get; set; } = DateTime.Now;
         public DateTime LastModifiedDate { get; set; } = DateTime.Now;
+        public string Arguments { get; set; } = "";
 
         public object Clone()
         {

@@ -22,6 +22,7 @@
                 <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
                 <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
                 <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
+                <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
             </Grid.RowDefinitions>
             <Grid.Resources>
                 <Style TargetType="TextBlock">
@@ -55,11 +56,14 @@
                           KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Center" />
             </Grid>
-            <TextBlock Grid.Row="3" Grid.Column="0" Text="Color:" />
-            <xctk:ColorPicker Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch"
-                              VerticalAlignment="Center" Height="23" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="Text Color:" />
+            <TextBlock Grid.Row="3" Grid.Column="0" Text="Arguments:" />
+            <TextBox Grid.Row="3" Grid.Column="1" HorizontalAlignment="Stretch" Height="23"
+                     VerticalAlignment="Center" Text="{Binding Path=Arguments, Mode=TwoWay}" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Color:" />
             <xctk:ColorPicker Grid.Row="4" Grid.Column="1" HorizontalAlignment="Stretch"
+                              VerticalAlignment="Center" Height="23" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
+            <TextBlock Grid.Row="5" Grid.Column="0" Text="Text Color:" />
+            <xctk:ColorPicker Grid.Row="5" Grid.Column="1" HorizontalAlignment="Stretch"
                               VerticalAlignment="Center" Height="23"
                               SelectedColor="{Binding Path=TextColor, Mode=TwoWay}" />
         </Grid>

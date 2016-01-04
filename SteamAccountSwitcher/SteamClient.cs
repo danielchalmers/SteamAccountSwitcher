@@ -33,6 +33,7 @@ namespace SteamAccountSwitcher
             var args = new List<string>();
 
             args.Add($"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
+            args.Add(account.Arguments);
             if (Settings.Default.BigPictureMode)
                 args.Add(Resources.SteamBigPictureArg);
 
