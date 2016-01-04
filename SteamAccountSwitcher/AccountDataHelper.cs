@@ -43,6 +43,7 @@ namespace SteamAccountSwitcher
                 Settings.Default.Save();
                 TrayIconHelper.RefreshTrayIconMenu();
             };
+            TrayIconHelper.RefreshTrayIconMenu();
             App.SwitchWindow?.ReloadAccountListBinding();
         }
 
