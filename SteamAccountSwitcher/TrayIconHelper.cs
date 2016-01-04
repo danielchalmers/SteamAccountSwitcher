@@ -70,8 +70,11 @@ namespace SteamAccountSwitcher
                     };
                     var i1 = i;
 
-                    item.Background = new SolidColorBrush(App.Accounts[i1].Color);
-                    item.Foreground = new SolidColorBrush(App.Accounts[i1].TextColor);
+                    if (Settings.Default.ColorCodeAccountMenuItems)
+                    {
+                        item.Background = new SolidColorBrush(App.Accounts[i1].Color);
+                        item.Foreground = new SolidColorBrush(App.Accounts[i1].TextColor);
+                    }
 
                     item.Click += delegate { App.Accounts[i1].SwitchTo(false); };
                     menuList.Add(item);
