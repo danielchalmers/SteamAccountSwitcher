@@ -150,9 +150,6 @@
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="SingleInstanceHelper.cs" />
     <Compile Include="SteamClient.cs" />
-    <Compile Include="SteamPath.xaml.cs">
-      <DependentUpon>SteamPath.xaml</DependentUpon>
-    </Compile>
     <Compile Include="SwitchWindowHelper.cs" />
     <Compile Include="SwitchWindowViewModel.cs" />
     <Compile Include="TrayIconHelper.cs" />
@@ -189,10 +186,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="OptionsPages\General.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="SteamPath.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

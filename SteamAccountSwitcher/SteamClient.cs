@@ -17,7 +17,7 @@ namespace SteamAccountSwitcher
         {
             if (!ResolvePath())
             {
-                Popup.Show("Steam path could not be located.");
+                Popup.Show("Steam.exe could not be found.\n\nPlease enter the correct path in options.");
                 return;
             }
             Process.Start(Settings.Default.SteamPath, args);
@@ -98,7 +98,7 @@ namespace SteamAccountSwitcher
             return true;
         }
 
-        private static string GetPath()
+        private static string GetPathFromRegistry()
         {
             string path;
             try
@@ -110,26 +110,14 @@ namespace SteamAccountSwitcher
             {
                 path = "";
             }
-
-            if (!string.IsNullOrWhiteSpace(path))
-                return path;
-
-            Popup.Show("Default Steam path could not be located.\r\n\r\nPlease enter Steam executable location.");
-            var dia = new SteamPath();
-            dia.ShowDialog();
-            return dia.Path;
+            return path;
         }
 
-        public static bool ResolvePath()
+        private static bool ResolvePath()
         {
-            if (!FileExists(Settings.Default.SteamPath))
-                Settings.Default.SteamPath = GetPath();
-            return FileExists(Settings.Default.SteamPath);
-        }
-
-        private static bool FileExists(string path)
-        {
-            return !string.IsNullOrWhiteSpace(path) && File.Exists(path);
+            if (!File.Exists(Settings.Default.SteamPath))
+                Settings.Default.SteamPath = GetPathFromRegistry();
+            return File.Exists(Settings.Default.SteamPath);
         }
 
         private static bool IsSteamOpen()

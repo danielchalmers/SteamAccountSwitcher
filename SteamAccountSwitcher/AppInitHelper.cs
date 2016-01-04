@@ -19,11 +19,6 @@ namespace SteamAccountSwitcher
                 return false;
             }
             LoadSettings();
-            if (!SteamClient.ResolvePath())
-            {
-                Popup.Show("Steam path could not be located. Application will now exit.");
-                return false;
-            }
             LoadAccounts();
             InitMainWindow();
             if (Settings.Default.AlwaysOn)
