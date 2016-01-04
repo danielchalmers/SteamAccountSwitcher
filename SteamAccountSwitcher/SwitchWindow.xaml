@@ -26,6 +26,7 @@
         <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
         <local:ColorToSolidBrushConverter x:Key="ColorToSolidBrushConverter" />
         <local:MultiBooleanToVisibilityConverter x:Key="MultiBooleanToVisibilityConverter" />
+        <local:AccountToIndexConverter x:Key="AccountToIndexConverter" />
     </Window.Resources>
     <Window.Background>
         <Binding Source="{x:Static p:Settings.Default}" Path="WindowColor" Mode="OneWay"
@@ -62,6 +63,8 @@
                                 Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
                                 Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
                                 Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}" />
+                        <TextBlock Style="{StaticResource StyleHelperText}"
+                                   Text="{Binding Converter={StaticResource AccountToIndexConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"
                                 Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={StaticResource BooleanToVisibilityConverter}}">

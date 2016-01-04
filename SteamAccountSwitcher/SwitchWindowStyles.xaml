@@ -21,6 +21,17 @@
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
 
+    <Style TargetType="{x:Type TextBlock}" x:Key="StyleHelperText">
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="Foreground" Value="DimGray" />
+        <Setter Property="Opacity" Value="0.75" />
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Visibility"
+                Value="{Binding Source={x:Static p:Settings.Default}, Path=NumberHotkeys, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+    </Style>
+
     <Style TargetType="{x:Type Image}" x:Key="StyleToolImage">
         <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
         <Setter Property="Stretch" Value="None" />
