@@ -63,13 +63,10 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to ﻿{0} ({1}).
         ///
-        ///
-        ///Links &amp; Credit:
-        /// Website: {2}
-        /// Issues: {3}
-        /// Donations: {4}
-        /// Changelog: {5}
-        ///
+        ///Website: {2}
+        ///Source Code: {3}
+        ///Changes: {4}
+        ///Issues: {5}
         ///
         ///{6}.
         /// </summary>
@@ -94,60 +91,6 @@ namespace SteamAccountSwitcher.Properties {
         public static string AppPathName {
             get {
                 return ResourceManager.GetString("AppPathName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #afeeee.
-        /// </summary>
-        public static string ColorBlue {
-            get {
-                return ResourceManager.GetString("ColorBlue", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #b3ffb3.
-        /// </summary>
-        public static string ColorGreen {
-            get {
-                return ResourceManager.GetString("ColorGreen", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #cccccc.
-        /// </summary>
-        public static string ColorGrey {
-            get {
-                return ResourceManager.GetString("ColorGrey", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #ffd9b3.
-        /// </summary>
-        public static string ColorOrange {
-            get {
-                return ResourceManager.GetString("ColorOrange", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #fadadd.
-        /// </summary>
-        public static string ColorPink {
-            get {
-                return ResourceManager.GetString("ColorPink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to #ffffb3.
-        /// </summary>
-        public static string ColorYellow {
-            get {
-                return ResourceManager.GetString("ColorYellow", resourceCulture);
             }
         }
         
