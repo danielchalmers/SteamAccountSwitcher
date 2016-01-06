@@ -1,11 +1,8 @@
 ﻿﻿{0} ({1}).
 
-
-Links & Credit:
- Website: {2}
- Issues: {3}
- Donations: {4}
- Changelog: {5}
-
+Website: {2}
+Source Code: {3}
+Changes: {4}
+Issues: {5}
 
 {6}

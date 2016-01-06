@@ -152,15 +152,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://danielchalmers.github.io/website/donate.html.
-        /// </summary>
-        public static string DonateLink {
-            get {
-                return ResourceManager.GetString("DonateLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits.
         /// </summary>
         public static string GitHubApiCommits {
@@ -184,6 +175,15 @@ namespace SteamAccountSwitcher.Properties {
         public static string GitHubIssues {
             get {
                 return ResourceManager.GetString("GitHubIssues", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://github.com/danielchalmers/SteamAccountSwitcher.
+        /// </summary>
+        public static string GitHubMainPage {
+            get {
+                return ResourceManager.GetString("GitHubMainPage", resourceCulture);
             }
         }
         
@@ -271,7 +271,7 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://danielchalmers.github.io/SteamAccountSwitcher/.
+        ///   Looks up a localized string similar to https://danielchalmers.github.io/SteamAccountSwitcher.
         /// </summary>
         public static string Website {
             get {

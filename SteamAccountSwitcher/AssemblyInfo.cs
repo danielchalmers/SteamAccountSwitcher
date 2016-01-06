@@ -23,7 +23,7 @@ namespace SteamAccountSwitcher
             GetAssemblyAttribute<AssemblyDescriptionAttribute>(a => a.Description);
 
         public static string CustomDescription { get; } = string.Format(Resources.About, Title, Version,
-            Resources.Website, Resources.GitHubIssues, Resources.DonateLink, Resources.GitHubCommits, Copyright);
+            Resources.Website, Resources.GitHubMainPage, Resources.GitHubCommits, Resources.GitHubIssues, Copyright);
 
         public static string Guid { get; } = GetAssemblyAttribute<GuidAttribute>(a => a.Value);
 

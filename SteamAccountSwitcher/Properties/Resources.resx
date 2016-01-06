@@ -178,16 +178,16 @@
   <data name="About" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\about.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="DonateLink" xml:space="preserve">
-    <value>https://danielchalmers.github.io/website/donate.html</value>
-  </data>
   <data name="GitHubIssues" xml:space="preserve">
     <value>https://github.com/danielchalmers/SteamAccountSwitcher/issues</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>https://danielchalmers.github.io/SteamAccountSwitcher/</value>
+    <value>https://danielchalmers.github.io/SteamAccountSwitcher</value>
   </data>
   <data name="SteamSilentArg" xml:space="preserve">
     <value>-silent</value>
+  </data>
+  <data name="GitHubMainPage" xml:space="preserve">
+    <value>https://github.com/danielchalmers/SteamAccountSwitcher</value>
   </data>
 </root>
