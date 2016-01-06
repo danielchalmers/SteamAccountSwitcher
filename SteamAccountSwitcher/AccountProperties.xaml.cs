@@ -35,6 +35,8 @@ namespace SteamAccountSwitcher
             {
                 txtPassword.Password = NewAccount.Password;
             }
+
+            txtAlias.Focus();
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

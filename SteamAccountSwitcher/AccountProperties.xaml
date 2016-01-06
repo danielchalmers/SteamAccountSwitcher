@@ -50,7 +50,7 @@
             </Grid.Resources>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Alias:" />
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=DisplayName, Mode=TwoWay}" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=DisplayName, Mode=TwoWay}" x:Name="txtAlias" />
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Username:" />
             <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Username, Mode=TwoWay}" />
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" />
