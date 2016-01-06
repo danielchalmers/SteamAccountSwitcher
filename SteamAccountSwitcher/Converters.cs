@@ -58,16 +58,13 @@ namespace SteamAccountSwitcher
         }
     }
 
-    public class AccountToIndexConverter : IValueConverter
+    public class NumberToIncrementedConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!ConverterHelper.IsValueValid(value))
                 return DependencyProperty.UnsetValue;
-            var val = value as Account;
-            if (val == null)
-                return DependencyProperty.UnsetValue;
-            return (App.Accounts.Contains(val) ? App.Accounts.IndexOf(val) : -1) + 1;
+            return (int) value + 1;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

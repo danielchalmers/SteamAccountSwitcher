@@ -26,7 +26,7 @@
         <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
         <local:ColorToSolidBrushConverter x:Key="ColorToSolidBrushConverter" />
         <local:MultiBooleanToVisibilityConverter x:Key="MultiBooleanToVisibilityConverter" />
-        <local:AccountToIndexConverter x:Key="AccountToIndexConverter" />
+        <local:NumberToIncrementedConverter x:Key="NumberToIncrementedConverter" />
     </Window.Resources>
     <Window.Background>
         <Binding Source="{x:Static p:Settings.Default}" Path="WindowColor" Mode="OneWay"
@@ -37,7 +37,8 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False">
+        <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False"
+                      AlternationCount="{x:Static sys:Int32.MaxValue}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
@@ -64,7 +65,7 @@
                                 Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
                                 Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}" />
                         <TextBlock Style="{StaticResource StyleHelperText}"
-                                   Text="{Binding Converter={StaticResource AccountToIndexConverter}}" />
+                                   Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"
                                 Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={StaticResource BooleanToVisibilityConverter}}">
