@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
-using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
@@ -47,9 +46,7 @@ namespace SteamAccountSwitcher
         {
             if (!ConverterHelper.IsValueValid(value))
                 return DependencyProperty.UnsetValue;
-            return Settings.Default.AccountHelperButtons
-                ? value.Any(val => (bool) val) ? Visibility.Visible : Visibility.Collapsed
-                : Visibility.Collapsed;
+            return value.Any(val => (bool) val) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public object[] ConvertBack(object value, Type[] targetType, object parameter, CultureInfo culture)

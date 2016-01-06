@@ -61,9 +61,6 @@
     <Setting Name="SwitchWindowKeepCentered" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="AccountHelperButtons" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFF0F0F0</Value>
     </Setting>

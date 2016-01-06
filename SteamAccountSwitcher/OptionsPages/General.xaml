@@ -56,8 +56,6 @@
 
                 <xctk:PropertyDefinition Category="Style" TargetProperties="SwitchWindowKeepCentered"
                                          DisplayName="Center Window On Startup" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="AccountHelperButtons"
-                                         DisplayName="Show Account Helper Buttons" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="Width" DisplayName="Window Width (px)" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="ButtonHeight"
                                          DisplayName="Button Height (px)" />
