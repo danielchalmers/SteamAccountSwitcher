@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<configuration>
+  <configSections>
+    <sectionGroup name="userSettings"
+                  type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="SteamAccountSwitcher.Properties.Settings"
+               type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+               allowExeDefinition="MachineToLocalUser" requirePermission="false" />
+    </sectionGroup>
+  </configSections>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.6.1" />
+  </startup>
+  <userSettings>
+    <SteamAccountSwitcher.Properties.Settings>
+      <setting name="SteamPath" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="MustUpgrade" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="ButtonHeight" serializeAs="String">
+        <value>48</value>
+      </setting>
+      <setting name="Launches" serializeAs="String">
+        <value>0</value>
+      </setting>
+      <setting name="AlwaysOn" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="BigPictureMode" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="SteamLaunchArgs" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="OnStartLoginName" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="Accounts" serializeAs="String">
+        <value />
+      </setting>
+      <setting name="Width" serializeAs="String">
+        <value>400</value>
+      </setting>
+      <setting name="OptionsIndex" serializeAs="String">
+        <value>0</value>
+      </setting>
+      <setting name="StartSteamMinimized" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="MultiInstance" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="EnableAdvancedMode" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="StartSteamMinimizedOnlyOnStartup" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="NumberHotkeys" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="SwitchWindowLeft" serializeAs="String">
+        <value>NaN</value>
+      </setting>
+      <setting name="SwitchWindowTop" serializeAs="String">
+        <value>NaN</value>
+      </setting>
+      <setting name="SwitchWindowKeepCentered" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="WindowColor" serializeAs="String">
+        <value>#FFF0F0F0</value>
+      </setting>
+      <setting name="PreventViewingPasswords" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="PropertyGridNameColumnWidth" serializeAs="String">
+        <value>200</value>
+      </setting>
+      <setting name="ExitOnSwitch" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="DefaultButtonColor" serializeAs="String">
+        <value>#FFE0E0E0</value>
+      </setting>
+      <setting name="DefaultButtonTextColor" serializeAs="String">
+        <value>#FF000000</value>
+      </setting>
+      <setting name="ColorCodeAccountMenuItems" serializeAs="String">
+        <value>True</value>
+      </setting>
+      <setting name="AccountPropertiesIsExpanded" serializeAs="String">
+        <value>False</value>
+      </setting>
+      <setting name="OptionsWidth" serializeAs="String">
+        <value>600</value>
+      </setting>
+      <setting name="OptionsHeight" serializeAs="String">
+        <value>516</value>
+      </setting>
+    </SteamAccountSwitcher.Properties.Settings>
+  </userSettings>
+</configuration>
