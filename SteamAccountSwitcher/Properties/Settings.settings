@@ -89,7 +89,7 @@
       <Value Profile="(Default)">600</Value>
     </Setting>
     <Setting Name="OptionsHeight" Type="System.String" Scope="User">
-      <Value Profile="(Default)">500</Value>
+      <Value Profile="(Default)">516</Value>
     </Setting>
   </Settings>
 </SettingsFile>
