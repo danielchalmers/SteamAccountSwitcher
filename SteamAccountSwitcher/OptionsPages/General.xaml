@@ -38,32 +38,36 @@
             ShowTitle="False"
             ShowAdvancedOptions="False">
             <xctk:PropertyGrid.PropertyDefinitions>
-                <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn" DisplayName="Always-On Mode" />
+                <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn"
+                                         DisplayName="Run in Tray" />
                 <xctk:PropertyDefinition Category="General" TargetProperties="ExitOnSwitch"
-                                         DisplayName="Exit On Switch" />
+                                         DisplayName="Close Window on Switch" />
                 <xctk:PropertyDefinition Category="General" TargetProperties="NumberHotkeys"
-                                         DisplayName="Number Hotkeys" />
+                                         DisplayName="Numbered Account Hotkeys" />
 
                 <xctk:PropertyDefinition Category="Steam" TargetProperties="BigPictureMode"
                                          DisplayName="Big Picture Mode" />
                 <xctk:PropertyDefinition Category="Steam" TargetProperties="StartSteamMinimized"
                                          DisplayName="Start Minimized" />
                 <xctk:PropertyDefinition Category="Steam" TargetProperties="OnStartLoginName"
-                                         DisplayName="Startup Login Username" />
-                <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamPath" DisplayName="Steam.exe Path" />
+                                         DisplayName="System Startup Login Username" />
+                <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamPath"
+                                         DisplayName="Steam.exe Path" />
                 <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamLaunchArgs"
-                                         DisplayName="Steam Launch Args" />
+                                         DisplayName="Global Launch Arguments" />
 
                 <xctk:PropertyDefinition Category="Style" TargetProperties="SwitchWindowKeepCentered"
-                                         DisplayName="Center Window On Startup" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="Width" DisplayName="Window Width (px)" />
+                                         DisplayName="Center Window on Launch" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="Width"
+                                         DisplayName="Window Width (px)" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="ButtonHeight"
                                          DisplayName="Button Height (px)" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="WindowColor" DisplayName="Window Color" />
+                <xctk:PropertyDefinition Category="Style" TargetProperties="WindowColor"
+                                         DisplayName="Window Background Color" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="DefaultButtonColor"
-                                         DisplayName="Default Button Color" />
+                                         DisplayName="Button Default Background Color" />
                 <xctk:PropertyDefinition Category="Style" TargetProperties="DefaultButtonTextColor"
-                                         DisplayName="Default Button Text Color" />
+                                         DisplayName="Button Default Text Color" />
             </xctk:PropertyGrid.PropertyDefinitions>
         </xctk:PropertyGrid>
     </StackPanel>
