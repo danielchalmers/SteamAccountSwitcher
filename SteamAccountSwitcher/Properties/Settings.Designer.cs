@@ -346,5 +346,29 @@ namespace SteamAccountSwitcher.Properties {
                 this["AccountPropertiesIsExpanded"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public double OptionsWidth {
+            get {
+                return ((double)(this["OptionsWidth"]));
+            }
+            set {
+                this["OptionsWidth"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("500")]
+        public string OptionsHeight {
+            get {
+                return ((string)(this["OptionsHeight"]));
+            }
+            set {
+                this["OptionsHeight"] = value;
+            }
+        }
     }
 }
