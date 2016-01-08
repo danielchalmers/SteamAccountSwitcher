@@ -25,6 +25,7 @@ namespace SteamAccountSwitcher
                 txtData.SelectAll();
                 //Clipboard.SetText(displayData);
                 btnCancel.Visibility = Visibility.Collapsed;
+                btnOK.IsCancel = true;
             }
             else
             {
