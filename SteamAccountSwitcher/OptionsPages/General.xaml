@@ -10,8 +10,13 @@
     <Page.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
     </Page.Resources>
-    <StackPanel>
-        <StackPanel Margin="15,0,0,15" Orientation="Horizontal" HorizontalAlignment="Center"
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Margin="15,0,0,15" Orientation="Horizontal" HorizontalAlignment="Center"
                     Visibility="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode, Converter={StaticResource BooleanToVisibilityConverter}}">
             <StackPanel.Resources>
                 <Style TargetType="Button">
@@ -27,16 +32,16 @@
             <Button Content="Export..." Click="menuItemExport_OnClick" />
             <Button Content="Defaults..." Click="menuItemDefaults_OnClick" />
         </StackPanel>
-        <xctk:PropertyGrid
-            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
-            NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
-            Background="{x:Static SystemColors.WindowBrush}"
-            AutoGenerateProperties="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"
-            IsCategorized="True"
-            ShowSortOptions="True"
-            ShowSummary="False"
-            ShowTitle="False"
-            ShowAdvancedOptions="False">
+        <xctk:PropertyGrid Grid.Row="1"
+                           SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
+                           NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
+                           Background="{x:Static SystemColors.WindowBrush}"
+                           AutoGenerateProperties="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"
+                           IsCategorized="True"
+                           ShowSortOptions="True"
+                           ShowSummary="False"
+                           ShowTitle="False"
+                           ShowAdvancedOptions="False">
             <xctk:PropertyGrid.PropertyDefinitions>
                 <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn"
                                          DisplayName="Run in Tray" />
@@ -70,5 +75,5 @@
                                          DisplayName="Button Default Text Color" />
             </xctk:PropertyGrid.PropertyDefinitions>
         </xctk:PropertyGrid>
-    </StackPanel>
+    </Grid>
 </Page>
