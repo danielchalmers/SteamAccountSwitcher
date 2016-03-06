@@ -26,8 +26,8 @@ namespace SteamAccountSwitcher
             var worker = new BackgroundWorker();
             worker.DoWork += delegate
             {
-                if (SteamClient.LogOutTimeout())
-                    SteamClient.LogIn(account, onStart);
+                SteamClient.LogOutTimeout();
+                SteamClient.LogIn(account, onStart);
             };
             worker.RunWorkerCompleted += delegate
             {
