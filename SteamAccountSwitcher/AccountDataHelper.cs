@@ -36,7 +36,7 @@ namespace SteamAccountSwitcher
                 App.Accounts = new ObservableCollection<Account>();
                 Popup.Show(
                     $"Existing account data is corrupt.{Environment.NewLine}{Environment.NewLine}All accounts have been reset.",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
             App.Accounts.CollectionChanged += (sender, args) =>
             {
