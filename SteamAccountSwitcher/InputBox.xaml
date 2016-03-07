@@ -43,6 +43,9 @@
                             Value="{Binding IsDisplayData, Converter={StaticResource BooleanToVisibilityConverter}}" />
                 </Style>
             </Grid.Resources>
+            <Button Grid.Column="0" Content="Copy" Click="btnCopy_OnClick" />
+            <Button Grid.Column="1" Content="Save..." Click="btnSave_OnClick"
+                    Margin="5,0,0,0" />
             <Button Grid.Column="3" Content="OK" Click="btnOK_Click" IsDefault="True" Visibility="Visible"
                     IsCancel="{Binding IsDisplayData}" />
             <Button Grid.Column="4" Content="Cancel" Click="btnCancel_Click" IsCancel="True"
