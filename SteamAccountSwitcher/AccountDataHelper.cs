@@ -60,9 +60,9 @@ namespace SteamAccountSwitcher
                 {
                     // Test import data before overwriting existing accounts.
                     var testAccounts =
-                        new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(dialog.TextData));
+                        new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(dialog.InputData));
 
-                    Settings.Default.Accounts = dialog.TextData;
+                    Settings.Default.Accounts = dialog.InputData;
                     ReloadData();
                     SettingsHelper.SaveSettings();
                 }

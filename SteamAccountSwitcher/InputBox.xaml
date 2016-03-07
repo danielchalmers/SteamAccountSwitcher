@@ -3,10 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SteamAccountSwitcher"
+        xmlns:steamAccountSwitcher="clr-namespace:SteamAccountSwitcher"
         mc:Ignorable="d"
-        Height="400" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Closing="Window_Closing">
+        Height="400" Width="500"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        Title="{Binding Title}">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+        <steamAccountSwitcher:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -17,11 +22,13 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" x:Name="txtData" HorizontalAlignment="Stretch"
-                 VerticalAlignment="Stretch" Margin="15" TextWrapping="Wrap" AcceptsReturn="True" />
+        <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" x:Name="txtData" Text="{Binding InputData}"
+                 Margin="15" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="{Binding IsDisplayData}" />
 
         <Grid Row="1" Column="0" ColumnSpan="2" Margin="15,0,15,15">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -29,11 +36,17 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="23" />
             </Grid.RowDefinitions>
-
-            <Button Grid.Column="1" x:Name="btnOK" Content="OK" Click="btnOK_Click" HorizontalAlignment="Stretch"
-                    VerticalAlignment="Stretch" IsDefault="True" Width="75" />
-            <Button Grid.Column="2" x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
-                    HorizontalAlignment="Stretch" VerticalAlignment="Stretch" IsCancel="True" Width="75"
+            <Grid.Resources>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Width" Value="75" />
+                    <Setter Property="Visibility"
+                            Value="{Binding IsDisplayData, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </Style>
+            </Grid.Resources>
+            <Button Grid.Column="3" Content="OK" Click="btnOK_Click" IsDefault="True" Visibility="Visible"
+                    IsCancel="{Binding IsDisplayData}" />
+            <Button Grid.Column="4" Content="Cancel" Click="btnCancel_Click" IsCancel="True"
+                    Visibility="{Binding IsDisplayData, Converter={StaticResource BoolToCollapsedVisibilityConverter}}"
                     Margin="5,0,0,0" />
         </Grid>
     </Grid>

@@ -1,7 +1,9 @@
 ﻿#region
 
 using System.ComponentModel;
+using System.IO;
 using System.Windows;
+using Microsoft.Win32;
 
 #endregion
 
@@ -10,33 +12,51 @@ namespace SteamAccountSwitcher
     /// <summary>
     ///     Interaction logic for InputBox.xaml
     /// </summary>
-    public partial class InputBox : Window
+    public partial class InputBox : Window, INotifyPropertyChanged
     {
-        public bool Cancelled;
-        public string TextData;
+        private readonly bool _allowEmptyData;
+        private string _inputData;
 
-        public InputBox(string title, string displayData = null)
+        public InputBox(string title, string displayData = null, bool allowEmptyData = false)
         {
             InitializeComponent();
-            if (displayData != null)
-            {
-                txtData.Text = displayData;
-                txtData.IsReadOnly = true;
-                txtData.SelectAll();
-                //Clipboard.SetText(displayData);
-                btnCancel.Visibility = Visibility.Collapsed;
-                btnOK.IsCancel = true;
-            }
-            else
-            {
-                btnCancel.Visibility = Visibility.Visible;
-            }
             Title = title;
+            InputData = displayData;
+            _allowEmptyData = allowEmptyData;
+            IsDisplayData = !string.IsNullOrEmpty(displayData);
+            if (IsDisplayData)
+                txtData.SelectAll();
+            DataContext = this;
             txtData.Focus();
+        }
+
+        public bool Cancelled { get; private set; }
+        public bool IsDisplayData { get; }
+
+        public string InputData
+        {
+            get { return _inputData; }
+            set
+            {
+                if (_inputData != value)
+                {
+                    _inputData = value;
+                    RaisePropertyChanged(nameof(InputData));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void RaisePropertyChanged(string prop)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            if (!_allowEmptyData && string.IsNullOrWhiteSpace(InputData))
+                Cancelled = true;
             DialogResult = true;
         }
 
@@ -46,9 +66,20 @@ namespace SteamAccountSwitcher
             DialogResult = true;
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
+        private void btnSave_OnClick(object sender, RoutedEventArgs e)
         {
-            TextData = txtData.Text;
+            var dialog = new SaveFileDialog
+            {
+                DefaultExt = ".txt",
+                Filter = "Text file (*.txt)|*.txt|All files (*.*)|*.*"
+            };
+            if (dialog.ShowDialog() == true)
+                File.WriteAllText(dialog.FileName, InputData);
+        }
+
+        private void btnCopy_OnClick(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(InputData);
         }
     }
 }
