@@ -88,5 +88,8 @@
     <Setting Name="OptionsHeight" Type="System.String" Scope="User">
       <Value Profile="(Default)">575</Value>
     </Setting>
+    <Setting Name="SaveDelay" Type="System.TimeSpan" Scope="User">
+      <Value Profile="(Default)">00:00:30</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

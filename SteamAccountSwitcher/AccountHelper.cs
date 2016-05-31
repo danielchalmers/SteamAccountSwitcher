@@ -46,7 +46,7 @@ namespace SteamAccountSwitcher
                 return;
             newAccount.LastModifiedDate = DateTime.Now;
             App.Accounts[App.Accounts.IndexOf(account)] = newAccount;
-            Settings.Default.Save();
+            App.SaveTimer.DelaySave();
         }
 
         public static void New()

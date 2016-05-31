@@ -148,6 +148,7 @@
       <DependentUpon>General.xaml</DependentUpon>
     </Compile>
     <Compile Include="Popup.cs" />
+    <Compile Include="SaveTimer.cs" />
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="SteamClient.cs" />
     <Compile Include="SwitchWindowHelper.cs" />
