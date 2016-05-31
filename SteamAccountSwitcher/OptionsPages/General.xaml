@@ -7,17 +7,13 @@
       xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
       mc:Ignorable="d" Title="Options">
-    <Page.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0"
-                    Margin="15,0,0,15" Orientation="Horizontal" HorizontalAlignment="Center"
-                    Visibility="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    Margin="15,0,0,15" Orientation="Horizontal" HorizontalAlignment="Center">
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Margin" Value="0,0,5,0" />
@@ -27,52 +23,95 @@
                     <Setter Property="Height" Value="23" />
                 </Style>
             </StackPanel.Resources>
-
             <Button Content="Import..." Click="menuItemImport_OnClick" />
             <Button Content="Export..." Click="menuItemExport_OnClick" />
-            <Button Content="Defaults..." Click="menuItemDefaults_OnClick" />
         </StackPanel>
         <xctk:PropertyGrid Grid.Row="1"
                            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
                            NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
+                           AutoGenerateProperties="False"
                            Background="{x:Static SystemColors.WindowBrush}"
-                           AutoGenerateProperties="{Binding Source={x:Static p:Settings.Default}, Path=EnableAdvancedMode}"
                            IsCategorized="True"
                            ShowSortOptions="True"
                            ShowSummary="False"
                            ShowTitle="False"
                            ShowAdvancedOptions="False">
             <xctk:PropertyGrid.PropertyDefinitions>
-                <xctk:PropertyDefinition Category="General" TargetProperties="AlwaysOn"
-                                         DisplayName="Run in Tray" />
-                <xctk:PropertyDefinition Category="General" TargetProperties="ExitOnSwitch"
-                                         DisplayName="Close Window on Switch" />
-                <xctk:PropertyDefinition Category="General" TargetProperties="NumberHotkeys"
-                                         DisplayName="Numbered Account Hotkeys" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="AlwaysOn"
+                                         DisplayName="Run in Tray"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="ExitOnSwitch"
+                                         DisplayName="Close Window on Switch"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="NumberHotkeys"
+                                         DisplayName="Numbered Account Hotkeys"
+                                         DisplayOrder="2" />
 
-                <xctk:PropertyDefinition Category="Steam" TargetProperties="BigPictureMode"
-                                         DisplayName="Big Picture Mode" />
-                <xctk:PropertyDefinition Category="Steam" TargetProperties="StartSteamMinimized"
-                                         DisplayName="Start Minimized" />
-                <xctk:PropertyDefinition Category="Steam" TargetProperties="OnStartLoginName"
-                                         DisplayName="System Startup Login Username" />
-                <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamPath"
-                                         DisplayName="Steam.exe Path" />
-                <xctk:PropertyDefinition Category="Steam" TargetProperties="SteamLaunchArgs"
-                                         DisplayName="Global Launch Arguments" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="BigPictureMode"
+                                         DisplayName="Big Picture Mode"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="StartSteamMinimized"
+                                         DisplayName="Start Minimized"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="OnStartLoginName"
+                                         DisplayName="System Startup Login Username"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="SteamPath"
+                                         DisplayName="Steam.exe Path"
+                                         DisplayOrder="3" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="SteamLaunchArgs"
+                                         DisplayName="Global Launch Arguments"
+                                         DisplayOrder="4" />
 
-                <xctk:PropertyDefinition Category="Style" TargetProperties="SwitchWindowKeepCentered"
-                                         DisplayName="Window Center on Launch" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="Width"
-                                         DisplayName="Window Width (px)" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="ButtonHeight"
-                                         DisplayName="Button Height (px)" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="WindowColor"
-                                         DisplayName="Window Background Color" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="DefaultButtonColor"
-                                         DisplayName="Button Default Background Color" />
-                <xctk:PropertyDefinition Category="Style" TargetProperties="DefaultButtonTextColor"
-                                         DisplayName="Button Default Text Color" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="SwitchWindowKeepCentered"
+                                         DisplayName="Window Center on Launch"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="Width"
+                                         DisplayName="Window Width (px)"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="ButtonHeight"
+                                         DisplayName="Button Height (px)"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="WindowColor"
+                                         DisplayName="Window Background Color"
+                                         DisplayOrder="3" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="DefaultButtonColor"
+                                         DisplayName="Button Default Background Color"
+                                         DisplayOrder="4" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="DefaultButtonTextColor"
+                                         DisplayName="Button Default Text Color"
+                                         DisplayOrder="5" />
+
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="ColorCodeAccountMenuItems"
+                                         DisplayName="Color Code Account Menu Items"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="MultiInstance"
+                                         DisplayName="Allow Multiple Instances"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="PreventViewingPasswords"
+                                         DisplayName="Prevent Viewing Passwords"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="StartSteamMinimizedOnlyOnStartup"
+                                         DisplayName="Start Steam Minimized Only On Startup"
+                                         DisplayOrder="3" />
             </xctk:PropertyGrid.PropertyDefinitions>
         </xctk:PropertyGrid>
     </Grid>

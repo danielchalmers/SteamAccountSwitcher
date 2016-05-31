@@ -182,18 +182,6 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool EnableAdvancedMode {
-            get {
-                return ((bool)(this["EnableAdvancedMode"]));
-            }
-            set {
-                this["EnableAdvancedMode"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool StartSteamMinimizedOnlyOnStartup {
             get {
                 return ((bool)(this["StartSteamMinimizedOnlyOnStartup"]));
@@ -361,7 +349,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("516")]
+        [global::System.Configuration.DefaultSettingValueAttribute("575")]
         public string OptionsHeight {
             get {
                 return ((string)(this["OptionsHeight"]));

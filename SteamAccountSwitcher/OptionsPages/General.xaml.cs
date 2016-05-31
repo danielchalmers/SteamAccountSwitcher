@@ -17,11 +17,6 @@ namespace SteamAccountSwitcher.OptionsPages
             InitializeComponent();
         }
 
-        private void menuItemDefaults_OnClick(object sender, EventArgs e)
-        {
-            SettingsHelper.ResetSettings();
-        }
-
         private void menuItemImport_OnClick(object sender, EventArgs e)
         {
             AccountDataHelper.ImportAccounts();

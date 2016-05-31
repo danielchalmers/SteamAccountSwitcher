@@ -43,9 +43,6 @@
     <Setting Name="MultiInstance" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="EnableAdvancedMode" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="StartSteamMinimizedOnlyOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -89,7 +86,7 @@
       <Value Profile="(Default)">600</Value>
     </Setting>
     <Setting Name="OptionsHeight" Type="System.String" Scope="User">
-      <Value Profile="(Default)">516</Value>
+      <Value Profile="(Default)">575</Value>
     </Setting>
   </Settings>
 </SettingsFile>
