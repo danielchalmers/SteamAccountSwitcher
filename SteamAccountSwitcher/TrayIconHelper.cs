@@ -30,7 +30,6 @@ namespace SteamAccountSwitcher
                 return;
             App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
             RefreshTrayIconMenu();
-            ShowRunningInTrayBalloon();
         }
 
         public static void RefreshTrayIconMenu()
