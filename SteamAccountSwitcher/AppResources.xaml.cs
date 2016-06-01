@@ -9,19 +9,39 @@ namespace SteamAccountSwitcher
             InitializeComponent();
         }
 
-        private void menuItemOptions_OnClick(object sender, RoutedEventArgs e)
+        private void TrayIcon_OnTrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+            SwitchWindowHelper.ActivateSwitchWindow();
+        }
+
+        private void MenuItemOptions_OnClick(object sender, RoutedEventArgs e)
         {
             SettingsHelper.OpenOptions();
         }
 
-        private void menuItemExit_OnClick(object sender, RoutedEventArgs e)
+        private void MenuItemExit_OnClick(object sender, RoutedEventArgs e)
         {
             AppHelper.ShutdownApplication();
         }
 
-        private void TrayIcon_OnTrayMouseDoubleClick(object sender, RoutedEventArgs e)
+        private void MenuItemAddAccount_OnClick(object sender, RoutedEventArgs e)
         {
-            SwitchWindowHelper.ActivateSwitchWindow();
+            AccountHelper.New();
+        }
+
+        private void MenuItemManageAccount_OnClick(object sender, RoutedEventArgs e)
+        {
+            SwitchWindowHelper.ShowSwitcherWindow();
+        }
+
+        private void MenuItemOpenSteam_OnClick(object sender, RoutedEventArgs e)
+        {
+            SteamClient.Launch();
+        }
+
+        private void MenuItemExitSteam_OnClick(object sender, RoutedEventArgs e)
+        {
+            SteamClient.LogOutAuto();
         }
     }
 }

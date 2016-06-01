@@ -42,9 +42,15 @@
                 <ContextMenu.ItemsSource>
                     <CompositeCollection>
                         <CollectionContainer Collection="{x:Static local:TrayIconHelper.AccountMenuItems}" />
-                        <MenuItem Header="Options..." Click="menuItemOptions_OnClick" />
+                        <MenuItem Header="Add Account..." Click="MenuItemAddAccount_OnClick" />
+                        <MenuItem Header="Manage Accounts" Click="MenuItemManageAccount_OnClick" />
                         <Separator />
-                        <MenuItem Header="Exit" Click="menuItemExit_OnClick" />
+                        <MenuItem Header="Open Steam" Click="MenuItemOpenSteam_OnClick" />
+                        <MenuItem Header="Exit Steam" Click="MenuItemExitSteam_OnClick" />
+                        <Separator />
+                        <MenuItem Header="Options..." Click="MenuItemOptions_OnClick" />
+                        <Separator />
+                        <MenuItem Header="Exit" Click="MenuItemExit_OnClick" />
                     </CompositeCollection>
                 </ContextMenu.ItemsSource>
             </ContextMenu>
