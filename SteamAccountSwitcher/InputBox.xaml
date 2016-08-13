@@ -24,7 +24,8 @@
         </Grid.RowDefinitions>
 
         <TextBox Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" x:Name="txtData" Text="{Binding InputData}"
-                 Margin="15" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="{Binding IsDisplayData}" />
+                 Margin="15" TextWrapping="Wrap" AcceptsReturn="True" IsReadOnly="{Binding IsDisplayData}"
+                 VerticalScrollBarVisibility="Auto" />
 
         <Grid Row="1" Column="0" ColumnSpan="2" Margin="15,0,15,15">
             <Grid.ColumnDefinitions>
