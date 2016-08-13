@@ -63,7 +63,8 @@
                                 Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
                                 Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}" />
+                                Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
+                                FontSize="{Binding Source={x:Static p:Settings.Default}, Path=ButtonFontSize}" />
                         <TextBlock Style="{StaticResource StyleHelperText}"
                                    Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"
