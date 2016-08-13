@@ -32,7 +32,7 @@ namespace SteamAccountSwitcher
 
         private static void LaunchStartAccount()
         {
-            if (!string.IsNullOrWhiteSpace(Settings.Default.OnStartLoginName) && Settings.Default.AlwaysOn &&
+            if (!string.IsNullOrWhiteSpace(Settings.Default.OnStartLoginName) &&
                 App.Arguments.Contains("-systemstartup"))
             {
                 foreach (

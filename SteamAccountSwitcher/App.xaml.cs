@@ -63,7 +63,7 @@ namespace SteamAccountSwitcher
                 base.OnExit(e);
 
                 SettingsHelper.SaveSettings();
-                AppHelper.SetRunOnStartup(Settings.Default.AlwaysOn);
+                AppHelper.SetRunOnStartup(Settings.Default.RunOnStartup);
             }
             catch
             {

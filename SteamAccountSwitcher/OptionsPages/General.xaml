@@ -38,17 +38,21 @@
                            ShowAdvancedOptions="False">
             <xctk:PropertyGrid.PropertyDefinitions>
                 <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="RunOnStartup"
+                                         DisplayName="Run on Startup"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" General"
                                          TargetProperties="AlwaysOn"
                                          DisplayName="Run in Tray"
-                                         DisplayOrder="0" />
+                                         DisplayOrder="1" />
                 <xctk:PropertyDefinition Category=" General"
                                          TargetProperties="ExitOnSwitch"
                                          DisplayName="Close Window on Switch"
-                                         DisplayOrder="1" />
+                                         DisplayOrder="2" />
                 <xctk:PropertyDefinition Category=" General"
                                          TargetProperties="NumberHotkeys"
                                          DisplayName="Numbered Account Hotkeys"
-                                         DisplayOrder="2" />
+                                         DisplayOrder="3" />
 
                 <xctk:PropertyDefinition Category=" Steam"
                                          TargetProperties="BigPictureMode"
