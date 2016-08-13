@@ -1,5 +1,6 @@
 ﻿#region
 
+using System;
 using System.ComponentModel;
 using System.IO;
 using System.Windows;
@@ -24,8 +25,6 @@ namespace SteamAccountSwitcher
             InputData = displayData;
             _allowEmptyData = allowEmptyData;
             IsDisplayData = !string.IsNullOrEmpty(displayData);
-            if (IsDisplayData)
-                txtData.SelectAll();
             DataContext = this;
             txtData.Focus();
         }
@@ -80,6 +79,12 @@ namespace SteamAccountSwitcher
         private void btnCopy_OnClick(object sender, RoutedEventArgs e)
         {
             Clipboard.SetText(InputData);
+        }
+
+        private void InputBox_OnContentRendered(object sender, EventArgs e)
+        {
+            if (IsDisplayData)
+                txtData.SelectAll();
         }
     }
 }

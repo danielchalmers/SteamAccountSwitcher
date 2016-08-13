@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Height="400" Width="500"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        Title="{Binding Title}">
+        Title="{Binding Title}"
+        ContentRendered="InputBox_OnContentRendered">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
         <steamAccountSwitcher:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
