@@ -14,19 +14,14 @@ namespace SteamAccountSwitcher
         public static bool Initialize()
         {
             if (IsExistingInstanceRunning())
-            {
-                //Popup.Show("You can only run one instance at a time.");
                 return false;
-            }
             LoadSettings();
             LoadAccounts();
             InitMainWindow();
             if (Settings.Default.AlwaysOn)
                 TrayIconHelper.CreateTrayIcon();
             App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
-
             LaunchStartAccount();
-
             return true;
         }
 

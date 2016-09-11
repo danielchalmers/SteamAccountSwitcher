@@ -29,7 +29,8 @@ namespace SteamAccountSwitcher
             PreviewKeyUp = new RelayCommand<KeyEventArgs>(PreviewKeyUpExecute);
 
             AccountContextMenu = (ContextMenu) Application.Current.FindResource("AccountContextMenu");
-            if (AccountContextMenu != null) AccountContextMenu.DataContext = this;
+            if (AccountContextMenu != null)
+                AccountContextMenu.DataContext = this;
         }
 
         public Account SelectedAccount { get; set; }
@@ -52,11 +53,7 @@ namespace SteamAccountSwitcher
         public bool IsAccountContextMenuOpen
         {
             get { return _isAccountContextMenuOpen; }
-            set
-            {
-                _isAccountContextMenuOpen = value;
-                RaisePropertyChanged(nameof(IsAccountContextMenuOpen));
-            }
+            set { Set(ref _isAccountContextMenuOpen, value); }
         }
 
         private void PreviewKeyUpExecute(KeyEventArgs e)

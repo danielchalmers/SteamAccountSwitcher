@@ -1,6 +1,5 @@
 ﻿#region
 
-using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -37,7 +36,7 @@ namespace SteamAccountSwitcher
             {
                 App.Accounts = new ObservableCollection<Account>();
                 Popup.Show(
-                    $"Existing account data is corrupt.{Environment.NewLine}{Environment.NewLine}All accounts have been reset.",
+                    "Existing account data is corrupt.\n\nAll accounts have been reset.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
             App.Accounts.CollectionChanged += (sender, args) =>
@@ -57,29 +56,25 @@ namespace SteamAccountSwitcher
                 Filter = Resources.ImportExportDialogExtensionFilter,
                 CheckFileExists = true
             };
-            if (dialog.ShowDialog() != true)
-                return;
-            if (Popup.Show(
+            if (dialog.ShowDialog() != true || Popup.Show(
                 "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.Yes)
+                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
+                return;
+            try
             {
-                try
-                {
-                    var fileContent = File.ReadAllText(dialog.FileName);
-                    // Test import data before overwriting existing accounts.
-                    var testAccounts =
-                        new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(fileContent));
-
-                    Settings.Default.Accounts = fileContent;
-                    ReloadData();
-                    SettingsHelper.SaveSettings();
-                }
-                catch
-                {
-                    Popup.Show(
-                        $"Import failed. Data may be corrupt.{Environment.NewLine}{Environment.NewLine}No changes have been made.",
-                        MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
+                var fileContent = File.ReadAllText(dialog.FileName);
+                // Test imported data before overwriting existing accounts.
+                var testAccounts =
+                    new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(fileContent));
+                Settings.Default.Accounts = fileContent;
+                ReloadData();
+                SettingsHelper.SaveSettings();
+            }
+            catch
+            {
+                Popup.Show(
+                    "Import failed. Data may be corrupt.\n\nNo changes have been made.",
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
 

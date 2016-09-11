@@ -1,9 +1,7 @@
 ﻿#region
 
 using System;
-using System.Collections.Generic;
 using System.Deployment.Application;
-using System.Diagnostics;
 using System.Windows;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
@@ -20,16 +18,7 @@ namespace SteamAccountSwitcher
                 : Application.ResourceAssembly.Location;
 
         private static bool IsUpdateable => ApplicationDeployment.IsNetworkDeployed;
-
         public static bool IsFirstLaunch => Settings.Default.Launches <= 1;
-
-        public static void RestartApplication(IEnumerable<string> arguments = null)
-        {
-            var args = new List<string> {"restarting"};
-            if (arguments != null) args.AddRange(arguments);
-            Process.Start(AppPath, string.Join(",-", args));
-            ShutdownApplication();
-        }
 
         public static void ShutdownApplication()
         {

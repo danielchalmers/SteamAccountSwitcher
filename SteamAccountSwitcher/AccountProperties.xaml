@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:SteamAccountSwitcher" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
-        Title="Account Properties"
         Width="300"
         SizeToContent="Height"
         ResizeMode="NoResize"
@@ -48,15 +47,14 @@
                     <Setter Property="Height" Value="23" />
                 </Style>
             </Grid.Resources>
-
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Alias:" />
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=DisplayName, Mode=TwoWay}" x:Name="txtAlias" />
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName, Mode=TwoWay}" x:Name="txtAlias" />
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Username:" />
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Path=Username, Mode=TwoWay}" />
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Username, Mode=TwoWay}" />
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" />
             <Grid Grid.Row="2" Grid.Column="1" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Center">
                 <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden"
-                         Text="{Binding Path=Password, Mode=TwoWay}" />
+                         Text="{Binding Password, Mode=TwoWay}" />
                 <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus"
                              PasswordChanged="txtPassword_OnPasswordChanged" />
                 <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center"
@@ -67,7 +65,7 @@
             </Grid>
             <Expander Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0" Padding="0,0,0,5"
                       IsExpanded="{Binding Source={x:Static p:Settings.Default}, Path=AccountPropertiesIsExpanded, Mode=TwoWay}"
-                      Header="{Binding Path=.IsExpanded, RelativeSource={RelativeSource Self}, Converter={StaticResource IsExpandedToMoreOptionsHeaderConverter}}">
+                      Header="{Binding .IsExpanded, RelativeSource={RelativeSource Self}, Converter={StaticResource IsExpandedToMoreOptionsHeaderConverter}}">
                 <Grid IsSharedSizeScope="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -79,12 +77,11 @@
                         <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Arguments:" />
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Path=Arguments, Mode=TwoWay}" />
+                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Arguments, Mode=TwoWay}" />
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Color:" />
-                    <xctk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding Path=Color, Mode=TwoWay}" />
+                    <xctk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding Color, Mode=TwoWay}" />
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Text Color:" />
-                    <xctk:ColorPicker Grid.Row="2" Grid.Column="1"
-                                      SelectedColor="{Binding Path=TextColor, Mode=TwoWay}" />
+                    <xctk:ColorPicker Grid.Row="2" Grid.Column="1" SelectedColor="{Binding TextColor, Mode=TwoWay}" />
                 </Grid>
             </Expander>
         </Grid>
@@ -105,7 +102,6 @@
                     <Setter Property="Width" Value="75" />
                 </Style>
             </Grid.Resources>
-
             <Button Grid.Column="1" Content="OK" Click="btnOK_Click" IsDefault="True" />
             <Button Grid.Column="3" Content="Cancel" Click="btnCancel_Click" IsCancel="True" />
         </Grid>

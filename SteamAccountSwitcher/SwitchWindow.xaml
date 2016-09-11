@@ -25,7 +25,6 @@
     <Window.Resources>
         <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
         <local:ColorToSolidBrushConverter x:Key="ColorToSolidBrushConverter" />
-        <local:MultiBooleanToVisibilityConverter x:Key="MultiBooleanToVisibilityConverter" />
         <local:NumberToIncrementedConverter x:Key="NumberToIncrementedConverter" />
     </Window.Resources>
     <Window.Background>
@@ -37,7 +36,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ItemsControl x:Name="AccountView" ItemsSource="{Binding Path=.}" Focusable="False"
+        <ItemsControl x:Name="AccountView" ItemsSource="{Binding}" Focusable="False"
                       AlternationCount="{x:Static sys:Int32.MaxValue}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
@@ -61,9 +60,9 @@
                         </i:Interaction.Triggers>
                         <Button Style="{StaticResource StyleButton}"
                                 Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                Content="{Binding Path=., Converter={StaticResource AccountToVisibleNameConverter}}"
-                                Background="{Binding Path=Color, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                Foreground="{Binding Path=TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
+                                Content="{Binding Converter={StaticResource AccountToVisibleNameConverter}}"
+                                Background="{Binding Color, Converter={StaticResource ColorToSolidBrushConverter}}"
+                                Foreground="{Binding TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
                                 FontSize="{Binding Source={x:Static p:Settings.Default}, Path=ButtonFontSize}" />
                         <TextBlock Style="{StaticResource StyleHelperText}"
                                    Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />

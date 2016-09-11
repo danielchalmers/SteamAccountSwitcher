@@ -12,18 +12,11 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class AccountProperties : Window
     {
-        public Account NewAccount;
-
         public AccountProperties(Account account = null)
         {
             InitializeComponent();
-            Title = account == null ? "New Account" : "Edit Account";
-
-            if (account == null)
-                NewAccount = new Account();
-            else
-                NewAccount = (Account) account.Clone();
-
+            Title = $"{(account == null ? "New" : "Edit")} Account";
+            NewAccount = account == null ? new Account() : (Account) account.Clone();
             DataContext = NewAccount;
 
             if (Settings.Default.PreventViewingPasswords)
@@ -39,6 +32,8 @@ namespace SteamAccountSwitcher
             txtAlias.Focus();
         }
 
+        public Account NewAccount { get; }
+
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
@@ -46,8 +41,7 @@ namespace SteamAccountSwitcher
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            NewAccount = null;
-            DialogResult = true;
+            DialogResult = false;
         }
 
         private void chkShowPassword_Checked(object sender, RoutedEventArgs e)

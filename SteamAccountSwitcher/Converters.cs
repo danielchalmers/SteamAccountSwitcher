@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Media;
@@ -11,12 +10,10 @@ namespace SteamAccountSwitcher
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!ConverterHelper.IsValueValid(value))
+            var account = value as Account;
+            if (!ConverterHelper.IsValueValid(account))
                 return DependencyProperty.UnsetValue;
-            var val = value as Account;
-            if (val == null)
-                return DependencyProperty.UnsetValue;
-            return val.GetDisplayName();
+            return account.GetDisplayName();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -35,21 +32,6 @@ namespace SteamAccountSwitcher
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class MultiBooleanToVisibilityConverter : IMultiValueConverter
-    {
-        public object Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (!ConverterHelper.IsValueValid(value))
-                return DependencyProperty.UnsetValue;
-            return value.Any(val => (bool) val) ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        public object[] ConvertBack(object value, Type[] targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

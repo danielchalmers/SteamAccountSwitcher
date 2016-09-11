@@ -27,7 +27,6 @@ namespace SteamAccountSwitcher
         {
             var alwaysOn = Settings.Default.AlwaysOn;
 
-            // Open options window.
             var dialog = new Options();
             dialog.ShowDialog();
 
@@ -49,14 +48,12 @@ namespace SteamAccountSwitcher
 
         public static void SaveSettings()
         {
-            // Save settings.
             Settings.Default.Accounts = SerializeAccounts(App.Accounts);
             Settings.Default.Save();
         }
 
         public static void UpgradeSettings()
         {
-            // Upgrade settings from old version.
             if (Settings.Default.MustUpgrade)
             {
                 Settings.Default.Upgrade();

@@ -5,8 +5,8 @@
         xmlns:local="clr-namespace:SteamAccountSwitcher" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties" mc:Ignorable="d"
         Title="Options"
-        Width="{Binding Path=OptionsWidth, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
-        Height="{Binding Path=OptionsHeight, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+        Width="{Binding OptionsWidth, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+        Height="{Binding OptionsHeight, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
         MinWidth="450"
         MinHeight="350"
         ResizeMode="CanResize"
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <ListBox x:Name="NavBar" Grid.Column="1" Grid.Row="1" SelectionChanged="NavBar_OnSelectionChanged"
-                 SelectedIndex="{Binding Path=OptionsIndex, Source={x:Static p:Settings.Default}}">
+                 SelectedIndex="{Binding OptionsIndex, Source={x:Static p:Settings.Default}}">
             <ListBox.Resources>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Margin" Value="5" />
