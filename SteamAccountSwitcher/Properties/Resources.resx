@@ -172,4 +172,10 @@
   <data name="GitHubMainPage" xml:space="preserve">
     <value>https://github.com/danielchalmers/SteamAccountSwitcher</value>
   </data>
+  <data name="ImportExportDialogExtensionFilter" xml:space="preserve">
+    <value>Text file (*.txt)|*.txt|All files (*.*)|*.*</value>
+  </data>
+  <data name="ImportExportExtension" xml:space="preserve">
+    <value>.txt</value>
+  </data>
 </root>

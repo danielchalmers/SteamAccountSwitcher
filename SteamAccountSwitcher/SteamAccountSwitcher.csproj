@@ -132,9 +132,6 @@
     <Compile Include="ConverterHelper.cs" />
     <Compile Include="Converters.cs" />
     <Compile Include="Encryption.cs" />
-    <Compile Include="InputBox.xaml.cs">
-      <DependentUpon>InputBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="KeyHelper.cs" />
     <Compile Include="ListUtilities.cs" />
     <Compile Include="NativeMethods.cs" />
@@ -159,10 +156,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AppResources.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="InputBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

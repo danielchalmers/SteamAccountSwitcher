@@ -61,12 +61,14 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ﻿{0} ({1}).
+        ///   Looks up a localized string similar to ﻿{0} ({1})
+        ///
         ///
         ///Website: {2}
         ///Source Code: {3}
         ///Changes: {4}
         ///Issues: {5}
+        ///
         ///
         ///{6}.
         /// </summary>
@@ -127,6 +129,24 @@ namespace SteamAccountSwitcher.Properties {
         public static string GitHubMainPage {
             get {
                 return ResourceManager.GetString("GitHubMainPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text file (*.txt)|*.txt|All files (*.*)|*.*.
+        /// </summary>
+        public static string ImportExportDialogExtensionFilter {
+            get {
+                return ResourceManager.GetString("ImportExportDialogExtensionFilter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .txt.
+        /// </summary>
+        public static string ImportExportExtension {
+            get {
+                return ResourceManager.GetString("ImportExportExtension", resourceCulture);
             }
         }
         
