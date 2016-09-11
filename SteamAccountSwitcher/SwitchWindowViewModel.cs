@@ -98,12 +98,12 @@ namespace SteamAccountSwitcher
 
         private void MoveUpExecute()
         {
-            SelectedAccount?.MoveUp();
+            SelectedAccount = SelectedAccount?.MoveUp();
         }
 
         private void MoveDownExecute()
         {
-            SelectedAccount?.MoveDown();
+            SelectedAccount = SelectedAccount?.MoveDown();
         }
 
         private void RemoveExecute()

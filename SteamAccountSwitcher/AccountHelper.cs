@@ -76,36 +76,14 @@ namespace SteamAccountSwitcher
             App.Accounts.Remove(account);
         }
 
-        public static void MoveUp(this Account account, bool toEnd = false)
+        public static Account MoveUp(this Account account)
         {
-            var index = App.Accounts.IndexOf(account);
-            if (toEnd)
-            {
-                App.Accounts.Swap(index, 0);
-            }
-            else
-            {
-                if (index == 0)
-                    MoveDown(account, true);
-                else
-                    App.Accounts.Swap(index, index - 1);
-            }
+            return App.Accounts.MoveUp(account);
         }
 
-        public static void MoveDown(this Account account, bool toEnd = false)
+        public static Account MoveDown(this Account account)
         {
-            var index = App.Accounts.IndexOf(account);
-            if (toEnd)
-            {
-                App.Accounts.Swap(index, App.Accounts.Count - 1);
-            }
-            else
-            {
-                if (App.Accounts.Count - 1 < index + 1)
-                    MoveUp(account, true);
-                else
-                    App.Accounts.Swap(index, index + 1);
-            }
+            return App.Accounts.MoveDown(account);
         }
 
         public static void Reload(this IEnumerable<Account> accounts)
