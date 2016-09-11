@@ -41,6 +41,8 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties(account);
             dialog.ShowDialog();
+            if (dialog.DialogResult != true)
+                return;
             var newAccount = dialog.NewAccount;
             if (newAccount == null)
                 return;
@@ -53,6 +55,8 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties();
             dialog.ShowDialog();
+            if (dialog.DialogResult != true)
+                return;
             if (dialog.NewAccount == null)
                 return;
             if (string.IsNullOrWhiteSpace(dialog.NewAccount.Username) &&
