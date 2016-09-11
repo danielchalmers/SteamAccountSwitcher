@@ -19,7 +19,7 @@ namespace SteamAccountSwitcher
 
         private static void ShowTrayBalloon(string text, BalloonIcon icon)
         {
-            App.TrayIcon.ShowBalloonTip(Resources.AppName, text, icon);
+            App.TrayIcon?.ShowBalloonTip(Resources.AppName, text, icon);
         }
 
         public static void CreateTrayIcon()
