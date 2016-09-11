@@ -26,7 +26,7 @@ namespace SteamAccountSwitcher
             Options = new RelayCommand(OptionsExecute);
             AddAccount = new RelayCommand(AddAccountExecute);
 
-            PreviewKeyDown = new RelayCommand<KeyEventArgs>(PreviewKeyDownExecute);
+            PreviewKeyUp = new RelayCommand<KeyEventArgs>(PreviewKeyUpExecute);
 
             AccountContextMenu = (ContextMenu) Application.Current.FindResource("AccountContextMenu");
             if (AccountContextMenu != null) AccountContextMenu.DataContext = this;
@@ -47,7 +47,7 @@ namespace SteamAccountSwitcher
         public ICommand Options { get; set; }
         public ICommand AddAccount { get; set; }
 
-        public ICommand PreviewKeyDown { get; set; }
+        public ICommand PreviewKeyUp { get; set; }
 
         public bool IsAccountContextMenuOpen
         {
@@ -59,7 +59,7 @@ namespace SteamAccountSwitcher
             }
         }
 
-        private void PreviewKeyDownExecute(KeyEventArgs e)
+        private void PreviewKeyUpExecute(KeyEventArgs e)
         {
             if (!Settings.Default.NumberHotkeys)
                 return;

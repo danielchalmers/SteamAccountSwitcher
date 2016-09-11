@@ -15,8 +15,8 @@
         Left="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowLeft, Mode=TwoWay}"
         Top="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowTop, Mode=TwoWay}">
     <i:Interaction.Triggers>
-        <i:EventTrigger EventName="PreviewKeyDown">
-            <command:EventToCommand Command="{Binding PreviewKeyDown}" PassEventArgsToCommand="True" />
+        <i:EventTrigger EventName="PreviewKeyUp">
+            <command:EventToCommand Command="{Binding PreviewKeyUp}" PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Window.DataContext>
