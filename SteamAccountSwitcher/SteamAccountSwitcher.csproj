@@ -252,4 +252,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <Target Name="BeforePublish">
+    <Error Condition="'$(DebugSymbols)' == 'true'" Text="Cannot publish in debug mode." />
+  </Target>
 </Project>
