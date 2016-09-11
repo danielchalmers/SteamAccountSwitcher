@@ -14,9 +14,7 @@ namespace SteamAccountSwitcher
 
         public static void ShowRunningInTrayBalloon()
         {
-            ShowTrayBalloon(
-                $"{Resources.AppName} is running in system tray.\nDouble click icon to show window.",
-                BalloonIcon.Info);
+            ShowTrayBalloon("Running in tray\nDouble click icon to open", BalloonIcon.Info);
         }
 
         private static void ShowTrayBalloon(string text, BalloonIcon icon)
