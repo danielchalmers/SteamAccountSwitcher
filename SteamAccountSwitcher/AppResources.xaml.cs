@@ -31,7 +31,7 @@ namespace SteamAccountSwitcher
 
         private void MenuItemManageAccount_OnClick(object sender, RoutedEventArgs e)
         {
-            SwitchWindowHelper.ShowSwitcherWindow();
+            SwitchWindowHelper.ActivateSwitchWindow();
         }
 
         private void MenuItemOpenSteam_OnClick(object sender, RoutedEventArgs e)
