@@ -61,14 +61,12 @@ namespace SteamAccountSwitcher
 
         private void PreviewKeyDownExecute(KeyEventArgs e)
         {
-            if (Settings.Default.NumberHotkeys)
-            {
-                var num = KeyHelper.KeyToInt(e.Key);
-                if (num > 0 && App.Accounts.Count >= num)
-                    App.Accounts[num - 1].SwitchTo();
-            }
-            if (e.Key == Key.Escape)
-                Application.Current.MainWindow.Close();
+            if (!Settings.Default.NumberHotkeys)
+                return;
+
+            var num = KeyHelper.KeyToInt(e.Key);
+            if (num > 0 && App.Accounts.Count >= num)
+                App.Accounts[num - 1].SwitchTo();
         }
 
         private void OptionsExecute()
