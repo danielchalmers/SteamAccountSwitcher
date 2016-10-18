@@ -9,7 +9,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class SettingsHelper
+    public static class SettingsHelper
     {
         public static string SerializeAccounts(IEnumerable<Account> accounts)
         {
@@ -72,7 +72,9 @@ namespace SteamAccountSwitcher
             if (msg && Popup.Show(
                 "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
+            {
                 return;
+            }
             Settings.Default.Reset();
             Settings.Default.MustUpgrade = false;
             Settings.Default.Accounts = AccountDataHelper.DefaultData();

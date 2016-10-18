@@ -30,7 +30,9 @@ namespace SteamAccountSwitcher
 
             AccountContextMenu = (ContextMenu) Application.Current.FindResource("AccountContextMenu");
             if (AccountContextMenu != null)
+            {
                 AccountContextMenu.DataContext = this;
+            }
         }
 
         public Account SelectedAccount { get; set; }
@@ -59,11 +61,15 @@ namespace SteamAccountSwitcher
         private void PreviewKeyUpExecute(KeyEventArgs e)
         {
             if (!Settings.Default.NumberHotkeys)
+            {
                 return;
+            }
 
             var num = KeyHelper.KeyToInt(e.Key);
             if (num > 0 && App.Accounts.Count >= num)
+            {
                 App.Accounts[num - 1].SwitchTo();
+            }
         }
 
         private void OptionsExecute()

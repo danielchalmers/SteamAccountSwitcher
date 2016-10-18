@@ -75,7 +75,6 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-
         <Grid Grid.Row="1">
             <Grid.Resources>
                 <Style TargetType="{x:Type Button}">

@@ -2,7 +2,7 @@
 
 namespace SteamAccountSwitcher
 {
-    internal static class KeyHelper
+    public static class KeyHelper
     {
         public static int KeyToInt(Key key)
         {

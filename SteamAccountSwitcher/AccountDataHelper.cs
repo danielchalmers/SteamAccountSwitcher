@@ -10,7 +10,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class AccountDataHelper
+    public static class AccountDataHelper
     {
         public static string DefaultData()
         {
@@ -59,7 +59,9 @@ namespace SteamAccountSwitcher
             if (dialog.ShowDialog() != true || Popup.Show(
                 "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
+            {
                 return;
+            }
             try
             {
                 var fileContent = File.ReadAllText(dialog.FileName);
@@ -86,7 +88,9 @@ namespace SteamAccountSwitcher
                 Filter = Resources.ImportExportDialogExtensionFilter
             };
             if (dialog.ShowDialog() == true)
+            {
                 File.WriteAllText(dialog.FileName, SettingsHelper.SerializeAccounts(App.Accounts));
+            }
         }
     }
 }

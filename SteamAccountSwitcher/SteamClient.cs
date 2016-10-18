@@ -12,7 +12,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class SteamClient
+    public static class SteamClient
     {
         private static void StartSteam(string args = "")
         {
@@ -37,11 +37,15 @@ namespace SteamAccountSwitcher
             args.Add($"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
             args.Add(account.Arguments);
             if (Settings.Default.BigPictureMode)
+            {
                 args.Add(Resources.SteamBigPictureArg);
+            }
 
             if ((Settings.Default.StartSteamMinimized && Settings.Default.StartSteamMinimizedOnlyOnStartup && onStart) ||
                 (Settings.Default.StartSteamMinimized && !Settings.Default.StartSteamMinimizedOnlyOnStartup))
+            {
                 args.Add(Resources.SteamSilentArg);
+            }
 
             args.Add(Settings.Default.SteamLaunchArgs);
 
@@ -51,7 +55,9 @@ namespace SteamAccountSwitcher
         private static void LogOut()
         {
             if (!IsSteamOpen())
+            {
                 return;
+            }
             StartSteam(Resources.SteamShutdownArgument);
         }
 
@@ -74,9 +80,13 @@ namespace SteamAccountSwitcher
         public static void LogOutAuto()
         {
             if (GetSteamTitle() == Resources.SteamNotLoggedInTitle)
+            {
                 ForceClose();
+            }
             else
+            {
                 LogOut();
+            }
         }
 
         public static bool LogOutTimeout()
@@ -107,7 +117,9 @@ namespace SteamAccountSwitcher
             try
             {
                 using (var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam"))
+                {
                     path = registryKey?.GetValue("SteamExe").ToString();
+                }
             }
             catch
             {
@@ -119,7 +131,9 @@ namespace SteamAccountSwitcher
         private static bool ResolvePath()
         {
             if (!File.Exists(Settings.Default.SteamPath))
+            {
                 Settings.Default.SteamPath = GetPathFromRegistry();
+            }
             return File.Exists(Settings.Default.SteamPath);
         }
 

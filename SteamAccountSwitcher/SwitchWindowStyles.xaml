@@ -7,7 +7,6 @@
         <Setter Property="Height"
                 Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
     </Style>
-
     <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
         <Setter Property="Width"
                 Value="24" />
@@ -20,7 +19,6 @@
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Right" />
     </Style>
-
     <Style TargetType="{x:Type TextBlock}" x:Key="StyleHelperText">
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Left" />
@@ -31,7 +29,6 @@
         <Setter Property="Visibility"
                 Value="{Binding Source={x:Static p:Settings.Default}, Path=NumberHotkeys, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
     </Style>
-
     <Style TargetType="{x:Type Image}" x:Key="StyleToolImage">
         <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
         <Setter Property="Stretch" Value="None" />

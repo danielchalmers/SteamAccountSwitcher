@@ -1,6 +1,6 @@
 ﻿namespace SteamAccountSwitcher
 {
-    internal static class SwitchWindowHelper
+    public static class SwitchWindowHelper
     {
         public static void ShowSwitcherWindow()
         {
@@ -14,7 +14,7 @@
 
         public static void ActivateSwitchWindow()
         {
-            App.SwitchWindow.Show();
+            ShowSwitcherWindow();
             App.SwitchWindow.Activate();
             App.SwitchWindow.Focus();
         }

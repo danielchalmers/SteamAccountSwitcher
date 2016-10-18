@@ -8,7 +8,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class TrayIconHelper
+    public static class TrayIconHelper
     {
         public static readonly ObservableCollection<object> AccountMenuItems = new ObservableCollection<object>();
 
@@ -25,11 +25,15 @@ namespace SteamAccountSwitcher
         public static void CreateTrayIcon()
         {
             if (App.TrayIcon != null)
+            {
                 return;
+            }
             App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
             RefreshTrayIconMenu();
             if (!App.Arguments.Contains("-systemstartup"))
+            {
                 ShowRunningInTrayBalloon();
+            }
         }
 
         public static void RefreshTrayIconMenu()
@@ -37,13 +41,17 @@ namespace SteamAccountSwitcher
             AccountMenuItems.Clear();
             var items = GetAccountMenuItems();
             foreach (var item in items)
+            {
                 AccountMenuItems.Add(item);
+            }
         }
 
         private static IEnumerable<Control> GetAccountMenuItems()
         {
             if (App.Accounts == null || App.Accounts.Count <= 0)
+            {
                 yield break;
+            }
             foreach (var account in App.Accounts)
             {
                 var item = new MenuItem {Header = account.GetDisplayName()};

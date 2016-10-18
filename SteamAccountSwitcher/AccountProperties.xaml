@@ -10,49 +10,47 @@
         SizeToContent="Height"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
-    <Window.Resources>
-        <local:IsExpandedToMoreOptionsHeaderConverter x:Key="IsExpandedToMoreOptionsHeaderConverter" />
-    </Window.Resources>
-    <Grid>
+    <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Grid IsSharedSizeScope="True" Margin="15">
+        <Grid IsSharedSizeScope="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="15" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="31" SharedSizeGroup="optionsHeight" />
-                <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
-                <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="5" />
+                <RowDefinition Height="Auto" SharedSizeGroup="options" />
             </Grid.RowDefinitions>
             <Grid.Resources>
                 <Style TargetType="TextBlock">
                     <Setter Property="VerticalAlignment" Value="Center" />
                     <Setter Property="HorizontalAlignment" Value="Left" />
-                    <Setter Property="Margin" Value="0,0,15,0" />
-                    <Setter Property="Padding" Value="0" />
                 </Style>
                 <Style TargetType="TextBox">
                     <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="HorizontalAlignment" Value="Stretch" />
                     <Setter Property="Height" Value="23" />
                 </Style>
                 <Style TargetType="xctk:ColorPicker">
                     <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="HorizontalAlignment" Value="Stretch" />
                     <Setter Property="Height" Value="23" />
                 </Style>
             </Grid.Resources>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Alias:" />
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding DisplayName, Mode=TwoWay}" x:Name="txtAlias" />
-            <TextBlock Grid.Row="1" Grid.Column="0" Text="Username:" />
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Username, Mode=TwoWay}" />
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Password:" />
-            <Grid Grid.Row="2" Grid.Column="1" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding DisplayName, Mode=TwoWay}" x:Name="txtAlias" />
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Username:" />
+            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Username, Mode=TwoWay}" />
+            <TextBlock Grid.Row="4" Grid.Column="0" Text="Password:" />
+            <Grid Grid.Row="4" Grid.Column="2" Height="23" VerticalAlignment="Center">
                 <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden"
                          Text="{Binding Password, Mode=TwoWay}" />
                 <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus"
@@ -63,39 +61,51 @@
                           KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Center" />
             </Grid>
-            <Expander Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,5,0,0" Padding="0,0,0,5"
-                      IsExpanded="{Binding Source={x:Static p:Settings.Default}, Path=AccountPropertiesIsExpanded, Mode=TwoWay}"
-                      Header="{Binding .IsExpanded, RelativeSource={RelativeSource Self}, Converter={StaticResource IsExpandedToMoreOptionsHeaderConverter}}">
-                <Grid IsSharedSizeScope="True">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="31" SharedSizeGroup="optionsHeight" />
-                        <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
-                        <RowDefinition Height="Auto" SharedSizeGroup="optionsHeight" />
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Grid.Column="0" Text="Arguments:" />
-                    <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Arguments, Mode=TwoWay}" />
-                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Color:" />
-                    <xctk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding Color, Mode=TwoWay}" />
-                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Text Color:" />
-                    <xctk:ColorPicker Grid.Row="2" Grid.Column="1" SelectedColor="{Binding TextColor, Mode=TwoWay}" />
-                </Grid>
-            </Expander>
         </Grid>
-
-        <Grid Grid.Column="0" Grid.Row="1" Margin="0,0,15,15">
+        <Expander Grid.Row="2"
+                  IsExpanded="{Binding Source={x:Static p:Settings.Default}, Path=AccountPropertiesIsExpanded, Mode=TwoWay}">
+            <Expander.Style>
+                <Style TargetType="Expander">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsExpanded, RelativeSource={RelativeSource Self}}"
+                                     Value="False">
+                            <Setter Property="Header" Value="More Options" />
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding IsExpanded, RelativeSource={RelativeSource Self}}"
+                                     Value="True">
+                            <Setter Property="Header" Value="Less Options" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Expander.Style>
+            <Grid IsSharedSizeScope="True" Margin="0,5,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="15" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                    <RowDefinition Height="5" />
+                    <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Text="Arguments:" />
+                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Arguments, Mode=TwoWay}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Text="Color:" />
+                <xctk:ColorPicker Grid.Row="2" Grid.Column="2" SelectedColor="{Binding Color, Mode=TwoWay}" />
+                <TextBlock Grid.Row="4" Grid.Column="0" Text="Text Color:" />
+                <xctk:ColorPicker Grid.Row="4" Grid.Column="2" SelectedColor="{Binding TextColor, Mode=TwoWay}" />
+            </Grid>
+        </Expander>
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="5" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Height" Value="23" />

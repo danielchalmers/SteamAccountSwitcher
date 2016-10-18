@@ -33,7 +33,9 @@ namespace SteamAccountSwitcher
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             if (App.IsShuttingDown)
+            {
                 return;
+            }
             if (Settings.Default.AlwaysOn)
             {
                 e.Cancel = true;
@@ -48,7 +50,9 @@ namespace SteamAccountSwitcher
             var visible = Visibility == Visibility.Visible;
             Hide();
             if (visible && Settings.Default.AlwaysOn)
+            {
                 TrayIconHelper.ShowRunningInTrayBalloon();
+            }
         }
 
         protected override void OnSourceInitialized(EventArgs e)
@@ -67,9 +71,13 @@ namespace SteamAccountSwitcher
                 if (Settings.Default.AlwaysOn)
                 {
                     if (App.SwitchWindow == null || App.SwitchWindow.Visibility != Visibility.Visible)
+                    {
                         TrayIconHelper.ShowRunningInTrayBalloon();
+                    }
                     else
+                    {
                         SwitchWindowHelper.ActivateSwitchWindow();
+                    }
                 }
                 else
                 {

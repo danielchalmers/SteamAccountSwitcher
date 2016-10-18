@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace SteamAccountSwitcher
 {
-    internal static class NativeMethods
+    public static class NativeMethods
     {
         private const int HWND_BROADCAST = 0xffff;
         public static readonly int WM_ACTIVATE = RegisterWindowMessage($"WM_ACTIVATE|{AssemblyInfo.Guid}");

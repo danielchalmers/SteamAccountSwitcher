@@ -10,7 +10,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class AppHelper
+    public static class AppHelper
     {
         private static readonly string AppPath =
             IsUpdateable
@@ -31,9 +31,13 @@ namespace SteamAccountSwitcher
             var registryKey = Registry.CurrentUser.OpenSubKey
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (runOnStartup)
+            {
                 registryKey?.SetValue(Resources.AppPathName, AppPath + " -systemstartup");
+            }
             else
+            {
                 registryKey?.DeleteValue(Resources.AppPathName, false);
+            }
         }
     }
 }

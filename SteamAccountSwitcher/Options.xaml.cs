@@ -32,11 +32,13 @@ namespace SteamAccountSwitcher
             _pages.Add(new General());
             _pages.Add(new About());
             for (var i = 0; i < _pages.Count; i++)
+            {
                 NavBar.Items.Add(new ListBoxItem
                 {
                     Content = _pages[i].Title,
                     Tag = i
                 });
+            }
         }
 
         private void btnOK_Click(object sender, RoutedEventArgs e)

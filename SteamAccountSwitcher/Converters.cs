@@ -12,7 +12,9 @@ namespace SteamAccountSwitcher
         {
             var account = value as Account;
             if (!ConverterHelper.IsValueValid(account))
+            {
                 return DependencyProperty.UnsetValue;
+            }
             return account.GetDisplayName();
         }
 
@@ -27,7 +29,9 @@ namespace SteamAccountSwitcher
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!ConverterHelper.IsValueValid(value))
+            {
                 return DependencyProperty.UnsetValue;
+            }
             return new SolidColorBrush((Color) value);
         }
 
@@ -42,38 +46,10 @@ namespace SteamAccountSwitcher
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (!ConverterHelper.IsValueValid(value))
+            {
                 return DependencyProperty.UnsetValue;
+            }
             return (int) value + 1;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class IsExpandedToMoreOptionsHeaderConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (!ConverterHelper.IsValueValid(value))
-                return DependencyProperty.UnsetValue;
-            return (bool) value ? "Less Options" : "More Options";
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    public class BoolToCollapsedVisibilityConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (!ConverterHelper.IsValueValid(value))
-                return DependencyProperty.UnsetValue;
-            return (bool) value ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

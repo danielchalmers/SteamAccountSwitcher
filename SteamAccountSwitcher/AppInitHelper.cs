@@ -9,17 +9,21 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class AppInitHelper
+    public static class AppInitHelper
     {
         public static bool Initialize()
         {
             if (IsExistingInstanceRunning())
+            {
                 return false;
+            }
             LoadSettings();
             LoadAccounts();
             InitMainWindow();
             if (Settings.Default.AlwaysOn)
+            {
                 TrayIconHelper.CreateTrayIcon();
+            }
             App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LaunchStartAccount();
             return true;
@@ -60,7 +64,9 @@ namespace SteamAccountSwitcher
             App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out isNewInstance);
             if (App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
                 Settings.Default.MultiInstance || isNewInstance)
+            {
                 return false;
+            }
             NativeMethods.ShowExistingInstance();
             AppHelper.ShutdownApplication();
             return true;
@@ -69,7 +75,9 @@ namespace SteamAccountSwitcher
         private static void LoadAccounts()
         {
             if (AppHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
+            {
                 Settings.Default.Accounts = AccountDataHelper.DefaultData();
+            }
 
             AccountDataHelper.ReloadData();
         }
@@ -79,7 +87,9 @@ namespace SteamAccountSwitcher
             SettingsHelper.UpgradeSettings();
 
             if (App.Arguments.Contains("-reset"))
+            {
                 SettingsHelper.ResetSettings();
+            }
 
             SettingsHelper.IncrementLaunches();
         }

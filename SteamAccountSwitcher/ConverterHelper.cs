@@ -4,7 +4,7 @@ using System.Windows;
 
 namespace SteamAccountSwitcher
 {
-    internal static class ConverterHelper
+    public static class ConverterHelper
     {
         public static bool IsValueValid(IList<object> value, bool allowNull = false)
         {

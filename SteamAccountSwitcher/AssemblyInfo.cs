@@ -10,7 +10,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    internal static class AssemblyInfo
+    public static class AssemblyInfo
     {
         private static Version Version { get; } = ApplicationDeployment.IsNetworkDeployed
             ? ApplicationDeployment.CurrentDeployment.CurrentVersion

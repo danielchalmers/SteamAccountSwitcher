@@ -22,7 +22,9 @@ namespace SteamAccountSwitcher
         public static void SwitchTo(this Account account, bool hideWindow = true, bool onStart = false)
         {
             if (hideWindow && Settings.Default.ExitOnSwitch)
-                App.SwitchWindow.HideWindow();
+            {
+                SwitchWindowHelper.HideSwitcherWindow();
+            }
             var worker = new BackgroundWorker();
             worker.DoWork += delegate
             {
@@ -32,7 +34,9 @@ namespace SteamAccountSwitcher
             worker.RunWorkerCompleted += delegate
             {
                 if (!Settings.Default.AlwaysOn && Settings.Default.ExitOnSwitch)
+                {
                     AppHelper.ShutdownApplication();
+                }
             };
             worker.RunWorkerAsync();
         }
@@ -42,10 +46,14 @@ namespace SteamAccountSwitcher
             var dialog = new AccountProperties(account);
             dialog.ShowDialog();
             if (dialog.DialogResult != true)
+            {
                 return;
+            }
             var newAccount = dialog.NewAccount;
             if (newAccount == null)
+            {
                 return;
+            }
             newAccount.LastModifiedDate = DateTime.Now;
             App.Accounts[App.Accounts.IndexOf(account)] = newAccount;
             App.SaveTimer.DelaySave();
@@ -56,13 +64,19 @@ namespace SteamAccountSwitcher
             var dialog = new AccountProperties();
             dialog.ShowDialog();
             if (dialog.DialogResult != true)
+            {
                 return;
+            }
             if (dialog.NewAccount == null)
+            {
                 return;
+            }
             if (string.IsNullOrWhiteSpace(dialog.NewAccount.Username) &&
                 string.IsNullOrWhiteSpace(dialog.NewAccount.Password) &&
                 string.IsNullOrWhiteSpace(dialog.NewAccount.DisplayName))
+            {
                 return;
+            }
             Add(dialog.NewAccount);
         }
 
@@ -72,7 +86,9 @@ namespace SteamAccountSwitcher
                 Popup.Show(
                     $"Are you sure you want to remove \"{account.GetDisplayName()}\"?",
                     MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
+            {
                 return;
+            }
             App.Accounts.Remove(account);
         }
 

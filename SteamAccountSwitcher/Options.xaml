@@ -24,7 +24,6 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-
         <ListBox x:Name="NavBar" Grid.Column="1" Grid.Row="1" SelectionChanged="NavBar_OnSelectionChanged"
                  SelectedIndex="{Binding OptionsIndex, Source={x:Static p:Settings.Default}}">
             <ListBox.Resources>

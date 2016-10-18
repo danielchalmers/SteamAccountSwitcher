@@ -42,10 +42,14 @@ namespace SteamAccountSwitcher
             if (ApplicationDeployment.IsNetworkDeployed &&
                 AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null &&
                 AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0)
+            {
                 Arguments =
                     AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0].Split(',').ToList();
+            }
             else
+            {
                 Arguments = e.Args.ToList();
+            }
 
             if (!AppInitHelper.Initialize())
             {
@@ -80,7 +84,9 @@ namespace SteamAccountSwitcher
                 MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
             if (!SuccessfullyLoaded)
+            {
                 AppHelper.ShutdownApplication();
+            }
         }
     }
 }
