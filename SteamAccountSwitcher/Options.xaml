@@ -36,7 +36,7 @@
                 </Style>
             </ListBox.Resources>
         </ListBox>
-        <Frame x:Name="OptionsFrame" Grid.Column="3" Grid.Row="1" Padding="0,0,15,0" NavigationUIVisibility="Hidden" />
+        <Frame x:Name="OptionsFrame" Grid.Column="3" Grid.Row="1" NavigationUIVisibility="Hidden" />
         <Grid Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="2" Margin="15">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
