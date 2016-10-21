@@ -11,7 +11,7 @@
         ResizeMode="CanMinimize"
         Closing="Window_Closing" Icon="steam.ico" MinWidth="100"
         Title="{x:Static p:Resources.AppName}"
-        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=TwoWay}"
+        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}"
         Left="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowLeft, Mode=TwoWay}"
         Top="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowTop, Mode=TwoWay}">
     <i:Interaction.Triggers>
