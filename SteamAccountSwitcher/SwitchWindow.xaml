@@ -36,8 +36,7 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ItemsControl x:Name="AccountView" ItemsSource="{Binding}" Focusable="False"
-                      AlternationCount="{x:Static sys:Int32.MaxValue}">
+        <ItemsControl x:Name="AccountView" ItemsSource="{Binding}" Focusable="False" AlternationCount="{Binding Count}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid>
