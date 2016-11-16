@@ -90,19 +90,19 @@
                                          DisplayOrder="2" />
                 <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="ButtonHeight"
-                                         DisplayName="Button Height (px)"
+                                         DisplayName="Account Height (px)"
                                          DisplayOrder="3" />
                 <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="ButtonFontSize"
-                                         DisplayName="Button Font Size"
+                                         DisplayName="Account Font Size"
                                          DisplayOrder="4" />
                 <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="DefaultButtonColor"
-                                         DisplayName="Button Default Background Color"
+                                         DisplayName="Account Default Background Color"
                                          DisplayOrder="5" />
                 <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="DefaultButtonTextColor"
-                                         DisplayName="Button Default Text Color"
+                                         DisplayName="Account Default Text Color"
                                          DisplayOrder="6" />
 
                 <xctk:PropertyDefinition Category="Advanced"
