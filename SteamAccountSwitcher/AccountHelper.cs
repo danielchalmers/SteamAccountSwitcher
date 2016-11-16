@@ -55,7 +55,12 @@ namespace SteamAccountSwitcher
                 return;
             }
             newAccount.LastModifiedDate = DateTime.Now;
-            App.Accounts[App.Accounts.IndexOf(account)] = newAccount;
+            var accountIndex = App.Accounts.IndexOf(account);
+            if (accountIndex == -1)
+            {
+                return;
+            }
+            App.Accounts[accountIndex] = newAccount;
             App.SaveTimer.DelaySave();
         }
 
