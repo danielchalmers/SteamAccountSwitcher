@@ -79,8 +79,8 @@ namespace SteamAccountSwitcher
         {
             Popup.Show(
                 SuccessfullyLoaded
-                    ? $"An unhandled exception occurred:\n\n{e.Exception.Message}"
-                    : $"A critical exception occurred:\n\n{e.Exception.Message}\n\nApplication will now exit.",
+                    ? $"An unhandled exception occurred:\n\n{e.Exception}"
+                    : $"A critical exception occurred:\n\n{e.Exception}\n\nApplication will now exit.",
                 MessageBoxButton.OK, MessageBoxImage.Error);
             e.Handled = true;
             if (!SuccessfullyLoaded)
