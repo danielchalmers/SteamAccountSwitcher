@@ -39,7 +39,7 @@
         <ItemsControl x:Name="AccountView" ItemsSource="{Binding}" Focusable="False" AlternationCount="{Binding Count}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
+                    <Grid Height="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="GotFocus">
                                 <command:EventToCommand
@@ -57,12 +57,12 @@
                                     CommandParameter="{Binding}" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                        <Button Style="{StaticResource StyleButton}"
-                                Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                Content="{Binding Converter={StaticResource AccountToVisibleNameConverter}}"
-                                Background="{Binding Color, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                Foreground="{Binding TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                FontSize="{Binding Source={x:Static p:Settings.Default}, Path=ButtonFontSize}" />
+                        <Button
+                            Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                            Content="{Binding Converter={StaticResource AccountToVisibleNameConverter}}"
+                            Background="{Binding Color, Converter={StaticResource ColorToSolidBrushConverter}}"
+                            Foreground="{Binding TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
+                            FontSize="{Binding Source={x:Static p:Settings.Default}, Path=ButtonFontSize}" />
                         <TextBlock Style="{StaticResource StyleHelperText}"
                                    Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"

@@ -3,10 +3,6 @@
                     xmlns:local="clr-namespace:SteamAccountSwitcher"
                     xmlns:p="clr-namespace:SteamAccountSwitcher.Properties">
 
-    <Style TargetType="{x:Type Button}" x:Key="StyleButton">
-        <Setter Property="Height"
-                Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
-    </Style>
     <Style TargetType="{x:Type Button}" x:Key="StyleHelperButton">
         <Setter Property="Width"
                 Value="24" />
