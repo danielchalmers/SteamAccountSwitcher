@@ -11,6 +11,7 @@ namespace SteamAccountSwitcher
     public class SwitchWindowViewModel : ViewModelBase
     {
         private bool _isAccountContextMenuOpen;
+        private Key? _pressedKey;
 
         public SwitchWindowViewModel()
         {
@@ -26,6 +27,7 @@ namespace SteamAccountSwitcher
             Options = new RelayCommand(OptionsExecute);
             AddAccount = new RelayCommand(AddAccountExecute);
 
+            PreviewKeyDown = new RelayCommand<KeyEventArgs>(PreviewKeyDownExecute);
             PreviewKeyUp = new RelayCommand<KeyEventArgs>(PreviewKeyUpExecute);
 
             AccountContextMenu = (ContextMenu) Application.Current.FindResource("AccountContextMenu");
@@ -50,6 +52,7 @@ namespace SteamAccountSwitcher
         public ICommand Options { get; set; }
         public ICommand AddAccount { get; set; }
 
+        public ICommand PreviewKeyDown { get; set; }
         public ICommand PreviewKeyUp { get; set; }
 
         public bool IsAccountContextMenuOpen
@@ -58,17 +61,26 @@ namespace SteamAccountSwitcher
             set { Set(ref _isAccountContextMenuOpen, value); }
         }
 
+        private void PreviewKeyDownExecute(KeyEventArgs e)
+        {
+            _pressedKey = e.Key;
+        }
+
         private void PreviewKeyUpExecute(KeyEventArgs e)
         {
-            if (!Settings.Default.NumberHotkeys)
+            var lastKeyDown = _pressedKey;
+            _pressedKey = null;
+            if (lastKeyDown != e.Key)
             {
                 return;
             }
-
-            var num = KeyHelper.KeyToInt(e.Key);
-            if (num > 0 && App.Accounts.Count >= num)
+            if (Settings.Default.NumberHotkeys)
             {
-                App.Accounts[num - 1].SwitchTo();
+                var num = KeyHelper.KeyToInt(e.Key);
+                if (num > 0 && App.Accounts.Count >= num)
+                {
+                    App.Accounts[num - 1].SwitchTo();
+                }
             }
         }
 
