@@ -15,9 +15,8 @@ namespace SteamAccountSwitcher
 
         public SwitchWindowViewModel()
         {
-            Focus = new RelayCommand<Account>(FocusExecute);
-            Account = new RelayCommand(AccountExecute);
-            OpenAccountContextMenu = new RelayCommand(OpenAccountContextMenuExecute);
+            Account = new RelayCommand<Account>(AccountExecute);
+            OpenAccountContextMenu = new RelayCommand<Account>(OpenAccountContextMenuExecute);
             Edit = new RelayCommand(EditExecute);
             MoveUp = new RelayCommand(MoveUpExecute);
             MoveDown = new RelayCommand(MoveDownExecute);
@@ -40,7 +39,6 @@ namespace SteamAccountSwitcher
         public Account SelectedAccount { get; set; }
         public ContextMenu AccountContextMenu { get; }
 
-        public ICommand Focus { get; set; }
         public ICommand Account { get; set; }
         public ICommand OpenAccountContextMenu { get; set; }
         public ICommand Edit { get; set; }
@@ -94,18 +92,14 @@ namespace SteamAccountSwitcher
             AccountHelper.New();
         }
 
-        private void FocusExecute(Account account)
+        private void AccountExecute(Account account)
+        {
+            account?.SwitchTo();
+        }
+
+        private void OpenAccountContextMenuExecute(Account account)
         {
             SelectedAccount = account;
-        }
-
-        private void AccountExecute()
-        {
-            SelectedAccount?.SwitchTo();
-        }
-
-        private void OpenAccountContextMenuExecute()
-        {
             IsAccountContextMenuOpen = true;
         }
 

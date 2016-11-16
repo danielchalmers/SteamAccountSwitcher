@@ -44,16 +44,6 @@
                 <DataTemplate>
                     <Grid Height="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}">
                         <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="GotFocus">
-                                <command:EventToCommand
-                                    Command="{Binding DataContext.Focus, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                    CommandParameter="{Binding}" />
-                            </i:EventTrigger>
-                            <i:EventTrigger EventName="MouseDown">
-                                <command:EventToCommand
-                                    Command="{Binding DataContext.Focus, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
-                                    CommandParameter="{Binding}" />
-                            </i:EventTrigger>
                             <i:EventTrigger EventName="MouseRightButtonUp">
                                 <command:EventToCommand
                                     Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
@@ -70,6 +60,7 @@
                                    Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"
                                 Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                                CommandParameter="{Binding}"
                                 Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={StaticResource BooleanToVisibilityConverter}}">
                             <Image Source="Resources/options.png" Style="{StaticResource StyleToolImage}" />
                         </Button>
