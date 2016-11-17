@@ -23,6 +23,7 @@ namespace SteamAccountSwitcher
             if (Settings.Default.AlwaysOn)
             {
                 TrayIconHelper.CreateTrayIcon();
+                TrayIconHelper.ShowRunningInTrayBalloon();
             }
             App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LaunchStartAccount();
