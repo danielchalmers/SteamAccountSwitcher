@@ -29,7 +29,7 @@
         </Grid>
         <xctk:PropertyGrid Grid.Row="1"
                            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
-                           NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
+                           NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth, Mode=TwoWay}"
                            AutoGenerateProperties="False"
                            Background="{x:Static SystemColors.WindowBrush}"
                            IsCategorized="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridIsCategorized, Mode=TwoWay}"
