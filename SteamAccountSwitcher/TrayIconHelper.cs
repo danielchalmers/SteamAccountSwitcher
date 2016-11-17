@@ -30,10 +30,6 @@ namespace SteamAccountSwitcher
             }
             App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
             RefreshTrayIconMenu();
-            if (!App.Arguments.Contains("-systemstartup"))
-            {
-                ShowRunningInTrayBalloon();
-            }
         }
 
         public static void RefreshTrayIconMenu()
