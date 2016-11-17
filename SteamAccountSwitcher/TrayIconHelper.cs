@@ -24,11 +24,10 @@ namespace SteamAccountSwitcher
 
         public static void CreateTrayIcon()
         {
-            if (App.TrayIcon != null)
+            if (App.TrayIcon == null)
             {
-                return;
+                App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
             }
-            App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
             RefreshTrayIconMenu();
         }
 
