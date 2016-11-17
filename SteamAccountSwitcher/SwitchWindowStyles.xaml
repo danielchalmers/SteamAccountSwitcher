@@ -14,6 +14,7 @@
                 Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="ToolTip" Value="Account Options" />
     </Style>
     <Style TargetType="{x:Type TextBlock}" x:Key="StyleHelperText">
         <Setter Property="VerticalAlignment" Value="Top" />

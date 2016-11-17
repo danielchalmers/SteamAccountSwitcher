@@ -80,10 +80,10 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Command="{Binding Options}">
+            <Button Grid.Column="0" Command="{Binding Options}" ToolTip="Options">
                 <Image Source="Resources/options.png" Style="{StaticResource StyleToolImage}" />
             </Button>
-            <Button Grid.Column="2" Command="{Binding AddAccount}">
+            <Button Grid.Column="2" Command="{Binding AddAccount}" ToolTip="New Account">
                 <Image Source="Resources/plus.png" Style="{StaticResource StyleToolImage}" />
             </Button>
         </Grid>
