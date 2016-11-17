@@ -32,7 +32,7 @@
                            NameColumnWidth="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridNameColumnWidth}"
                            AutoGenerateProperties="False"
                            Background="{x:Static SystemColors.WindowBrush}"
-                           IsCategorized="True"
+                           IsCategorized="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridIsCategorized, Mode=TwoWay}"
                            ShowSortOptions="True"
                            ShowSummary="False"
                            ShowTitle="False"
