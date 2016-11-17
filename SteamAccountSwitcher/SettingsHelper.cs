@@ -42,6 +42,13 @@ namespace SteamAccountSwitcher
                     SwitchWindowHelper.ShowSwitcherWindow();
                 }
             }
+            else
+            {
+                if (Settings.Default.AlwaysOn)
+                {
+                    TrayIconHelper.RefreshTrayIconMenu();
+                }
+            }
 
             SaveSettings();
         }
