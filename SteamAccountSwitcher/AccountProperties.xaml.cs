@@ -15,7 +15,7 @@ namespace SteamAccountSwitcher
         public AccountProperties(Account account = null)
         {
             InitializeComponent();
-            Title = $"{(account == null ? "New" : "Edit")} Account";
+            Title = $"{(account == null ? "Add" : "Edit")} Account";
             NewAccount = account == null ? new Account() : (Account) account.Clone();
             DataContext = NewAccount;
 

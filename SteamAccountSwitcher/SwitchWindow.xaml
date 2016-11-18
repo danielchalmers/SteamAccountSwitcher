@@ -83,7 +83,7 @@
             <Button Grid.Column="0" Command="{Binding Options}" ToolTip="Options">
                 <Image Source="Resources/options.png" Style="{StaticResource StyleToolImage}" />
             </Button>
-            <Button Grid.Column="2" Command="{Binding AddAccount}" ToolTip="New Account">
+            <Button Grid.Column="2" Command="{Binding AddAccount}" ToolTip="Add Account">
                 <Image Source="Resources/plus.png" Style="{StaticResource StyleToolImage}" />
             </Button>
         </Grid>
