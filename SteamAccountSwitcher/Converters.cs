@@ -15,7 +15,7 @@ namespace SteamAccountSwitcher
             {
                 return DependencyProperty.UnsetValue;
             }
-            return account.GetDisplayName();
+            return account?.GetDisplayName();
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

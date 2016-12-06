@@ -1,5 +1,6 @@
 ﻿#region
 
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
@@ -91,6 +92,13 @@ namespace SteamAccountSwitcher
             {
                 File.WriteAllText(dialog.FileName, SettingsHelper.SerializeAccounts(App.Accounts));
             }
+        }
+
+        public static void Reload(this IEnumerable<Account> accounts)
+        {
+            App.Accounts = new ObservableCollection<Account>(accounts);
+            SettingsHelper.SaveSettings();
+            ReloadData();
         }
     }
 }

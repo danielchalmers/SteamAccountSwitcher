@@ -178,4 +178,10 @@
   <data name="ImportExportExtension" xml:space="preserve">
     <value>.txt</value>
   </data>
+  <data name="SteamRegistryDirectoryPath" xml:space="preserve">
+    <value>Software\Valve\Steam</value>
+  </data>
+  <data name="SteamRegistryExecutableName" xml:space="preserve">
+    <value>SteamExe</value>
+  </data>
 </root>

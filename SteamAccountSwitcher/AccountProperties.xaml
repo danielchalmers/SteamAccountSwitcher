@@ -63,7 +63,7 @@
             </Grid>
         </Grid>
         <Expander Grid.Row="2"
-                  IsExpanded="{Binding Source={x:Static p:Settings.Default}, Path=AccountPropertiesIsExpanded, Mode=TwoWay}">
+                  IsExpanded="{Binding AccountPropertiesIsExpanded, Source={x:Static p:Settings.Default}, Mode=TwoWay}">
             <Expander.Style>
                 <Style TargetType="Expander">
                     <Style.Triggers>

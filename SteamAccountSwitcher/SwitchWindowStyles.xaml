@@ -9,9 +9,9 @@
         <Setter Property="Height"
                 Value="24" />
         <Setter Property="MaxWidth"
-                Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
+                Value="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}" />
         <Setter Property="MaxHeight"
-                Value="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}" />
+                Value="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="HorizontalAlignment" Value="Right" />
         <Setter Property="ToolTip" Value="Account Options" />
@@ -24,7 +24,7 @@
         <Setter Property="Opacity" Value="0.75" />
         <Setter Property="IsHitTestVisible" Value="False" />
         <Setter Property="Visibility"
-                Value="{Binding Source={x:Static p:Settings.Default}, Path=NumberHotkeys, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                Value="{Binding NumberHotkeys, Source={x:Static p:Settings.Default}, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}" />
     </Style>
     <Style TargetType="{x:Type Image}" x:Key="StyleToolImage">
         <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />

@@ -11,9 +11,9 @@
         ResizeMode="CanMinimize"
         Closing="Window_Closing" Icon="steam.ico" MinWidth="100"
         Title="{x:Static p:Resources.AppName}"
-        Width="{Binding Source={x:Static p:Settings.Default}, Path=Width, Mode=OneWay}"
-        Left="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowLeft, Mode=TwoWay}"
-        Top="{Binding Source={x:Static p:Settings.Default}, Path=SwitchWindowTop, Mode=TwoWay}">
+        Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=OneWay}"
+        Left="{Binding SwitchWindowLeft, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+        Top="{Binding SwitchWindowTop, Source={x:Static p:Settings.Default}, Mode=TwoWay}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewKeyDown">
             <command:EventToCommand Command="{Binding PreviewKeyDown}" PassEventArgsToCommand="True" />
@@ -42,7 +42,7 @@
         <ItemsControl x:Name="AccountView" ItemsSource="{Binding}" Focusable="False" AlternationCount="{Binding Count}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Grid Height="{Binding Source={x:Static p:Settings.Default}, Path=ButtonHeight, Mode=OneWay}">
+                    <Grid Height="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseRightButtonUp">
                                 <command:EventToCommand
@@ -55,7 +55,7 @@
                             Content="{Binding Converter={StaticResource AccountToVisibleNameConverter}}"
                             Background="{Binding Color, Converter={StaticResource ColorToSolidBrushConverter}}"
                             Foreground="{Binding TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
-                            FontSize="{Binding Source={x:Static p:Settings.Default}, Path=ButtonFontSize}" />
+                            FontSize="{Binding ButtonFontSize, Source={x:Static p:Settings.Default}}" />
                         <TextBlock Style="{StaticResource StyleHelperText}"
                                    Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"

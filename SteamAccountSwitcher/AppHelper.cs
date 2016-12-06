@@ -32,7 +32,7 @@ namespace SteamAccountSwitcher
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (runOnStartup)
             {
-                registryKey?.SetValue(Resources.AppPathName, AppPath + " -systemstartup");
+                registryKey?.SetValue(Resources.AppPathName, $"{AppPath} -systemstartup");
             }
             else
             {

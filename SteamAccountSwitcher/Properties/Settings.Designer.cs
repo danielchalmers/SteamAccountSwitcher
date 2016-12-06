@@ -418,5 +418,23 @@ namespace SteamAccountSwitcher.Properties {
                 this["OptionsFilter"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
+        public int SteamLogoutTimeoutMax {
+            get {
+                return ((int)(this["SteamLogoutTimeoutMax"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        public int SteamLogoutTimeoutInterval {
+            get {
+                return ((int)(this["SteamLogoutTimeoutInterval"]));
+            }
+        }
     }
 }

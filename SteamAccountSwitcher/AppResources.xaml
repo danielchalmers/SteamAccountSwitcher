@@ -36,7 +36,7 @@
     </ContextMenu>
     <tb:TaskbarIcon x:Key="TrayIcon" IconSource="steam.ico" ToolTipText="{x:Static p:Resources.AppName}"
                     TrayMouseDoubleClick="TrayIcon_OnTrayMouseDoubleClick"
-                    Visibility="{Binding Source={x:Static p:Settings.Default}, Path=AlwaysOn, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    Visibility="{Binding AlwaysOn, Source={x:Static p:Settings.Default}, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
         <tb:TaskbarIcon.ContextMenu>
             <ContextMenu>
                 <ContextMenu.ItemsSource>

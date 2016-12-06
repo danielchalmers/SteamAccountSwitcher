@@ -41,7 +41,7 @@ namespace SteamAccountSwitcher
 
         private void MenuItemExitSteam_OnClick(object sender, RoutedEventArgs e)
         {
-            SteamClient.LogOutAuto();
+            SteamClient.Logout();
         }
     }
 }

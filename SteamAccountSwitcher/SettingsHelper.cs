@@ -11,6 +11,37 @@ namespace SteamAccountSwitcher
 {
     public static class SettingsHelper
     {
+        public static void SaveSettings()
+        {
+            Settings.Default.Accounts = SerializeAccounts(App.Accounts);
+            Settings.Default.Save();
+        }
+
+        public static void UpgradeSettings()
+        {
+            if (Settings.Default.MustUpgrade)
+            {
+                Settings.Default.Upgrade();
+                Settings.Default.MustUpgrade = false;
+                Settings.Default.Save();
+            }
+        }
+
+        public static void ResetSettings(bool msg = true)
+        {
+            if (msg && Popup.Show(
+                "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
+            {
+                return;
+            }
+            Settings.Default.Reset();
+            Settings.Default.MustUpgrade = false;
+            Settings.Default.Accounts = AccountDataHelper.DefaultData();
+            AccountDataHelper.ReloadData();
+            Popup.Show("All settings have been restored to default.");
+        }
+
         public static string SerializeAccounts(IEnumerable<Account> accounts)
         {
             return new Encryption().Encrypt(JsonConvert.SerializeObject(accounts));
@@ -53,40 +84,9 @@ namespace SteamAccountSwitcher
             SaveSettings();
         }
 
-        public static void SaveSettings()
-        {
-            Settings.Default.Accounts = SerializeAccounts(App.Accounts);
-            Settings.Default.Save();
-        }
-
-        public static void UpgradeSettings()
-        {
-            if (Settings.Default.MustUpgrade)
-            {
-                Settings.Default.Upgrade();
-                Settings.Default.MustUpgrade = false;
-                Settings.Default.Save();
-            }
-        }
-
         public static void IncrementLaunches()
         {
             Settings.Default.Launches++;
-        }
-
-        public static void ResetSettings(bool msg = true)
-        {
-            if (msg && Popup.Show(
-                "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
-            {
-                return;
-            }
-            Settings.Default.Reset();
-            Settings.Default.MustUpgrade = false;
-            Settings.Default.Accounts = AccountDataHelper.DefaultData();
-            AccountDataHelper.ReloadData();
-            Popup.Show("All settings have been restored to default.");
         }
     }
 }

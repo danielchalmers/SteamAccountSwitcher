@@ -53,10 +53,7 @@ namespace SteamAccountSwitcher
         {
             App.SwitchWindow = new SwitchWindow();
             new WindowInteropHelper(App.SwitchWindow).EnsureHandle();
-            if (Settings.Default.AlwaysOn)
-            {
-            }
-            else
+            if (!Settings.Default.AlwaysOn)
             {
                 SwitchWindowHelper.ShowSwitcherWindow();
             }
@@ -82,19 +79,16 @@ namespace SteamAccountSwitcher
             {
                 Settings.Default.Accounts = AccountDataHelper.DefaultData();
             }
-
             AccountDataHelper.ReloadData();
         }
 
         private static void LoadSettings()
         {
             SettingsHelper.UpgradeSettings();
-
             if (App.Arguments.Contains("-reset"))
             {
                 SettingsHelper.ResetSettings();
             }
-
             SettingsHelper.IncrementLaunches();
         }
     }

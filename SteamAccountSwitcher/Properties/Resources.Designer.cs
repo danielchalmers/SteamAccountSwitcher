@@ -216,6 +216,24 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Software\Valve\Steam.
+        /// </summary>
+        public static string SteamRegistryDirectoryPath {
+            get {
+                return ResourceManager.GetString("SteamRegistryDirectoryPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SteamExe.
+        /// </summary>
+        public static string SteamRegistryExecutableName {
+            get {
+                return ResourceManager.GetString("SteamRegistryExecutableName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to -shutdown.
         /// </summary>
         public static string SteamShutdownArgument {

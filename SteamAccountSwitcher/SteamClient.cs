@@ -14,7 +14,7 @@ namespace SteamAccountSwitcher
 {
     public static class SteamClient
     {
-        private static void StartSteam(string args = "")
+        public static void Launch(string args = "")
         {
             if (!ResolvePath())
             {
@@ -25,12 +25,7 @@ namespace SteamAccountSwitcher
             Process.Start(Settings.Default.SteamPath, args);
         }
 
-        public static void Launch()
-        {
-            StartSteam();
-        }
-
-        public static void LogIn(Account account, bool onStart = false)
+        public static void Login(Account account, bool onStart = false)
         {
             var args = new List<string>();
 
@@ -49,66 +44,58 @@ namespace SteamAccountSwitcher
 
             args.Add(Settings.Default.SteamLaunchArgs);
 
-            StartSteam(string.Join(" ", args));
+            Launch(string.Join(" ", args));
         }
 
-        private static void LogOut()
+        public static void Logout()
         {
-            if (!IsSteamOpen())
+            if (!IsRunning())
             {
                 return;
             }
-            StartSteam(Resources.SteamShutdownArgument);
-        }
-
-        private static Process GetSteamProcess()
-        {
-            var processes = Process.GetProcessesByName(Resources.Steam);
-            return processes.Length > 0 ? processes[0] : null;
-        }
-
-        private static void ForceClose()
-        {
-            GetSteamProcess()?.CloseMainWindow();
-        }
-
-        private static string GetSteamTitle()
-        {
-            return GetSteamProcess()?.MainWindowTitle;
-        }
-
-        public static void LogOutAuto()
-        {
-            if (GetSteamTitle() == Resources.SteamNotLoggedInTitle)
+            if (GetWindowTitle() == Resources.SteamNotLoggedInTitle)
             {
                 ForceClose();
             }
             else
             {
-                LogOut();
+                Launch(Resources.SteamShutdownArgument);
             }
         }
 
-        public static bool LogOutTimeout()
+        public static bool LogoutWithTimeout()
         {
             var timeout = 0;
-            const int maxtimeout = 10000;
-            const int waitstep = 50;
-            if (IsSteamOpen())
+            var maxTimeout = Settings.Default.SteamLogoutTimeoutMax;
+            var interval = Settings.Default.SteamLogoutTimeoutInterval;
+            Logout();
+            while (IsRunning())
             {
-                LogOutAuto();
-                while (IsSteamOpen())
+                if (timeout >= maxTimeout)
                 {
-                    if (timeout >= maxtimeout)
-                    {
-                        ForceClose();
-                        return false;
-                    }
-                    Thread.Sleep(waitstep);
-                    timeout += waitstep;
+                    ForceClose();
+                    return false;
                 }
+                timeout += interval;
+                Thread.Sleep(interval);
             }
             return true;
+        }
+
+        private static void ForceClose()
+        {
+            GetProcess()?.CloseMainWindow();
+        }
+
+        private static Process GetProcess()
+        {
+            var steamProcesses = Process.GetProcessesByName(Resources.Steam);
+            return steamProcesses.Length > 0 ? steamProcesses[0] : null;
+        }
+
+        private static string GetWindowTitle()
+        {
+            return GetProcess()?.MainWindowTitle;
         }
 
         private static string GetPathFromRegistry()
@@ -116,14 +103,14 @@ namespace SteamAccountSwitcher
             string path;
             try
             {
-                using (var registryKey = Registry.CurrentUser.OpenSubKey(@"Software\Valve\Steam"))
+                using (var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath))
                 {
-                    path = registryKey?.GetValue("SteamExe").ToString();
+                    path = registryKey?.GetValue(Resources.SteamRegistryExecutableName).ToString();
                 }
             }
             catch
             {
-                path = "";
+                path = string.Empty;
             }
             return path;
         }
@@ -137,9 +124,9 @@ namespace SteamAccountSwitcher
             return File.Exists(Settings.Default.SteamPath);
         }
 
-        private static bool IsSteamOpen()
+        private static bool IsRunning()
         {
-            return Process.GetProcessesByName(Resources.Steam).Length > 0;
+            return GetProcess() != null;
         }
     }
 }
