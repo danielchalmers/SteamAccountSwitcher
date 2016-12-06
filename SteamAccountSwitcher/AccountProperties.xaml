@@ -58,7 +58,7 @@
                 <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center"
                           ToolTip="Show password"
                           Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
-                          KeyboardNavigation.IsTabStop="False" Margin="0,4,4,4" VerticalContentAlignment="Center"
+                          Margin="0,4,4,4" VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Center" />
             </Grid>
         </Grid>
