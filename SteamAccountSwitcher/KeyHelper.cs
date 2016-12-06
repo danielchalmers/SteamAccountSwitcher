@@ -8,6 +8,8 @@ namespace SteamAccountSwitcher
         {
             switch (key)
             {
+                case Key.D0:
+                    return 0;
                 case Key.D1:
                     return 1;
                 case Key.D2:
@@ -26,10 +28,8 @@ namespace SteamAccountSwitcher
                     return 8;
                 case Key.D9:
                     return 9;
-                case Key.D0:
-                    return 10;
             }
-            return 0;
+            return -1;
         }
     }
 }
