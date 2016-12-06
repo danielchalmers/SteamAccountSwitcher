@@ -33,6 +33,7 @@
                            AutoGenerateProperties="False"
                            Background="{x:Static SystemColors.WindowBrush}"
                            IsCategorized="{Binding Source={x:Static p:Settings.Default}, Path=PropertyGridIsCategorized, Mode=TwoWay}"
+                           Filter="{Binding Source={x:Static p:Settings.Default}, Path=OptionsFilter, Mode=TwoWay}"
                            ShowSortOptions="True"
                            ShowSummary="False"
                            ShowTitle="False"

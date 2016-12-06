@@ -406,5 +406,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["PropertyGridIsCategorized"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string OptionsFilter {
+            get {
+                return ((string)(this["OptionsFilter"]));
+            }
+            set {
+                this["OptionsFilter"] = value;
+            }
+        }
     }
 }
