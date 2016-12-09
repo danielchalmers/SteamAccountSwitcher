@@ -42,7 +42,7 @@ namespace SteamAccountSwitcher
             }
             App.Accounts.CollectionChanged += (sender, args) =>
             {
-                Settings.Default.Save();
+                App.SaveTimer.DelaySave();
                 TrayIconHelper.RefreshTrayIconMenu();
             };
             TrayIconHelper.RefreshTrayIconMenu();
