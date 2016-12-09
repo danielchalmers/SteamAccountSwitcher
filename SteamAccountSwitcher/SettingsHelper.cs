@@ -80,8 +80,6 @@ namespace SteamAccountSwitcher
                     TrayIconHelper.RefreshTrayIconMenu();
                 }
             }
-
-            SaveSettings();
         }
 
         public static void IncrementLaunches()

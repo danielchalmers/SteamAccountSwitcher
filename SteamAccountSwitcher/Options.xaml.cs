@@ -43,7 +43,7 @@ namespace SteamAccountSwitcher
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            Settings.Default.Save();
+            SettingsHelper.SaveSettings();
             DialogResult = true;
         }
 
