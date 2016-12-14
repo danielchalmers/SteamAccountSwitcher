@@ -57,28 +57,38 @@ namespace SteamAccountSwitcher
                 Filter = Resources.ImportExportDialogExtensionFilter,
                 CheckFileExists = true
             };
-            if (dialog.ShowDialog() != true || Popup.Show(
-                "Are you sure you want to overwrite all current accounts?\n\nThis cannot be undone.",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) != MessageBoxResult.Yes)
+            if (dialog.ShowDialog() != true)
             {
                 return;
             }
+            if (string.IsNullOrWhiteSpace(dialog.FileName) || !File.Exists(dialog.FileName))
+            {
+                Popup.Show("File doesn't exist.", image: MessageBoxImage.Error);
+                return;
+            }
+            var fileContent = File.ReadAllText(dialog.FileName);
             try
             {
-                var fileContent = File.ReadAllText(dialog.FileName);
                 // Test imported data before overwriting existing accounts.
                 var testAccounts =
                     new ObservableCollection<Account>(SettingsHelper.DeserializeAccounts(fileContent));
-                Settings.Default.Accounts = fileContent;
-                ReloadData();
-                SettingsHelper.SaveSettings();
             }
             catch
             {
                 Popup.Show(
                     "Import failed. Data may be corrupt.\n\nNo changes have been made.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
+            if (Popup.Show(
+                "Are you sure you want to overwrite all current accounts?\n\nThis cannot be reversed.",
+                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) != MessageBoxResult.Yes)
+            {
+                return;
+            }
+            Settings.Default.Accounts = fileContent;
+            ReloadData();
+            SettingsHelper.SaveSettings();
         }
 
         public static void ExportAccounts()
