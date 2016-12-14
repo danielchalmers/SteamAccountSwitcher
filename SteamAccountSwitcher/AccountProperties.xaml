@@ -10,6 +10,9 @@
         SizeToContent="Height"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:BoolToCollapsedVisibilityConverter x:Key="BoolToCollapsedVisibilityConverter" />
+    </Window.Resources>
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -59,7 +62,8 @@
                           ToolTip="Show password"
                           Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
                           Margin="0,4,4,4" VerticalContentAlignment="Center"
-                          HorizontalContentAlignment="Center" />
+                          HorizontalContentAlignment="Center"
+                          Visibility="{Binding PreventViewingPasswords, Source={x:Static p:Settings.Default}, Mode=OneWay, Converter={StaticResource BoolToCollapsedVisibilityConverter}}" />
             </Grid>
         </Grid>
         <Expander Grid.Row="2"

@@ -1,7 +1,6 @@
 ﻿#region
 
 using System.Windows;
-using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -18,16 +17,7 @@ namespace SteamAccountSwitcher
             Title = $"{(account == null ? "Add" : "Edit")} Account";
             NewAccount = account == null ? new Account() : (Account) account.Clone();
             DataContext = NewAccount;
-
-            if (Settings.Default.PreventViewingPasswords)
-            {
-                chkShowPassword.Visibility = Visibility.Collapsed;
-                txtPasswordText.Visibility = Visibility.Collapsed;
-            }
-            else
-            {
-                txtPassword.Password = NewAccount.Password;
-            }
+            txtPassword.Password = NewAccount.Password;
 
             txtAlias.Focus();
         }
