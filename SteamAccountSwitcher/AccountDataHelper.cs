@@ -77,7 +77,7 @@ namespace SteamAccountSwitcher
             {
                 Popup.Show(
                     "Import failed. Data may be corrupt.\n\nNo changes have been made.",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                    MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
