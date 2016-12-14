@@ -10,9 +10,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="15" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="15,0,0,15" HorizontalAlignment="Center" IsSharedSizeScope="True">
+        <Grid Grid.Row="0" HorizontalAlignment="Center" IsSharedSizeScope="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" SharedSizeGroup="AdvancedTools" />
                 <ColumnDefinition Width="5" />
@@ -27,7 +28,7 @@
             <Button Grid.Column="0" Content="Import Accounts..." Click="menuItemImport_OnClick" />
             <Button Grid.Column="2" Content="Export Accounts..." Click="menuItemExport_OnClick" />
         </Grid>
-        <xctk:PropertyGrid Grid.Row="1"
+        <xctk:PropertyGrid Grid.Row="2"
                            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
                            NameColumnWidth="{Binding PropertyGridNameColumnWidth, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
                            AutoGenerateProperties="False"
