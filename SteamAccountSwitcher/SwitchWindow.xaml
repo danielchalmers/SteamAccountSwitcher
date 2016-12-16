@@ -11,7 +11,7 @@
         ResizeMode="CanMinimize"
         Closing="Window_Closing" Icon="icon.ico" MinWidth="100"
         Title="{x:Static p:Resources.AppName}"
-        Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=OneWay}"
+        Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
         Left="{Binding SwitchWindowLeft, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
         Top="{Binding SwitchWindowTop, Source={x:Static p:Settings.Default}, Mode=TwoWay}">
     <i:Interaction.Triggers>
