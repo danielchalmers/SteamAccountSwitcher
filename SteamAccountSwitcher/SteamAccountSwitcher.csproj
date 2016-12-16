@@ -70,7 +70,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>steam.ico</ApplicationIcon>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>SteamAccountSwitcher.App</StartupObject>
@@ -235,9 +235,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="steam.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\plus.png" />
   </ItemGroup>
   <ItemGroup>
@@ -245,6 +242,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\About.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

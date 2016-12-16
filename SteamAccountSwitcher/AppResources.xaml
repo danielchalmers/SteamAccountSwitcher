@@ -34,7 +34,7 @@
         <Separator />
         <MenuItem Header="Remove..." Command="{Binding Remove}" />
     </ContextMenu>
-    <tb:TaskbarIcon x:Key="TrayIcon" IconSource="steam.ico" ToolTipText="{x:Static p:Resources.AppName}"
+    <tb:TaskbarIcon x:Key="TrayIcon" IconSource="icon.ico" ToolTipText="{x:Static p:Resources.AppName}"
                     TrayMouseDoubleClick="TrayIcon_OnTrayMouseDoubleClick"
                     Visibility="{Binding AlwaysOn, Source={x:Static p:Settings.Default}, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
         <tb:TaskbarIcon.ContextMenu>

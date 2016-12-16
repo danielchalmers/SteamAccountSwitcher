@@ -9,7 +9,7 @@
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         mc:Ignorable="d" SizeToContent="Height"
         ResizeMode="CanMinimize"
-        Closing="Window_Closing" Icon="steam.ico" MinWidth="100"
+        Closing="Window_Closing" Icon="icon.ico" MinWidth="100"
         Title="{x:Static p:Resources.AppName}"
         Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=OneWay}"
         Left="{Binding SwitchWindowLeft, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
