@@ -52,6 +52,7 @@
                         </i:Interaction.Triggers>
                         <Button
                             Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
+                            CommandParameter="{Binding}"
                             Content="{Binding Converter={StaticResource AccountToVisibleNameConverter}}"
                             Background="{Binding Color, Converter={StaticResource ColorToSolidBrushConverter}}"
                             Foreground="{Binding TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
