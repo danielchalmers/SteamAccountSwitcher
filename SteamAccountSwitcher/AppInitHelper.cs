@@ -30,6 +30,7 @@ namespace SteamAccountSwitcher
             }
             App.SaveTimer = new SaveTimer(Settings.Default.SaveDelay);
             LaunchStartAccount();
+            Settings.Default.PropertyChanged += App.Settings_OnPropertyChanged;
             return true;
         }
 

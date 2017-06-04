@@ -67,7 +67,6 @@ namespace SteamAccountSwitcher
                 base.OnExit(e);
 
                 SettingsHelper.SaveSettings();
-                AppHelper.SetRunOnStartup(Settings.Default.RunOnStartup);
             }
             catch
             {
@@ -86,6 +85,14 @@ namespace SteamAccountSwitcher
             if (!SuccessfullyLoaded)
             {
                 AppHelper.ShutdownApplication();
+            }
+        }
+
+        public static void Settings_OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(Settings.Default.RunOnStartup))
+            {
+                AppHelper.SetRunOnStartup(Settings.Default.RunOnStartup);
             }
         }
     }
