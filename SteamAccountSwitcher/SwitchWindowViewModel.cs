@@ -29,7 +29,7 @@ namespace SteamAccountSwitcher
             PreviewKeyDown = new RelayCommand<KeyEventArgs>(PreviewKeyDownExecute);
             PreviewKeyUp = new RelayCommand<KeyEventArgs>(PreviewKeyUpExecute);
 
-            AccountContextMenu = (ContextMenu) Application.Current.FindResource("AccountContextMenu");
+            AccountContextMenu = (ContextMenu)Application.Current.FindResource("AccountContextMenu");
             if (AccountContextMenu != null)
             {
                 AccountContextMenu.DataContext = this;

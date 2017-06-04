@@ -15,11 +15,17 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0"
-                   Text="{x:Static properties:Resources.AppName}" FontSize="24" VerticalAlignment="Center"
+                   Text="{x:Static properties:Resources.AppName}"
+                   FontSize="24"
+                   VerticalAlignment="Center"
                    HorizontalAlignment="Left" />
-        <TextBox Grid.Row="2" Text="{x:Static steamAccountSwitcher:AssemblyInfo.CustomDescription}"
+        <TextBox Grid.Row="2"
+                 Text="{x:Static steamAccountSwitcher:AssemblyInfo.CustomDescription}"
                  Background="Transparent"
-                 BorderThickness="0" IsReadOnly="True"
-                 TextWrapping="Wrap" Height="Auto" VerticalAlignment="Center" />
+                 BorderThickness="0"
+                 IsReadOnly="True"
+                 TextWrapping="Wrap"
+                 Height="Auto"
+                 VerticalAlignment="Center" />
     </Grid>
 </Page>

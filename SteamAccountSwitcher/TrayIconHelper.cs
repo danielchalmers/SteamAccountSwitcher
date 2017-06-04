@@ -26,7 +26,7 @@ namespace SteamAccountSwitcher
         {
             if (App.TrayIcon == null)
             {
-                App.TrayIcon = (TaskbarIcon) Application.Current.FindResource("TrayIcon");
+                App.TrayIcon = (TaskbarIcon)Application.Current.FindResource("TrayIcon");
             }
             RefreshTrayIconMenu();
         }
@@ -49,7 +49,7 @@ namespace SteamAccountSwitcher
             }
             foreach (var account in App.Accounts)
             {
-                var item = new MenuItem {Header = account.GetDisplayName()};
+                var item = new MenuItem { Header = account.GetDisplayName() };
                 if (Settings.Default.ColorCodeAccountMenuItems)
                 {
                     item.Foreground = new SolidColorBrush(account.TextColor);

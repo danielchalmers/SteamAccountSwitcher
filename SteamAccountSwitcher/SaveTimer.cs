@@ -10,7 +10,7 @@ namespace SteamAccountSwitcher
 
         public SaveTimer(TimeSpan waitTime)
         {
-            _timer = new DispatcherTimer {Interval = waitTime};
+            _timer = new DispatcherTimer { Interval = waitTime };
             _timer.Tick += Timer_OnTick;
         }
 

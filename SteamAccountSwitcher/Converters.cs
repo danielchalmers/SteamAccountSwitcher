@@ -32,7 +32,7 @@ namespace SteamAccountSwitcher
             {
                 return DependencyProperty.UnsetValue;
             }
-            return new SolidColorBrush((Color) value);
+            return new SolidColorBrush((Color)value);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -49,7 +49,7 @@ namespace SteamAccountSwitcher
             {
                 return DependencyProperty.UnsetValue;
             }
-            return (int) value + 1;
+            return (int)value + 1;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
@@ -66,7 +66,7 @@ namespace SteamAccountSwitcher
             {
                 return DependencyProperty.UnsetValue;
             }
-            return (bool) value ? Visibility.Collapsed : Visibility.Visible;
+            return (bool)value ? Visibility.Collapsed : Visibility.Visible;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -6,36 +6,59 @@
                     xmlns:tb="http://www.hardcodet.net/taskbar"
                     xmlns:p="clr-namespace:SteamAccountSwitcher.Properties">
     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
-    <ContextMenu x:Shared="False" x:Key="AccountContextMenu" IsOpen="{Binding IsAccountContextMenuOpen}">
-        <MenuItem Header="_Edit..." Command="{Binding Edit}" />
+    <ContextMenu x:Shared="False"
+                 x:Key="AccountContextMenu"
+                 IsOpen="{Binding IsAccountContextMenuOpen}">
+        <MenuItem Header="_Edit..."
+                  Command="{Binding Edit}" />
         <Separator />
-        <MenuItem Header="Move _Up" Command="{Binding MoveUp}" />
-        <MenuItem Header="Move _Down" Command="{Binding MoveDown}" />
+        <MenuItem Header="Move _Up"
+                  Command="{Binding MoveUp}" />
+        <MenuItem Header="Move _Down"
+                  Command="{Binding MoveDown}" />
         <MenuItem Header="Sort All By (_Ascending)">
             <MenuItem.ItemsSource>
                 <CompositeCollection>
-                    <MenuItem Header="_Alias" Command="{Binding Sort}" CommandParameter="AliasAscending" />
-                    <MenuItem Header="_Username" Command="{Binding Sort}" CommandParameter="UsernameAscending" />
-                    <MenuItem Header="Add _Date" Command="{Binding Sort}" CommandParameter="AddDateAscending" />
-                    <MenuItem Header="Last _Modified" Command="{Binding Sort}" CommandParameter="LastModifiedAscending" />
+                    <MenuItem Header="_Alias"
+                              Command="{Binding Sort}"
+                              CommandParameter="AliasAscending" />
+                    <MenuItem Header="_Username"
+                              Command="{Binding Sort}"
+                              CommandParameter="UsernameAscending" />
+                    <MenuItem Header="Add _Date"
+                              Command="{Binding Sort}"
+                              CommandParameter="AddDateAscending" />
+                    <MenuItem Header="Last _Modified"
+                              Command="{Binding Sort}"
+                              CommandParameter="LastModifiedAscending" />
                 </CompositeCollection>
             </MenuItem.ItemsSource>
         </MenuItem>
         <MenuItem Header="Sort All By (_Descending)">
             <MenuItem.ItemsSource>
                 <CompositeCollection>
-                    <MenuItem Header="_Alias" Command="{Binding Sort}" CommandParameter="AliasDescending" />
-                    <MenuItem Header="_Username" Command="{Binding Sort}" CommandParameter="UsernameDescending" />
-                    <MenuItem Header="Add _Date" Command="{Binding Sort}" CommandParameter="AddDateDescending" />
-                    <MenuItem Header="Last _Modified" Command="{Binding Sort}"
+                    <MenuItem Header="_Alias"
+                              Command="{Binding Sort}"
+                              CommandParameter="AliasDescending" />
+                    <MenuItem Header="_Username"
+                              Command="{Binding Sort}"
+                              CommandParameter="UsernameDescending" />
+                    <MenuItem Header="Add _Date"
+                              Command="{Binding Sort}"
+                              CommandParameter="AddDateDescending" />
+                    <MenuItem Header="Last _Modified"
+                              Command="{Binding Sort}"
                               CommandParameter="LastModifiedDescending" />
                 </CompositeCollection>
             </MenuItem.ItemsSource>
         </MenuItem>
         <Separator />
-        <MenuItem Header="_Remove..." Command="{Binding Remove}" />
+        <MenuItem Header="_Remove..."
+                  Command="{Binding Remove}" />
     </ContextMenu>
-    <tb:TaskbarIcon x:Key="TrayIcon" IconSource="icon.ico" ToolTipText="{x:Static p:Resources.AppName}"
+    <tb:TaskbarIcon x:Key="TrayIcon"
+                    IconSource="icon.ico"
+                    ToolTipText="{x:Static p:Resources.AppName}"
                     TrayMouseDoubleClick="TrayIcon_OnTrayMouseDoubleClick"
                     Visibility="{Binding AlwaysOn, Source={x:Static p:Settings.Default}, Converter={StaticResource BooleanToVisibilityConverter}, Mode=OneWay}">
         <tb:TaskbarIcon.ContextMenu>
@@ -43,15 +66,21 @@
                 <ContextMenu.ItemsSource>
                     <CompositeCollection>
                         <CollectionContainer Collection="{x:Static local:TrayIconHelper.AccountMenuItems}" />
-                        <MenuItem Header="_Add Account..." Click="MenuItemAddAccount_OnClick" />
-                        <MenuItem Header="_Manage Accounts" Click="MenuItemManageAccount_OnClick" />
+                        <MenuItem Header="_Add Account..."
+                                  Click="MenuItemAddAccount_OnClick" />
+                        <MenuItem Header="_Manage Accounts"
+                                  Click="MenuItemManageAccount_OnClick" />
                         <Separator />
-                        <MenuItem Header="Open _Steam" Click="MenuItemOpenSteam_OnClick" />
-                        <MenuItem Header="_Exit Steam" Click="MenuItemExitSteam_OnClick" />
+                        <MenuItem Header="Open _Steam"
+                                  Click="MenuItemOpenSteam_OnClick" />
+                        <MenuItem Header="_Exit Steam"
+                                  Click="MenuItemExitSteam_OnClick" />
                         <Separator />
-                        <MenuItem Header="_Options..." Click="MenuItemOptions_OnClick" />
+                        <MenuItem Header="_Options..."
+                                  Click="MenuItemOptions_OnClick" />
                         <Separator />
-                        <MenuItem Header="E_xit" Click="MenuItemExit_OnClick" />
+                        <MenuItem Header="E_xit"
+                                  Click="MenuItemExit_OnClick" />
                     </CompositeCollection>
                 </ContextMenu.ItemsSource>
             </ContextMenu>

@@ -11,7 +11,7 @@ namespace SteamAccountSwitcher
         public static void ShowExistingInstance()
         {
             PostMessage(
-                (IntPtr) HWND_BROADCAST,
+                (IntPtr)HWND_BROADCAST,
                 WM_ACTIVATE,
                 IntPtr.Zero,
                 IntPtr.Zero);

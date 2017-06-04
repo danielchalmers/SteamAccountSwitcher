@@ -27,7 +27,7 @@ namespace SteamAccountSwitcher
         private static string GetAssemblyAttribute<T>(Func<T, string> value)
             where T : Attribute
         {
-            var attribute = (T) Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof (T));
+            var attribute = (T)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(T));
             return value.Invoke(attribute);
         }
     }

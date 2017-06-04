@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SteamAccountSwitcher" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:SteamAccountSwitcher"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
         Width="300"
@@ -28,40 +29,70 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto"
+                               SharedSizeGroup="options" />
                 <RowDefinition Height="5" />
-                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto"
+                               SharedSizeGroup="options" />
                 <RowDefinition Height="5" />
-                <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                <RowDefinition Height="Auto"
+                               SharedSizeGroup="options" />
             </Grid.RowDefinitions>
             <Grid.Resources>
                 <Style TargetType="TextBlock">
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="HorizontalAlignment" Value="Left" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Center" />
+                    <Setter Property="HorizontalAlignment"
+                            Value="Left" />
                 </Style>
                 <Style TargetType="TextBox">
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="Height" Value="23" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Center" />
+                    <Setter Property="Height"
+                            Value="23" />
                 </Style>
                 <Style TargetType="xctk:ColorPicker">
-                    <Setter Property="VerticalAlignment" Value="Center" />
-                    <Setter Property="Height" Value="23" />
+                    <Setter Property="VerticalAlignment"
+                            Value="Center" />
+                    <Setter Property="Height"
+                            Value="23" />
                 </Style>
             </Grid.Resources>
-            <TextBlock Grid.Row="0" Grid.Column="0" Text="Alias:" />
-            <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding DisplayName, Mode=TwoWay}" x:Name="txtAlias" />
-            <TextBlock Grid.Row="2" Grid.Column="0" Text="Username:" />
-            <TextBox Grid.Row="2" Grid.Column="2" Text="{Binding Username, Mode=TwoWay}" />
-            <TextBlock Grid.Row="4" Grid.Column="0" Text="Password:" />
-            <Grid Grid.Row="4" Grid.Column="2" Height="23" VerticalAlignment="Center">
-                <TextBox x:Name="txtPasswordText" GotFocus="txtPasswordText_GotFocus" Visibility="Hidden"
+            <TextBlock Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Alias:" />
+            <TextBox Grid.Row="0"
+                     Grid.Column="2"
+                     Text="{Binding DisplayName, Mode=TwoWay}"
+                     x:Name="txtAlias" />
+            <TextBlock Grid.Row="2"
+                       Grid.Column="0"
+                       Text="Username:" />
+            <TextBox Grid.Row="2"
+                     Grid.Column="2"
+                     Text="{Binding Username, Mode=TwoWay}" />
+            <TextBlock Grid.Row="4"
+                       Grid.Column="0"
+                       Text="Password:" />
+            <Grid Grid.Row="4"
+                  Grid.Column="2"
+                  Height="23"
+                  VerticalAlignment="Center">
+                <TextBox x:Name="txtPasswordText"
+                         GotFocus="txtPasswordText_GotFocus"
+                         Visibility="Hidden"
                          Text="{Binding Password, Mode=TwoWay}" />
-                <PasswordBox x:Name="txtPassword" GotFocus="txtPassword_GotFocus"
+                <PasswordBox x:Name="txtPassword"
+                             GotFocus="txtPassword_GotFocus"
                              PasswordChanged="txtPassword_OnPasswordChanged" />
-                <CheckBox x:Name="chkShowPassword" HorizontalAlignment="Right" VerticalAlignment="Center"
+                <CheckBox x:Name="chkShowPassword"
+                          HorizontalAlignment="Right"
+                          VerticalAlignment="Center"
                           ToolTip="Show password"
-                          Checked="chkShowPassword_Checked" Unchecked="chkShowPassword_Unchecked"
-                          Margin="0,4,4,4" VerticalContentAlignment="Center"
+                          Checked="chkShowPassword_Checked"
+                          Unchecked="chkShowPassword_Unchecked"
+                          Margin="0,4,4,4"
+                          VerticalContentAlignment="Center"
                           HorizontalContentAlignment="Center"
                           Visibility="{Binding PreventViewingPasswords, Source={x:Static p:Settings.Default}, Mode=OneWay, Converter={StaticResource BoolToCollapsedVisibilityConverter}}" />
             </Grid>
@@ -73,34 +104,52 @@
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsExpanded, RelativeSource={RelativeSource Self}}"
                                      Value="False">
-                            <Setter Property="Header" Value="More Options" />
+                            <Setter Property="Header"
+                                    Value="More Options" />
                         </DataTrigger>
                         <DataTrigger Binding="{Binding IsExpanded, RelativeSource={RelativeSource Self}}"
                                      Value="True">
-                            <Setter Property="Header" Value="Less Options" />
+                            <Setter Property="Header"
+                                    Value="Less Options" />
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Expander.Style>
-            <Grid IsSharedSizeScope="True" Margin="0,5,0,0">
+            <Grid IsSharedSizeScope="True"
+                  Margin="0,5,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="15" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                    <RowDefinition Height="Auto"
+                                   SharedSizeGroup="options" />
                     <RowDefinition Height="5" />
-                    <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                    <RowDefinition Height="Auto"
+                                   SharedSizeGroup="options" />
                     <RowDefinition Height="5" />
-                    <RowDefinition Height="Auto" SharedSizeGroup="options" />
+                    <RowDefinition Height="Auto"
+                                   SharedSizeGroup="options" />
                 </Grid.RowDefinitions>
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="Arguments:" />
-                <TextBox Grid.Row="0" Grid.Column="2" Text="{Binding Arguments, Mode=TwoWay}" />
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Color:" />
-                <xctk:ColorPicker Grid.Row="2" Grid.Column="2" SelectedColor="{Binding Color, Mode=TwoWay}" />
-                <TextBlock Grid.Row="4" Grid.Column="0" Text="Text Color:" />
-                <xctk:ColorPicker Grid.Row="4" Grid.Column="2" SelectedColor="{Binding TextColor, Mode=TwoWay}" />
+                <TextBlock Grid.Row="0"
+                           Grid.Column="0"
+                           Text="Arguments:" />
+                <TextBox Grid.Row="0"
+                         Grid.Column="2"
+                         Text="{Binding Arguments, Mode=TwoWay}" />
+                <TextBlock Grid.Row="2"
+                           Grid.Column="0"
+                           Text="Color:" />
+                <xctk:ColorPicker Grid.Row="2"
+                                  Grid.Column="2"
+                                  SelectedColor="{Binding Color, Mode=TwoWay}" />
+                <TextBlock Grid.Row="4"
+                           Grid.Column="0"
+                           Text="Text Color:" />
+                <xctk:ColorPicker Grid.Row="4"
+                                  Grid.Column="2"
+                                  SelectedColor="{Binding TextColor, Mode=TwoWay}" />
             </Grid>
         </Expander>
         <Grid Grid.Row="4">
@@ -112,12 +161,20 @@
             </Grid.ColumnDefinitions>
             <Grid.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Height" Value="23" />
-                    <Setter Property="Width" Value="75" />
+                    <Setter Property="Height"
+                            Value="23" />
+                    <Setter Property="Width"
+                            Value="75" />
                 </Style>
             </Grid.Resources>
-            <Button Grid.Column="1" Content="OK" Click="btnOK_Click" IsDefault="True" />
-            <Button Grid.Column="3" Content="Cancel" Click="btnCancel_Click" IsCancel="True" />
+            <Button Grid.Column="1"
+                    Content="OK"
+                    Click="btnOK_Click"
+                    IsDefault="True" />
+            <Button Grid.Column="3"
+                    Content="Cancel"
+                    Click="btnCancel_Click"
+                    IsCancel="True" />
         </Grid>
     </Grid>
 </Window>

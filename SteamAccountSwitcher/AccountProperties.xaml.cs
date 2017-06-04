@@ -15,7 +15,7 @@ namespace SteamAccountSwitcher
         {
             InitializeComponent();
             Title = $"{(account == null ? "Add" : "Edit")} Account";
-            NewAccount = account == null ? new Account() : (Account) account.Clone();
+            NewAccount = account == null ? new Account() : (Account)account.Clone();
             DataContext = NewAccount;
             txtPassword.Password = NewAccount.Password;
 

@@ -6,27 +6,38 @@
       xmlns:local="clr-namespace:SteamAccountSwitcher.OptionsPages"
       xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
-      mc:Ignorable="d" Title="Options">
+      mc:Ignorable="d"
+      Title="Options">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="15" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" HorizontalAlignment="Center" IsSharedSizeScope="True">
+        <Grid Grid.Row="0"
+              HorizontalAlignment="Center"
+              IsSharedSizeScope="True">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" SharedSizeGroup="AdvancedTools" />
+                <ColumnDefinition Width="Auto"
+                                  SharedSizeGroup="AdvancedTools" />
                 <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="Auto" SharedSizeGroup="AdvancedTools" />
+                <ColumnDefinition Width="Auto"
+                                  SharedSizeGroup="AdvancedTools" />
             </Grid.ColumnDefinitions>
             <Grid.Resources>
                 <Style TargetType="Button">
-                    <Setter Property="Padding" Value="15,0,15,0" />
-                    <Setter Property="Height" Value="23" />
+                    <Setter Property="Padding"
+                            Value="15,0,15,0" />
+                    <Setter Property="Height"
+                            Value="23" />
                 </Style>
             </Grid.Resources>
-            <Button Grid.Column="0" Content="Import Accounts..." Click="menuItemImport_OnClick" />
-            <Button Grid.Column="2" Content="Export Accounts..." Click="menuItemExport_OnClick" />
+            <Button Grid.Column="0"
+                    Content="Import Accounts..."
+                    Click="menuItemImport_OnClick" />
+            <Button Grid.Column="2"
+                    Content="Export Accounts..."
+                    Click="menuItemExport_OnClick" />
         </Grid>
         <xctk:PropertyGrid Grid.Row="2"
                            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
