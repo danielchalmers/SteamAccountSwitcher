@@ -116,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AboutViewModel.cs" />
     <Compile Include="Account.cs" />
     <Compile Include="AccountDataHelper.cs" />
     <Compile Include="AccountHelper.cs" />
@@ -137,12 +141,6 @@
     <Compile Include="Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OptionsPages\About.xaml.cs">
-      <DependentUpon>About.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OptionsPages\General.xaml.cs">
-      <DependentUpon>General.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Popup.cs" />
     <Compile Include="SaveTimer.cs" />
     <Compile Include="SettingsHelper.cs" />
@@ -151,6 +149,10 @@
     <Compile Include="SwitchWindowViewModel.cs" />
     <Compile Include="TrayIconHelper.cs" />
     <Compile Include="WindowPlacementHelper.cs" />
+    <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,14 +174,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Options.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OptionsPages\About.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="OptionsPages\General.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -239,9 +233,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\options.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\About.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico" />

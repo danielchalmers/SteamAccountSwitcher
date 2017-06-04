@@ -89,6 +89,7 @@
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
@@ -98,7 +99,15 @@
                 <Image Source="Resources/options.png"
                        Style="{StaticResource StyleToolImage}" />
             </Button>
-            <Button Grid.Column="2"
+            <Button Grid.Column="1"
+                    Command="{Binding About}"
+                    ToolTip="About">
+                <TextBlock Text="?"
+                           FontFamily="Microsoft Sans Serif"
+                           FontSize="16"
+                           FontWeight="Bold" />
+            </Button>
+            <Button Grid.Column="3"
                     Command="{Binding AddAccount}"
                     ToolTip="Add Account">
                 <Image Source="Resources/plus.png"

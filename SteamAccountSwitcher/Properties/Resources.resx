@@ -154,9 +154,6 @@
     <value>https://github.com/danielchalmers/SteamAccountSwitcher/commits</value>
     <comment>GitHub Commits</comment>
   </data>
-  <data name="About" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\about.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="GitHubIssues" xml:space="preserve">
     <value>https://github.com/danielchalmers/SteamAccountSwitcher/issues</value>
   </data>

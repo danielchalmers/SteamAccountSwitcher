@@ -61,24 +61,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ﻿{0} ({1})
-        ///
-        ///
-        ///Website: {2}
-        ///Source Code: {3}
-        ///Changes: {4}
-        ///Issues: {5}
-        ///
-        ///
-        ///{6}.
-        /// </summary>
-        public static string About {
-            get {
-                return ResourceManager.GetString("About", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to SteamAccountSwitcher.
         /// </summary>
         public static string AppPathName {

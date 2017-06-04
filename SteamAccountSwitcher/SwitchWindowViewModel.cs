@@ -24,6 +24,7 @@ namespace SteamAccountSwitcher
             Sort = new RelayCommand<string>(SortExecute);
 
             Options = new RelayCommand(OptionsExecute);
+            About = new RelayCommand(AboutExecute);
             AddAccount = new RelayCommand(AddAccountExecute);
 
             PreviewKeyDown = new RelayCommand<KeyEventArgs>(PreviewKeyDownExecute);
@@ -48,6 +49,7 @@ namespace SteamAccountSwitcher
         public ICommand Sort { get; set; }
 
         public ICommand Options { get; set; }
+        public ICommand About { get; set; }
         public ICommand AddAccount { get; set; }
 
         public ICommand PreviewKeyDown { get; set; }
@@ -85,6 +87,12 @@ namespace SteamAccountSwitcher
         private void OptionsExecute()
         {
             SettingsHelper.OpenOptions();
+        }
+
+        private void AboutExecute()
+        {
+            var aboutDialog = new About();
+            aboutDialog.ShowDialog();
         }
 
         private void AddAccountExecute()

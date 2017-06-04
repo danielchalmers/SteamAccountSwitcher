@@ -14,47 +14,137 @@
         MinHeight="400"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="15" />
-        </Grid.ColumnDefinitions>
+    <Grid Margin="15">
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="15" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <ListBox x:Name="NavBar"
-                 Grid.Column="1"
-                 Grid.Row="1"
-                 SelectionChanged="NavBar_OnSelectionChanged"
-                 SelectedIndex="{Binding OptionsIndex, Source={x:Static p:Settings.Default}, Mode=TwoWay}">
-            <ListBox.Resources>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Margin"
-                            Value="5" />
+        <Grid Grid.Row="0"
+              HorizontalAlignment="Center"
+              IsSharedSizeScope="True">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"
+                                  SharedSizeGroup="AdvancedTools" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="Auto"
+                                  SharedSizeGroup="AdvancedTools" />
+            </Grid.ColumnDefinitions>
+            <Grid.Resources>
+                <Style TargetType="Button">
                     <Setter Property="Padding"
                             Value="15,0,15,0" />
-                    <Setter Property="HorizontalAlignment"
-                            Value="Stretch" />
-                    <Setter Property="VerticalAlignment"
-                            Value="Center" />
                     <Setter Property="Height"
-                            Value="48" />
+                            Value="23" />
                 </Style>
-            </ListBox.Resources>
-        </ListBox>
-        <Frame x:Name="OptionsFrame"
-               Grid.Column="3"
-               Grid.Row="1"
-               NavigationUIVisibility="Hidden" />
-        <Grid Grid.Column="0"
-              Grid.ColumnSpan="5"
-              Grid.Row="2"
-              Margin="15">
+            </Grid.Resources>
+            <Button Grid.Column="0"
+                    Content="Import Accounts..."
+                    Click="menuItemImport_OnClick" />
+            <Button Grid.Column="2"
+                    Content="Export Accounts..."
+                    Click="menuItemExport_OnClick" />
+        </Grid>
+        <xctk:PropertyGrid Grid.Row="2"
+                           SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
+                           NameColumnWidth="{Binding PropertyGridNameColumnWidth, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+                           AutoGenerateProperties="False"
+                           Background="{x:Static SystemColors.WindowBrush}"
+                           IsCategorized="{Binding PropertyGridIsCategorized, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+                           Filter="{Binding OptionsFilter, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+                           ShowSortOptions="True"
+                           ShowSummary="False"
+                           ShowTitle="False"
+                           ShowAdvancedOptions="False">
+            <xctk:PropertyGrid.PropertyDefinitions>
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="RunOnStartup"
+                                         DisplayName="Run on Startup"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="AlwaysOn"
+                                         DisplayName="Run in Tray"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="ExitOnSwitch"
+                                         DisplayName="Close Window on Switch"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="NumberHotkeys"
+                                         DisplayName="Numbered Account Hotkeys"
+                                         DisplayOrder="3" />
+
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="BigPictureMode"
+                                         DisplayName="Big Picture Mode"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="StartSteamMinimized"
+                                         DisplayName="Start Minimized"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="OnStartLoginName"
+                                         DisplayName="System Startup Login Username"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="SteamPath"
+                                         DisplayName="Steam.exe Path"
+                                         DisplayOrder="3" />
+                <xctk:PropertyDefinition Category=" Steam"
+                                         TargetProperties="SteamLaunchArgs"
+                                         DisplayName="Global Launch Arguments"
+                                         DisplayOrder="4" />
+
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="SwitchWindowKeepCentered"
+                                         DisplayName="Window Center on Launch"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="Width"
+                                         DisplayName="Window Width (px)"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="WindowColor"
+                                         DisplayName="Window Background Color"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="ButtonHeight"
+                                         DisplayName="Account Height (px)"
+                                         DisplayOrder="3" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="ButtonFontSize"
+                                         DisplayName="Account Font Size"
+                                         DisplayOrder="4" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="DefaultButtonColor"
+                                         DisplayName="Account Default Background Color"
+                                         DisplayOrder="5" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="DefaultButtonTextColor"
+                                         DisplayName="Account Default Text Color"
+                                         DisplayOrder="6" />
+
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="ColorCodeAccountMenuItems"
+                                         DisplayName="Color Code Account Menu Items"
+                                         DisplayOrder="0" />
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="MultiInstance"
+                                         DisplayName="Allow Multiple Instances"
+                                         DisplayOrder="1" />
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="PreventViewingPasswords"
+                                         DisplayName="Prevent Viewing Passwords"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category="Advanced"
+                                         TargetProperties="StartSteamMinimizedOnlyOnStartup"
+                                         DisplayName="Start Steam Minimized Only On Startup"
+                                         DisplayOrder="3" />
+            </xctk:PropertyGrid.PropertyDefinitions>
+        </xctk:PropertyGrid>
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />

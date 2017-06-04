@@ -12,15 +12,12 @@ namespace SteamAccountSwitcher
 {
     public static class AssemblyInfo
     {
-        private static Version Version { get; } = ApplicationDeployment.IsNetworkDeployed
+        public static Version Version { get; } = ApplicationDeployment.IsNetworkDeployed
             ? ApplicationDeployment.CurrentDeployment.CurrentVersion
             : Assembly.GetExecutingAssembly().GetName().Version;
 
-        private static string Copyright { get; } = GetAssemblyAttribute<AssemblyCopyrightAttribute>(a => a.Copyright);
+        public static string Copyright { get; } = GetAssemblyAttribute<AssemblyCopyrightAttribute>(a => a.Copyright);
         public static string Title { get; } = GetAssemblyAttribute<AssemblyTitleAttribute>(a => a.Title);
-
-        public static string CustomDescription { get; } = string.Format(Resources.About, Title, Version,
-            Resources.Website, Resources.GitHubMainPage, Resources.GitHubCommits, Resources.GitHubIssues, Copyright);
 
         public static string Guid { get; } = GetAssemblyAttribute<GuidAttribute>(a => a.Value);
 
