@@ -26,6 +26,12 @@
                  Background="Transparent"
                  BorderThickness="0" />
         <Button Grid.Row="2"
+                Content="_Licenses"
+                Command="{Binding ViewLicenses}"
+                Width="75"
+                Height="23"
+                HorizontalAlignment="Left" />
+        <Button Grid.Row="2"
                 Content="_OK"
                 Click="btnOK_OnClick"
                 IsDefault="True"
