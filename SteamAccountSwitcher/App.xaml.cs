@@ -32,7 +32,6 @@ namespace SteamAccountSwitcher
         }
 
         public static ObservableCollection<Account> Accounts { get; set; }
-        private static bool SuccessfullyLoaded { get; set; }
         public static bool IsShuttingDown { get; set; }
 
         protected override void OnStartup(StartupEventArgs e)
@@ -57,7 +56,6 @@ namespace SteamAccountSwitcher
                 return;
             }
             MainWindow = SwitchWindow;
-            SuccessfullyLoaded = true;
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -76,16 +74,8 @@ namespace SteamAccountSwitcher
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Popup.Show(
-                SuccessfullyLoaded
-                    ? $"An unhandled exception occurred:\n\n{e.Exception}"
-                    : $"A critical exception occurred:\n\n{e.Exception}\n\nApplication will now exit.",
+            Popup.Show($"An unhandled exception occurred:\n\n{e.Exception}",
                 MessageBoxButton.OK, MessageBoxImage.Error);
-            e.Handled = true;
-            if (!SuccessfullyLoaded)
-            {
-                AppHelper.ShutdownApplication();
-            }
         }
 
         public static void Settings_OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
