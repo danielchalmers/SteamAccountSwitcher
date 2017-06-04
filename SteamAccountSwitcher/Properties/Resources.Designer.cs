@@ -79,15 +79,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Steam Account Switcher.
-        /// </summary>
-        public static string AppName {
-            get {
-                return ResourceManager.GetString("AppName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to SteamAccountSwitcher.
         /// </summary>
         public static string AppPathName {

@@ -17,7 +17,7 @@ namespace SteamAccountSwitcher
             : Assembly.GetExecutingAssembly().GetName().Version;
 
         private static string Copyright { get; } = GetAssemblyAttribute<AssemblyCopyrightAttribute>(a => a.Copyright);
-        private static string Title { get; } = GetAssemblyAttribute<AssemblyTitleAttribute>(a => a.Title);
+        public static string Title { get; } = GetAssemblyAttribute<AssemblyTitleAttribute>(a => a.Title);
 
         public static string CustomDescription { get; } = string.Format(Resources.About, Title, Version,
             Resources.Website, Resources.GitHubMainPage, Resources.GitHubCommits, Resources.GitHubIssues, Copyright);

@@ -138,9 +138,6 @@
   <data name="SteamShutdownArgument" xml:space="preserve">
     <value>-shutdown</value>
   </data>
-  <data name="AppName" xml:space="preserve">
-    <value>Steam Account Switcher</value>
-  </data>
   <data name="AppPathName" xml:space="preserve">
     <value>SteamAccountSwitcher</value>
   </data>

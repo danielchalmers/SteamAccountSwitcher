@@ -1,7 +1,6 @@
 ﻿#region
 
 using System.Windows;
-using SteamAccountSwitcher.Properties;
 
 #endregion
 
@@ -14,7 +13,7 @@ namespace SteamAccountSwitcher
         {
             try
             {
-                return MessageBox.Show(text, Resources.AppName, button, image, defaultButton);
+                return MessageBox.Show(text, AssemblyInfo.Title, button, image, defaultButton);
             }
             catch
             {

@@ -15,7 +15,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <TextBlock Grid.Row="0"
-                   Text="{x:Static properties:Resources.AppName}"
+                   Text="{x:Static steamAccountSwitcher:AssemblyInfo.Title}"
                    FontSize="24"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Left" />

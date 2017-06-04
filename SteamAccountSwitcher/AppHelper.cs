@@ -14,7 +14,7 @@ namespace SteamAccountSwitcher
     {
         private static readonly string AppPath =
             IsUpdateable
-                ? $"\"{Environment.GetFolderPath(Environment.SpecialFolder.Programs)}\\Daniel Chalmers\\{Resources.AppName}.appref-ms\""
+                ? $"\"{Environment.GetFolderPath(Environment.SpecialFolder.Programs)}\\Daniel Chalmers\\{AssemblyInfo.Title}.appref-ms\""
                 : Application.ResourceAssembly.Location;
 
         private static bool IsUpdateable => ApplicationDeployment.IsNetworkDeployed;
