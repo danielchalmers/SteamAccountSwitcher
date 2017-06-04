@@ -1,7 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)"
-              GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="SteamPath" Type="System.String" Scope="User">
@@ -48,12 +46,6 @@
     </Setting>
     <Setting Name="NumberHotkeys" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="SwitchWindowLeft" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">NaN</Value>
-    </Setting>
-    <Setting Name="SwitchWindowTop" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">NaN</Value>
     </Setting>
     <Setting Name="SwitchWindowKeepCentered" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -108,6 +100,9 @@
     </Setting>
     <Setting Name="SteamLogoutTimeoutInterval" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">50</Value>
+    </Setting>
+    <Setting Name="SwitchWindowPlacement" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

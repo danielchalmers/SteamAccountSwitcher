@@ -30,6 +30,15 @@ namespace SteamAccountSwitcher
             AccountView.DataContext = App.Accounts;
         }
 
+        private void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Settings.Default.SwitchWindowPlacement) &&
+                !Settings.Default.SwitchWindowKeepCentered)
+            {
+                this.SetPlacement(Settings.Default.SwitchWindowPlacement);
+            }
+        }
+
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             if (App.IsShuttingDown)
@@ -42,6 +51,7 @@ namespace SteamAccountSwitcher
                 HideWindow();
                 return;
             }
+            Settings.Default.SwitchWindowPlacement = this.GetPlacement();
             AppHelper.ShutdownApplication();
         }
 

@@ -11,13 +11,12 @@
         mc:Ignorable="d"
         SizeToContent="Height"
         ResizeMode="CanMinimize"
+        SourceInitialized="Window_SourceInitialized"
         Closing="Window_Closing"
         Icon="icon.ico"
         MinWidth="100"
         Title="{x:Static local:AssemblyInfo.Title}"
-        Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
-        Left="{Binding SwitchWindowLeft, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
-        Top="{Binding SwitchWindowTop, Source={x:Static p:Settings.Default}, Mode=TwoWay}">
+        Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=TwoWay}">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewKeyDown">
             <command:EventToCommand Command="{Binding PreviewKeyDown}"

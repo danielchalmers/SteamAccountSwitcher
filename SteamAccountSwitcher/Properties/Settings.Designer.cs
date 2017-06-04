@@ -12,7 +12,7 @@ namespace SteamAccountSwitcher.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -200,30 +200,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["NumberHotkeys"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
-        public double SwitchWindowLeft {
-            get {
-                return ((double)(this["SwitchWindowLeft"]));
-            }
-            set {
-                this["SwitchWindowLeft"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NaN")]
-        public double SwitchWindowTop {
-            get {
-                return ((double)(this["SwitchWindowTop"]));
-            }
-            set {
-                this["SwitchWindowTop"] = value;
             }
         }
         
@@ -434,6 +410,18 @@ namespace SteamAccountSwitcher.Properties {
         public int SteamLogoutTimeoutInterval {
             get {
                 return ((int)(this["SteamLogoutTimeoutInterval"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SwitchWindowPlacement {
+            get {
+                return ((string)(this["SwitchWindowPlacement"]));
+            }
+            set {
+                this["SwitchWindowPlacement"] = value;
             }
         }
     }

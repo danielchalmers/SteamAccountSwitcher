@@ -150,6 +150,7 @@
     <Compile Include="SwitchWindowHelper.cs" />
     <Compile Include="SwitchWindowViewModel.cs" />
     <Compile Include="TrayIconHelper.cs" />
+    <Compile Include="WindowPlacementHelper.cs" />
     <Page Include="AccountProperties.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
