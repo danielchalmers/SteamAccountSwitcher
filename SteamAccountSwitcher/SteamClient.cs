@@ -1,14 +1,10 @@
-﻿#region
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {
@@ -18,7 +14,8 @@ namespace SteamAccountSwitcher
         {
             if (!ResolvePath())
             {
-                Popup.Show("Steam.exe could not be found.\n\nPlease enter the correct path in options.",
+                Popup.Show("Steam.exe could not be found.\n\n" +
+                    "Please enter the correct path in options.",
                     image: MessageBoxImage.Warning);
                 return;
             }

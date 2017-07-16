@@ -1,6 +1,4 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Deployment.Application;
@@ -10,8 +8,6 @@ using System.Windows;
 using System.Windows.Threading;
 using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {
@@ -74,7 +70,8 @@ namespace SteamAccountSwitcher
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Popup.Show($"An unhandled exception occurred:\n\n{e.Exception}",
+            Popup.Show("An unhandled exception occurred:\n\n" +
+                e.Exception,
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 

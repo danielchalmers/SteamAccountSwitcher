@@ -1,11 +1,7 @@
-﻿#region
-
-using System.Linq;
+﻿using System.Linq;
 using System.Threading;
 using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {

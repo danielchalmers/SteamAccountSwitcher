@@ -14,7 +14,8 @@ namespace SteamAccountSwitcher
 
         public static void ShowRunningInTrayBalloon()
         {
-            ShowTrayBalloon("Running in tray\nDouble click icon to open", BalloonIcon.Info);
+            ShowTrayBalloon("Running in tray\n" +
+                "Double click icon to open", BalloonIcon.Info);
         }
 
         private static void ShowTrayBalloon(string text, BalloonIcon icon)

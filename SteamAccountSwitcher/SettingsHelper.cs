@@ -1,11 +1,7 @@
-﻿#region
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using Newtonsoft.Json;
 using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {
@@ -30,7 +26,8 @@ namespace SteamAccountSwitcher
         public static void ResetSettings(bool msg = true)
         {
             if (msg && Popup.Show(
-                "Are you sure you want to reset ALL settings (including accounts)?\n\nThis cannot be undone.",
+                "Are you sure you want to reset ALL settings (including accounts)?\n\n" +
+                "This cannot be undone.",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
             {
                 return;

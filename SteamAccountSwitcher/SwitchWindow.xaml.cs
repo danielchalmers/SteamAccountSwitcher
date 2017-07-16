@@ -1,12 +1,8 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {

@@ -1,12 +1,7 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Deployment.Application;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {

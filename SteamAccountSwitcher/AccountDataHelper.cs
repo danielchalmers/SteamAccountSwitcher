@@ -1,13 +1,9 @@
-﻿#region
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
-
-#endregion
 
 namespace SteamAccountSwitcher
 {
@@ -37,7 +33,8 @@ namespace SteamAccountSwitcher
             {
                 App.Accounts = new ObservableCollection<Account>();
                 Popup.Show(
-                    "Existing account data is corrupt.\n\nAll accounts have been reset.",
+                    "Existing account data is corrupt.\n\n" +
+                    "All accounts have been reset.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
             App.Accounts.CollectionChanged += (sender, args) =>
@@ -76,12 +73,14 @@ namespace SteamAccountSwitcher
             catch
             {
                 Popup.Show(
-                    "Import failed. Data may be corrupt.\n\nNo changes have been made.",
+                    "Import failed. Data may be corrupt.\n\n" +
+                    "No changes have been made.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (Popup.Show(
-                "Are you sure you want to overwrite all current accounts?\n\nThis cannot be reversed.",
+                "Are you sure you want to overwrite all current accounts?\n\n" +
+                "This cannot be reversed.",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) != MessageBoxResult.Yes)
             {
                 return;
