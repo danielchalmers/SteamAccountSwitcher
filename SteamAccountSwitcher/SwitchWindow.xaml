@@ -32,10 +32,7 @@
         <local:SwitchWindowViewModel />
     </Window.DataContext>
     <Window.Background>
-        <Binding Source="{x:Static p:Settings.Default}"
-                 Path="WindowColor"
-                 Mode="OneWay"
-                 Converter="{converters:ColorToSolidBrushConverter}" />
+        <SolidColorBrush Color="{Binding WindowColor, Source={x:Static p:Settings.Default}}" />
     </Window.Background>
     <Window.InputBindings>
         <KeyBinding Command="{Binding AddAccount}"
@@ -66,9 +63,13 @@
                                 Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
                                 HorizontalAlignment="Stretch"
                                 VerticalAlignment="Stretch"
-                                Background="{Binding Color, Converter={converters:ColorToSolidBrushConverter}}"
-                                Foreground="{Binding TextColor, Converter={converters:ColorToSolidBrushConverter}}"
                                 FontSize="{Binding ButtonFontSize, Source={x:Static p:Settings.Default}}">
+                            <Button.Background>
+                                <SolidColorBrush Color="{Binding Color}" />
+                            </Button.Background>
+                            <Button.Foreground>
+                                <SolidColorBrush Color="{Binding TextColor}" />
+                            </Button.Foreground>
                             <Button.BorderBrush>
                                 <SolidColorBrush Color="Gray"
                                                  Opacity="0.5" />
