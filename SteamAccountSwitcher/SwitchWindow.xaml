@@ -37,6 +37,11 @@
                  Mode="OneWay"
                  Converter="{converters:ColorToSolidBrushConverter}" />
     </Window.Background>
+    <Window.InputBindings>
+        <KeyBinding Command="{Binding AddAccount}"
+                    Key="A"
+                    Modifiers="Ctrl+Shift" />
+    </Window.InputBindings>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -103,7 +108,7 @@
                     Foreground="DarkOrange" />
             <Button Grid.Column="3"
                     Command="{Binding AddAccount}"
-                    ToolTip="Add Account"
+                    ToolTip="Add Account (Ctrl+Shift+A)"
                     Content="➕"
                     Foreground="LimeGreen" />
         </Grid>
