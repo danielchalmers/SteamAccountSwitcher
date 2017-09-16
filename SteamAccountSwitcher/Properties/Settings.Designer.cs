@@ -12,7 +12,7 @@ namespace SteamAccountSwitcher.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -200,18 +200,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["NumberHotkeys"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool SwitchWindowKeepCentered {
-            get {
-                return ((bool)(this["SwitchWindowKeepCentered"]));
-            }
-            set {
-                this["SwitchWindowKeepCentered"] = value;
             }
         }
         
@@ -422,6 +410,18 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["SwitchWindowPlacement"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool SwitchWindowRememberPosition {
+            get {
+                return ((bool)(this["SwitchWindowRememberPosition"]));
+            }
+            set {
+                this["SwitchWindowRememberPosition"] = value;
             }
         }
     }

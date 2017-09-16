@@ -47,9 +47,6 @@
     <Setting Name="NumberHotkeys" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="SwitchWindowKeepCentered" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFF0F0F0</Value>
     </Setting>
@@ -103,6 +100,9 @@
     </Setting>
     <Setting Name="SwitchWindowPlacement" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SwitchWindowRememberPosition" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

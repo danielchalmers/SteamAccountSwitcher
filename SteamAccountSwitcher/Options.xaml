@@ -98,8 +98,8 @@
                                          DisplayOrder="4" />
 
                 <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="SwitchWindowKeepCentered"
-                                         DisplayName="Window Center on Launch"
+                                         TargetProperties="SwitchWindowRememberPosition"
+                                         DisplayName="Remember Position"
                                          DisplayOrder="0" />
                 <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="Width"

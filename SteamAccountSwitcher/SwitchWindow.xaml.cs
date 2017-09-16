@@ -14,9 +14,10 @@ namespace SteamAccountSwitcher
         public SwitchWindow()
         {
             InitializeComponent();
-            WindowStartupLocation = Settings.Default.SwitchWindowKeepCentered
-                ? WindowStartupLocation.CenterScreen
-                : WindowStartupLocation.Manual;
+            WindowStartupLocation = Settings.Default.SwitchWindowRememberPosition
+                ? WindowStartupLocation.Manual
+                : WindowStartupLocation.CenterScreen
+;
             ReloadAccountListBinding();
         }
 
@@ -29,7 +30,7 @@ namespace SteamAccountSwitcher
         private void Window_SourceInitialized(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Settings.Default.SwitchWindowPlacement) &&
-                !Settings.Default.SwitchWindowKeepCentered)
+                Settings.Default.SwitchWindowRememberPosition)
             {
                 this.SetPlacement(Settings.Default.SwitchWindowPlacement);
             }
