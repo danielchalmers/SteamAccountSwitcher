@@ -6,18 +6,11 @@ namespace SteamAccountSwitcher
 {
     public static class AssemblyInfo
     {
-        public static Version Version { get; } = Assembly.GetExecutingAssembly().GetName().Version;
+        private static Assembly _assembly { get; } = Assembly.GetExecutingAssembly();
 
-        public static string Copyright { get; } = GetAssemblyAttribute<AssemblyCopyrightAttribute>(a => a.Copyright);
-        public static string Title { get; } = GetAssemblyAttribute<AssemblyTitleAttribute>(a => a.Title);
-
-        public static string Guid { get; } = GetAssemblyAttribute<GuidAttribute>(a => a.Value);
-
-        private static string GetAssemblyAttribute<T>(Func<T, string> value)
-            where T : Attribute
-        {
-            var attribute = (T)Attribute.GetCustomAttribute(Assembly.GetExecutingAssembly(), typeof(T));
-            return value.Invoke(attribute);
-        }
+        public static string Copyright { get; } = _assembly.GetCustomAttribute<AssemblyCopyrightAttribute>().Copyright;
+        public static string Guid { get; } = _assembly.GetCustomAttribute<GuidAttribute>().Value;
+        public static string Title { get; } = _assembly.GetCustomAttribute<AssemblyTitleAttribute>().Title;
+        public static Version Version { get; } = _assembly.GetName().Version;
     }
 }
