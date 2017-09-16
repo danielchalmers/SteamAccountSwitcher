@@ -58,11 +58,6 @@ namespace SteamAccountSwitcher
             {
                 return;
             }
-            if (string.IsNullOrWhiteSpace(dialog.FileName) || !File.Exists(dialog.FileName))
-            {
-                Popup.Show("File doesn't exist.", image: MessageBoxImage.Error);
-                return;
-            }
             var fileContent = File.ReadAllText(dialog.FileName);
             try
             {
