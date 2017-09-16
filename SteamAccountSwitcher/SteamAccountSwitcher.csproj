@@ -130,7 +130,6 @@
     <Compile Include="ConverterHelper.cs" />
     <Compile Include="Converters\AccountToVisibleNameConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
-    <Compile Include="Converters\BoolToCollapsedVisibilityConverter.cs" />
     <Compile Include="Converters\NumberToIncrementedConverter.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="KeyHelper.cs" />
