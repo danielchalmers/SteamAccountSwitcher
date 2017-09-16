@@ -10,10 +10,6 @@ namespace SteamAccountSwitcher.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!ConverterHelper.IsValueValid(value))
-            {
-                return DependencyProperty.UnsetValue;
-            }
             return (bool)value ? Visibility.Visible : Visibility.Collapsed;
         }
 

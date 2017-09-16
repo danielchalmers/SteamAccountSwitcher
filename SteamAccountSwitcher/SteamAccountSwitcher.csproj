@@ -127,7 +127,6 @@
     </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="AppHelper.cs" />
-    <Compile Include="ConverterHelper.cs" />
     <Compile Include="Converters\AccountToVisibleNameConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\NumberToIncrementedConverter.cs" />

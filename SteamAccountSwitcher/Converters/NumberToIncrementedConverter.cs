@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
 
@@ -10,10 +9,6 @@ namespace SteamAccountSwitcher.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (!ConverterHelper.IsValueValid(value))
-            {
-                return DependencyProperty.UnsetValue;
-            }
             return (int)value + 1;
         }
 
