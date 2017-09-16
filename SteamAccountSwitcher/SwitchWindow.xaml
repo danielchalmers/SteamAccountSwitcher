@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
+        xmlns:converters="clr-namespace:SteamAccountSwitcher.Converters"
         xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
@@ -30,16 +31,11 @@
     <Window.DataContext>
         <local:SwitchWindowViewModel />
     </Window.DataContext>
-    <Window.Resources>
-        <local:AccountToVisibleNameConverter x:Key="AccountToVisibleNameConverter" />
-        <local:ColorToSolidBrushConverter x:Key="ColorToSolidBrushConverter" />
-        <local:NumberToIncrementedConverter x:Key="NumberToIncrementedConverter" />
-    </Window.Resources>
     <Window.Background>
         <Binding Source="{x:Static p:Settings.Default}"
                  Path="WindowColor"
                  Mode="OneWay"
-                 Converter="{StaticResource ColorToSolidBrushConverter}" />
+                 Converter="{converters:ColorToSolidBrushConverter}" />
     </Window.Background>
     <Grid>
         <Grid.RowDefinitions>
@@ -61,16 +57,16 @@
                         </i:Interaction.Triggers>
                         <Button Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 CommandParameter="{Binding}"
-                                Content="{Binding Converter={StaticResource AccountToVisibleNameConverter}}"
-                                Background="{Binding Color, Converter={StaticResource ColorToSolidBrushConverter}}"
-                                Foreground="{Binding TextColor, Converter={StaticResource ColorToSolidBrushConverter}}"
+                                Content="{Binding Converter={converters:AccountToVisibleNameConverter}}"
+                                Background="{Binding Color, Converter={converters:ColorToSolidBrushConverter}}"
+                                Foreground="{Binding TextColor, Converter={converters:ColorToSolidBrushConverter}}"
                                 FontSize="{Binding ButtonFontSize, Source={x:Static p:Settings.Default}}" />
                         <TextBlock Style="{StaticResource StyleHelperText}"
-                                   Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource NumberToIncrementedConverter}}" />
+                                   Text="{Binding (ItemsControl.AlternationIndex), RelativeSource={RelativeSource TemplatedParent}, Converter={converters:NumberToIncrementedConverter}}" />
                         <Button Style="{StaticResource StyleHelperButton}"
                                 Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 CommandParameter="{Binding}"
-                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={converters:BooleanToVisibilityConverter}}">
                             <Image Source="Resources/options.png"
                                    Style="{StaticResource StyleToolImage}" />
                         </Button>
