@@ -91,8 +91,7 @@
                           Unchecked="chkShowPassword_Unchecked"
                           Margin="0,4,4,4"
                           VerticalContentAlignment="Center"
-                          HorizontalContentAlignment="Center"
-                          Visibility="{Binding PreventViewingPasswords, Source={x:Static p:Settings.Default}, Mode=OneWay, Converter={converters:BoolToCollapsedVisibilityConverter}}" />
+                          HorizontalContentAlignment="Center" />
             </Grid>
         </Grid>
         <Expander Grid.Row="2"

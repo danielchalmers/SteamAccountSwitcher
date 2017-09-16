@@ -50,9 +50,6 @@
     <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFF0F0F0</Value>
     </Setting>
-    <Setting Name="PreventViewingPasswords" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="PropertyGridNameColumnWidth" Type="System.Double" Scope="User">
       <Value Profile="(Default)">200</Value>
     </Setting>

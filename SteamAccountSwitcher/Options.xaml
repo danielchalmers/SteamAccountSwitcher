@@ -135,13 +135,9 @@
                                          DisplayName="Allow Multiple Instances"
                                          DisplayOrder="1" />
                 <xctk:PropertyDefinition Category="Advanced"
-                                         TargetProperties="PreventViewingPasswords"
-                                         DisplayName="Prevent Viewing Passwords"
-                                         DisplayOrder="2" />
-                <xctk:PropertyDefinition Category="Advanced"
                                          TargetProperties="StartSteamMinimizedOnlyOnStartup"
                                          DisplayName="Start Steam Minimized Only On Startup"
-                                         DisplayOrder="3" />
+                                         DisplayOrder="2" />
             </xctk:PropertyGrid.PropertyDefinitions>
         </xctk:PropertyGrid>
         <Grid Grid.Row="4">
