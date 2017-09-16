@@ -5,11 +5,31 @@
                     xmlns:converters="clr-namespace:SteamAccountSwitcher.Converters">
 
     <Style TargetType="{x:Type Button}"
-           x:Key="StyleHelperButton">
+           x:Key="StyleToolButton">
         <Setter Property="Width"
                 Value="24" />
         <Setter Property="Height"
                 Value="24" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="FontWeight"
+                Value="Bold" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Viewbox Stretch="Uniform"
+                             Margin="1"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center">
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Viewbox>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type Button}"
+           x:Key="StyleHelperButton"
+           BasedOn="{StaticResource StyleToolButton}">
         <Setter Property="MaxWidth"
                 Value="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}" />
         <Setter Property="MaxHeight"
@@ -20,6 +40,10 @@
                 Value="Right" />
         <Setter Property="ToolTip"
                 Value="Account Options" />
+        <Setter Property="Content"
+                Value="🔧" />
+        <Setter Property="Foreground"
+                Value="Gray" />
     </Style>
     <Style TargetType="{x:Type TextBlock}"
            x:Key="StyleHelperText">

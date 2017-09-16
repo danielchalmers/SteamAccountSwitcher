@@ -66,22 +66,15 @@
                         <Button Style="{StaticResource StyleHelperButton}"
                                 Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 CommandParameter="{Binding}"
-                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={converters:BooleanToVisibilityConverter}}">
-                            <Image Source="Resources/options.png"
-                                   Style="{StaticResource StyleToolImage}" />
-                        </Button>
+                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={converters:BooleanToVisibilityConverter}}" />
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
         <Grid Grid.Row="1">
             <Grid.Resources>
-                <Style TargetType="{x:Type Button}">
-                    <Setter Property="Width"
-                            Value="24" />
-                    <Setter Property="Height"
-                            Value="24" />
-                </Style>
+                <Style TargetType="{x:Type Button}"
+                       BasedOn="{StaticResource StyleToolButton}" />
             </Grid.Resources>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -91,24 +84,20 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Command="{Binding Options}"
-                    ToolTip="Options">
-                <Image Source="Resources/options.png"
-                       Style="{StaticResource StyleToolImage}" />
-            </Button>
+                    ToolTip="Options"
+                    Content="🔧"
+                    Foreground="Gray" />
             <Button Grid.Column="1"
                     Command="{Binding About}"
-                    ToolTip="About">
-                <TextBlock Text="?"
-                           FontFamily="Microsoft Sans Serif"
-                           FontSize="16"
-                           FontWeight="Bold" />
-            </Button>
+                    ToolTip="About"
+                    Content="?"
+                    FontFamily="Microsoft Sans Serif"
+                    Foreground="DarkOrange" />
             <Button Grid.Column="3"
                     Command="{Binding AddAccount}"
-                    ToolTip="Add Account">
-                <Image Source="Resources/plus.png"
-                       Style="{StaticResource StyleToolImage}" />
-            </Button>
+                    ToolTip="Add Account"
+                    Content="➕"
+                    Foreground="LimeGreen" />
         </Grid>
     </Grid>
 </Window>
