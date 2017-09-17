@@ -58,7 +58,8 @@ namespace SteamAccountSwitcher
             {"Extended WPF Toolkit", "https://wpftoolkit.codeplex.com"},
             {"NotifyIcon", "http://www.hardcodet.net/wpf-notifyicon"},
             {"MVVM Light", "http://galasoft.ch/mvvm"},
-            {"Json.NET", "http://www.newtonsoft.com/json"}
+            {"Json.NET", "http://www.newtonsoft.com/json"},
+            {"WpfWindowPlacement", "https://github.com/danielchalmers/WpfWindowPlacement"}
         };
 
         public static string LicensesDirectory { get; } = Path.Combine(
