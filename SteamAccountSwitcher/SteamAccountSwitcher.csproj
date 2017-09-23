@@ -230,24 +230,24 @@
     <Resource Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\Licenses\Common Service Locator.txt">
+    <None Include="Resources\Licenses\Common Service Locator.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Licenses\Extended WPF Toolkit.txt">
+    </None>
+    <None Include="Resources\Licenses\Extended WPF Toolkit.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Licenses\Json.NET.txt">
+    </None>
+    <None Include="Resources\Licenses\Json.NET.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Licenses\MVVM Light.txt">
+    </None>
+    <None Include="Resources\Licenses\MVVM Light.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Licenses\WpfWindowPlacement.txt">
+    </None>
+    <None Include="Resources\Licenses\WpfWindowPlacement.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Licenses\NotifyIcon.txt">
+    </None>
+    <None Include="Resources\Licenses\NotifyIcon.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
