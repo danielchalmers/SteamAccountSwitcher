@@ -8,7 +8,7 @@
         Title="{Binding Title}"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="CanMinimize">
+        ResizeMode="NoResize">
     <Window.DataContext>
         <local:AboutViewModel />
     </Window.DataContext>
