@@ -33,6 +33,11 @@
                            Website="https://github.com/unitycontainer/commonservicelocator"
                            License="Resources\Licenses\Common Service Locator.txt" />
 
+                <av:Credit Name="Fody, Costura.Fody"
+                           Author="Simon Cropp &amp; contributors"
+                           Website="https://github.com/Fody/Costura"
+                           License="Resources\Licenses\Costura.Fody.txt" />
+
                 <av:Credit Name="Extended WPF Toolkit"
                            Author="Xceed"
                            Website="https://github.com/xceedsoftware/wpftoolkit"
