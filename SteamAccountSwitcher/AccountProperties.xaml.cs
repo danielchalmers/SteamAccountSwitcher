@@ -14,8 +14,6 @@ namespace SteamAccountSwitcher
             NewAccount = account == null ? new Account() : (Account)account.Clone();
             DataContext = NewAccount;
             txtPassword.Password = NewAccount.Password;
-
-            txtAlias.Focus();
         }
 
         public Account NewAccount { get; }
