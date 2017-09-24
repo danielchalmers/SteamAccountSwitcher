@@ -4,33 +4,66 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
+        xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView"
         mc:Ignorable="d"
-        Title="{Binding Title}"
         SizeToContent="WidthAndHeight"
         WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
-    <Window.DataContext>
-        <local:AboutViewModel />
-    </Window.DataContext>
+    <Window.Title>
+        <MultiBinding StringFormat="{}About {0}">
+            <Binding Source="{x:Static local:AssemblyInfo.Title}" />
+        </MultiBinding>
+    </Window.Title>
     <Grid Margin="15">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <TextBox Grid.Row="0"
-                 Text="{Binding Text, Mode=OneWay}"
-                 VerticalAlignment="Center"
-                 TextWrapping="Wrap"
-                 IsReadOnly="True"
-                 Background="Transparent"
-                 BorderThickness="0" />
-        <Button Grid.Row="2"
-                Content="_Licenses"
-                Command="{Binding ViewLicenses}"
-                Width="75"
-                Height="23"
-                HorizontalAlignment="Left" />
+        <av:AboutView Grid.Row="0"
+                      AppIconSource="pack://application:,,,/icon.ico">
+            <av:AboutView.Credits>
+                <av:Credit Name="{x:Static local:AssemblyInfo.Title}"
+                           Author="{x:Static local:AssemblyInfo.Company}"
+                           Website="https://github.com/danielchalmers/SteamAccountSwitcher"
+                           License="Resources\Licenses\Steam Account Switcher.txt" />
+
+                <av:Credit Name="Common Service Locator"
+                           Author="Microsoft"
+                           Website="https://github.com/unitycontainer/commonservicelocator"
+                           License="Resources\Licenses\Common Service Locator.txt" />
+
+                <av:Credit Name="Extended WPF Toolkit"
+                           Author="Xceed"
+                           Website="https://github.com/xceedsoftware/wpftoolkit"
+                           License="Resources\Licenses\Extended WPF Toolkit.txt" />
+
+                <av:Credit Name="WPF NotifyIcon"
+                           Author="Philipp Sumi"
+                           Website="http://hardcodet.net/wpf-notifyicon"
+                           License="Resources\Licenses\NotifyIcon.txt" />
+
+                <av:Credit Name="MVVM Light"
+                           Author="GalaSoft"
+                           Website="http://galasoft.ch/mvvm"
+                           License="Resources\Licenses\MVVM Light.txt" />
+
+                <av:Credit Name="Json.NET"
+                           Author="James Newton-King"
+                           Website="http://newtonsoft.com/json"
+                           License="Resources\Licenses\Json.NET.txt" />
+
+                <av:Credit Name="WpfAboutView"
+                           Author="Daniel Chalmers"
+                           Website="https://github.com/danielchalmers/WpfAboutView"
+                           License="Resources\Licenses\WpfAboutView.txt" />
+
+                <av:Credit Name="WpfWindowPlacement"
+                           Author="Daniel Chalmers"
+                           Website="https://github.com/danielchalmers/WpfWindowPlacement"
+                           License="Resources\Licenses\WpfWindowPlacement.txt" />
+            </av:AboutView.Credits>
+        </av:AboutView>
         <Button Grid.Row="2"
                 Content="_OK"
                 Click="btnOK_OnClick"
