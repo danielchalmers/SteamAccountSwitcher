@@ -11,11 +11,7 @@ namespace SteamAccountSwitcher
         {
             var dialog = new AccountProperties();
             dialog.ShowDialog();
-            if (dialog.DialogResult != true)
-            {
-                return;
-            }
-            if (dialog.NewAccount == null)
+            if (dialog.DialogResult != true || dialog.NewAccount == null)
             {
                 return;
             }
@@ -39,7 +35,9 @@ namespace SteamAccountSwitcher
             if (msg &&
                 Popup.Show(
                     $"Are you sure you want to remove \"{account.GetDisplayName()}\"?",
-                    MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) == MessageBoxResult.No)
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Warning,
+                    MessageBoxResult.Yes) == MessageBoxResult.No)
             {
                 return;
             }
@@ -85,6 +83,7 @@ namespace SteamAccountSwitcher
             {
                 SwitchWindowHelper.HideSwitcherWindow();
             }
+
             var worker = new BackgroundWorker();
             worker.DoWork += delegate
             {
@@ -98,6 +97,7 @@ namespace SteamAccountSwitcher
                     AppHelper.ShutdownApplication();
                 }
             };
+
             worker.RunWorkerAsync();
         }
     }

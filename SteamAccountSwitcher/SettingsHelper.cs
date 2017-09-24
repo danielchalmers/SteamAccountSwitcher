@@ -28,7 +28,9 @@ namespace SteamAccountSwitcher
             if (msg && Popup.Show(
                 "Are you sure you want to reset ALL settings (including accounts)?\n\n" +
                 "This cannot be undone.",
-                MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.No) == MessageBoxResult.No)
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning,
+                MessageBoxResult.No) == MessageBoxResult.No)
             {
                 return;
             }

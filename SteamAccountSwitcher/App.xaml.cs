@@ -64,13 +64,13 @@ namespace SteamAccountSwitcher
             }
             catch
             {
-                // ignored
             }
         }
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Popup.Show("An unhandled exception occurred:\n\n" +
+            Popup.Show(
+                "An unhandled exception occurred:\n\n" +
                 e.Exception,
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }

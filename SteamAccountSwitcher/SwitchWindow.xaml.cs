@@ -16,8 +16,7 @@ namespace SteamAccountSwitcher
             InitializeComponent();
             WindowStartupLocation = Settings.Default.SwitchWindowRememberPosition
                 ? WindowStartupLocation.Manual
-                : WindowStartupLocation.CenterScreen
-;
+                : WindowStartupLocation.CenterScreen;
             ReloadAccountListBinding();
         }
 
@@ -56,9 +55,9 @@ namespace SteamAccountSwitcher
         {
             base.OnSourceInitialized(e);
 
-            var mainWindowPtr = new WindowInteropHelper(this).Handle;
-            var mainWindowSrc = HwndSource.FromHwnd(mainWindowPtr);
-            mainWindowSrc?.AddHook(WndProc);
+            var windowHandle = new WindowInteropHelper(this).Handle;
+            var windowSource = HwndSource.FromHwnd(windowHandle);
+            windowSource?.AddHook(WndProc);
         }
 
         private static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)

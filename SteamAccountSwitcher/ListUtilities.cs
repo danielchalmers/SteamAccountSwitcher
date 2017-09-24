@@ -14,16 +14,14 @@ namespace SteamAccountSwitcher
 
         public static T MoveToTop<T>(this IList<T> list, T item)
         {
-            var index = list.IndexOf(item);
-            list.RemoveAt(index);
+            list.Remove(item);
             list.Insert(0, item);
             return item;
         }
 
         public static T MoveToBottom<T>(this IList<T> list, T item)
         {
-            var index = list.IndexOf(item);
-            list.RemoveAt(index);
+            list.Remove(item);
             list.Insert(list.Count, item);
             return item;
         }
@@ -41,7 +39,7 @@ namespace SteamAccountSwitcher
         public static T MoveDown<T>(this IList<T> list, T item)
         {
             var index = list.IndexOf(item);
-            if (list.Count - 1 < index + 1)
+            if (index + 1 > list.Count - 1)
             {
                 return list.MoveToTop(item);
             }

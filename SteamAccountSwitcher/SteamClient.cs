@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
@@ -14,7 +15,8 @@ namespace SteamAccountSwitcher
         {
             if (!ResolvePath())
             {
-                Popup.Show("Steam.exe could not be found.\n\n" +
+                Popup.Show(
+                    "Steam.exe could not be found.\n\n" +
                     "Please enter the correct path in options.",
                     image: MessageBoxImage.Warning);
                 return;
@@ -65,7 +67,9 @@ namespace SteamAccountSwitcher
             var timeout = 0;
             var maxTimeout = Settings.Default.SteamLogoutTimeoutMax;
             var interval = Settings.Default.SteamLogoutTimeoutInterval;
+
             Logout();
+
             while (IsRunning())
             {
                 if (timeout >= maxTimeout)
@@ -86,8 +90,7 @@ namespace SteamAccountSwitcher
 
         private static Process GetProcess()
         {
-            var steamProcesses = Process.GetProcessesByName(Resources.Steam);
-            return steamProcesses.Length > 0 ? steamProcesses[0] : null;
+            return Process.GetProcessesByName(Resources.Steam).FirstOrDefault();
         }
 
         private static string GetWindowTitle()
