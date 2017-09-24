@@ -25,6 +25,16 @@ namespace SteamAccountSwitcher
                 Popup.Show("Your password cannot contain a double quote (\").", image: MessageBoxImage.Error);
                 return;
             }
+            if (string.IsNullOrWhiteSpace(NewAccount.Username))
+            {
+                Popup.Show("Please enter a username.", image: MessageBoxImage.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(NewAccount.Password))
+            {
+                Popup.Show("Please enter a password.", image: MessageBoxImage.Error);
+                return;
+            }
             DialogResult = true;
         }
 
