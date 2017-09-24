@@ -78,7 +78,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="ButtonFontSize" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">12</Value>
+      <Value Profile="(Default)">16</Value>
     </Setting>
     <Setting Name="PropertyGridIsCategorized" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
