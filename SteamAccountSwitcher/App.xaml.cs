@@ -56,15 +56,9 @@ namespace SteamAccountSwitcher
 
         protected override void OnExit(ExitEventArgs e)
         {
-            try
-            {
-                base.OnExit(e);
+            base.OnExit(e);
 
-                SettingsHelper.SaveSettings();
-            }
-            catch
-            {
-            }
+            SettingsHelper.SaveSettings();
         }
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
