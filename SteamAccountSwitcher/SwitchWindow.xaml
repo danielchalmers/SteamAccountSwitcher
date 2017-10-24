@@ -18,7 +18,8 @@
         Title="{x:Static local:AssemblyInfo.Title}"
         Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
         wp:WindowPlacementProperties.TrackPlacement="{Binding SwitchWindowRememberPosition, Source={x:Static p:Settings.Default}}"
-        wp:WindowPlacementProperties.Placement="{Binding SwitchWindowPlacement, Source={x:Static p:Settings.Default}}">
+        wp:WindowPlacementProperties.Placement="{Binding SwitchWindowPlacement, Source={x:Static p:Settings.Default}}"
+        UseLayoutRounding="True">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewKeyDown">
             <command:EventToCommand Command="{Binding PreviewKeyDown}"
