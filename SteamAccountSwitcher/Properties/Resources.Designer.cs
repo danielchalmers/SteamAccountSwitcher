@@ -70,6 +70,66 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Microsoft Public License (Ms-PL)
+        ///
+        ///
+        ///This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
+        ///
+        ///1. Definitions
+        ///
+        ///The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative works,&quot; and &quot;distribution&quot; have the same meaning here as under U.S. copyright law.
+        ///
+        ///A &quot;contribution&quot; is the original software, or any additions or changes to the software.
+        ///
+        ///A &quot;contributor&quot; is any person that distributes its contributi [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Common_Service_Locator_License {
+            get {
+                return ResourceManager.GetString("Common_Service_Locator_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MIT License
+        ///
+        ///Copyright (c) 2012 Simon Cropp and contributors
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
+        ///
+        ///T [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Costura_Fody_License {
+            get {
+                return ResourceManager.GetString("Costura_Fody_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft Public License (Ms-PL)
+        ///
+        ///
+        ///This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
+        ///
+        ///1. Definitions
+        ///
+        ///The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative works,&quot; and &quot;distribution&quot; have the same meaning here as under U.S. copyright law.
+        ///
+        ///A &quot;contribution&quot; is the original software, or any additions or changes to the software.
+        ///
+        ///A &quot;contributor&quot; is any person that distributes its contributi [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Extended_WPF_Toolkit_License {
+            get {
+                return ResourceManager.GetString("Extended_WPF_Toolkit_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits.
         /// </summary>
         public static string GitHubApiCommits {
@@ -124,11 +184,89 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///
+        ///
+        ///Copyright (c) 2007 James Newton-King
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of
+        ///this software and associated documentation files (the &quot;Software&quot;), to deal in
+        ///the Software without restriction, including without limitation the rights to
+        ///use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+        ///the Software, and to permit persons to whom the Software is furnished to do so,
+        ///subject to the following conditions:
+        ///
+        ///The  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Json_NET_License {
+            get {
+                return ResourceManager.GetString("Json_NET_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///
+        ///
+        ///Copyright (c) 2009 - 2014 Laurent Bugnion
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        ///
+        ///The  [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string MVVM_Light_License {
+            get {
+                return ResourceManager.GetString("MVVM_Light_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Code Project Open License (CPOL) 1.02
+        ///
+        ///
+        ///Preamble
+        ///
+        ///This License governs Your use of the Work. This License is intended to allow developers to use the Source Code and Executable Files provided as part of the Work in any application in any form.
+        ///
+        ///The main points subject to the terms of the License are:
+        ///
+        ///Source Code and Executable Files can be used in commercial applications;
+        ///Source Code and Executable Files can be redistributed; and
+        ///Source Code can be modified to create derivative works.
+        ///No cla [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string NotifyIcon_License {
+            get {
+                return ResourceManager.GetString("NotifyIcon_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to steam.
         /// </summary>
         public static string Steam {
             get {
                 return ResourceManager.GetString("Steam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///
+        ///Copyright (c) 2015 Daniel Chalmers
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
+        ///
+        ///The abov [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Steam_Account_Switcher_License {
+            get {
+                return ResourceManager.GetString("Steam_Account_Switcher_License", resourceCulture);
             }
         }
         
@@ -210,6 +348,48 @@ namespace SteamAccountSwitcher.Properties {
         public static string Website {
             get {
                 return ResourceManager.GetString("Website", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIT License
+        ///
+        ///
+        ///Copyright (c) 2017 Daniel Chalmers
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
+        ///
+        ///The above copyri [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string WpfAboutView_License {
+            get {
+                return ResourceManager.GetString("WpfAboutView_License", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MIT License
+        ///
+        ///
+        ///Copyright (c) 2017 Daniel Chalmers
+        ///
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
+        ///
+        ///The above copyri [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string WpfWindowPlacement_License {
+            get {
+                return ResourceManager.GetString("WpfWindowPlacement_License", resourceCulture);
             }
         }
     }

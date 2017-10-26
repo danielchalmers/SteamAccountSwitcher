@@ -4,6 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SteamAccountSwitcher"
+        xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
@@ -26,47 +27,47 @@
                 <av:Credit Name="{x:Static local:AssemblyInfo.Title}"
                            Author="{x:Static local:AssemblyInfo.Company}"
                            Website="https://github.com/danielchalmers/SteamAccountSwitcher"
-                           License="Resources\Licenses\Steam Account Switcher.txt" />
+                           LicenseText="{x:Static p:Resources.Steam_Account_Switcher_License}" />
 
                 <av:Credit Name="Common Service Locator"
                            Author="Microsoft"
                            Website="https://github.com/unitycontainer/commonservicelocator"
-                           License="Resources\Licenses\Common Service Locator.txt" />
+                           LicenseText="{x:Static p:Resources.Common_Service_Locator_License}" />
 
                 <av:Credit Name="Fody, Costura.Fody"
                            Author="Simon Cropp &amp; contributors"
                            Website="https://github.com/Fody/Costura"
-                           License="Resources\Licenses\Costura.Fody.txt" />
+                           LicenseText="{x:Static p:Resources.Costura_Fody_License}" />
 
                 <av:Credit Name="Extended WPF Toolkit"
                            Author="Xceed"
                            Website="https://github.com/xceedsoftware/wpftoolkit"
-                           License="Resources\Licenses\Extended WPF Toolkit.txt" />
+                           LicenseText="{x:Static p:Resources.Extended_WPF_Toolkit_License}" />
 
                 <av:Credit Name="WPF NotifyIcon"
                            Author="Philipp Sumi"
                            Website="http://hardcodet.net/wpf-notifyicon"
-                           License="Resources\Licenses\NotifyIcon.txt" />
+                           LicenseText="{x:Static p:Resources.NotifyIcon_License}" />
 
                 <av:Credit Name="MVVM Light"
                            Author="GalaSoft"
                            Website="http://galasoft.ch/mvvm"
-                           License="Resources\Licenses\MVVM Light.txt" />
+                           LicenseText="{x:Static p:Resources.MVVM_Light_License}" />
 
                 <av:Credit Name="Json.NET"
                            Author="James Newton-King"
                            Website="http://newtonsoft.com/json"
-                           License="Resources\Licenses\Json.NET.txt" />
+                           LicenseText="{x:Static p:Resources.Json_NET_License}" />
 
                 <av:Credit Name="WpfAboutView"
                            Author="Daniel Chalmers"
                            Website="https://github.com/danielchalmers/WpfAboutView"
-                           License="Resources\Licenses\WpfAboutView.txt" />
+                           LicenseText="{x:Static p:Resources.WpfAboutView_License}" />
 
                 <av:Credit Name="WpfWindowPlacement"
                            Author="Daniel Chalmers"
                            Website="https://github.com/danielchalmers/WpfWindowPlacement"
-                           License="Resources\Licenses\WpfWindowPlacement.txt" />
+                           LicenseText="{x:Static p:Resources.WpfWindowPlacement_License}" />
             </av:AboutView.Credits>
         </av:AboutView>
         <Button Grid.Row="2"

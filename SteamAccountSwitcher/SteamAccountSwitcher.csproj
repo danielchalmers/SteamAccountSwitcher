@@ -108,8 +108,8 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="WpfAboutView, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\WpfAboutView.1.0.0\lib\net452\WpfAboutView.dll</HintPath>
+    <Reference Include="WpfAboutView, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAboutView.1.1.0\lib\net452\WpfAboutView.dll</HintPath>
     </Reference>
     <Reference Include="WpfWindowPlacement, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\WpfWindowPlacement.1.0.0\lib\net40\WpfWindowPlacement.dll</HintPath>
@@ -238,42 +238,24 @@
     <Resource Include="icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Licenses\Common Service Locator.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Licenses\Extended WPF Toolkit.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Licenses\Json.NET.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Licenses\MVVM Light.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Licenses\WpfWindowPlacement.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Licenses\NotifyIcon.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\Licenses\Common Service Locator License.txt" />
+    <None Include="Resources\Licenses\Extended WPF Toolkit License.txt" />
+    <None Include="Resources\Licenses\Json.NET License.txt" />
+    <None Include="Resources\Licenses\MVVM Light License.txt" />
+    <None Include="Resources\Licenses\WpfWindowPlacement License.txt" />
+    <None Include="Resources\Licenses\NotifyIcon License.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Licenses\Steam Account Switcher.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\Licenses\Steam Account Switcher License.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Licenses\WpfAboutView.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\Licenses\WpfAboutView License.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="FodyWeavers.xml" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Licenses\Costura.Fody.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="Resources\Licenses\Costura.Fody License.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
