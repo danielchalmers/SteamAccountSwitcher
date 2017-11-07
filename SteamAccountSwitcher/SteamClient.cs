@@ -26,24 +26,35 @@ namespace SteamAccountSwitcher
 
         public static void Login(Account account, bool onStart = false)
         {
-            var args = new List<string>();
+            Launch(string.Join(" ", GetLoginArguments(account, onStart)));
+        }
 
-            args.Add($"{Resources.SteamLoginArgument} \"{account.Username}\" \"{account.Password}\"");
-            args.Add(account.Arguments);
+        private static IEnumerable<string> GetLoginArguments(Account account, bool onStart = false)
+        {
+            // Login.
+            yield return Resources.SteamLoginArgument;
+            yield return account.Username;
+            yield return account.Password;
+
+            // Per-account arguments.
+            yield return account.Arguments;
+
+            // Global arguments.
+            yield return Settings.Default.SteamLaunchArgs;
+
+            // Big picture.
             if (Settings.Default.BigPictureMode)
             {
-                args.Add(Resources.SteamBigPictureArg);
+                yield return Resources.SteamBigPictureArg;
             }
 
-            if ((Settings.Default.StartSteamMinimized && Settings.Default.StartSteamMinimizedOnlyOnStartup && onStart) ||
-                (Settings.Default.StartSteamMinimized && !Settings.Default.StartSteamMinimizedOnlyOnStartup))
+            // Minimized.
+            var minimize = Settings.Default.StartSteamMinimized;
+            var minimizeOnStartup = Settings.Default.StartSteamMinimizedOnlyOnStartup;
+            if ((minimize && minimizeOnStartup && onStart) || (minimize && !minimizeOnStartup))
             {
-                args.Add(Resources.SteamSilentArg);
+                yield return Resources.SteamSilentArg;
             }
-
-            args.Add(Settings.Default.SteamLaunchArgs);
-
-            Launch(string.Join(" ", args));
         }
 
         public static void Logout()
