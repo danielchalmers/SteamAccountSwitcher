@@ -13,12 +13,12 @@
         MinHeight="400"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen">
-    <Grid Margin="15">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="15" />
+            <RowDefinition Height="12" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="15" />
+            <RowDefinition Height="12" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0"
@@ -27,14 +27,14 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"
                                   SharedSizeGroup="AdvancedTools" />
-                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="8" />
                 <ColumnDefinition Width="Auto"
                                   SharedSizeGroup="AdvancedTools" />
             </Grid.ColumnDefinitions>
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Padding"
-                            Value="15,0,15,0" />
+                            Value="12,0,12,0" />
                     <Setter Property="Height"
                             Value="23" />
                 </Style>
@@ -143,7 +143,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="8" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>

@@ -15,10 +15,10 @@
             <Binding Source="{x:Static local:AssemblyInfo.Title}" />
         </MultiBinding>
     </Window.Title>
-    <Grid Margin="15">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
-            <RowDefinition Height="15" />
+            <RowDefinition Height="12" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <av:AboutView Grid.Row="0"

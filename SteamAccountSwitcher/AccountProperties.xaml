@@ -10,11 +10,11 @@
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         FocusManager.FocusedElement="{Binding ElementName=txtUsername}">
-    <Grid Margin="15">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="15" />
+            <RowDefinition Height="12" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid IsSharedSizeScope="True">
@@ -112,7 +112,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="8" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.Resources>
