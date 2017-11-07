@@ -7,11 +7,10 @@
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
         Title="Options"
-        Width="{Binding OptionsWidth, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
-        Height="{Binding OptionsHeight, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
-        MinWidth="500"
-        MinHeight="400"
-        ResizeMode="CanResize"
+        MinWidth="550"
+        MinHeight="450"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
     <Grid Margin="12">
         <Grid.RowDefinitions>
