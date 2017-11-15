@@ -32,50 +32,6 @@
                                             Foreground="Gray" />
             </MenuItem.Icon>
         </MenuItem>
-        <MenuItem Header="Sort All By (_Ascending)">
-            <MenuItem.Icon>
-                <iconPacks:PackIconMaterial Kind="SortAscending"
-                                            Foreground="Gray" />
-            </MenuItem.Icon>
-            <MenuItem.ItemsSource>
-                <CompositeCollection>
-                    <MenuItem Header="_Alias"
-                              Command="{Binding Sort}"
-                              CommandParameter="AliasAscending" />
-                    <MenuItem Header="_Username"
-                              Command="{Binding Sort}"
-                              CommandParameter="UsernameAscending" />
-                    <MenuItem Header="Add _Date"
-                              Command="{Binding Sort}"
-                              CommandParameter="AddDateAscending" />
-                    <MenuItem Header="Last _Modified"
-                              Command="{Binding Sort}"
-                              CommandParameter="LastModifiedAscending" />
-                </CompositeCollection>
-            </MenuItem.ItemsSource>
-        </MenuItem>
-        <MenuItem Header="Sort All By (_Descending)">
-            <MenuItem.Icon>
-                <iconPacks:PackIconMaterial Kind="SortDescending"
-                                            Foreground="Gray" />
-            </MenuItem.Icon>
-            <MenuItem.ItemsSource>
-                <CompositeCollection>
-                    <MenuItem Header="_Alias"
-                              Command="{Binding Sort}"
-                              CommandParameter="AliasDescending" />
-                    <MenuItem Header="_Username"
-                              Command="{Binding Sort}"
-                              CommandParameter="UsernameDescending" />
-                    <MenuItem Header="Add _Date"
-                              Command="{Binding Sort}"
-                              CommandParameter="AddDateDescending" />
-                    <MenuItem Header="Last _Modified"
-                              Command="{Binding Sort}"
-                              CommandParameter="LastModifiedDescending" />
-                </CompositeCollection>
-            </MenuItem.ItemsSource>
-        </MenuItem>
         <Separator />
         <MenuItem Header="_Remove..."
                   Command="{Binding Remove}">

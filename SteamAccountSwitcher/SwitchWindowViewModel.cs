@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
@@ -21,7 +20,6 @@ namespace SteamAccountSwitcher
             MoveUp = new RelayCommand(MoveUpExecute);
             MoveDown = new RelayCommand(MoveDownExecute);
             Remove = new RelayCommand(RemoveExecute);
-            Sort = new RelayCommand<string>(SortExecute);
 
             Options = new RelayCommand(OptionsExecute);
             About = new RelayCommand(AboutExecute);
@@ -46,7 +44,6 @@ namespace SteamAccountSwitcher
         public ICommand MoveUp { get; set; }
         public ICommand MoveDown { get; set; }
         public ICommand Remove { get; set; }
-        public ICommand Sort { get; set; }
 
         public ICommand Options { get; set; }
         public ICommand About { get; set; }
@@ -129,37 +126,6 @@ namespace SteamAccountSwitcher
         private void RemoveExecute()
         {
             SelectedAccount?.Remove(true);
-        }
-
-        private void SortExecute(string mode)
-        {
-            switch (mode)
-            {
-                case "AliasAscending":
-                    App.Accounts.OrderBy(x => x.DisplayName).Reload();
-                    break;
-                case "UsernameAscending":
-                    App.Accounts.OrderBy(x => x.Username).Reload();
-                    break;
-                case "AddDateAscending":
-                    App.Accounts.OrderBy(x => x.AddDate).Reload();
-                    break;
-                case "LastModifiedAscending":
-                    App.Accounts.OrderBy(x => x.LastModifiedDate).Reload();
-                    break;
-                case "AliasDescending":
-                    App.Accounts.OrderByDescending(x => x.DisplayName).Reload();
-                    break;
-                case "UsernameDescending":
-                    App.Accounts.OrderByDescending(x => x.Username).Reload();
-                    break;
-                case "AddDateDescending":
-                    App.Accounts.OrderByDescending(x => x.AddDate).Reload();
-                    break;
-                case "LastModifiedDescending":
-                    App.Accounts.OrderByDescending(x => x.LastModifiedDate).Reload();
-                    break;
-            }
         }
     }
 }
