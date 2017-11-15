@@ -29,11 +29,6 @@
                            Website="https://github.com/danielchalmers/SteamAccountSwitcher"
                            LicenseText="{x:Static p:Resources.Steam_Account_Switcher_License}" />
 
-                <av:Credit Name="Common Service Locator"
-                           Author="Microsoft"
-                           Website="https://github.com/unitycontainer/commonservicelocator"
-                           LicenseText="{x:Static p:Resources.Common_Service_Locator_License}" />
-
                 <av:Credit Name="Fody, Costura.Fody"
                            Author="Simon Cropp &amp; contributors"
                            Website="https://github.com/Fody/Costura"
