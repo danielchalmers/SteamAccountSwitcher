@@ -9,6 +9,7 @@
         xmlns:cv="clr-namespace:SteamAccountSwitcher.Converters"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         xmlns:wp="clr-namespace:WpfWindowPlacement;assembly=WpfWindowPlacement"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         SizeToContent="Height"
         ResizeMode="CanMinimize"
@@ -84,7 +85,10 @@
                         <Button Style="{StaticResource StyleHelperButton}"
                                 Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 CommandParameter="{Binding}"
-                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={cv:BooleanToVisibilityConverter}}" />
+                                Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={cv:BooleanToVisibilityConverter}}">
+                            <iconPacks:PackIconMaterial Kind="Settings"
+                                                        Foreground="Gray" />
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
@@ -103,20 +107,22 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="0"
                     Command="{Binding Options}"
-                    ToolTip="Options"
-                    Content="🔧"
-                    Foreground="Gray" />
+                    ToolTip="Options">
+                <iconPacks:PackIconMaterial Kind="Settings"
+                                            Foreground="Gray" />
+            </Button>
             <Button Grid.Column="1"
                     Command="{Binding About}"
-                    ToolTip="About"
-                    Content="?"
-                    FontFamily="Microsoft Sans Serif"
-                    Foreground="DarkOrange" />
+                    ToolTip="About">
+                <iconPacks:PackIconMaterial Kind="Information"
+                                            Foreground="DarkOrange" />
+            </Button>
             <Button Grid.Column="3"
                     Command="{Binding AddAccount}"
-                    ToolTip="Add Account (Ctrl+Shift+A)"
-                    Content="➕"
-                    Foreground="LimeGreen" />
+                    ToolTip="Add Account (Ctrl+Shift+A)">
+                <iconPacks:PackIconMaterial Kind="Plus"
+                                            Foreground="LimeGreen" />
+            </Button>
         </Grid>
     </Grid>
 </Window>

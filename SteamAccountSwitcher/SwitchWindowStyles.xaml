@@ -12,16 +12,12 @@
                 Value="24" />
         <Setter Property="Padding"
                 Value="0" />
-        <Setter Property="FontWeight"
-                Value="Bold" />
         <Setter Property="ContentTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <Viewbox Stretch="Uniform"
-                             Margin="1"
-                             HorizontalAlignment="Center"
-                             VerticalAlignment="Center">
-                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    <Viewbox>
+                        <ContentPresenter Content="{TemplateBinding Content}"
+                                          Margin="4" />
                     </Viewbox>
                 </DataTemplate>
             </Setter.Value>
@@ -40,10 +36,6 @@
                 Value="Right" />
         <Setter Property="ToolTip"
                 Value="Account Options" />
-        <Setter Property="Content"
-                Value="🔧" />
-        <Setter Property="Foreground"
-                Value="Gray" />
     </Style>
     <Style TargetType="{x:Type TextBlock}"
            x:Key="StyleHelperText">

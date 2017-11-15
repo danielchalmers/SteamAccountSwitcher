@@ -49,6 +49,11 @@
                            Website="http://hardcodet.net/wpf-notifyicon"
                            LicenseText="{x:Static p:Resources.NotifyIcon_License}" />
 
+                <av:Credit Name="MahApps.Metro.IconPacks"
+                           Author="MahApps"
+                           Website="https://github.com/MahApps/MahApps.Metro.IconPacks"
+                           LicenseText="{x:Static p:Resources.MahApps_Metro_IconPacks_License}" />
+
                 <av:Credit Name="MVVM Light"
                            Author="GalaSoft"
                            Website="http://galasoft.ch/mvvm"
