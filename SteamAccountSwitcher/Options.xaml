@@ -7,8 +7,8 @@
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
         mc:Ignorable="d"
         Title="Options"
-        MinWidth="550"
-        MinHeight="450"
+        MinWidth="480"
+        MinHeight="480"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen">
