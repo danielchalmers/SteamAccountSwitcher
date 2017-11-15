@@ -70,7 +70,7 @@
                                   Click="MenuItemOptions_OnClick">
                             <MenuItem.Icon>
                                 <iconPacks:PackIconMaterial Kind="Settings"
-                                                            Foreground="Gray" />
+                                                            Foreground="DimGray" />
                             </MenuItem.Icon>
                         </MenuItem>
                         <Separator />

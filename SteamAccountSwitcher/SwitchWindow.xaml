@@ -87,7 +87,7 @@
                                 CommandParameter="{Binding}"
                                 Visibility="{Binding IsMouseOver, RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Converter={cv:BooleanToVisibilityConverter}}">
                             <iconPacks:PackIconMaterial Kind="Settings"
-                                                        Foreground="Gray" />
+                                                        Foreground="DimGray" />
                         </Button>
                     </Grid>
                 </DataTemplate>
@@ -109,7 +109,7 @@
                     Command="{Binding Options}"
                     ToolTip="Options">
                 <iconPacks:PackIconMaterial Kind="Settings"
-                                            Foreground="Gray" />
+                                            Foreground="DimGray" />
             </Button>
             <Button Grid.Column="1"
                     Command="{Binding About}"
