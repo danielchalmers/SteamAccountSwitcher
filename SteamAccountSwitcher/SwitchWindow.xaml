@@ -74,8 +74,7 @@
                                 <SolidColorBrush Color="{Binding TextColor}" />
                             </Button.Foreground>
                             <Button.BorderBrush>
-                                <SolidColorBrush Color="Gray"
-                                                 Opacity="0.5" />
+                                <SolidColorBrush Color="Gray" />
                             </Button.BorderBrush>
                         </Button>
 
