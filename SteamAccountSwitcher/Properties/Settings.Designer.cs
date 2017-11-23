@@ -372,5 +372,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["SwitchWindowPlacement"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool DualPane {
+            get {
+                return ((bool)(this["DualPane"]));
+            }
+            set {
+                this["DualPane"] = value;
+            }
+        }
     }
 }

@@ -53,6 +53,25 @@
                       ItemsSource="{Binding}"
                       AlternationCount="{Binding Count}"
                       Focusable="False">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid>
+                        <UniformGrid.Style>
+                            <Style TargetType="UniformGrid">
+                                <Setter Property="Columns"
+                                        Value="1" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding DualPane, Source={x:Static p:Settings.Default}, Mode=OneWay}"
+                                                 Value="True">
+                                        <Setter Property="Columns"
+                                                Value="2" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </UniformGrid.Style>
+                    </UniformGrid>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}">

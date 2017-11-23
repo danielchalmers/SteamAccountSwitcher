@@ -106,5 +106,8 @@
           &lt;/WindowPlacement&gt;
         </Value>
     </Setting>
+    <Setting Name="DualPane" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
