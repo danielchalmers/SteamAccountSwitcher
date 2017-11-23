@@ -39,10 +39,10 @@
                            Website="https://github.com/xceedsoftware/wpftoolkit"
                            LicenseText="{x:Static p:Resources.Extended_WPF_Toolkit_License}" />
 
-                <av:Credit Name="WPF NotifyIcon"
-                           Author="Philipp Sumi"
-                           Website="http://hardcodet.net/wpf-notifyicon"
-                           LicenseText="{x:Static p:Resources.WPF_NotifyIcon_License}" />
+                <av:Credit Name="Json.NET"
+                           Author="James Newton-King"
+                           Website="http://newtonsoft.com/json"
+                           LicenseText="{x:Static p:Resources.Json_NET_License}" />
 
                 <av:Credit Name="MahApps.Metro.IconPacks"
                            Author="MahApps"
@@ -54,10 +54,10 @@
                            Website="http://galasoft.ch/mvvm"
                            LicenseText="{x:Static p:Resources.MVVM_Light_License}" />
 
-                <av:Credit Name="Json.NET"
-                           Author="James Newton-King"
-                           Website="http://newtonsoft.com/json"
-                           LicenseText="{x:Static p:Resources.Json_NET_License}" />
+                <av:Credit Name="WPF NotifyIcon"
+                           Author="Philipp Sumi"
+                           Website="http://hardcodet.net/wpf-notifyicon"
+                           LicenseText="{x:Static p:Resources.WPF_NotifyIcon_License}" />
 
                 <av:Credit Name="WpfAboutView"
                            Author="Daniel Chalmers"
