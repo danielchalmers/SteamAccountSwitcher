@@ -12,7 +12,7 @@
         xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
-        ResizeMode="CanMinimize"
+        ResizeMode="NoResize"
         Closing="Window_Closing"
         Icon="icon.ico"
         Title="{x:Static local:AssemblyInfo.Title}"
