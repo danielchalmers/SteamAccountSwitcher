@@ -275,18 +275,6 @@ namespace SteamAccountSwitcher.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool PropertyGridIsCategorized {
-            get {
-                return ((bool)(this["PropertyGridIsCategorized"]));
-            }
-            set {
-                this["PropertyGridIsCategorized"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10000")]

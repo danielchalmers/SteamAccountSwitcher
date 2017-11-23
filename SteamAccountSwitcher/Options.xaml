@@ -51,8 +51,9 @@
                            NameColumnWidth="NaN"
                            AutoGenerateProperties="False"
                            Background="{x:Static SystemColors.WindowBrush}"
-                           IsCategorized="{Binding PropertyGridIsCategorized, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
-                           ShowSortOptions="True"
+                           IsCategorized="True"
+                           ShowSortOptions="False"
+                           ShowSearchBox="False"
                            ShowSummary="False"
                            ShowTitle="False"
                            ShowAdvancedOptions="False">
