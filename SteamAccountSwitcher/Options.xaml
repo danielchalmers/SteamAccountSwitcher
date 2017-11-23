@@ -72,6 +72,26 @@
                                          TargetProperties="NumberHotkeys"
                                          DisplayName="Account Number Hotkeys"
                                          DisplayOrder="3" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="DualPane"
+                                         DisplayName="Dual Columns"
+                                         DisplayOrder="4" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="SwitchWindowRememberPosition"
+                                         DisplayName="Remember Window Position"
+                                         DisplayOrder="5" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="Width"
+                                         DisplayName="Account Width (px)"
+                                         DisplayOrder="6" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="ButtonHeight"
+                                         DisplayName="Account Height (px)"
+                                         DisplayOrder="7" />
+                <xctk:PropertyDefinition Category=" General"
+                                         TargetProperties="ButtonFontSize"
+                                         DisplayName="Account Font Size"
+                                         DisplayOrder="8" />
 
                 <xctk:PropertyDefinition Category=" Steam"
                                          TargetProperties="BigPictureMode"
@@ -89,27 +109,6 @@
                                          TargetProperties="SteamLaunchArgs"
                                          DisplayName="Global Launch Arguments"
                                          DisplayOrder="3" />
-
-                <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="DualPane"
-                                         DisplayName="Dual Columns"
-                                         DisplayOrder="0" />
-                <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="SwitchWindowRememberPosition"
-                                         DisplayName="Remember Window Position"
-                                         DisplayOrder="1" />
-                <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="Width"
-                                         DisplayName="Account Width (px)"
-                                         DisplayOrder="2" />
-                <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="ButtonHeight"
-                                         DisplayName="Account Height (px)"
-                                         DisplayOrder="3" />
-                <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="ButtonFontSize"
-                                         DisplayName="Account Font Size"
-                                         DisplayOrder="4" />
 
                 <xctk:PropertyDefinition Category="Advanced"
                                          TargetProperties="MultiInstance"
