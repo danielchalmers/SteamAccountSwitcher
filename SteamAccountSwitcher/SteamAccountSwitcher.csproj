@@ -245,7 +245,7 @@
     <None Include="Resources\Licenses\Json.NET License.txt" />
     <None Include="Resources\Licenses\MVVM Light License.txt" />
     <None Include="Resources\Licenses\WpfWindowPlacement License.txt" />
-    <None Include="Resources\Licenses\NotifyIcon License.txt" />
+    <None Include="Resources\Licenses\WPF NotifyIcon License.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Licenses\Steam Account Switcher License.txt" />

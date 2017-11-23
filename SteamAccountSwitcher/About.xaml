@@ -42,7 +42,7 @@
                 <av:Credit Name="WPF NotifyIcon"
                            Author="Philipp Sumi"
                            Website="http://hardcodet.net/wpf-notifyicon"
-                           LicenseText="{x:Static p:Resources.NotifyIcon_License}" />
+                           LicenseText="{x:Static p:Resources.WPF_NotifyIcon_License}" />
 
                 <av:Credit Name="MahApps.Metro.IconPacks"
                            Author="MahApps"

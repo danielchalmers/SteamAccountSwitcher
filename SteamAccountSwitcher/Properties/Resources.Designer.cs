@@ -209,9 +209,9 @@ namespace SteamAccountSwitcher.Properties {
         ///
         ///BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HEREIN, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE AUTHOR GRANTS YOU THE RIGHTS CONTAINED HEREIN IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH T [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string NotifyIcon_License {
+        public static string WPF_NotifyIcon_License {
             get {
-                return ResourceManager.GetString("NotifyIcon_License", resourceCulture);
+                return ResourceManager.GetString("WPF_NotifyIcon_License", resourceCulture);
             }
         }
         
