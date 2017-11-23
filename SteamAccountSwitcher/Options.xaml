@@ -94,21 +94,17 @@
                                          DisplayOrder="8" />
 
                 <xctk:PropertyDefinition Category=" Steam"
-                                         TargetProperties="BigPictureMode"
-                                         DisplayName="Big Picture"
-                                         DisplayOrder="0" />
-                <xctk:PropertyDefinition Category=" Steam"
                                          TargetProperties="StartSteamMinimized"
                                          DisplayName="Start Minimized"
-                                         DisplayOrder="1" />
+                                         DisplayOrder="0" />
                 <xctk:PropertyDefinition Category=" Steam"
                                          TargetProperties="SteamPath"
                                          DisplayName="Steam.exe Path"
-                                         DisplayOrder="2" />
+                                         DisplayOrder="1" />
                 <xctk:PropertyDefinition Category=" Steam"
                                          TargetProperties="SteamLaunchArgs"
                                          DisplayName="Global Launch Arguments"
-                                         DisplayOrder="3" />
+                                         DisplayOrder="2" />
 
                 <xctk:PropertyDefinition Category="Advanced"
                                          TargetProperties="MultiInstance"

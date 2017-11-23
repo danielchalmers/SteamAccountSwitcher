@@ -42,12 +42,6 @@ namespace SteamAccountSwitcher
             // Global arguments.
             yield return Settings.Default.SteamLaunchArgs;
 
-            // Big picture.
-            if (Settings.Default.BigPictureMode)
-            {
-                yield return Resources.SteamBigPictureArg;
-            }
-
             // Minimized.
             var minimize = Settings.Default.StartSteamMinimized;
             var minimizeOnStartup = Settings.Default.StartSteamMinimizedOnlyOnStartup;

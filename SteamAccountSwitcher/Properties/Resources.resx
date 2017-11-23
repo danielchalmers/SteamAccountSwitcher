@@ -140,9 +140,6 @@
   <data name="SteamNotLoggedInTitle" xml:space="preserve">
     <value>Steam Login</value>
   </data>
-  <data name="SteamBigPictureArg" xml:space="preserve">
-    <value>-tenfoot</value>
-  </data>
   <data name="GitHubCommits" xml:space="preserve">
     <value>https://github.com/danielchalmers/SteamAccountSwitcher/commits</value>
     <comment>GitHub Commits</comment>

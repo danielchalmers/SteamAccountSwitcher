@@ -203,19 +203,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Code Project Open License 1.02
-        ///
-        ///THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CODE PROJECT OPEN LICENSE (&quot;LICENSE&quot;). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
-        ///
-        ///BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HEREIN, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE AUTHOR GRANTS YOU THE RIGHTS CONTAINED HEREIN IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH T [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string WPF_NotifyIcon_License {
-            get {
-                return ResourceManager.GetString("WPF_NotifyIcon_License", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to steam.
         /// </summary>
         public static string Steam {
@@ -236,15 +223,6 @@ namespace SteamAccountSwitcher.Properties {
         public static string Steam_Account_Switcher_License {
             get {
                 return ResourceManager.GetString("Steam_Account_Switcher_License", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to -tenfoot.
-        /// </summary>
-        public static string SteamBigPictureArg {
-            get {
-                return ResourceManager.GetString("SteamBigPictureArg", resourceCulture);
             }
         }
         
@@ -317,6 +295,19 @@ namespace SteamAccountSwitcher.Properties {
         public static string Website {
             get {
                 return ResourceManager.GetString("Website", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code Project Open License 1.02
+        ///
+        ///THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CODE PROJECT OPEN LICENSE (&quot;LICENSE&quot;). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
+        ///
+        ///BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HEREIN, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE AUTHOR GRANTS YOU THE RIGHTS CONTAINED HEREIN IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH T [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string WPF_NotifyIcon_License {
+            get {
+                return ResourceManager.GetString("WPF_NotifyIcon_License", resourceCulture);
             }
         }
         
