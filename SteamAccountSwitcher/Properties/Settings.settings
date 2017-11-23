@@ -11,9 +11,6 @@
     <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">48</Value>
     </Setting>
-    <Setting Name="Launches" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">0</Value>
-    </Setting>
     <Setting Name="AlwaysOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>

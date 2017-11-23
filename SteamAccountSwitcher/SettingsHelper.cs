@@ -99,10 +99,5 @@ namespace SteamAccountSwitcher
                 }
             }
         }
-
-        public static void IncrementLaunches()
-        {
-            Settings.Default.Launches++;
-        }
     }
 }

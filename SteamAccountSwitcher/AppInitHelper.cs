@@ -72,7 +72,7 @@ namespace SteamAccountSwitcher
 
         private static void LoadAccounts()
         {
-            if (AppHelper.IsFirstLaunch && Settings.Default.Accounts == string.Empty)
+            if (Settings.Default.Accounts == string.Empty)
             {
                 Settings.Default.Accounts = AccountDataHelper.DefaultData();
             }
@@ -86,7 +86,6 @@ namespace SteamAccountSwitcher
             {
                 SettingsHelper.ResetSettings();
             }
-            SettingsHelper.IncrementLaunches();
         }
     }
 }

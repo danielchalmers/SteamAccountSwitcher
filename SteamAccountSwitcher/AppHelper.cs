@@ -14,7 +14,6 @@ namespace SteamAccountSwitcher
                 : Application.ResourceAssembly.Location;
 
         private static bool IsUpdateable => ApplicationDeployment.IsNetworkDeployed;
-        public static bool IsFirstLaunch => Settings.Default.Launches <= 1;
 
         public static void ShutdownApplication()
         {
