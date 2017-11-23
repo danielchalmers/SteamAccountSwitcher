@@ -74,7 +74,7 @@
                 <DataTemplate>
                     <Grid Height="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}"
                           Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=OneWay}"
-                          MinWidth="160">
+                          MinWidth="144">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseRightButtonUp">
                                 <command:EventToCommand Command="{Binding DataContext.OpenAccountContextMenu, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
