@@ -47,7 +47,7 @@
         </Grid>
         <xctk:PropertyGrid Grid.Row="2"
                            SelectedObject="{Binding Source={x:Static p:Settings.Default}}"
-                           NameColumnWidth="{Binding PropertyGridNameColumnWidth, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
+                           NameColumnWidth="NaN"
                            AutoGenerateProperties="False"
                            Background="{x:Static SystemColors.WindowBrush}"
                            IsCategorized="{Binding PropertyGridIsCategorized, Source={x:Static p:Settings.Default}, Mode=TwoWay}"
