@@ -11,7 +11,7 @@ namespace SteamAccountSwitcher
     {
         public static string DefaultData()
         {
-            return SettingsHelper.SerializeAccounts(new ObservableCollection<Account>
+            return SettingsHelper.SerializeAccounts(new List<Account>
             {
                 new Account
                 {
