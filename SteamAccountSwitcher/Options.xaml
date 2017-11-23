@@ -99,12 +99,12 @@
                                          DisplayName="Remember Window Position"
                                          DisplayOrder="1" />
                 <xctk:PropertyDefinition Category=" Style"
-                                         TargetProperties="Width"
-                                         DisplayName="Window Width (px)"
-                                         DisplayOrder="2" />
-                <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="WindowColor"
                                          DisplayName="Window Color"
+                                         DisplayOrder="2" />
+                <xctk:PropertyDefinition Category=" Style"
+                                         TargetProperties="Width"
+                                         DisplayName="Account Width (px)"
                                          DisplayOrder="3" />
                 <xctk:PropertyDefinition Category=" Style"
                                          TargetProperties="ButtonHeight"
