@@ -27,14 +27,24 @@ namespace SteamAccountSwitcher
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
-            SettingsHelper.SaveSettings();
             DialogResult = true;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            Settings.Default.Reload();
             DialogResult = false;
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            if (DialogResult == true)
+            {
+                SettingsHelper.SaveSettings();
+            }
+            else
+            {
+                Settings.Default.Reload();
+            }
         }
     }
 }
