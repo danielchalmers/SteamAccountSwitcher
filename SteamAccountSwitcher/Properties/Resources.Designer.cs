@@ -70,18 +70,13 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) 2012 Simon Cropp and contributors
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///T [rest of string was truncated]&quot;;.
+        ///The above  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Costura_Fody_License {
             get {
@@ -90,8 +85,7 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft Public License (Ms-PL)
-        ///
+        ///   Looks up a localized string similar to Microsoft Public License
         ///
         ///This license governs use of the accompanying software. If you use the software, you accept this license. If you do not accept the license, do not use the software.
         ///
@@ -101,7 +95,7 @@ namespace SteamAccountSwitcher.Properties {
         ///
         ///A &quot;contribution&quot; is the original software, or any additions or changes to the software.
         ///
-        ///A &quot;contributor&quot; is any person that distributes its contributi [rest of string was truncated]&quot;;.
+        ///A &quot;contributor&quot; is any person that distributes its contribution under t [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Extended_WPF_Toolkit_License {
             get {
@@ -164,19 +158,13 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License (MIT)
-        ///
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) 2007 James Newton-King
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy of
-        ///this software and associated documentation files (the &quot;Software&quot;), to deal in
-        ///the Software without restriction, including without limitation the rights to
-        ///use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-        ///the Software, and to permit persons to whom the Software is furnished to do so,
-        ///subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The  [rest of string was truncated]&quot;;.
+        ///The above copyright n [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Json_NET_License {
             get {
@@ -185,18 +173,13 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) 2016 MahApps
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The above copyri [rest of string was truncated]&quot;;.
+        ///The above copyright notice and  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string MahApps_Metro_IconPacks_License {
             get {
@@ -205,14 +188,13 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License (MIT)
-        ///
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) 2009 - 2014 Laurent Bugnion
         ///
         ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The  [rest of string was truncated]&quot;;.
+        ///The above copyri [rest of string was truncated]&quot;;.
         /// </summary>
         public static string MVVM_Light_License {
             get {
@@ -221,19 +203,11 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Code Project Open License (CPOL) 1.02
+        ///   Looks up a localized string similar to Code Project Open License 1.02
         ///
+        ///THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CODE PROJECT OPEN LICENSE (&quot;LICENSE&quot;). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
         ///
-        ///Preamble
-        ///
-        ///This License governs Your use of the Work. This License is intended to allow developers to use the Source Code and Executable Files provided as part of the Work in any application in any form.
-        ///
-        ///The main points subject to the terms of the License are:
-        ///
-        ///Source Code and Executable Files can be used in commercial applications;
-        ///Source Code and Executable Files can be redistributed; and
-        ///Source Code can be modified to create derivative works.
-        ///No cla [rest of string was truncated]&quot;;.
+        ///BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HEREIN, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE AUTHOR GRANTS YOU THE RIGHTS CONTAINED HEREIN IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH T [rest of string was truncated]&quot;;.
         /// </summary>
         public static string NotifyIcon_License {
             get {
@@ -251,18 +225,13 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MIT License (MIT)
+        ///   Looks up a localized string similar to MIT License
         ///
         ///Copyright (c) 2015 Daniel Chalmers
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The abov [rest of string was truncated]&quot;;.
+        ///The above copyright not [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Steam_Account_Switcher_License {
             get {
@@ -354,17 +323,11 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to MIT License
         ///
-        ///
         ///Copyright (c) 2017 Daniel Chalmers
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The above copyri [rest of string was truncated]&quot;;.
+        ///The above copyright not [rest of string was truncated]&quot;;.
         /// </summary>
         public static string WpfAboutView_License {
             get {
@@ -375,17 +338,11 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to MIT License
         ///
-        ///
         ///Copyright (c) 2017 Daniel Chalmers
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy
-        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
-        ///in the Software without restriction, including without limitation the rights
-        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-        ///copies of the Software, and to permit persons to whom the Software is
-        ///furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
         ///
-        ///The above copyri [rest of string was truncated]&quot;;.
+        ///The above copyright not [rest of string was truncated]&quot;;.
         /// </summary>
         public static string WpfWindowPlacement_License {
             get {
