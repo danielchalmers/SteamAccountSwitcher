@@ -34,7 +34,7 @@ namespace SteamAccountSwitcher
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             Settings.Default.Reload();
-            DialogResult = true;
+            DialogResult = false;
         }
     }
 }
