@@ -10,6 +10,7 @@ namespace SteamAccountSwitcher
         public About()
         {
             InitializeComponent();
+            Owner = Application.Current.MainWindow;
         }
 
         private void btnOK_OnClick(object sender, RoutedEventArgs e)
