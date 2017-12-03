@@ -91,9 +91,6 @@
                             <Button.Foreground>
                                 <SolidColorBrush Color="{Binding TextColor}" />
                             </Button.Foreground>
-                            <Button.BorderBrush>
-                                <SolidColorBrush Color="Gray" />
-                            </Button.BorderBrush>
                             <Button.Content>
                                 <Viewbox StretchDirection="DownOnly">
                                     <TextBlock Text="{Binding Converter={cv:AccountToVisibleNameConverter}}" />
