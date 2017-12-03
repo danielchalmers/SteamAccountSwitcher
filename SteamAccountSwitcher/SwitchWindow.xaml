@@ -84,7 +84,8 @@
 
                         <Button Command="{Binding DataContext.Account, RelativeSource={RelativeSource AncestorType={x:Type Window}}}"
                                 CommandParameter="{Binding}"
-                                FontSize="{Binding ButtonFontSize, Source={x:Static p:Settings.Default}}">
+                                FontSize="{Binding ButtonFontSize, Source={x:Static p:Settings.Default}}"
+                                Padding="1">
                             <Button.Background>
                                 <SolidColorBrush Color="{Binding Color}" />
                             </Button.Background>
