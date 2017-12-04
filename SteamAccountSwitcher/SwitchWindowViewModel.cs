@@ -54,8 +54,8 @@ namespace SteamAccountSwitcher
 
         public bool IsAccountContextMenuOpen
         {
-            get => _isAccountContextMenuOpen;
-            set => Set(ref _isAccountContextMenuOpen, value);
+            get { return _isAccountContextMenuOpen; }
+            set { Set(ref _isAccountContextMenuOpen, value); }
         }
 
         private void PreviewKeyDownExecute(KeyEventArgs e)
