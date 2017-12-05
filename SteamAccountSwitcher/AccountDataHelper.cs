@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
@@ -72,7 +73,8 @@ namespace SteamAccountSwitcher
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (Popup.Show(
+            if (App.Accounts.Any() &&
+                Popup.Show(
                 "Are you sure you want to overwrite all current accounts?\n\n" +
                 "This cannot be reversed.",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) != MessageBoxResult.Yes)
