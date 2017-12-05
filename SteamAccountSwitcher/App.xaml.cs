@@ -20,7 +20,6 @@ namespace SteamAccountSwitcher
         public static List<string> Arguments;
         public static SwitchWindow SwitchWindow;
         public static TaskbarIcon TrayIcon;
-        public static SaveTimer SaveTimer;
 
         public App()
         {

@@ -64,7 +64,6 @@ namespace SteamAccountSwitcher
                 return;
             }
             App.Accounts[accountIndex] = newAccount;
-            App.SaveTimer.DelaySave();
         }
 
         public static Account MoveUp(this Account account)
