@@ -26,10 +26,6 @@
     <Style TargetType="{x:Type Button}"
            x:Key="StyleHelperButton"
            BasedOn="{StaticResource StyleToolButton}">
-        <Setter Property="MaxWidth"
-                Value="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}" />
-        <Setter Property="MaxHeight"
-                Value="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}" />
         <Setter Property="VerticalAlignment"
                 Value="Top" />
         <Setter Property="HorizontalAlignment"

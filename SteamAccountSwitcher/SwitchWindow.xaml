@@ -74,6 +74,7 @@
                 <DataTemplate>
                     <Grid Height="{Binding ButtonHeight, Source={x:Static p:Settings.Default}, Mode=OneWay}"
                           Width="{Binding Width, Source={x:Static p:Settings.Default}, Mode=OneWay}"
+                          MinHeight="24"
                           MinWidth="144">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseRightButtonUp">
