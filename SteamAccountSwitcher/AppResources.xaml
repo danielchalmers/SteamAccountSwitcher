@@ -66,14 +66,6 @@
                         <MenuItem Header="_Exit Steam"
                                   Click="MenuItemExitSteam_OnClick" />
                         <Separator />
-                        <MenuItem Header="_Options..."
-                                  Click="MenuItemOptions_OnClick">
-                            <MenuItem.Icon>
-                                <iconPacks:PackIconMaterial Kind="Settings"
-                                                            Foreground="DimGray" />
-                            </MenuItem.Icon>
-                        </MenuItem>
-                        <Separator />
                         <MenuItem Header="E_xit"
                                   Click="MenuItemExit_OnClick">
                             <MenuItem.Icon>
