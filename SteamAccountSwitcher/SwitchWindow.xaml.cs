@@ -56,7 +56,7 @@ namespace SteamAccountSwitcher
             var wasVisible = (bool)e.OldValue;
             var isNowVisible = (bool)e.NewValue;
 
-            if (!isNowVisible && wasVisible && Settings.Default.AlwaysOn)
+            if (!isNowVisible && wasVisible && Settings.Default.AlwaysOn && !App.IsShuttingDown)
             {
                 TrayIconHelper.ShowRunningInTrayBalloon();
             }
