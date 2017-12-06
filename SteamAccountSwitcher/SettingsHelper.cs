@@ -9,6 +9,10 @@ namespace SteamAccountSwitcher
     {
         public static void SaveSettings()
         {
+            if (!App.HasInitialized)
+            {
+                return;
+            }
             Settings.Default.Accounts = SerializeAccounts(App.Accounts);
             Settings.Default.Save();
         }

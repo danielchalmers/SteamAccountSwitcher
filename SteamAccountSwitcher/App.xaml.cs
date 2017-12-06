@@ -28,6 +28,7 @@ namespace SteamAccountSwitcher
 
         public static ObservableCollection<Account> Accounts { get; set; }
         public static bool IsShuttingDown { get; set; }
+        public static bool HasInitialized { get; private set; } = false;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -53,6 +54,8 @@ namespace SteamAccountSwitcher
             MainWindow = SwitchWindow;
 
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
+
+            HasInitialized = true;
         }
 
         protected override void OnExit(ExitEventArgs e)
