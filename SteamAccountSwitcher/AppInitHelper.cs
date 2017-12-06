@@ -13,7 +13,7 @@ namespace SteamAccountSwitcher
             {
                 return false;
             }
-            LoadSettings();
+            SettingsHelper.UpgradeSettings();
             LoadAccounts();
             InitMainWindow();
             if (Settings.Default.AlwaysOn)
@@ -25,24 +25,31 @@ namespace SteamAccountSwitcher
                 }
             }
             LaunchStartAccount();
-            Settings.Default.PropertyChanged += App.Settings_OnPropertyChanged;
             return true;
         }
 
-        private static void LaunchStartAccount()
+        private static bool IsExistingInstanceRunning()
         {
-            if (!string.IsNullOrWhiteSpace(Settings.Default.OnStartLoginName) &&
-                App.Arguments.Contains("-systemstartup"))
+            bool isNewInstance;
+            App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out isNewInstance);
+            if (App.Arguments.Contains("-multiinstance") ||
+                Settings.Default.MultiInstance ||
+                isNewInstance)
             {
-                foreach (
-                    var account in
-                        App.Accounts.Where(x => x.Username == Settings.Default.OnStartLoginName)
-                    )
-                {
-                    account.SwitchTo(onStart: true);
-                    break;
-                }
+                return false;
             }
+            NativeMethods.ShowExistingInstance();
+            AppHelper.Shutdown();
+            return true;
+        }
+
+        private static void LoadAccounts()
+        {
+            if (string.IsNullOrEmpty(Settings.Default.Accounts))
+            {
+                Settings.Default.Accounts = AccountDataHelper.DefaultData();
+            }
+            AccountDataHelper.ReloadData();
         }
 
         private static void InitMainWindow()
@@ -51,39 +58,16 @@ namespace SteamAccountSwitcher
             new WindowInteropHelper(App.SwitchWindow).EnsureHandle();
             if (!Settings.Default.AlwaysOn)
             {
-                SwitchWindowHelper.ShowSwitcherWindow();
+                App.ShowMainWindow();
             }
         }
 
-        private static bool IsExistingInstanceRunning()
+        private static void LaunchStartAccount()
         {
-            bool isNewInstance;
-            App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out isNewInstance);
-            if (App.Arguments.Contains("-restarting") || App.Arguments.Contains("-multiinstance") ||
-                Settings.Default.MultiInstance || isNewInstance)
+            if (!string.IsNullOrEmpty(Settings.Default.OnStartLoginName) &&
+                App.Arguments.Contains("-systemstartup"))
             {
-                return false;
-            }
-            NativeMethods.ShowExistingInstance();
-            AppHelper.ShutdownApplication();
-            return true;
-        }
-
-        private static void LoadAccounts()
-        {
-            if (Settings.Default.Accounts == string.Empty)
-            {
-                Settings.Default.Accounts = AccountDataHelper.DefaultData();
-            }
-            AccountDataHelper.ReloadData();
-        }
-
-        private static void LoadSettings()
-        {
-            SettingsHelper.UpgradeSettings();
-            if (App.Arguments.Contains("-reset"))
-            {
-                SettingsHelper.ResetSettings();
+                App.Accounts.FirstOrDefault(x => x.Username == Settings.Default.OnStartLoginName)?.SwitchTo(onStart: true);
             }
         }
     }

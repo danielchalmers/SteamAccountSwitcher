@@ -26,40 +26,6 @@ namespace SteamAccountSwitcher
             AccountView.DataContext = App.Accounts;
         }
 
-        private void Window_Closing(object sender, CancelEventArgs e)
-        {
-            if (App.IsShuttingDown)
-            {
-                return;
-            }
-            if (Settings.Default.AlwaysOn)
-            {
-                e.Cancel = true;
-                HideWindow();
-                return;
-            }
-            AppHelper.ShutdownApplication();
-        }
-
-        public void HideWindow()
-        {
-            var visible = Visibility == Visibility.Visible;
-            Hide();
-            if (visible && Settings.Default.AlwaysOn)
-            {
-                TrayIconHelper.ShowRunningInTrayBalloon();
-            }
-        }
-
-        protected override void OnSourceInitialized(EventArgs e)
-        {
-            base.OnSourceInitialized(e);
-
-            var windowHandle = new WindowInteropHelper(this).Handle;
-            var windowSource = HwndSource.FromHwnd(windowHandle);
-            windowSource?.AddHook(WndProc);
-        }
-
         private static IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             if (msg == NativeMethods.WM_ACTIVATE)
@@ -72,16 +38,49 @@ namespace SteamAccountSwitcher
                     }
                     else
                     {
-                        SwitchWindowHelper.ActivateSwitchWindow();
+                        App.ShowAndActivateMainWindow();
                     }
                 }
                 else
                 {
-                    SwitchWindowHelper.ActivateSwitchWindow();
+                    App.ShowAndActivateMainWindow();
                 }
             }
 
             return IntPtr.Zero;
+        }
+
+        private void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (App.IsShuttingDown)
+            {
+                return;
+            }
+            if (Settings.Default.AlwaysOn)
+            {
+                e.Cancel = true;
+                Hide();
+                return;
+            }
+            AppHelper.Shutdown();
+        }
+
+        private void Window_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            var wasVisible = (bool)e.OldValue;
+            var isNowVisible = (bool)e.NewValue;
+
+            if (!isNowVisible && wasVisible && Settings.Default.AlwaysOn)
+            {
+                TrayIconHelper.ShowRunningInTrayBalloon();
+            }
+        }
+
+        private void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            var windowHandle = new WindowInteropHelper(this).Handle;
+            var windowSource = HwndSource.FromHwnd(windowHandle);
+            windowSource?.AddHook(WndProc);
         }
     }
 }

@@ -8,14 +8,14 @@ namespace SteamAccountSwitcher
 {
     public static class AppHelper
     {
-        private static readonly string AppPath =
+        private static readonly string RunPath =
             IsUpdateable
                 ? $"\"{Environment.GetFolderPath(Environment.SpecialFolder.Programs)}\\Daniel Chalmers\\{AssemblyInfo.Title}.appref-ms\""
                 : Application.ResourceAssembly.Location;
 
         private static bool IsUpdateable => ApplicationDeployment.IsNetworkDeployed;
 
-        public static void ShutdownApplication()
+        public static void Shutdown()
         {
             App.IsShuttingDown = true;
             Application.Current.Shutdown();
@@ -27,7 +27,7 @@ namespace SteamAccountSwitcher
                 ("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
             if (runOnStartup)
             {
-                registryKey?.SetValue(Resources.AppPathName, $"{AppPath} -systemstartup");
+                registryKey?.SetValue(Resources.AppPathName, $"{RunPath} -systemstartup");
             }
             else
             {

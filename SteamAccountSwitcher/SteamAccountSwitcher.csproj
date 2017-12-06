@@ -156,7 +156,6 @@
     <Compile Include="Popup.cs" />
     <Compile Include="SettingsHelper.cs" />
     <Compile Include="SteamClient.cs" />
-    <Compile Include="SwitchWindowHelper.cs" />
     <Compile Include="SwitchWindowViewModel.cs" />
     <Compile Include="TrayIconHelper.cs" />
     <Page Include="About.xaml">

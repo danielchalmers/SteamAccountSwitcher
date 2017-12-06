@@ -84,11 +84,11 @@ namespace SteamAccountSwitcher
                 if (Settings.Default.AlwaysOn)
                 {
                     TrayIconHelper.CreateTrayIcon();
-                    SwitchWindowHelper.HideSwitcherWindow();
+                    App.HideMainWindow();
                 }
                 else
                 {
-                    SwitchWindowHelper.ShowSwitcherWindow();
+                    App.ShowMainWindow();
                 }
             }
             else

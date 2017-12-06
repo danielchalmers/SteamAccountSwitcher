@@ -47,10 +47,12 @@ namespace SteamAccountSwitcher
 
             if (!AppInitHelper.Initialize())
             {
-                AppHelper.ShutdownApplication();
+                AppHelper.Shutdown();
                 return;
             }
             MainWindow = SwitchWindow;
+
+            Settings.Default.PropertyChanged += Settings_PropertyChanged;
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -68,12 +70,33 @@ namespace SteamAccountSwitcher
                 MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        public static void Settings_OnPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        public static void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(Settings.Default.RunOnStartup))
             {
                 AppHelper.SetRunOnStartup(Settings.Default.RunOnStartup);
             }
+        }
+
+        public static void ShowMainWindow()
+        {
+            SwitchWindow.Show();
+            if (SwitchWindow.WindowState == WindowState.Minimized)
+            {
+                SwitchWindow.WindowState = WindowState.Normal;
+            }
+        }
+
+        public static void HideMainWindow()
+        {
+            SwitchWindow.Hide();
+        }
+
+        public static void ShowAndActivateMainWindow()
+        {
+            ShowMainWindow();
+            SwitchWindow.Activate();
+            SwitchWindow.Focus();
         }
     }
 }

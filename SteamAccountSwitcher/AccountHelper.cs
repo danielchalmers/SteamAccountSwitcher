@@ -80,7 +80,7 @@ namespace SteamAccountSwitcher
         {
             if (hideWindow && Settings.Default.ExitOnSwitch)
             {
-                SwitchWindowHelper.HideSwitcherWindow();
+                App.HideMainWindow();
             }
 
             var worker = new BackgroundWorker();
@@ -93,7 +93,7 @@ namespace SteamAccountSwitcher
             {
                 if (!Settings.Default.AlwaysOn && Settings.Default.ExitOnSwitch)
                 {
-                    AppHelper.ShutdownApplication();
+                    AppHelper.Shutdown();
                 }
             };
 
