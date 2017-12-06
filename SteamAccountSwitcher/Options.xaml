@@ -27,7 +27,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"
                                   SharedSizeGroup="AdvancedTools" />
-                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="4" />
                 <ColumnDefinition Width="Auto"
                                   SharedSizeGroup="AdvancedTools" />
             </Grid.ColumnDefinitions>
@@ -126,7 +126,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="8" />
+                <ColumnDefinition Width="4" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
