@@ -30,21 +30,7 @@ namespace SteamAccountSwitcher
         {
             if (msg == NativeMethods.WM_ACTIVATE)
             {
-                if (Settings.Default.AlwaysOn)
-                {
-                    if (App.SwitchWindow == null || App.SwitchWindow.Visibility != Visibility.Visible)
-                    {
-                        TrayIconHelper.ShowRunningInTrayBalloon();
-                    }
-                    else
-                    {
-                        App.ShowAndActivateMainWindow();
-                    }
-                }
-                else
-                {
-                    App.ShowAndActivateMainWindow();
-                }
+                App.ShowAndActivateMainWindow();
             }
 
             return IntPtr.Zero;
