@@ -11,7 +11,7 @@
         MinHeight="480"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         Closed="Window_Closed">
     <Grid Margin="12">
         <Grid.RowDefinitions>

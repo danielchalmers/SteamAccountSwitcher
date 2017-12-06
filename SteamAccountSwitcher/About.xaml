@@ -8,7 +8,7 @@
         xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterOwner"
         ResizeMode="NoResize">
     <Window.Title>
         <MultiBinding StringFormat="{}About {0}">
