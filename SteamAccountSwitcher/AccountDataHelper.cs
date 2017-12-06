@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
@@ -91,7 +92,8 @@ namespace SteamAccountSwitcher
             var dialog = new SaveFileDialog
             {
                 DefaultExt = Resources.ImportExportExtension,
-                Filter = Resources.ImportExportDialogExtensionFilter
+                Filter = Resources.ImportExportDialogExtensionFilter,
+                FileName = $"{AssemblyInfo.Title} export {DateTime.Now.ToString("yyMMddHHmmss")}",
             };
             if (dialog.ShowDialog() == true)
             {
