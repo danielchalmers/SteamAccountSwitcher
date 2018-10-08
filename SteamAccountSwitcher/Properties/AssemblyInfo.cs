@@ -11,7 +11,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Daniel Chalmers Software")]
 [assembly: AssemblyProduct("Steam Account Switcher")]
-[assembly: AssemblyCopyright("© Daniel Chalmers 2017")]
+[assembly: AssemblyCopyright("© Daniel Chalmers 2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: Guid("22E1FAEA-639E-400B-9DCB-F2D04EC126E1")]
