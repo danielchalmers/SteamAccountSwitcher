@@ -3,8 +3,8 @@ Quickly switch between Steam accounts.
 
 ## Download
 
-[2.3 Installer](https://danielchalmers.github.io/SteamAccountSwitcher/publish/setup.exe)  
-[2.3 Portable](https://github.com/danielchalmers/SteamAccountSwitcher/releases/download/v2.3.0/SteamAccountSwitcher.exe)
+[v2.3.1 Installer](https://danielchalmers.github.io/SteamAccountSwitcher/publish/setup.exe)  
+[v2.3.1 Portable](https://github.com/danielchalmers/SteamAccountSwitcher/releases/download/v2.3.1/SteamAccountSwitcher.exe)
 
 ## Screenshots
 
