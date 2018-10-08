@@ -104,42 +104,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits.
-        /// </summary>
-        public static string GitHubApiCommits {
-            get {
-                return ResourceManager.GetString("GitHubApiCommits", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://github.com/danielchalmers/SteamAccountSwitcher/commits.
-        /// </summary>
-        public static string GitHubCommits {
-            get {
-                return ResourceManager.GetString("GitHubCommits", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://github.com/danielchalmers/SteamAccountSwitcher/issues.
-        /// </summary>
-        public static string GitHubIssues {
-            get {
-                return ResourceManager.GetString("GitHubIssues", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://github.com/danielchalmers/SteamAccountSwitcher.
-        /// </summary>
-        public static string GitHubMainPage {
-            get {
-                return ResourceManager.GetString("GitHubMainPage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Text file (*.txt)|*.txt|All files (*.*)|*.*.
         /// </summary>
         public static string ImportExportDialogExtensionFilter {
@@ -236,15 +200,6 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://store.steampowered.com/join/.
-        /// </summary>
-        public static string SteamNewAccount {
-            get {
-                return ResourceManager.GetString("SteamNewAccount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Steam Login.
         /// </summary>
         public static string SteamNotLoggedInTitle {
@@ -286,15 +241,6 @@ namespace SteamAccountSwitcher.Properties {
         public static string SteamSilentArg {
             get {
                 return ResourceManager.GetString("SteamSilentArg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://danielchalmers.github.io/SteamAccountSwitcher.
-        /// </summary>
-        public static string Website {
-            get {
-                return ResourceManager.GetString("Website", resourceCulture);
             }
         }
         

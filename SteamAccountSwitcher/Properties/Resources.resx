@@ -124,37 +124,17 @@
   <data name="SteamLoginArgument" xml:space="preserve">
     <value>-login</value>
   </data>
-  <data name="SteamNewAccount" xml:space="preserve">
-    <value>https://store.steampowered.com/join/</value>
-    <comment>Steam Create Account page</comment>
-  </data>
   <data name="SteamShutdownArgument" xml:space="preserve">
     <value>-shutdown</value>
   </data>
   <data name="AppPathName" xml:space="preserve">
     <value>SteamAccountSwitcher</value>
   </data>
-  <data name="GitHubApiCommits" xml:space="preserve">
-    <value>https://api.github.com/repos/danielchalmers/SteamAccountSwitcher/commits</value>
-  </data>
   <data name="SteamNotLoggedInTitle" xml:space="preserve">
     <value>Steam Login</value>
   </data>
-  <data name="GitHubCommits" xml:space="preserve">
-    <value>https://github.com/danielchalmers/SteamAccountSwitcher/commits</value>
-    <comment>GitHub Commits</comment>
-  </data>
-  <data name="GitHubIssues" xml:space="preserve">
-    <value>https://github.com/danielchalmers/SteamAccountSwitcher/issues</value>
-  </data>
-  <data name="Website" xml:space="preserve">
-    <value>https://danielchalmers.github.io/SteamAccountSwitcher</value>
-  </data>
   <data name="SteamSilentArg" xml:space="preserve">
     <value>-silent</value>
-  </data>
-  <data name="GitHubMainPage" xml:space="preserve">
-    <value>https://github.com/danielchalmers/SteamAccountSwitcher</value>
   </data>
   <data name="ImportExportDialogExtensionFilter" xml:space="preserve">
     <value>Text file (*.txt)|*.txt|All files (*.*)|*.*</value>

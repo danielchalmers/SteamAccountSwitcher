@@ -100,12 +100,5 @@ namespace SteamAccountSwitcher
                 File.WriteAllText(dialog.FileName, SettingsHelper.SerializeAccounts(App.Accounts));
             }
         }
-
-        public static void Reload(this IEnumerable<Account> accounts)
-        {
-            App.Accounts = new ObservableCollection<Account>(accounts);
-            SettingsHelper.SaveSettings();
-            ReloadData();
-        }
     }
 }

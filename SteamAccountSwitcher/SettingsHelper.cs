@@ -27,24 +27,6 @@ namespace SteamAccountSwitcher
             }
         }
 
-        public static void ResetSettings(bool msg = true)
-        {
-            if (msg && Popup.Show(
-                "Are you sure you want to reset ALL settings (including accounts)?\n\n" +
-                "This cannot be undone.",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Warning,
-                MessageBoxResult.No) == MessageBoxResult.No)
-            {
-                return;
-            }
-            Settings.Default.Reset();
-            Settings.Default.MustUpgrade = false;
-            Settings.Default.Accounts = AccountDataHelper.DefaultData();
-            AccountDataHelper.ReloadData();
-            Popup.Show("All settings have been restored to default.");
-        }
-
         public static string SerializeAccounts(IEnumerable<Account> accounts)
         {
             // Serialize account list to JSON.

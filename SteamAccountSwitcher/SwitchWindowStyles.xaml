@@ -50,11 +50,4 @@
         <Setter Property="Visibility"
                 Value="{Binding NumberHotkeys, Source={x:Static p:Settings.Default}, Converter={converters:BooleanToVisibilityConverter}, Mode=OneWay}" />
     </Style>
-    <Style TargetType="{x:Type Image}"
-           x:Key="StyleToolImage">
-        <Setter Property="RenderOptions.BitmapScalingMode"
-                Value="NearestNeighbor" />
-        <Setter Property="Stretch"
-                Value="None" />
-    </Style>
 </ResourceDictionary>
