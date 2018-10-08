@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
+using WpfWindowPlacement;
 
 namespace SteamAccountSwitcher
 {
@@ -38,6 +39,7 @@ namespace SteamAccountSwitcher
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
+            Settings.Default.SwitchWindowPlacement = this.GetPlacement();
             if (App.IsShuttingDown)
             {
                 return;
@@ -67,6 +69,12 @@ namespace SteamAccountSwitcher
             var windowHandle = new WindowInteropHelper(this).Handle;
             var windowSource = HwndSource.FromHwnd(windowHandle);
             windowSource?.AddHook(WndProc);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Settings.Default.SwitchWindowRememberPosition)
+                this.SetPlacement(Settings.Default.SwitchWindowPlacement);
         }
     }
 }

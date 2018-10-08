@@ -9,17 +9,15 @@
         xmlns:local="clr-namespace:SteamAccountSwitcher"
         xmlns:cv="clr-namespace:SteamAccountSwitcher.Converters"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
-        xmlns:wp="clr-namespace:WpfWindowPlacement;assembly=WpfWindowPlacement"
         mc:Ignorable="d"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         SourceInitialized="Window_SourceInitialized"
         Closing="Window_Closing"
+        Loaded="Window_Loaded"
         IsVisibleChanged="Window_IsVisibleChanged"
         Icon="icon.ico"
         Title="{x:Static local:AssemblyInfo.Title}"
-        wp:WindowPlacementProperties.TrackPlacement="{Binding SwitchWindowRememberPosition, Source={x:Static p:Settings.Default}}"
-        wp:WindowPlacementProperties.Placement="{Binding SwitchWindowPlacement, Source={x:Static p:Settings.Default}}"
         UseLayoutRounding="True">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="PreviewKeyDown">
