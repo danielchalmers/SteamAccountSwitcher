@@ -41,7 +41,8 @@ namespace SteamAccountSwitcher
             var aboutDialog = Application.Current.Windows.OfType<AboutDialog>().FirstOrDefault() ??
                 new AboutDialog
                 {
-                    AboutView = (AboutView)Application.Current.FindResource("AboutView")
+                    AboutView = (AboutView)Application.Current.FindResource("AboutView"),
+                    WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
 
             aboutDialog.ShowDialogOrBringToFront();
