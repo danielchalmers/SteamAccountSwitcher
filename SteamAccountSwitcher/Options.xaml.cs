@@ -12,7 +12,6 @@ namespace SteamAccountSwitcher
         public Options()
         {
             InitializeComponent();
-            Owner = Application.Current.MainWindow;
             Settings.Default.Save();
         }
 

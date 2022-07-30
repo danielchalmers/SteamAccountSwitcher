@@ -44,5 +44,12 @@ namespace SteamAccountSwitcher
 
             aboutDialog.ShowDialog();
         }
+
+        private void MenuItemOptions_Click(object sender, RoutedEventArgs e)
+        {
+            var optionsDialog = new Options();
+
+            optionsDialog.ShowDialog();
+        }
     }
 }

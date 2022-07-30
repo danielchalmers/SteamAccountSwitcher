@@ -27,6 +27,8 @@
 
 						<Separator />
 
+						<MenuItem Header="_Options" Click="MenuItemOptions_Click" />
+						
 						<MenuItem Header="Abo_ut" Click="MenuItemAbout_Click" />
 
 						<MenuItem Header="E_xit" Click="MenuItemExit_OnClick">
