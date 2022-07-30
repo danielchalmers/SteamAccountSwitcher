@@ -35,25 +35,12 @@
 				                         DisplayOrder="0" />
 
 				<xctk:PropertyDefinition Category=" Steam"
-				                         TargetProperties="StartSteamMinimized"
-				                         DisplayName="Start Minimized"
-				                         DisplayOrder="0" />
-				<xctk:PropertyDefinition Category=" Steam"
 				                         TargetProperties="SteamPath"
 				                         DisplayName="Steam.exe Path"
-				                         DisplayOrder="1" />
+				                         DisplayOrder="0" />
 				<xctk:PropertyDefinition Category=" Steam"
 				                         TargetProperties="SteamLaunchArgs"
 				                         DisplayName="Global Launch Arguments"
-				                         DisplayOrder="2" />
-
-				<xctk:PropertyDefinition Category="Advanced"
-				                         TargetProperties="StartSteamMinimizedOnlyOnStartup"
-				                         DisplayName="Only start Steam minimized on system startup"
-				                         DisplayOrder="0" />
-				<xctk:PropertyDefinition Category="Advanced"
-				                         TargetProperties="OnStartLoginName"
-				                         DisplayName="Username to switch to on system startup"
 				                         DisplayOrder="1" />
 			</xctk:PropertyGrid.PropertyDefinitions>
 		</xctk:PropertyGrid>

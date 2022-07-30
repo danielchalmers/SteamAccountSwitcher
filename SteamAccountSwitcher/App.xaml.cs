@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
@@ -21,14 +19,11 @@ namespace SteamAccountSwitcher
 
         public static AccountCollection Accounts { get; set; }
         public static Mutex AppMutex { get; private set; }
-        public static IReadOnlyList<string> Arguments { get; private set; }
         public static MyTaskbarIcon TrayIcon { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            Arguments = e.Args.ToList();
 
             if (IsExistingInstanceRunning())
             {
@@ -42,17 +37,7 @@ namespace SteamAccountSwitcher
 
             TrayIcon = (MyTaskbarIcon)FindResource("TrayIcon");
 
-            if (Arguments.Contains("-systemstartup"))
-            {
-                if (!string.IsNullOrEmpty(Settings.Default.OnStartLoginName))
-                {
-                    Accounts.FirstOrDefault(x => x.Username == Settings.Default.OnStartLoginName)?.SwitchTo(onStart: true);
-                }
-            }
-            else
-            {
-                TrayIcon.ShowRunningInTrayNotification();
-            }
+            TrayIcon.ShowRunningInTrayNotification();
 
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
         }
@@ -91,7 +76,7 @@ namespace SteamAccountSwitcher
 
             if (runOnStartup)
             {
-                registryKey?.SetValue(SteamAccountSwitcher.Properties.Resources.AppPathName, $"{ResourceAssembly.Location} -systemstartup");
+                registryKey?.SetValue(SteamAccountSwitcher.Properties.Resources.AppPathName, ResourceAssembly.Location);
             }
             else
             {

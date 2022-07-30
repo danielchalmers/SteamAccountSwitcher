@@ -18,13 +18,13 @@ namespace SteamAccountSwitcher
                 ? Username
                 : DisplayName;
 
-        public void SwitchTo(bool onStart = false)
+        public void SwitchTo()
         {
             var worker = new BackgroundWorker();
             worker.DoWork += delegate
             {
                 SteamClient.LogoutWithTimeout();
-                SteamClient.Login(this, onStart);
+                SteamClient.Login(this);
             };
 
             worker.RunWorkerAsync();

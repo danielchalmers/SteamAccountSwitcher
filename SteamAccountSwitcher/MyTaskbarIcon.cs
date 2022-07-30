@@ -77,7 +77,7 @@ namespace SteamAccountSwitcher
                         item.Background = new SolidColorBrush(account.Color);
                     }
 
-                    item.Click += (sender, args) => account.SwitchTo(false);
+                    item.Click += (sender, args) => account.SwitchTo();
                     yield return item;
                 }
 

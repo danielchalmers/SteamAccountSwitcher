@@ -11,17 +11,8 @@
     <Setting Name="SteamLaunchArgs" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="OnStartLoginName" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="Accounts" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="StartSteamMinimized" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="StartSteamMinimizedOnlyOnStartup" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="DefaultButtonColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFE0E0E0</Value>

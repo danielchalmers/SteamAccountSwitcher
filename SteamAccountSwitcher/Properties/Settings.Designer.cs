@@ -62,48 +62,12 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string OnStartLoginName {
-            get {
-                return ((string)(this["OnStartLoginName"]));
-            }
-            set {
-                this["OnStartLoginName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string Accounts {
             get {
                 return ((string)(this["Accounts"]));
             }
             set {
                 this["Accounts"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartSteamMinimized {
-            get {
-                return ((bool)(this["StartSteamMinimized"]));
-            }
-            set {
-                this["StartSteamMinimized"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool StartSteamMinimizedOnlyOnStartup {
-            get {
-                return ((bool)(this["StartSteamMinimizedOnlyOnStartup"]));
-            }
-            set {
-                this["StartSteamMinimizedOnlyOnStartup"] = value;
             }
         }
         

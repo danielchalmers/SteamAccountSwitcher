@@ -25,12 +25,12 @@ namespace SteamAccountSwitcher
             Process.Start(Settings.Default.SteamPath, args);
         }
 
-        public static void Login(Account account, bool onStart = false)
+        public static void Login(Account account)
         {
-            Launch(string.Join(" ", GetLoginArguments(account, onStart)));
+            Launch(string.Join(" ", GetLoginArguments(account)));
         }
 
-        private static IEnumerable<string> GetLoginArguments(Account account, bool onStart = false)
+        private static IEnumerable<string> GetLoginArguments(Account account)
         {
             // Login.
             yield return Resources.SteamLoginArgument;
@@ -42,14 +42,6 @@ namespace SteamAccountSwitcher
 
             // Global arguments.
             yield return Settings.Default.SteamLaunchArgs;
-
-            // Minimized.
-            var minimize = Settings.Default.StartSteamMinimized;
-            var minimizeOnStart = Settings.Default.StartSteamMinimizedOnlyOnStartup;
-            if ((minimize && minimizeOnStart && onStart) || (minimize && !minimizeOnStart))
-            {
-                yield return Resources.SteamSilentArg;
-            }
         }
 
         public static void Logout()
