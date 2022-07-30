@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Threading;
-using System.Windows.Interop;
 using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
@@ -13,6 +12,7 @@ namespace SteamAccountSwitcher
             {
                 return false;
             }
+
             SettingsHelper.UpgradeSettings();
             LoadAccounts();
 
@@ -28,14 +28,14 @@ namespace SteamAccountSwitcher
 
         private static bool IsExistingInstanceRunning()
         {
-            bool isNewInstance;
-            App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out isNewInstance);
+            App.AppMutex = new Mutex(true, AssemblyInfo.Guid, out var isNewInstance);
             if (App.Arguments.Contains("-multiinstance") ||
                 Settings.Default.MultiInstance ||
                 isNewInstance)
             {
                 return false;
             }
+
             AppHelper.Shutdown();
             return true;
         }
@@ -46,6 +46,7 @@ namespace SteamAccountSwitcher
             {
                 Settings.Default.Accounts = AccountDataHelper.DefaultData();
             }
+
             AccountDataHelper.ReloadData();
         }
 

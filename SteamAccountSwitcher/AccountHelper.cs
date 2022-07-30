@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Windows;
-using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
@@ -10,17 +9,19 @@ namespace SteamAccountSwitcher
         public static void New()
         {
             var dialog = new AccountProperties();
+
             dialog.ShowDialog();
+
             if (dialog.DialogResult != true || dialog.NewAccount == null)
-            {
                 return;
-            }
+
             if (string.IsNullOrWhiteSpace(dialog.NewAccount.Username) &&
                 string.IsNullOrWhiteSpace(dialog.NewAccount.Password) &&
                 string.IsNullOrWhiteSpace(dialog.NewAccount.DisplayName))
             {
                 return;
             }
+
             Add(dialog.NewAccount);
         }
 
@@ -33,7 +34,7 @@ namespace SteamAccountSwitcher
         public static void Remove(this Account account, bool msg = false)
         {
             if (msg &&
-                Popup.Show(
+                Alert.Show(
                     $"Are you sure you want to remove \"{account.GetDisplayName()}\"?",
                     MessageBoxButton.YesNo,
                     MessageBoxImage.Warning,
@@ -41,6 +42,7 @@ namespace SteamAccountSwitcher
             {
                 return;
             }
+
             App.Accounts.Remove(account);
         }
 
@@ -49,32 +51,25 @@ namespace SteamAccountSwitcher
             var dialog = new AccountProperties(account);
             dialog.ShowDialog();
             if (dialog.DialogResult != true)
-            {
                 return;
-            }
+
             var newAccount = dialog.NewAccount;
             if (newAccount == null)
-            {
                 return;
-            }
+
             newAccount.LastModifiedDate = DateTime.Now;
             var accountIndex = App.Accounts.IndexOf(account);
             if (accountIndex == -1)
-            {
                 return;
-            }
+
             App.Accounts[accountIndex] = newAccount;
         }
 
-        public static Account MoveUp(this Account account)
-        {
-            return App.Accounts.MoveUp(account);
-        }
+        public static Account MoveUp(this Account account) =>
+            App.Accounts.MoveUp(account);
 
-        public static Account MoveDown(this Account account)
-        {
-            return App.Accounts.MoveDown(account);
-        }
+        public static Account MoveDown(this Account account) =>
+            App.Accounts.MoveDown(account);
 
         public static void SwitchTo(this Account account, bool onStart = false)
         {

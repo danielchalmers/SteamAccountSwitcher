@@ -10,12 +10,11 @@ namespace SteamAccountSwitcher
 {
     public static class TrayIconHelper
     {
-        public static readonly ObservableCollection<object> AccountMenuItems = new ObservableCollection<object>();
+        public static readonly ObservableCollection<object> AccountMenuItems = new();
 
         public static void ShowRunningInTrayBalloon()
         {
-            ShowTrayBalloon("Running in tray\n" +
-                "Double click icon to open", BalloonIcon.Info);
+            ShowTrayBalloon("Running in tray\n" + "Double click icon to open", BalloonIcon.Info);
         }
 
         private static void ShowTrayBalloon(string text, BalloonIcon icon)
@@ -25,17 +24,16 @@ namespace SteamAccountSwitcher
 
         public static void CreateTrayIcon()
         {
-            if (App.TrayIcon == null)
-            {
-                App.TrayIcon = (TaskbarIcon)Application.Current.FindResource("TrayIcon");
-            }
+            App.TrayIcon ??= (TaskbarIcon)Application.Current.FindResource("TrayIcon");
             RefreshTrayIconMenu();
         }
 
         public static void RefreshTrayIconMenu()
         {
             AccountMenuItems.Clear();
+
             var items = GetAccountMenuItems();
+
             foreach (var item in items)
             {
                 AccountMenuItems.Add(item);
@@ -45,9 +43,8 @@ namespace SteamAccountSwitcher
         private static IEnumerable<Control> GetAccountMenuItems()
         {
             if (App.Accounts == null || App.Accounts.Count <= 0)
-            {
                 yield break;
-            }
+
             foreach (var account in App.Accounts)
             {
                 var item = new MenuItem { Header = account.GetDisplayName() };
@@ -56,9 +53,11 @@ namespace SteamAccountSwitcher
                     item.Foreground = new SolidColorBrush(account.TextColor);
                     item.Background = new SolidColorBrush(account.Color);
                 }
+
                 item.Click += (sender, args) => account.SwitchTo(false);
                 yield return item;
             }
+
             yield return new Separator();
         }
     }

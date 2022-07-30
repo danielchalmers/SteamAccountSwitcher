@@ -34,11 +34,12 @@ namespace SteamAccountSwitcher
             catch
             {
                 App.Accounts = new ObservableCollection<Account>();
-                Popup.Show(
+                Alert.Show(
                     "Existing account data is corrupt.\n\n" +
                     "All accounts have been reset.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
             App.Accounts.CollectionChanged += (sender, args) =>
             {
                 TrayIconHelper.RefreshTrayIconMenu();
@@ -58,6 +59,7 @@ namespace SteamAccountSwitcher
             {
                 return;
             }
+
             var fileContent = File.ReadAllText(dialog.FileName);
             try
             {
@@ -67,20 +69,22 @@ namespace SteamAccountSwitcher
             }
             catch
             {
-                Popup.Show(
+                Alert.Show(
                     "Import failed. Data may be corrupt.\n\n" +
                     "No changes have been made.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
             if (App.Accounts.Any() &&
-                Popup.Show(
+                Alert.Show(
                 "Are you sure you want to overwrite all current accounts?\n\n" +
                 "This cannot be reversed.",
                 MessageBoxButton.YesNo, MessageBoxImage.Warning, MessageBoxResult.Yes) != MessageBoxResult.Yes)
             {
                 return;
             }
+
             Settings.Default.Accounts = fileContent;
             ReloadData();
             SettingsHelper.SaveSettings();
@@ -92,8 +96,9 @@ namespace SteamAccountSwitcher
             {
                 DefaultExt = Resources.ImportExportExtension,
                 Filter = Resources.ImportExportDialogExtensionFilter,
-                FileName = $"{AssemblyInfo.Title} export {DateTime.Now.ToString("yyMMddHHmmss")}",
+                FileName = $"{AssemblyInfo.Title} export {DateTime.Now:yyMMddHHmmss}",
             };
+
             if (dialog.ShowDialog() == true)
             {
                 File.WriteAllText(dialog.FileName, SettingsHelper.SerializeAccounts(App.Accounts));

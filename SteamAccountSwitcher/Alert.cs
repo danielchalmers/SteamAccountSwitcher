@@ -2,7 +2,7 @@
 
 namespace SteamAccountSwitcher
 {
-    public static class Popup
+    public static class Alert
     {
         public static MessageBoxResult Show(
             string text,

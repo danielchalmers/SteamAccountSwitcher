@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading;
@@ -54,7 +53,7 @@ namespace SteamAccountSwitcher
 
         private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Popup.Show(
+            Alert.Show(
                 "An unhandled exception occurred:\n\n" +
                 e.Exception,
                 MessageBoxButton.OK, MessageBoxImage.Error);

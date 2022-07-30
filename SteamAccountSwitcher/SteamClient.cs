@@ -15,12 +15,13 @@ namespace SteamAccountSwitcher
         {
             if (!ResolvePath())
             {
-                Popup.Show(
+                Alert.Show(
                     "Steam.exe could not be found.\n\n" +
                     "Please enter the correct path in options.",
                     image: MessageBoxImage.Warning);
                 return;
             }
+
             Process.Start(Settings.Default.SteamPath, args);
         }
 
@@ -44,8 +45,8 @@ namespace SteamAccountSwitcher
 
             // Minimized.
             var minimize = Settings.Default.StartSteamMinimized;
-            var minimizeOnStartup = Settings.Default.StartSteamMinimizedOnlyOnStartup;
-            if ((minimize && minimizeOnStartup && onStart) || (minimize && !minimizeOnStartup))
+            var minimizeOnStart = Settings.Default.StartSteamMinimizedOnlyOnStartup;
+            if ((minimize && minimizeOnStart && onStart) || (minimize && !minimizeOnStart))
             {
                 yield return Resources.SteamSilentArg;
             }
@@ -54,9 +55,8 @@ namespace SteamAccountSwitcher
         public static void Logout()
         {
             if (!IsRunning())
-            {
                 return;
-            }
+
             if (GetWindowTitle() == Resources.SteamNotLoggedInTitle)
             {
                 ForceClose();
@@ -82,9 +82,11 @@ namespace SteamAccountSwitcher
                     ForceClose();
                     return false;
                 }
+
                 timeout += interval;
                 Thread.Sleep(interval);
             }
+
             return true;
         }
 
@@ -93,45 +95,34 @@ namespace SteamAccountSwitcher
             GetProcess()?.CloseMainWindow();
         }
 
-        private static Process GetProcess()
-        {
-            return Process.GetProcessesByName(Resources.Steam).FirstOrDefault();
-        }
+        private static Process GetProcess() =>
+            Process.GetProcessesByName(Resources.Steam).FirstOrDefault();
 
-        private static string GetWindowTitle()
-        {
-            return GetProcess()?.MainWindowTitle;
-        }
+        private static string GetWindowTitle() =>
+            GetProcess()?.MainWindowTitle;
 
         private static string GetPathFromRegistry()
         {
-            string path;
             try
             {
-                using (var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath))
-                {
-                    path = registryKey?.GetValue(Resources.SteamRegistryExecutableName).ToString();
-                }
+                using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
+                return registryKey?.GetValue(Resources.SteamRegistryExecutableName).ToString();
             }
             catch
             {
-                path = string.Empty;
+                return string.Empty;
             }
-            return path;
         }
 
         private static bool ResolvePath()
         {
             if (!File.Exists(Settings.Default.SteamPath))
-            {
                 Settings.Default.SteamPath = GetPathFromRegistry();
-            }
+
             return File.Exists(Settings.Default.SteamPath);
         }
 
-        private static bool IsRunning()
-        {
-            return GetProcess() != null;
-        }
+        private static bool IsRunning() =>
+            GetProcess() != null;
     }
 }

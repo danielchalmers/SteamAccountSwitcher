@@ -2,13 +2,11 @@
 
 namespace SteamAccountSwitcher
 {
-    public static class ListUtilities
+    public static class ListUtil
     {
         private static T Swap<T>(this IList<T> list, int indexA, int indexB)
         {
-            var tmp = list[indexA];
-            list[indexA] = list[indexB];
-            list[indexB] = tmp;
+            (list[indexB], list[indexA]) = (list[indexA], list[indexB]);
             return list[indexB];
         }
 
@@ -33,6 +31,7 @@ namespace SteamAccountSwitcher
             {
                 return list.MoveToBottom(item);
             }
+
             return list.Swap(index, index - 1);
         }
 
@@ -43,6 +42,7 @@ namespace SteamAccountSwitcher
             {
                 return list.MoveToTop(item);
             }
+
             return list.Swap(index, index + 1);
         }
     }

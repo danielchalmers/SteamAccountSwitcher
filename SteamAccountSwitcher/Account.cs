@@ -15,16 +15,11 @@ namespace SteamAccountSwitcher
         public DateTime LastModifiedDate { get; set; } = DateTime.Now;
         public string Arguments { get; set; } = string.Empty;
 
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
+        public object Clone() => MemberwiseClone();
 
-        public string GetDisplayName()
-        {
-            return string.IsNullOrWhiteSpace(DisplayName)
+        public string GetDisplayName() =>
+            string.IsNullOrWhiteSpace(DisplayName)
                 ? Username
                 : DisplayName;
-        }
     }
 }

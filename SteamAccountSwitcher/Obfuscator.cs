@@ -57,6 +57,7 @@ namespace SteamAccountSwitcher
             {
                 cs.Write(buffer, 0, buffer.Length);
             }
+
             return stream.ToArray();
         }
     }

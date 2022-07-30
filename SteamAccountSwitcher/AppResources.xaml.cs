@@ -1,8 +1,9 @@
 ﻿using System.Windows;
+using WpfAboutView;
 
 namespace SteamAccountSwitcher
 {
-    partial class AppResources : ResourceDictionary
+    public partial class AppResources : ResourceDictionary
     {
         public AppResources()
         {
@@ -32,6 +33,16 @@ namespace SteamAccountSwitcher
         private void MenuItemExitSteam_OnClick(object sender, RoutedEventArgs e)
         {
             SteamClient.Logout();
+        }
+
+        private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
+        {
+            var aboutDialog = new AboutDialog
+            {
+                AboutView = (AboutView)Application.Current.FindResource("AboutView")
+            };
+
+            aboutDialog.ShowDialog();
         }
     }
 }
