@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Deployment.Application;
 using System.Windows;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
@@ -8,12 +7,7 @@ namespace SteamAccountSwitcher
 {
     public static class AppHelper
     {
-        private static readonly string RunPath =
-            IsUpdateable
-                ? $"\"{Environment.GetFolderPath(Environment.SpecialFolder.Programs)}\\Daniel Chalmers\\{AssemblyInfo.Title}.appref-ms\""
-                : Application.ResourceAssembly.Location;
-
-        private static bool IsUpdateable => ApplicationDeployment.IsNetworkDeployed;
+        private static readonly string RunPath = Application.ResourceAssembly.Location;
 
         public static void Shutdown()
         {

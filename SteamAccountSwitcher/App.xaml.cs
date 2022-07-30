@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Deployment.Application;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -34,17 +33,7 @@ namespace SteamAccountSwitcher
         {
             base.OnStartup(e);
 
-            if (ApplicationDeployment.IsNetworkDeployed &&
-                AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData != null &&
-                AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData.Length > 0)
-            {
-                Arguments =
-                    AppDomain.CurrentDomain.SetupInformation.ActivationArguments.ActivationData[0].Split(',').ToList();
-            }
-            else
-            {
-                Arguments = e.Args.ToList();
-            }
+            Arguments = e.Args.ToList();
 
             if (!AppInitHelper.Initialize())
             {
