@@ -110,18 +110,6 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool MultiInstance {
-            get {
-                return ((bool)(this["MultiInstance"]));
-            }
-            set {
-                this["MultiInstance"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool StartSteamMinimizedOnlyOnStartup {
             get {
                 return ((bool)(this["StartSteamMinimizedOnlyOnStartup"]));

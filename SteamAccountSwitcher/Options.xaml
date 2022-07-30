@@ -75,17 +75,13 @@
 				                         DisplayOrder="2" />
 
 				<xctk:PropertyDefinition Category="Advanced"
-				                         TargetProperties="MultiInstance"
-				                         DisplayName="Allow multiple instances"
-				                         DisplayOrder="0" />
-				<xctk:PropertyDefinition Category="Advanced"
 				                         TargetProperties="StartSteamMinimizedOnlyOnStartup"
 				                         DisplayName="Only start Steam minimized on system startup"
-				                         DisplayOrder="1" />
+				                         DisplayOrder="0" />
 				<xctk:PropertyDefinition Category="Advanced"
 				                         TargetProperties="OnStartLoginName"
 				                         DisplayName="Username to switch to on system startup"
-				                         DisplayOrder="2" />
+				                         DisplayOrder="1" />
 			</xctk:PropertyGrid.PropertyDefinitions>
 		</xctk:PropertyGrid>
 
