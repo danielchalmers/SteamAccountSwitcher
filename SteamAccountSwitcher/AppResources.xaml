@@ -2,92 +2,88 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SteamAccountSwitcher"
-                    xmlns:tb="http://www.hardcodet.net/taskbar"
                     xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" 
-					xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView">
-	<tb:TaskbarIcon x:Key="TrayIcon"
-	                IconSource="SteamAccountSwitcher.ico"
-	                ToolTipText="{x:Static local:AssemblyInfo.Title}">
-		<tb:TaskbarIcon.ContextMenu>
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                    xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView">
+	<local:MyTaskbarIcon x:Key="TrayIcon"
+	                     IconSource="SteamAccountSwitcher.ico"
+	                     ToolTipText="{x:Static local:AssemblyInfo.Title}"
+	                     MenuActivation="LeftOrRightClick"
+	                     Accounts="{x:Static local:App.Accounts}">
+		<local:MyTaskbarIcon.Resources>
+			<CollectionViewSource x:Key="AccountMenuItemCollection" Source="{Binding AccountMenuItems, RelativeSource={RelativeSource Self}}" />
+		</local:MyTaskbarIcon.Resources>
+		<local:MyTaskbarIcon.ContextMenu>
 			<ContextMenu>
 				<ContextMenu.ItemsSource>
 					<CompositeCollection>
-						<CollectionContainer Collection="{x:Static local:TrayIconHelper.AccountMenuItems}" />
+						<CollectionContainer Collection="{Binding Source={StaticResource AccountMenuItemCollection}}" />
 
-						<MenuItem Header="_Add Account..." Click="MenuItemAddAccount_OnClick">
-							<MenuItem.Icon>
-								<iconPacks:PackIconMaterial Kind="Plus" Foreground="LimeGreen" />
-							</MenuItem.Icon>
-						</MenuItem>
-
-						<MenuItem Header="Open _Steam" Click="MenuItemOpenSteam_OnClick" />
-
-						<MenuItem Header="_Exit Steam" Click="MenuItemExitSteam_OnClick" />
+						<MenuItem Header="_Add Account..."
+						          Click="MenuItemAddAccount_OnClick"
+						          Icon="{iconPacks:Material Plus}" />
 
 						<Separator />
 
 						<MenuItem Header="_Options" Click="MenuItemOptions_Click" />
-						
+
 						<MenuItem Header="Abo_ut" Click="MenuItemAbout_Click" />
 
-						<MenuItem Header="E_xit" Click="MenuItemExit_OnClick">
-							<MenuItem.Icon>
-								<iconPacks:PackIconMaterial Kind="CloseBox" Foreground="Red" />
-							</MenuItem.Icon>
-						</MenuItem>
+						<MenuItem Header="E_xit"
+						          Click="MenuItemExit_OnClick"
+						          Icon="{iconPacks:Material CloseBox}" />
 					</CompositeCollection>
 				</ContextMenu.ItemsSource>
 			</ContextMenu>
-		</tb:TaskbarIcon.ContextMenu>
-	</tb:TaskbarIcon>
+		</local:MyTaskbarIcon.ContextMenu>
+	</local:MyTaskbarIcon>
 
 	<av:AboutView x:Key="AboutView" AppIconSource="pack://application:,,,/SteamAccountSwitcher.ico">
 		<av:AboutView.Credits>
 			<av:Credit Name="{x:Static local:AssemblyInfo.Title}"
-				           Author="{x:Static local:AssemblyInfo.Company}"
-				           Website="https://github.com/danielchalmers/SteamAccountSwitcher"
-				           LicenseText="{x:Static p:Resources.Steam_Account_Switcher_License}" />
+			           Author="{x:Static local:AssemblyInfo.Company}"
+			           Website="https://github.com/danielchalmers/SteamAccountSwitcher"
+			           LicenseText="{x:Static p:Resources.Steam_Account_Switcher_License}" />
 
 			<av:Credit Name="Fody, Costura.Fody"
-				           Author="Simon Cropp &amp; contributors"
-				           Website="https://github.com/Fody/Costura"
-				           LicenseText="{x:Static p:Resources.Costura_Fody_License}" />
+			           Author="Simon Cropp &amp; contributors"
+			           Website="https://github.com/Fody/Costura"
+			           LicenseText="{x:Static p:Resources.Costura_Fody_License}" />
 
 			<av:Credit Name="Extended WPF Toolkit"
-				           Author="Xceed"
-				           Website="https://github.com/xceedsoftware/wpftoolkit"
-				           LicenseText="{x:Static p:Resources.Extended_WPF_Toolkit_License}" />
+			           Author="Xceed"
+			           Website="https://github.com/xceedsoftware/wpftoolkit"
+			           LicenseText="{x:Static p:Resources.Extended_WPF_Toolkit_License}" />
 
 			<av:Credit Name="Json.NET"
-				           Author="James Newton-King"
-				           Website="http://newtonsoft.com/json"
-				           LicenseText="{x:Static p:Resources.Json_NET_License}" />
+			           Author="James Newton-King"
+			           Website="http://newtonsoft.com/json"
+			           LicenseText="{x:Static p:Resources.Json_NET_License}" />
 
 			<av:Credit Name="MahApps.Metro.IconPacks"
-				           Author="MahApps"
-				           Website="https://github.com/MahApps/MahApps.Metro.IconPacks"
-				           LicenseText="{x:Static p:Resources.MahApps_Metro_IconPacks_License}" />
+			           Author="MahApps"
+			           Website="https://github.com/MahApps/MahApps.Metro.IconPacks"
+			           LicenseText="{x:Static p:Resources.MahApps_Metro_IconPacks_License}" />
 
 			<av:Credit Name="MVVM Light"
-				           Author="GalaSoft"
-				           Website="http://galasoft.ch/mvvm"
-				           LicenseText="{x:Static p:Resources.MVVM_Light_License}" />
+			           Author="GalaSoft"
+			           Website="http://galasoft.ch/mvvm"
+			           LicenseText="{x:Static p:Resources.MVVM_Light_License}" />
 
 			<av:Credit Name="WPF NotifyIcon"
-				           Author="Philipp Sumi"
-				           Website="http://hardcodet.net/wpf-notifyicon"
-				           LicenseText="{x:Static p:Resources.WPF_NotifyIcon_License}" />
+			           Author="Philipp Sumi"
+			           Website="http://hardcodet.net/wpf-notifyicon"
+			           LicenseText="{x:Static p:Resources.WPF_NotifyIcon_License}" />
 
 			<av:Credit Name="WpfAboutView"
-				           Author="Daniel Chalmers"
-				           Website="https://github.com/danielchalmers/WpfAboutView"
-				           LicenseText="{x:Static p:Resources.WpfAboutView_License}" />
+			           Author="Daniel Chalmers"
+			           Website="https://github.com/danielchalmers/WpfAboutView"
+			           LicenseText="{x:Static p:Resources.WpfAboutView_License}" />
 
 			<av:Credit Name="WpfWindowPlacement"
-				           Author="Daniel Chalmers"
-				           Website="https://github.com/danielchalmers/WpfWindowPlacement"
-				           LicenseText="{x:Static p:Resources.WpfWindowPlacement_License}" />
+			           Author="Daniel Chalmers"
+			           Website="https://github.com/danielchalmers/WpfWindowPlacement"
+			           LicenseText="{x:Static p:Resources.WpfWindowPlacement_License}" />
 		</av:AboutView.Credits>
 	</av:AboutView>
 </ResourceDictionary>

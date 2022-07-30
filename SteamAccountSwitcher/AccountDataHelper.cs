@@ -39,12 +39,6 @@ namespace SteamAccountSwitcher
                     "All accounts have been reset.",
                     MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-            App.Accounts.CollectionChanged += (sender, args) =>
-            {
-                TrayIconHelper.RefreshTrayIconMenu();
-            };
-            TrayIconHelper.RefreshTrayIconMenu();
         }
 
         public static void ImportAccounts()

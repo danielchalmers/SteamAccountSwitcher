@@ -16,11 +16,10 @@ namespace SteamAccountSwitcher
             SettingsHelper.UpgradeSettings();
             LoadAccounts();
 
-            TrayIconHelper.CreateTrayIcon();
+            App.TrayIcon = (MyTaskbarIcon)App.Current.FindResource("TrayIcon");
+
             if (!App.Arguments.Contains("-systemstartup"))
-            {
-                TrayIconHelper.ShowRunningInTrayBalloon();
-            }
+                App.TrayIcon.ShowRunningInTrayNotification();
 
             LaunchStartAccount();
             return true;

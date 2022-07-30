@@ -10,7 +10,6 @@ namespace SteamAccountSwitcher
         public AccountProperties(Account account = null)
         {
             InitializeComponent();
-            Owner = Application.Current.MainWindow;
             Title = $"{(account == null ? "Add" : "Edit")} Account";
             NewAccount = account == null ? new Account() : (Account)account.Clone();
             DataContext = NewAccount;

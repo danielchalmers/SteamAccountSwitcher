@@ -42,13 +42,5 @@ namespace SteamAccountSwitcher
 
             return deserialized ?? new List<Account>();
         }
-
-        public static void OpenOptions()
-        {
-            var dialog = new Options();
-            dialog.ShowDialog();
-
-            TrayIconHelper.RefreshTrayIconMenu();
-        }
     }
 }

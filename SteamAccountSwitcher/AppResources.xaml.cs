@@ -11,11 +11,6 @@ namespace SteamAccountSwitcher
             InitializeComponent();
         }
 
-        private void MenuItemOptions_OnClick(object sender, RoutedEventArgs e)
-        {
-            SettingsHelper.OpenOptions();
-        }
-
         private void MenuItemExit_OnClick(object sender, RoutedEventArgs e)
         {
             AppHelper.Shutdown();
@@ -45,14 +40,26 @@ namespace SteamAccountSwitcher
                     WindowStartupLocation = WindowStartupLocation.CenterScreen
                 };
 
-            aboutDialog.ShowDialogOrBringToFront();
+            if (aboutDialog.IsVisible)
+            {
+                aboutDialog.Activate();
+                return;
+            }
+
+            aboutDialog.ShowDialog();
         }
 
         private void MenuItemOptions_Click(object sender, RoutedEventArgs e)
         {
             var optionsDialog = Application.Current.Windows.OfType<Options>().FirstOrDefault() ?? new Options();
 
-            optionsDialog.ShowDialogOrBringToFront();
+            if (optionsDialog.IsVisible)
+            {
+                optionsDialog.Activate();
+                return;
+            }
+
+            optionsDialog.ShowDialog();
         }
     }
 }

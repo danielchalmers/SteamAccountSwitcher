@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
-using Hardcodet.Wpf.TaskbarNotification;
 using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
@@ -16,7 +15,7 @@ namespace SteamAccountSwitcher
     {
         public static Mutex AppMutex;
         public static List<string> Arguments;
-        public static TaskbarIcon TrayIcon;
+        public static MyTaskbarIcon TrayIcon;
 
         public App()
         {
