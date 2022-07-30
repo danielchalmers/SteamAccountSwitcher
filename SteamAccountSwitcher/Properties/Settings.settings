@@ -8,9 +8,6 @@
     <Setting Name="MustUpgrade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="SteamLaunchArgs" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
     <Setting Name="Accounts" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>

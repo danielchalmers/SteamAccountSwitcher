@@ -38,10 +38,6 @@
 				                         TargetProperties="SteamPath"
 				                         DisplayName="Steam.exe Path"
 				                         DisplayOrder="0" />
-				<xctk:PropertyDefinition Category=" Steam"
-				                         TargetProperties="SteamLaunchArgs"
-				                         DisplayName="Global Launch Arguments"
-				                         DisplayOrder="1" />
 			</xctk:PropertyGrid.PropertyDefinitions>
 		</xctk:PropertyGrid>
 

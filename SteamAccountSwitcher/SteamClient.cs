@@ -39,9 +39,6 @@ namespace SteamAccountSwitcher
 
             // Per-account arguments.
             yield return account.Arguments;
-
-            // Global arguments.
-            yield return Settings.Default.SteamLaunchArgs;
         }
 
         public static void Logout()
