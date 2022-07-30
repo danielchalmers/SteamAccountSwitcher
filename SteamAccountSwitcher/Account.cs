@@ -1,25 +1,40 @@
-﻿using System;
+﻿using System.ComponentModel;
 using System.Windows.Media;
 using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
 {
-    public class Account : ICloneable
+    public record class Account
     {
         public string DisplayName { get; set; } = string.Empty;
         public string Username { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public Color Color { get; set; } = Settings.Default.DefaultButtonColor;
         public Color TextColor { get; set; } = Settings.Default.DefaultButtonTextColor;
-        public DateTime AddDate { get; set; } = DateTime.Now;
-        public DateTime LastModifiedDate { get; set; } = DateTime.Now;
         public string Arguments { get; set; } = string.Empty;
 
-        public object Clone() => MemberwiseClone();
-
-        public string GetDisplayName() =>
+        public override string ToString() =>
             string.IsNullOrWhiteSpace(DisplayName)
                 ? Username
                 : DisplayName;
+
+        public void SwitchTo(bool onStart = false)
+        {
+            var worker = new BackgroundWorker();
+            worker.DoWork += delegate
+            {
+                SteamClient.LogoutWithTimeout();
+                SteamClient.Login(this, onStart);
+            };
+
+            worker.RunWorkerAsync();
+        }
+
+        public static Account ExampleAccount { get; } = new()
+        {
+            DisplayName = "Example",
+            Username = "username",
+            Password = "password"
+        };
     }
 }

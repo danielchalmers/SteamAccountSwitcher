@@ -5,7 +5,7 @@
         Width="300"
         SizeToContent="Height"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterOwner"
+        WindowStartupLocation="CenterScreen"
         FocusManager.FocusedElement="{Binding ElementName=txtUsername}">
 	<Grid Margin="12">
 		<Grid.RowDefinitions>

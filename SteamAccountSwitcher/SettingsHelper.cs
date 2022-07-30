@@ -8,9 +8,6 @@ namespace SteamAccountSwitcher
     {
         public static void SaveSettings()
         {
-            if (!App.HasInitialized)
-                return;
-
             Settings.Default.Accounts = SerializeAccounts(App.Accounts);
             Settings.Default.Save();
         }
@@ -32,15 +29,19 @@ namespace SteamAccountSwitcher
             return obfuscated;
         }
 
-        public static IEnumerable<Account> DeserializeAccounts(string accounts)
+        public static AccountCollection DeserializeAccounts(string accounts)
         {
-            if (string.IsNullOrEmpty(accounts))
-                return new List<Account>();
+            try
+            {
+                var deobfuscated = new Obfuscator().Deobfuscate(accounts);
+                var deserialized = JsonConvert.DeserializeObject<AccountCollection>(deobfuscated);
 
-            var deobfuscated = new Obfuscator().Deobfuscate(accounts);
-            var deserialized = JsonConvert.DeserializeObject<List<Account>>(deobfuscated);
-
-            return deserialized ?? new List<Account>();
+                return deserialized;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }

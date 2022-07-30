@@ -11,7 +11,7 @@ namespace SteamAccountSwitcher
 {
     public class MyTaskbarIcon : TaskbarIcon
     {
-        public readonly ObservableCollection<Control> AccountMenuItems = new();
+        public ObservableCollection<Control> AccountMenuItems { get; } = new();
 
         public ObservableCollection<Account> Accounts
         {
@@ -42,45 +42,52 @@ namespace SteamAccountSwitcher
 
             if (newAccountsProperty != null)
                 newAccountsProperty.CollectionChanged += icon.Accounts_CollectionChanged;
+
+            icon.RefreshAccountMenuItems();
         }
 
         private void Accounts_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            AccountMenuItems.Clear();
-
-            foreach (var item in GetAccountMenuItems())
-                AccountMenuItems.Add(item);
+            RefreshAccountMenuItems();
         }
 
         public void ShowRunningInTrayNotification()
         {
-            ShowNotification("Running in tray", "Click the icon to see your accounts");
+            ShowNotification("Running in the tray", "Click the icon to see your accounts");
         }
 
-        private static IEnumerable<Control> GetAccountMenuItems()
+        private void RefreshAccountMenuItems()
         {
-            if (App.Accounts == null || App.Accounts.Count <= 0)
-                yield break;
-
-            foreach (var account in App.Accounts)
+            IEnumerable<Control> GetAccountMenuItems()
             {
-                var item = new MenuItem
-                {
-                    Header = account.GetDisplayName(),
-                    Tag = "account",
-                };
+                if (Accounts == null || Accounts.Count <= 0)
+                    yield break;
 
-                if (Settings.Default.ColorCodeAccountMenuItems)
+                foreach (var account in Accounts)
                 {
-                    item.Foreground = new SolidColorBrush(account.TextColor);
-                    item.Background = new SolidColorBrush(account.Color);
+                    var item = new MenuItem
+                    {
+                        Header = account.ToString(),
+                        Tag = "account",
+                    };
+
+                    if (Settings.Default.ColorCodeAccountMenuItems)
+                    {
+                        item.Foreground = new SolidColorBrush(account.TextColor);
+                        item.Background = new SolidColorBrush(account.Color);
+                    }
+
+                    item.Click += (sender, args) => account.SwitchTo(false);
+                    yield return item;
                 }
 
-                item.Click += (sender, args) => account.SwitchTo(false);
-                yield return item;
+                yield return new Separator();
             }
 
-            yield return new Separator();
+            AccountMenuItems.Clear();
+
+            foreach (var item in GetAccountMenuItems())
+                AccountMenuItems.Add(item);
         }
     }
 }

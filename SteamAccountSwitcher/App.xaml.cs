@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher
@@ -13,18 +14,15 @@ namespace SteamAccountSwitcher
     /// </summary>
     public partial class App : Application
     {
-        public static Mutex AppMutex;
-        public static List<string> Arguments;
-        public static MyTaskbarIcon TrayIcon;
-
         public App()
         {
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;
         }
 
-        public static ObservableCollection<Account> Accounts { get; set; }
-        public static bool IsShuttingDown { get; set; }
-        public static bool HasInitialized { get; private set; } = false;
+        public static AccountCollection Accounts { get; set; }
+        public static Mutex AppMutex { get; private set; }
+        public static IReadOnlyList<string> Arguments { get; private set; }
+        public static MyTaskbarIcon TrayIcon { get; private set; }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -32,37 +30,72 @@ namespace SteamAccountSwitcher
 
             Arguments = e.Args.ToList();
 
-            if (!AppInitHelper.Initialize())
+            if (IsExistingInstanceRunning())
             {
-                AppHelper.Shutdown();
+                Shutdown(1);
                 return;
             }
 
-            Settings.Default.PropertyChanged += Settings_PropertyChanged;
+            SettingsHelper.UpgradeSettings();
 
-            HasInitialized = true;
+            Accounts = SettingsHelper.DeserializeAccounts(Settings.Default.Accounts) ?? AccountCollection.Example;
+
+            TrayIcon = (MyTaskbarIcon)FindResource("TrayIcon");
+
+            if (Arguments.Contains("-systemstartup"))
+            {
+                if (!string.IsNullOrEmpty(Settings.Default.OnStartLoginName))
+                {
+                    Accounts.FirstOrDefault(x => x.Username == Settings.Default.OnStartLoginName)?.SwitchTo(onStart: true);
+                }
+            }
+            else
+            {
+                TrayIcon.ShowRunningInTrayNotification();
+            }
+
+            Settings.Default.PropertyChanged += Settings_PropertyChanged;
         }
 
         protected override void OnExit(ExitEventArgs e)
         {
             base.OnExit(e);
 
-            SettingsHelper.SaveSettings();
+            if (e.ApplicationExitCode == 0)
+                SettingsHelper.SaveSettings();
         }
 
-        private static void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            Alert.Show(
-                "An unhandled exception occurred:\n\n" +
-                e.Exception,
-                MessageBoxButton.OK, MessageBoxImage.Error);
+            TrayIcon.ShowNotification("An unhandled exception occurred", e.Exception.Message);
         }
 
-        public static void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(Settings.Default.RunOnStartup))
             {
-                AppHelper.SetRunOnStartup(Settings.Default.RunOnStartup);
+                SetRunOnStartup(Settings.Default.RunOnStartup);
+            }
+        }
+
+        private bool IsExistingInstanceRunning()
+        {
+            AppMutex = new Mutex(true, AssemblyInfo.Guid, out var isNewInstance);
+
+            return !isNewInstance;
+        }
+
+        private void SetRunOnStartup(bool runOnStartup)
+        {
+            var registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+            if (runOnStartup)
+            {
+                registryKey?.SetValue(SteamAccountSwitcher.Properties.Resources.AppPathName, $"{ResourceAssembly.Location} -systemstartup");
+            }
+            else
+            {
+                registryKey?.DeleteValue(SteamAccountSwitcher.Properties.Resources.AppPathName, false);
             }
         }
     }

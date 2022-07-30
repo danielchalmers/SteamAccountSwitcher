@@ -15,16 +15,6 @@ namespace SteamAccountSwitcher
             Settings.Default.Save();
         }
 
-        private void menuItemImport_OnClick(object sender, EventArgs e)
-        {
-            AccountDataHelper.ImportAccounts();
-        }
-
-        private void menuItemExport_OnClick(object sender, EventArgs e)
-        {
-            AccountDataHelper.ExportAccounts();
-        }
-
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;

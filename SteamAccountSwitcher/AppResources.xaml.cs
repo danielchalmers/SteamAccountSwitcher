@@ -13,12 +13,12 @@ namespace SteamAccountSwitcher
 
         private void MenuItemExit_OnClick(object sender, RoutedEventArgs e)
         {
-            AppHelper.Shutdown();
+            App.Current.Shutdown();
         }
 
         private void MenuItemAddAccount_OnClick(object sender, RoutedEventArgs e)
         {
-            AccountHelper.New();
+            App.Accounts.New();
         }
 
         private void MenuItemOpenSteam_OnClick(object sender, RoutedEventArgs e)
