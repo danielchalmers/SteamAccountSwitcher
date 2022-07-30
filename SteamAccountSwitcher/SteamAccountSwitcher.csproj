@@ -22,9 +22,11 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="CommonServiceLocator" Version="2.0.3" />
-    <PackageReference Include="Costura.Fody" Version="3.1.4" />
+    <PackageReference Include="Costura.Fody" Version="5.7.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="3.4.0" />
-    <PackageReference Include="Fody" Version="3.2.9" />
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf" Version="1.0.8" />
     <PackageReference Include="MahApps.Metro.IconPacks.Material" Version="1.9.1" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
