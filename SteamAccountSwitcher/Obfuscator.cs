@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SteamAccountSwitcher
 {
-    public class Encryption
+    public class Obfuscator
     {
         private static readonly byte[] Key =
         {
@@ -22,7 +22,7 @@ namespace SteamAccountSwitcher
         private readonly UTF8Encoding _encoder;
         private readonly ICryptoTransform _encryptor;
 
-        public Encryption()
+        public Obfuscator()
         {
             var rm = new RijndaelManaged();
             _encryptor = rm.CreateEncryptor(Key, Vector);
@@ -30,22 +30,22 @@ namespace SteamAccountSwitcher
             _encoder = new UTF8Encoding();
         }
 
-        public string Encrypt(string unencrypted)
+        public string Obfuscate(string original)
         {
-            return Convert.ToBase64String(Encrypt(_encoder.GetBytes(unencrypted)));
+            return Convert.ToBase64String(Obfuscate(_encoder.GetBytes(original)));
         }
 
-        public string Decrypt(string encrypted)
+        public string Deobfuscate(string obfuscated)
         {
-            return _encoder.GetString(Decrypt(Convert.FromBase64String(encrypted)));
+            return _encoder.GetString(Deobfuscate(Convert.FromBase64String(obfuscated)));
         }
 
-        private byte[] Encrypt(byte[] buffer)
+        private byte[] Obfuscate(byte[] buffer)
         {
             return Transform(buffer, _encryptor);
         }
 
-        private byte[] Decrypt(byte[] buffer)
+        private byte[] Deobfuscate(byte[] buffer)
         {
             return Transform(buffer, _decryptor);
         }

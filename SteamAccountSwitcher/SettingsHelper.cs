@@ -33,7 +33,7 @@ namespace SteamAccountSwitcher
             var serialized = JsonConvert.SerializeObject(accounts);
 
             // Obfuscate the serialized accounts.
-            var obfuscated = new Encryption().Encrypt(serialized);
+            var obfuscated = new Obfuscator().Obfuscate(serialized);
 
             // Return the obfuscated accounts.
             // Deserialization must occur in reverse order (deobfuscate then deserialize).
@@ -49,7 +49,7 @@ namespace SteamAccountSwitcher
             }
 
             // Deobfuscate JSON accounts string.
-            var deobfuscated = new Encryption().Decrypt(accounts);
+            var deobfuscated = new Obfuscator().Deobfuscate(accounts);
 
             // Deserialize deobfuscated JSON string.
             var deserialized = JsonConvert.DeserializeObject<List<Account>>(deobfuscated);
