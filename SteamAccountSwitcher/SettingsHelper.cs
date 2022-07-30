@@ -60,30 +60,10 @@ namespace SteamAccountSwitcher
 
         public static void OpenOptions()
         {
-            var alwaysOn = Settings.Default.AlwaysOn;
-
             var dialog = new Options();
             dialog.ShowDialog();
 
-            if (alwaysOn != Settings.Default.AlwaysOn)
-            {
-                if (Settings.Default.AlwaysOn)
-                {
-                    TrayIconHelper.CreateTrayIcon();
-                    App.HideMainWindow();
-                }
-                else
-                {
-                    App.ShowMainWindow();
-                }
-            }
-            else
-            {
-                if (Settings.Default.AlwaysOn)
-                {
-                    TrayIconHelper.RefreshTrayIconMenu();
-                }
-            }
+            TrayIconHelper.RefreshTrayIconMenu();
         }
     }
 }

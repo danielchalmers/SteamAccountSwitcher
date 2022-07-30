@@ -158,9 +158,6 @@
   <data name="Json_NET_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\licenses\json.net license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="MVVM_Light_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\mvvm light license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="WPF_NotifyIcon_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\licenses\wpf notifyicon license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
@@ -169,9 +166,6 @@
   </data>
   <data name="WpfAboutView_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\licenses\wpfaboutview license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="WpfWindowPlacement_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\wpfwindowplacement license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="MahApps_Metro_IconPacks_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\licenses\mahapps.metro.iconpacks license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>

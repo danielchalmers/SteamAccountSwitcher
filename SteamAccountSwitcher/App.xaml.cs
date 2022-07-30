@@ -17,7 +17,6 @@ namespace SteamAccountSwitcher
     {
         public static Mutex AppMutex;
         public static List<string> Arguments;
-        public static SwitchWindow SwitchWindow;
         public static TaskbarIcon TrayIcon;
 
         public App()
@@ -40,7 +39,6 @@ namespace SteamAccountSwitcher
                 AppHelper.Shutdown();
                 return;
             }
-            MainWindow = SwitchWindow;
 
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
 
@@ -68,27 +66,6 @@ namespace SteamAccountSwitcher
             {
                 AppHelper.SetRunOnStartup(Settings.Default.RunOnStartup);
             }
-        }
-
-        public static void ShowMainWindow()
-        {
-            SwitchWindow.Show();
-            if (SwitchWindow.WindowState == WindowState.Minimized)
-            {
-                SwitchWindow.WindowState = WindowState.Normal;
-            }
-        }
-
-        public static void HideMainWindow()
-        {
-            SwitchWindow.Hide();
-        }
-
-        public static void ShowAndActivateMainWindow()
-        {
-            ShowMainWindow();
-            SwitchWindow.Activate();
-            SwitchWindow.Focus();
         }
     }
 }

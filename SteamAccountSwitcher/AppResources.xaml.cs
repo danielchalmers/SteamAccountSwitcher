@@ -9,11 +9,6 @@ namespace SteamAccountSwitcher
             InitializeComponent();
         }
 
-        private void TrayIcon_OnTrayMouseDoubleClick(object sender, RoutedEventArgs e)
-        {
-            App.ShowAndActivateMainWindow();
-        }
-
         private void MenuItemOptions_OnClick(object sender, RoutedEventArgs e)
         {
             SettingsHelper.OpenOptions();
@@ -27,11 +22,6 @@ namespace SteamAccountSwitcher
         private void MenuItemAddAccount_OnClick(object sender, RoutedEventArgs e)
         {
             AccountHelper.New();
-        }
-
-        private void MenuItemManageAccount_OnClick(object sender, RoutedEventArgs e)
-        {
-            App.ShowAndActivateMainWindow();
         }
 
         private void MenuItemOpenSteam_OnClick(object sender, RoutedEventArgs e)

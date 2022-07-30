@@ -44,7 +44,6 @@ namespace SteamAccountSwitcher
                 TrayIconHelper.RefreshTrayIconMenu();
             };
             TrayIconHelper.RefreshTrayIconMenu();
-            App.SwitchWindow?.ReloadAccountListBinding();
         }
 
         public static void ImportAccounts()

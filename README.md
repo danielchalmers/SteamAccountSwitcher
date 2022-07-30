@@ -1,24 +1,22 @@
 # Steam Account Switcher
 
-Quickly switch between your Steam accounts
+Lightweight app that provides a tray menu to quickly switch between your Steam accounts.
 
 ## Features
 
-- Customizable interface
-- Unlimited accounts
-- Hotkeys
-- Launch arguments
-- Tray icon (Optional)
 
-## Screenshots
 
-![Main window](https://user-images.githubusercontent.com/7112040/33782616-6809ccfc-dc27-11e7-8323-cf9771d89b9a.png)
+## What's new in v3.0
 
-![Editing account](https://user-images.githubusercontent.com/7112040/33782615-6779bc2a-dc27-11e7-8b60-38349c672dca.png)
+The tray option is now the default and the main window has been removed in order to streamline the app.
 
 ## Downloads
 
 [Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases)
+
+## v2.3.1
+
+Looking for the old version? [Download v2.3.1 here](https://github.com/danielchalmers/SteamAccountSwitcher/releases/tag/v2.3.1)
 
 ## License
 

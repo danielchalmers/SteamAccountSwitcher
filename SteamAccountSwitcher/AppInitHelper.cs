@@ -15,15 +15,13 @@ namespace SteamAccountSwitcher
             }
             SettingsHelper.UpgradeSettings();
             LoadAccounts();
-            InitMainWindow();
-            if (Settings.Default.AlwaysOn)
+
+            TrayIconHelper.CreateTrayIcon();
+            if (!App.Arguments.Contains("-systemstartup"))
             {
-                TrayIconHelper.CreateTrayIcon();
-                if (!App.Arguments.Contains("-systemstartup"))
-                {
-                    TrayIconHelper.ShowRunningInTrayBalloon();
-                }
+                TrayIconHelper.ShowRunningInTrayBalloon();
             }
+
             LaunchStartAccount();
             return true;
         }
@@ -38,7 +36,6 @@ namespace SteamAccountSwitcher
             {
                 return false;
             }
-            NativeMethods.ShowExistingInstance();
             AppHelper.Shutdown();
             return true;
         }
@@ -50,16 +47,6 @@ namespace SteamAccountSwitcher
                 Settings.Default.Accounts = AccountDataHelper.DefaultData();
             }
             AccountDataHelper.ReloadData();
-        }
-
-        private static void InitMainWindow()
-        {
-            App.SwitchWindow = new SwitchWindow();
-            new WindowInteropHelper(App.SwitchWindow).EnsureHandle();
-            if (!Settings.Default.AlwaysOn)
-            {
-                App.ShowMainWindow();
-            }
         }
 
         private static void LaunchStartAccount()

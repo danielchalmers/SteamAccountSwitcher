@@ -12,8 +12,8 @@ namespace SteamAccountSwitcher.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.5.0.0")]
-    public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
         
@@ -44,30 +44,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["MustUpgrade"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("48")]
-        public int ButtonHeight {
-            get {
-                return ((int)(this["ButtonHeight"]));
-            }
-            set {
-                this["ButtonHeight"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool AlwaysOn {
-            get {
-                return ((bool)(this["AlwaysOn"]));
-            }
-            set {
-                this["AlwaysOn"] = value;
             }
         }
         
@@ -104,18 +80,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["Accounts"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("320")]
-        public int Width {
-            get {
-                return ((int)(this["Width"]));
-            }
-            set {
-                this["Width"] = value;
             }
         }
         
@@ -169,42 +133,6 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool NumberHotkeys {
-            get {
-                return ((bool)(this["NumberHotkeys"]));
-            }
-            set {
-                this["NumberHotkeys"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("#FFF0F0F0")]
-        public global::System.Windows.Media.Color WindowColor {
-            get {
-                return ((global::System.Windows.Media.Color)(this["WindowColor"]));
-            }
-            set {
-                this["WindowColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ExitOnSwitch {
-            get {
-                return ((bool)(this["ExitOnSwitch"]));
-            }
-            set {
-                this["ExitOnSwitch"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("#FFE0E0E0")]
         public global::System.Windows.Media.Color DefaultButtonColor {
             get {
@@ -251,18 +179,6 @@ namespace SteamAccountSwitcher.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("16")]
-        public double ButtonFontSize {
-            get {
-                return ((double)(this["ButtonFontSize"]));
-            }
-            set {
-                this["ButtonFontSize"] = value;
-            }
-        }
-        
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("10000")]
@@ -278,62 +194,6 @@ namespace SteamAccountSwitcher.Properties {
         public int SteamLogoutTimeoutInterval {
             get {
                 return ((int)(this["SteamLogoutTimeoutInterval"]));
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool SwitchWindowRememberPosition {
-            get {
-                return ((bool)(this["SwitchWindowRememberPosition"]));
-            }
-            set {
-                this["SwitchWindowRememberPosition"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute(@"
-          <WindowPlacement xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
-            <Length>0</Length>
-            <Flags />
-            <ShowCommand>Hide</ShowCommand>
-            <MinimizedPosition>
-              <X>0</X>
-              <Y>0</Y>
-            </MinimizedPosition>
-            <MaximizedPosition>
-              <X>0</X>
-              <Y>0</Y>
-            </MaximizedPosition>
-            <NormalBounds>
-              <Left>0</Left>
-              <Top>0</Top>
-              <Right>0</Right>
-              <Bottom>0</Bottom>
-            </NormalBounds>
-          </WindowPlacement>
-        ")]
-        public global::WpfWindowPlacement.WindowPlacement SwitchWindowPlacement {
-            get {
-                return ((global::WpfWindowPlacement.WindowPlacement)(this["SwitchWindowPlacement"]));
-            }
-            set {
-                this["SwitchWindowPlacement"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool DualPane {
-            get {
-                return ((bool)(this["DualPane"]));
-            }
-            set {
-                this["DualPane"] = value;
             }
         }
     }

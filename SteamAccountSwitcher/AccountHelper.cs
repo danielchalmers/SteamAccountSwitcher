@@ -76,25 +76,13 @@ namespace SteamAccountSwitcher
             return App.Accounts.MoveDown(account);
         }
 
-        public static void SwitchTo(this Account account, bool hideWindow = true, bool onStart = false)
+        public static void SwitchTo(this Account account, bool onStart = false)
         {
-            if (hideWindow && Settings.Default.ExitOnSwitch)
-            {
-                App.HideMainWindow();
-            }
-
             var worker = new BackgroundWorker();
             worker.DoWork += delegate
             {
                 SteamClient.LogoutWithTimeout();
                 SteamClient.Login(account, onStart);
-            };
-            worker.RunWorkerCompleted += delegate
-            {
-                if (!Settings.Default.AlwaysOn && Settings.Default.ExitOnSwitch)
-                {
-                    AppHelper.Shutdown();
-                }
             };
 
             worker.RunWorkerAsync();

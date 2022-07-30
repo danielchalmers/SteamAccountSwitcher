@@ -4,48 +4,11 @@
                     xmlns:local="clr-namespace:SteamAccountSwitcher"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:tb="http://www.hardcodet.net/taskbar"
-                    xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
-                    xmlns:converters="clr-namespace:SteamAccountSwitcher.Converters"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
-    <ContextMenu x:Shared="False"
-                 x:Key="AccountContextMenu"
-                 IsOpen="{Binding IsAccountContextMenuOpen}">
-        <MenuItem Header="_Edit..."
-                  Command="{Binding Edit}">
-            <MenuItem.Icon>
-                <iconPacks:PackIconMaterial Kind="Pencil"
-                                            Foreground="DarkOrange" />
-            </MenuItem.Icon>
-        </MenuItem>
-        <Separator />
-        <MenuItem Header="Move _Up"
-                  Command="{Binding MoveUp}">
-            <MenuItem.Icon>
-                <iconPacks:PackIconMaterial Kind="ArrowUp"
-                                            Foreground="Gray" />
-            </MenuItem.Icon>
-        </MenuItem>
-        <MenuItem Header="Move _Down"
-                  Command="{Binding MoveDown}">
-            <MenuItem.Icon>
-                <iconPacks:PackIconMaterial Kind="ArrowDown"
-                                            Foreground="Gray" />
-            </MenuItem.Icon>
-        </MenuItem>
-        <Separator />
-        <MenuItem Header="_Remove..."
-                  Command="{Binding Remove}">
-            <MenuItem.Icon>
-                <iconPacks:PackIconMaterial Kind="DeleteForever"
-                                            Foreground="Red" />
-            </MenuItem.Icon>
-        </MenuItem>
-    </ContextMenu>
-    <tb:TaskbarIcon x:Key="TrayIcon"
+                    xmlns:p="clr-namespace:SteamAccountSwitcher.Properties" 
+					xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+	<tb:TaskbarIcon x:Key="TrayIcon"
                     IconSource="icon.ico"
-                    ToolTipText="{x:Static local:AssemblyInfo.Title}"
-                    TrayMouseDoubleClick="TrayIcon_OnTrayMouseDoubleClick"
-                    Visibility="{Binding AlwaysOn, Source={x:Static p:Settings.Default}, Converter={converters:BooleanToVisibilityConverter}, Mode=OneWay}">
+                    ToolTipText="{x:Static local:AssemblyInfo.Title}">
         <tb:TaskbarIcon.ContextMenu>
             <ContextMenu>
                 <ContextMenu.ItemsSource>
@@ -58,9 +21,6 @@
                                                             Foreground="LimeGreen" />
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="_Manage Accounts"
-                                  Click="MenuItemManageAccount_OnClick" />
-                        <Separator />
                         <MenuItem Header="Open _Steam"
                                   Click="MenuItemOpenSteam_OnClick" />
                         <MenuItem Header="_Exit Steam"

@@ -8,12 +8,6 @@
     <Setting Name="MustUpgrade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="ButtonHeight" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">48</Value>
-    </Setting>
-    <Setting Name="AlwaysOn" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="SteamLaunchArgs" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
@@ -22,9 +16,6 @@
     </Setting>
     <Setting Name="Accounts" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="Width" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">320</Value>
     </Setting>
     <Setting Name="OptionsIndex" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
@@ -38,15 +29,6 @@
     <Setting Name="StartSteamMinimizedOnlyOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="NumberHotkeys" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
-    <Setting Name="WindowColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)">#FFF0F0F0</Value>
-    </Setting>
-    <Setting Name="ExitOnSwitch" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
-    </Setting>
     <Setting Name="DefaultButtonColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FFE0E0E0</Value>
     </Setting>
@@ -59,43 +41,11 @@
     <Setting Name="RunOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="ButtonFontSize" Type="System.Double" Scope="User">
-      <Value Profile="(Default)">16</Value>
-    </Setting>
     <Setting Name="SteamLogoutTimeoutMax" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">10000</Value>
     </Setting>
     <Setting Name="SteamLogoutTimeoutInterval" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">50</Value>
-    </Setting>
-    <Setting Name="SwitchWindowRememberPosition" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="SwitchWindowPlacement" Type="WpfWindowPlacement.WindowPlacement" Scope="User">
-      <Value Profile="(Default)">
-          &lt;WindowPlacement xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-            &lt;Length&gt;0&lt;/Length&gt;
-            &lt;Flags /&gt;
-            &lt;ShowCommand&gt;Hide&lt;/ShowCommand&gt;
-            &lt;MinimizedPosition&gt;
-              &lt;X&gt;0&lt;/X&gt;
-              &lt;Y&gt;0&lt;/Y&gt;
-            &lt;/MinimizedPosition&gt;
-            &lt;MaximizedPosition&gt;
-              &lt;X&gt;0&lt;/X&gt;
-              &lt;Y&gt;0&lt;/Y&gt;
-            &lt;/MaximizedPosition&gt;
-            &lt;NormalBounds&gt;
-              &lt;Left&gt;0&lt;/Left&gt;
-              &lt;Top&gt;0&lt;/Top&gt;
-              &lt;Right&gt;0&lt;/Right&gt;
-              &lt;Bottom&gt;0&lt;/Bottom&gt;
-            &lt;/NormalBounds&gt;
-          &lt;/WindowPlacement&gt;
-        </Value>
-    </Setting>
-    <Setting Name="DualPane" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
     </Setting>
   </Settings>
 </SettingsFile>
