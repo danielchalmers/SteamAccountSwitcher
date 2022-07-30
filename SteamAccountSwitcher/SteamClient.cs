@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Windows;
+using H.NotifyIcon.Core;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
 
@@ -15,10 +15,10 @@ namespace SteamAccountSwitcher
         {
             if (!ResolvePath())
             {
-                Alert.Show(
-                    "Steam.exe could not be found.\n\n" +
-                    "Please enter the correct path in options.",
-                    image: MessageBoxImage.Warning);
+                App.TrayIcon.ShowNotification(
+                    "Steam could not be found",
+                    "Please enter the path to Steam.exe in options",
+                    NotificationIcon.Error);
                 return;
             }
 
