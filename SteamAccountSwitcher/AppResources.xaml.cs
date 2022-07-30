@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Linq;
+using System.Windows;
 using WpfAboutView;
 
 namespace SteamAccountSwitcher
@@ -37,19 +38,20 @@ namespace SteamAccountSwitcher
 
         private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
         {
-            var aboutDialog = new AboutDialog
-            {
-                AboutView = (AboutView)Application.Current.FindResource("AboutView")
-            };
+            var aboutDialog = Application.Current.Windows.OfType<AboutDialog>().FirstOrDefault() ??
+                new AboutDialog
+                {
+                    AboutView = (AboutView)Application.Current.FindResource("AboutView")
+                };
 
-            aboutDialog.ShowDialog();
+            aboutDialog.ShowDialogOrBringToFront();
         }
 
         private void MenuItemOptions_Click(object sender, RoutedEventArgs e)
         {
-            var optionsDialog = new Options();
+            var optionsDialog = Application.Current.Windows.OfType<Options>().FirstOrDefault() ?? new Options();
 
-            optionsDialog.ShowDialog();
+            optionsDialog.ShowDialogOrBringToFront();
         }
     }
 }
