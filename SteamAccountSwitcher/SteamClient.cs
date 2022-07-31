@@ -76,7 +76,7 @@ namespace SteamAccountSwitcher
         }
 
         /// <summary>
-        /// Exits the Steam client gracefully.
+        /// Shuts down the Steam client.
         /// </summary>
         /// <param name="cancellationToken">When cancellation is requested, Steam will be forcefully closed.</param>
         public static async Task Exit(CancellationToken cancellationToken)
@@ -112,7 +112,7 @@ namespace SteamAccountSwitcher
         }
 
         /// <summary>
-        /// Exits the Steam client gracefully.
+        /// Shuts down the Steam client.
         /// </summary>
         /// <remarks>After a default timeout period, Steam will be forcefully closed.</remarks>
         public static async Task Exit()

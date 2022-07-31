@@ -65,7 +65,7 @@ namespace SteamAccountSwitcher
 
         private bool IsExistingInstanceRunning()
         {
-            AppMutex = new Mutex(true, AssemblyInfo.Guid, out var isNewInstance);
+            AppMutex = new Mutex(true, "22E1FAEA-639E-400B-9DCB-F2D04EC126E1", out var isNewInstance);
 
             return !isNewInstance;
         }

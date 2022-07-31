@@ -36,7 +36,7 @@ namespace SteamAccountSwitcher
                 }
                 else if (stringParameter == "exit")
                 {
-                    App.Current.Shutdown();
+                    Application.Current.Shutdown();
                 }
             }
             else if (menuItem.CommandParameter is SteamAccount account)
@@ -47,7 +47,7 @@ namespace SteamAccountSwitcher
             }
             else
             {
-                throw new NotSupportedException();
+                throw new NotImplementedException();
             }
         }
     }

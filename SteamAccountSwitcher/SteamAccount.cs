@@ -8,6 +8,6 @@
 
         public string Alias { get; set; }
 
-        public override string ToString() => Alias;
+        public override string ToString() => Alias ?? Name;
     }
 }

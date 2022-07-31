@@ -2,11 +2,15 @@
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWindowsForms>true</UseWindowsForms>
     <UseWPF>true</UseWPF>
     <LangVersion>latest</LangVersion>
     <ApplicationIcon>SteamAccountSwitcher.ico</ApplicationIcon>
+    <AssemblyTitle>Steam Account Switcher</AssemblyTitle>
+    <Company>Daniel Chalmers Software</Company>
+    <Product>Steam Account Switcher</Product>
+    <Copyright>© Daniel Chalmers 2022</Copyright>
+    <Version>2.3.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="SteamAccountSwitcher.ico" />

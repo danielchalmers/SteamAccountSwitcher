@@ -44,7 +44,7 @@ namespace SteamAccountSwitcher
 
         private void OnFileChanged(object sender, FileSystemEventArgs e)
         {
-            App.Current.Dispatcher.Invoke(() => Reload());
+            System.Windows.Application.Current.Dispatcher.Invoke(() => Reload());
         }
 
         private IEnumerable<SteamAccount> GetAccounts(string configDirectory)
@@ -56,9 +56,9 @@ namespace SteamAccountSwitcher
             {
                 yield return new()
                 {
-                    //ID = loginUser.Key,
+                    ID = loginUser.Key,
                     Name = loginUser.Value.AccountName.Value,
-                    Alias = loginUser.Value.PersonaName.Value,
+                    Alias = loginUser.Value.PersonaName?.Value,
                 };
             }
         }

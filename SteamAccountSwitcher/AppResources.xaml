@@ -5,7 +5,7 @@
                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
 	<local:MyTaskbarIcon x:Key="TrayIcon"
 	                     IconSource="SteamAccountSwitcher.ico"
-	                     ToolTipText="{x:Static local:AssemblyInfo.Title}"
+	                     ToolTipText="Steam Account Switcher"
 	                     MenuActivation="LeftOrRightClick">
 		<local:MyTaskbarIcon.ContextMenu>
 			<ContextMenu>
