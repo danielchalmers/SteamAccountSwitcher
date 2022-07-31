@@ -8,15 +8,6 @@
     <Setting Name="MustUpgrade" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="Accounts" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
-    </Setting>
-    <Setting Name="DefaultButtonColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)">#FFE0E0E0</Value>
-    </Setting>
-    <Setting Name="DefaultButtonTextColor" Type="System.Windows.Media.Color" Scope="User">
-      <Value Profile="(Default)">#FF000000</Value>
-    </Setting>
     <Setting Name="RunOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
