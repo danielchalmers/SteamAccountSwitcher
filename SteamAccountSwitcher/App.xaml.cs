@@ -24,7 +24,9 @@ namespace SteamAccountSwitcher
         {
             base.OnStartup(e);
 
-            if (IsExistingInstanceRunning())
+            AppMutex = new Mutex(true, "22E1FAEA-639E-400B-9DCB-F2D04EC126E1", out var isNewInstance);
+
+            if (!isNewInstance)
             {
                 Shutdown(1);
                 return;
@@ -46,6 +48,14 @@ namespace SteamAccountSwitcher
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
         }
 
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+
+            AppMutex?.Dispose();
+            TrayIcon?.Dispose();
+        }
+
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             TrayIcon.ShowNotification("An unhandled exception occurred", e.Exception.Message);
@@ -61,13 +71,6 @@ namespace SteamAccountSwitcher
             {
                 LoadAccounts();
             }
-        }
-
-        private bool IsExistingInstanceRunning()
-        {
-            AppMutex = new Mutex(true, "22E1FAEA-639E-400B-9DCB-F2D04EC126E1", out var isNewInstance);
-
-            return !isNewInstance;
         }
 
         private void LoadAccounts()
