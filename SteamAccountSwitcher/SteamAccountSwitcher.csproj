@@ -7,7 +7,6 @@
     <UseWPF>true</UseWPF>
     <LangVersion>latest</LangVersion>
     <ApplicationIcon>SteamAccountSwitcher.ico</ApplicationIcon>
-    <UserSecretsId>307035ae-f8db-4cb4-a257-547064384dd0</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="SteamAccountSwitcher.ico" />
