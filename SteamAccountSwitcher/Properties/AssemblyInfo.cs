@@ -6,7 +6,7 @@ using System.Windows;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyCompany("Daniel Chalmers Software")]
 [assembly: AssemblyProduct("Steam Account Switcher")]
-[assembly: AssemblyCopyright("© Daniel Chalmers 2018")]
+[assembly: AssemblyCopyright("© Daniel Chalmers 2022")]
 [assembly: Guid("22E1FAEA-639E-400B-9DCB-F2D04EC126E1")]
 
 [assembly: ComVisible(false)]
