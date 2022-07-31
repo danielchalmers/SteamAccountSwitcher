@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.IO;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
 
@@ -15,12 +17,17 @@ namespace SteamAccountSwitcher
             Settings.Default.Save();
         }
 
-        private void btnOK_Click(object sender, RoutedEventArgs e)
+        private void LicensesHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("notepad", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Licenses.txt"));
+        }
+
+        private void OkButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
         }
 
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }

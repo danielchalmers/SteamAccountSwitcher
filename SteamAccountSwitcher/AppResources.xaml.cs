@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using WpfAboutView;
 
 namespace SteamAccountSwitcher
 {
@@ -34,23 +33,6 @@ namespace SteamAccountSwitcher
                     }
 
                     optionsDialog.ShowDialog();
-                }
-                else if (stringParameter == "about")
-                {
-                    var aboutDialog = Application.Current.Windows.OfType<AboutDialog>().FirstOrDefault() ??
-                        new AboutDialog
-                        {
-                            AboutView = (AboutView)Application.Current.FindResource("AboutView"),
-                            WindowStartupLocation = WindowStartupLocation.CenterScreen
-                        };
-
-                    if (aboutDialog.IsVisible)
-                    {
-                        aboutDialog.Activate();
-                        return;
-                    }
-
-                    aboutDialog.ShowDialog();
                 }
                 else if (stringParameter == "exit")
                 {

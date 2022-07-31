@@ -2,9 +2,7 @@
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:SteamAccountSwitcher"
-                    xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                    xmlns:av="clr-namespace:WpfAboutView;assembly=WpfAboutView">
+                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
 	<local:MyTaskbarIcon x:Key="TrayIcon"
 	                     IconSource="SteamAccountSwitcher.ico"
 	                     ToolTipText="{x:Static local:AssemblyInfo.Title}"
@@ -35,8 +33,6 @@
 
 						<MenuItem Header="_Options" CommandParameter="options" />
 
-						<MenuItem Header="Abo_ut" CommandParameter="about" />
-
 						<MenuItem Header="E_xit"
 						          CommandParameter="exit"
 						          Icon="{iconPacks:Material CloseBox}" />
@@ -45,43 +41,4 @@
 			</ContextMenu>
 		</local:MyTaskbarIcon.ContextMenu>
 	</local:MyTaskbarIcon>
-
-	<av:AboutView x:Key="AboutView" AppIconSource="pack://application:,,,/SteamAccountSwitcher.ico">
-		<av:AboutView.Credits>
-			<av:Credit Name="{x:Static local:AssemblyInfo.Title}"
-			           Author="{x:Static local:AssemblyInfo.Company}"
-			           Website="https://github.com/danielchalmers/SteamAccountSwitcher"
-			           LicenseText="{x:Static p:Resources.Steam_Account_Switcher_License}" />
-
-			<av:Credit Name="Costura.Fody"
-			           Author="Simon Cropp &amp; contributors"
-			           Website="https://github.com/Fody/Costura"
-			           LicenseText="{x:Static p:Resources.Costura_Fody_License}" />
-
-			<av:Credit Name="Extended WPF Toolkit"
-			           Author="Xceed"
-			           Website="https://github.com/xceedsoftware/wpftoolkit"
-			           LicenseText="{x:Static p:Resources.Extended_WPF_Toolkit_License}" />
-
-			<av:Credit Name="H.NotifyIcon"
-			           Author="HavenDV"
-			           Website="https://github.com/HavenDV/H.NotifyIcon"
-			           LicenseText="{x:Static p:Resources.H_NotifyIcon_License}" />
-
-			<av:Credit Name="MahApps.Metro.IconPacks"
-			           Author="MahApps"
-			           Website="https://github.com/MahApps/MahApps.Metro.IconPacks"
-			           LicenseText="{x:Static p:Resources.MahApps_Metro_IconPacks_License}" />
-
-			<av:Credit Name="Vdf.NET"
-			           Author="Shravan Rajinikanth"
-			           Website="https://github.com/shravan2x/Gameloop.Vdf"
-			           LicenseText="{x:Static p:Resources.Vdf_NET_License}" />
-
-			<av:Credit Name="WpfAboutView"
-			           Author="Daniel Chalmers"
-			           Website="https://github.com/danielchalmers/WpfAboutView"
-			           LicenseText="{x:Static p:Resources.WpfAboutView_License}" />
-		</av:AboutView.Credits>
-	</av:AboutView>
 </ResourceDictionary>
