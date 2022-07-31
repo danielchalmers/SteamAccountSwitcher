@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
 
@@ -19,7 +17,7 @@ namespace SteamAccountSwitcher
 
         private void LicensesHyperlink_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("notepad", Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Licenses.txt"));
+            MessageBox.Show(Properties.Resources.Licenses);
         }
 
         private void OkButton_Click(object sender, RoutedEventArgs e)
