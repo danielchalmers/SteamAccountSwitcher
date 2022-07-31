@@ -61,7 +61,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10000")]
+        [global::System.Configuration.DefaultSettingValueAttribute("30000")]
         public int SteamLogoutTimeoutMax {
             get {
                 return ((int)(this["SteamLogoutTimeoutMax"]));
@@ -70,7 +70,7 @@ namespace SteamAccountSwitcher.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("50")]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
         public int SteamLogoutTimeoutInterval {
             get {
                 return ((int)(this["SteamLogoutTimeoutInterval"]));
