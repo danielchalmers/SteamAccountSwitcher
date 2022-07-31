@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Gameloop.Vdf;
 using H.NotifyIcon.Core;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
@@ -13,15 +12,25 @@ namespace SteamAccountSwitcher
 {
     public static class SteamClient
     {
-        public static SteamAccountCollection Accounts { get; private set; } = GetAccounts();
+        public static SteamAccountCollection Accounts { get; private set; } = new();
 
+        /// <summary>
+        /// Launches Steam with optional arguments.
+        /// </summary>
+        /// <remarks><see href="https://developer.valvesoftware.com/wiki/Command_Line_Options#Steam" /></remarks>
+        /// <param name="args">Command-line parameters to launch Steam with.</param>
         public static void Launch(string args = "")
         {
             var directory = FindInstallDirectory();
 
-            Process.Start(GetExe(directory), args);
+            Process.Start(GetSteamExe(directory), args);
         }
 
+        /// <summary>
+        /// Switches account to the specified user.
+        /// </summary>
+        /// <remarks>This will exit Steam then relaunch.</remarks>
+        /// <param name="account">The account to switch to.</param>
         public static async Task LogIn(SteamAccount account)
         {
             await Exit();
@@ -37,6 +46,29 @@ namespace SteamAccountSwitcher
             Launch();
         }
 
+        /// <summary>
+        /// Logs out of the current user, if one is logged in.
+        /// </summary>
+        /// <remarks>This will exit Steam then relaunch.</remarks>
+        public static async Task LogOut()
+        {
+            await Exit();
+
+            if (!TryResetLoginUser())
+            {
+                App.TrayIcon.ShowNotification(
+                    "Couldn't log out automatically",
+                    "Please log of out Steam and try again",
+                    NotificationIcon.Error);
+            }
+
+            Launch();
+        }
+
+        /// <summary>
+        /// Exits the Steam client gracefully.
+        /// </summary>
+        /// <param name="cancellationToken">When cancellation is requested, Steam will be forcefully closed.</param>
         public static async Task Exit(CancellationToken cancellationToken)
         {
             var process = GetProcess();
@@ -65,10 +97,14 @@ namespace SteamAccountSwitcher
                     process.Kill();
                 }
 
-                await Task.Delay(Settings.Default.SteamLogoutTimeoutInterval);
+                await Task.Delay(Settings.Default.SteamLogoutTimeoutInterval, cancellationToken);
             }
         }
 
+        /// <summary>
+        /// Exits the Steam client gracefully.
+        /// </summary>
+        /// <remarks>After a default timeout period, Steam will be forcefully closed.</remarks>
         public static async Task Exit()
         {
             var cts = new CancellationTokenSource();
@@ -77,13 +113,23 @@ namespace SteamAccountSwitcher
             await Exit(cts.Token);
         }
 
+        /// <summary>
+        /// Returns the main Steam process.
+        /// </summary>
         private static Process GetProcess() =>
             Process.GetProcessesByName("steam").FirstOrDefault();
 
-        public static bool TrySetLoginUser(string user)
+        /// <summary>
+        /// Sets the next user to be automatically logged in.
+        /// </summary>
+        /// <returns>A bool indicating the login user was set.</returns>
+        private static bool TrySetLoginUser(string user)
         {
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
+
+            if (GetProcess() != null)
+                throw new InvalidOperationException("Steam must be closed before setting the login user!");
 
             try
             {
@@ -97,12 +143,19 @@ namespace SteamAccountSwitcher
             }
         }
 
-        public static bool TryResetLoginUser() => TrySetLoginUser(string.Empty);
+        /// <summary>
+        /// Clears the value that tells Steam to automatically log in to a specific user.
+        /// </summary>
+        private static bool TryResetLoginUser() => TrySetLoginUser(string.Empty);
 
-        private static string FindInstallDirectory()
+        /// <summary>
+        /// Locates the directory Steam is installed to.
+        /// </summary>
+        /// <returns>The installation directory, or <c>null</c> if it wasn't found.</returns>
+        public static string FindInstallDirectory()
         {
             // Return the user-specified directory if it's valid.
-            if (File.Exists(GetExe(Settings.Default.SteamInstallDirectory)))
+            if (File.Exists(GetSteamExe(Settings.Default.SteamInstallDirectory)))
                 return Settings.Default.SteamInstallDirectory;
 
             // Otherwise check the registry.
@@ -122,26 +175,9 @@ namespace SteamAccountSwitcher
             }
         }
 
-        private static string GetExe(string installDirectory) => Path.Combine(installDirectory, "steam.exe");
-
-        public static SteamAccountCollection GetAccounts()
-        {
-            var directory = FindInstallDirectory();
-            var loginUsersVdfPath = Path.Combine(directory, "config", "loginusers.vdf");
-            dynamic loginUsers = VdfConvert.Deserialize(File.ReadAllText(loginUsersVdfPath));
-
-            var accounts = new SteamAccountCollection();
-            foreach (var loginUser in loginUsers.Value)
-            {
-                accounts.Add(new()
-                {
-                    //ID = loginUser.Key,
-                    Name = loginUser.Value.AccountName.Value,
-                    Alias = loginUser.Value.PersonaName.Value,
-                });
-            }
-
-            return accounts;
-        }
+        /// <summary>
+        /// Returns the main Steam executable from the given installation directory.
+        /// </summary>
+        private static string GetSteamExe(string installDirectory) => Path.Combine(installDirectory, "steam.exe");
     }
 }

@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using H.NotifyIcon.Core;
 using WpfAboutView;
 
 namespace SteamAccountSwitcher
@@ -22,17 +21,7 @@ namespace SteamAccountSwitcher
             {
                 if (stringParameter == "add-account")
                 {
-                    await SteamClient.Exit();
-
-                    if (!SteamClient.TryResetLoginUser())
-                    {
-                        App.TrayIcon.ShowNotification(
-                            "Couldn't log out automatically",
-                            "Please log of out Steam and try again",
-                            NotificationIcon.Error);
-                    }
-
-                    SteamClient.Launch();
+                    await SteamClient.LogOut();
                 }
                 else if (stringParameter == "options")
                 {

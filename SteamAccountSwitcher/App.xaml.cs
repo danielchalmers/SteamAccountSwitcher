@@ -41,6 +41,9 @@ namespace SteamAccountSwitcher
 
             TrayIcon.ShowRunningInTrayNotification();
 
+            var steamDirectory = SteamClient.FindInstallDirectory();
+            SteamClient.Accounts.Reload(steamDirectory);
+
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
         }
 
