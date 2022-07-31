@@ -59,7 +59,9 @@ namespace SteamAccountSwitcher
             }
             else if (menuItem.CommandParameter is SteamAccount account)
             {
+                menuItem.IsEnabled = false;
                 await SteamClient.LogIn(account);
+                menuItem.IsEnabled = true;
             }
             else
             {

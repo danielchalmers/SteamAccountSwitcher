@@ -15,15 +15,25 @@ namespace SteamAccountSwitcher
         public static SteamAccountCollection Accounts { get; private set; } = new();
 
         /// <summary>
-        /// Launches Steam with optional arguments.
+        /// Launches Steam with optional arguments and waits for it to start up.
         /// </summary>
         /// <remarks><see href="https://developer.valvesoftware.com/wiki/Command_Line_Options#Steam" /></remarks>
         /// <param name="args">Command-line parameters to launch Steam with.</param>
-        public static void Launch(string args = "")
+        public static async Task Launch(string args = "", CancellationToken cancellationToken = default)
         {
             var directory = FindInstallDirectory();
 
-            Process.Start(GetSteamExe(directory), args);
+            var process = Process.Start(GetSteamExe(directory), args);
+
+            while (!cancellationToken.IsCancellationRequested)
+            {
+                process.Refresh();
+
+                if (process.HasExited || !string.IsNullOrEmpty(process.MainWindowTitle))
+                    break;
+
+                await Task.Delay(Settings.Default.SteamLogoutTimeoutInterval, cancellationToken);
+            }
         }
 
         /// <summary>
@@ -43,7 +53,7 @@ namespace SteamAccountSwitcher
                     NotificationIcon.Error);
             }
 
-            Launch();
+            await Launch();
         }
 
         /// <summary>
@@ -62,7 +72,7 @@ namespace SteamAccountSwitcher
                     NotificationIcon.Error);
             }
 
-            Launch();
+            await Launch();
         }
 
         /// <summary>
@@ -82,7 +92,7 @@ namespace SteamAccountSwitcher
             }
             else
             {
-                Launch("-shutdown");
+                await Launch("-shutdown", cancellationToken);
             }
 
             while (true)
