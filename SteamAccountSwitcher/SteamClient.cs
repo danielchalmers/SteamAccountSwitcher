@@ -87,7 +87,7 @@ namespace SteamAccountSwitcher
 
             try
             {
-                using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
+                using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath, true);
                 registryKey?.SetValue("AutoLoginUser", user);
                 return true;
             }
