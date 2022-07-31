@@ -9,16 +9,20 @@
 	                     IconSource="SteamAccountSwitcher.ico"
 	                     ToolTipText="{x:Static local:AssemblyInfo.Title}"
 	                     MenuActivation="LeftOrRightClick">
-		<local:MyTaskbarIcon.Resources>
-			<DataTemplate DataType="{x:Type local:SteamAccount}">
-				<MenuItem Header="{Binding}"
-				          Tag="{Binding}"
-				          Click="MenuItemAccount_Click" />
-			</DataTemplate>
-		</local:MyTaskbarIcon.Resources>
-
 		<local:MyTaskbarIcon.ContextMenu>
 			<ContextMenu>
+				<ContextMenu.Resources>
+					<Style TargetType="MenuItem" BasedOn="{StaticResource {x:Type MenuItem}}">
+						<EventSetter Event="Click" Handler="MenuItem_Click" />
+
+						<Style.Triggers>
+							<DataTrigger Binding="{Binding Converter={local:DataTypeConverter}}" Value="{x:Type local:SteamAccount}">
+								<Setter Property="CommandParameter" Value="{Binding}" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</ContextMenu.Resources>
+
 				<ContextMenu.ItemsSource>
 					<CompositeCollection>
 						<CollectionContainer Collection="{x:Static local:SteamClient.Accounts}" />
@@ -26,15 +30,15 @@
 						<Separator />
 
 						<MenuItem Header="_Add Account"
-						          Click="MenuItemAddAccount_Click"
+						          CommandParameter="add-account"
 						          Icon="{iconPacks:Material Plus}" />
 
-						<MenuItem Header="_Options" Click="MenuItemOptions_Click" />
+						<MenuItem Header="_Options" CommandParameter="options" />
 
-						<MenuItem Header="Abo_ut" Click="MenuItemAbout_Click" />
+						<MenuItem Header="Abo_ut" CommandParameter="about" />
 
 						<MenuItem Header="E_xit"
-						          Click="MenuItemExit_OnClick"
+						          CommandParameter="exit"
 						          Icon="{iconPacks:Material CloseBox}" />
 					</CompositeCollection>
 				</ContextMenu.ItemsSource>

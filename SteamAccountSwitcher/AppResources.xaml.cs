@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using H.NotifyIcon.Core;
@@ -13,73 +14,68 @@ namespace SteamAccountSwitcher
             InitializeComponent();
         }
 
-        private async void MenuItemAccount_Click(object sender, RoutedEventArgs e)
+        private async void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             var menuItem = (MenuItem)sender;
-            var account = (SteamAccount)menuItem.Tag;
 
-            await SteamClient.Exit();
-
-            if (!SteamClient.TrySetLoginUser(account.Name))
+            if (menuItem.CommandParameter is string stringParameter)
             {
-                App.TrayIcon.ShowNotification(
-                    "Couldn't switch account automatically",
-                    "We might not have permission to change the registry",
-                    NotificationIcon.Error);
-            }
-
-            SteamClient.Launch();
-        }
-
-        private async void MenuItemAddAccount_Click(object sender, RoutedEventArgs e)
-        {
-            await SteamClient.Exit();
-
-            if (!SteamClient.TryResetLoginUser())
-            {
-                App.TrayIcon.ShowNotification(
-                    "Couldn't log out automatically",
-                    "Please log of out Steam and try again",
-                    NotificationIcon.Error);
-            }
-
-            SteamClient.Launch();
-        }
-
-        private void MenuItemOptions_Click(object sender, RoutedEventArgs e)
-        {
-            var optionsDialog = Application.Current.Windows.OfType<Options>().FirstOrDefault() ?? new Options();
-
-            if (optionsDialog.IsVisible)
-            {
-                optionsDialog.Activate();
-                return;
-            }
-
-            optionsDialog.ShowDialog();
-        }
-
-        private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
-        {
-            var aboutDialog = Application.Current.Windows.OfType<AboutDialog>().FirstOrDefault() ??
-                new AboutDialog
+                if (stringParameter == "add-account")
                 {
-                    AboutView = (AboutView)Application.Current.FindResource("AboutView"),
-                    WindowStartupLocation = WindowStartupLocation.CenterScreen
-                };
+                    await SteamClient.Exit();
 
-            if (aboutDialog.IsVisible)
-            {
-                aboutDialog.Activate();
-                return;
+                    if (!SteamClient.TryResetLoginUser())
+                    {
+                        App.TrayIcon.ShowNotification(
+                            "Couldn't log out automatically",
+                            "Please log of out Steam and try again",
+                            NotificationIcon.Error);
+                    }
+
+                    SteamClient.Launch();
+                }
+                else if (stringParameter == "options")
+                {
+                    var optionsDialog = Application.Current.Windows.OfType<Options>().FirstOrDefault() ?? new Options();
+
+                    if (optionsDialog.IsVisible)
+                    {
+                        optionsDialog.Activate();
+                        return;
+                    }
+
+                    optionsDialog.ShowDialog();
+                }
+                else if (stringParameter == "about")
+                {
+                    var aboutDialog = Application.Current.Windows.OfType<AboutDialog>().FirstOrDefault() ??
+                        new AboutDialog
+                        {
+                            AboutView = (AboutView)Application.Current.FindResource("AboutView"),
+                            WindowStartupLocation = WindowStartupLocation.CenterScreen
+                        };
+
+                    if (aboutDialog.IsVisible)
+                    {
+                        aboutDialog.Activate();
+                        return;
+                    }
+
+                    aboutDialog.ShowDialog();
+                }
+                else if (stringParameter == "exit")
+                {
+                    App.Current.Shutdown();
+                }
             }
-
-            aboutDialog.ShowDialog();
-        }
-
-        private void MenuItemExit_OnClick(object sender, RoutedEventArgs e)
-        {
-            App.Current.Shutdown();
+            else if (menuItem.CommandParameter is SteamAccount account)
+            {
+                await SteamClient.LogIn(account);
+            }
+            else
+            {
+                throw new NotSupportedException();
+            }
         }
     }
 }

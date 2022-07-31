@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -23,6 +24,17 @@ namespace SteamAccountSwitcher
 
         public static async Task LogIn(SteamAccount account)
         {
+            await Exit();
+
+            if (!TrySetLoginUser(account.Name))
+            {
+                App.TrayIcon.ShowNotification(
+                    "Couldn't switch account automatically",
+                    "We might not have permission to change the registry",
+                    NotificationIcon.Error);
+            }
+
+            Launch();
         }
 
         public static async Task Exit(CancellationToken cancellationToken)
@@ -70,6 +82,9 @@ namespace SteamAccountSwitcher
 
         public static bool TrySetLoginUser(string user)
         {
+            if (user == null)
+                throw new ArgumentNullException(nameof(user));
+
             try
             {
                 using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
@@ -82,7 +97,7 @@ namespace SteamAccountSwitcher
             }
         }
 
-        public static bool TryResetLoginUser() => TrySetLoginUser(null);
+        public static bool TryResetLoginUser() => TrySetLoginUser(string.Empty);
 
         private static string FindInstallDirectory()
         {
@@ -106,25 +121,6 @@ namespace SteamAccountSwitcher
                 return null;
             }
         }
-
-        //private static string FindExePath()
-        //{
-        //    // Return the user-specified path if it's valid.
-        //    var userSpecifiedExe = GetExe(Settings.Default.SteamInstallDirectory);
-        //    if (File.Exists(userSpecifiedExe))
-        //        return userSpecifiedExe;
-
-        //    // Otherwise check the registry.
-        //    try
-        //    {
-        //        using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
-        //        return registryKey?.GetValue("SteamExe").ToString();
-        //    }
-        //    catch
-        //    {
-        //        return null;
-        //    }
-        //}
 
         private static string GetExe(string installDirectory) => Path.Combine(installDirectory, "steam.exe");
 
