@@ -41,8 +41,7 @@ namespace SteamAccountSwitcher
 
             TrayIcon.ShowRunningInTrayNotification();
 
-            var steamDirectory = SteamClient.FindInstallDirectory();
-            SteamClient.Accounts.Reload(steamDirectory);
+            LoadAccounts();
 
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
         }
@@ -58,6 +57,10 @@ namespace SteamAccountSwitcher
             {
                 SetRunOnStartup(Settings.Default.RunOnStartup);
             }
+            else if (e.PropertyName == nameof(Settings.Default.SteamInstallDirectory))
+            {
+                LoadAccounts();
+            }
         }
 
         private bool IsExistingInstanceRunning()
@@ -65,6 +68,14 @@ namespace SteamAccountSwitcher
             AppMutex = new Mutex(true, AssemblyInfo.Guid, out var isNewInstance);
 
             return !isNewInstance;
+        }
+
+        private void LoadAccounts()
+        {
+            var steamDirectory = SteamClient.FindInstallDirectory();
+
+            if (steamDirectory != null)
+                SteamClient.Accounts.SetDirectory(steamDirectory);
         }
 
         private void SetRunOnStartup(bool runOnStartup)

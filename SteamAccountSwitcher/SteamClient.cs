@@ -12,7 +12,7 @@ namespace SteamAccountSwitcher
 {
     public static class SteamClient
     {
-        public static SteamAccountCollection Accounts { get; private set; } = new();
+        public static SteamAccountCollection Accounts { get; } = new();
 
         /// <summary>
         /// Launches Steam with optional arguments and waits for it to start up.
