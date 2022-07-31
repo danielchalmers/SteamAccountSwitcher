@@ -138,9 +138,6 @@ namespace SteamAccountSwitcher
             if (user == null)
                 throw new ArgumentNullException(nameof(user));
 
-            if (GetProcess() != null)
-                throw new InvalidOperationException("Steam must be closed before setting the login user!");
-
             try
             {
                 using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath, true);
