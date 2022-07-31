@@ -26,12 +26,12 @@ namespace SteamAccountSwitcher.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string SteamPath {
+        public string SteamInstallDirectory {
             get {
-                return ((string)(this["SteamPath"]));
+                return ((string)(this["SteamInstallDirectory"]));
             }
             set {
-                this["SteamPath"] = value;
+                this["SteamInstallDirectory"] = value;
             }
         }
         
@@ -80,18 +80,6 @@ namespace SteamAccountSwitcher.Properties {
             }
             set {
                 this["DefaultButtonTextColor"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool ColorCodeAccountMenuItems {
-            get {
-                return ((bool)(this["ColorCodeAccountMenuItems"]));
-            }
-            set {
-                this["ColorCodeAccountMenuItems"] = value;
             }
         }
         

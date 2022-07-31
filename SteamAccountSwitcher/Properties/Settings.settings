@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SteamAccountSwitcher.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="SteamPath" Type="System.String" Scope="User">
+    <Setting Name="SteamInstallDirectory" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="MustUpgrade" Type="System.Boolean" Scope="User">
@@ -16,9 +16,6 @@
     </Setting>
     <Setting Name="DefaultButtonTextColor" Type="System.Windows.Media.Color" Scope="User">
       <Value Profile="(Default)">#FF000000</Value>
-    </Setting>
-    <Setting Name="ColorCodeAccountMenuItems" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="RunOnStartup" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>

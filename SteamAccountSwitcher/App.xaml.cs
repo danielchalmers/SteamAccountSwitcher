@@ -17,7 +17,6 @@ namespace SteamAccountSwitcher
             Dispatcher.UnhandledException += OnDispatcherUnhandledException;
         }
 
-        public static AccountCollection Accounts { get; set; }
         public static Mutex AppMutex { get; private set; }
         public static MyTaskbarIcon TrayIcon { get; private set; }
 
@@ -31,23 +30,18 @@ namespace SteamAccountSwitcher
                 return;
             }
 
-            SettingsHelper.UpgradeSettings();
-
-            Accounts = SettingsHelper.DeserializeAccounts(Settings.Default.Accounts) ?? AccountCollection.Example;
+            if (Settings.Default.MustUpgrade)
+            {
+                Settings.Default.Upgrade();
+                Settings.Default.MustUpgrade = false;
+                Settings.Default.Save();
+            }
 
             TrayIcon = (MyTaskbarIcon)FindResource("TrayIcon");
 
             TrayIcon.ShowRunningInTrayNotification();
 
             Settings.Default.PropertyChanged += Settings_PropertyChanged;
-        }
-
-        protected override void OnExit(ExitEventArgs e)
-        {
-            base.OnExit(e);
-
-            if (e.ApplicationExitCode == 0)
-                SettingsHelper.SaveSettings();
         }
 
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)

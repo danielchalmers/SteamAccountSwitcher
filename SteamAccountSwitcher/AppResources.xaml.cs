@@ -1,5 +1,7 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using H.NotifyIcon.Core;
 using WpfAboutView;
 
 namespace SteamAccountSwitcher
@@ -11,24 +13,50 @@ namespace SteamAccountSwitcher
             InitializeComponent();
         }
 
-        private void MenuItemExit_OnClick(object sender, RoutedEventArgs e)
+        private async void MenuItemAccount_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
-        }
+            var menuItem = (MenuItem)sender;
+            var account = (SteamAccount)menuItem.Tag;
 
-        private void MenuItemAddAccount_OnClick(object sender, RoutedEventArgs e)
-        {
-            App.Accounts.New();
-        }
+            await SteamClient.Exit();
 
-        private void MenuItemOpenSteam_OnClick(object sender, RoutedEventArgs e)
-        {
+            if (!SteamClient.TrySetLoginUser(account.Name))
+            {
+                App.TrayIcon.ShowNotification(
+                    "Couldn't switch account automatically",
+                    "We might not have permission to change the registry",
+                    NotificationIcon.Error);
+            }
+
             SteamClient.Launch();
         }
 
-        private void MenuItemExitSteam_OnClick(object sender, RoutedEventArgs e)
+        private async void MenuItemAddAccount_Click(object sender, RoutedEventArgs e)
         {
-            SteamClient.Logout();
+            await SteamClient.Exit();
+
+            if (!SteamClient.TryResetLoginUser())
+            {
+                App.TrayIcon.ShowNotification(
+                    "Couldn't log out automatically",
+                    "Please log of out Steam and try again",
+                    NotificationIcon.Error);
+            }
+
+            SteamClient.Launch();
+        }
+
+        private void MenuItemOptions_Click(object sender, RoutedEventArgs e)
+        {
+            var optionsDialog = Application.Current.Windows.OfType<Options>().FirstOrDefault() ?? new Options();
+
+            if (optionsDialog.IsVisible)
+            {
+                optionsDialog.Activate();
+                return;
+            }
+
+            optionsDialog.ShowDialog();
         }
 
         private void MenuItemAbout_Click(object sender, RoutedEventArgs e)
@@ -49,17 +77,9 @@ namespace SteamAccountSwitcher
             aboutDialog.ShowDialog();
         }
 
-        private void MenuItemOptions_Click(object sender, RoutedEventArgs e)
+        private void MenuItemExit_OnClick(object sender, RoutedEventArgs e)
         {
-            var optionsDialog = Application.Current.Windows.OfType<Options>().FirstOrDefault() ?? new Options();
-
-            if (optionsDialog.IsVisible)
-            {
-                optionsDialog.Activate();
-                return;
-            }
-
-            optionsDialog.ShowDialog();
+            App.Current.Shutdown();
         }
     }
 }

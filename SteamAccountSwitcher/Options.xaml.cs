@@ -29,7 +29,7 @@ namespace SteamAccountSwitcher
         {
             if (DialogResult == true)
             {
-                SettingsHelper.SaveSettings();
+                Settings.Default.Save();
             }
             else
             {

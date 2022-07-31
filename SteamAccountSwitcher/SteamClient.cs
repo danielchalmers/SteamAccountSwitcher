@@ -1,8 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Threading.Tasks;
+using Gameloop.Vdf;
 using H.NotifyIcon.Core;
 using Microsoft.Win32;
 using SteamAccountSwitcher.Properties;
@@ -11,107 +12,140 @@ namespace SteamAccountSwitcher
 {
     public static class SteamClient
     {
+        public static SteamAccountCollection Accounts { get; private set; } = GetAccounts();
+
         public static void Launch(string args = "")
         {
-            if (!ResolvePath())
-            {
-                App.TrayIcon.ShowNotification(
-                    "Steam could not be found",
-                    "Please enter the path to Steam.exe in options",
-                    NotificationIcon.Error);
-                return;
-            }
+            var directory = FindInstallDirectory();
 
-            Process.Start(Settings.Default.SteamPath, args);
+            Process.Start(GetExe(directory), args);
         }
 
-        public static void Login(Account account)
+        public static async Task LogIn(SteamAccount account)
         {
-            Launch(string.Join(" ", GetLoginArguments(account)));
         }
 
-        private static IEnumerable<string> GetLoginArguments(Account account)
+        public static async Task Exit(CancellationToken cancellationToken)
         {
-            // Login.
-            yield return Resources.SteamLoginArgument;
-            yield return account.Username;
-            yield return account.Password;
+            var process = GetProcess();
 
-            // Per-account arguments.
-            yield return account.Arguments;
-        }
-
-        public static void Logout()
-        {
-            if (!IsRunning())
+            if (process == null)
                 return;
 
-            if (GetWindowTitle() == Resources.SteamNotLoggedInTitle)
+            if (process.MainWindowTitle == Resources.SteamNotLoggedInTitle)
             {
-                ForceClose();
+                process.CloseMainWindow();
             }
             else
             {
-                Launch(Resources.SteamShutdownArgument);
+                Launch("-shutdown");
             }
-        }
 
-        public static bool LogoutWithTimeout()
-        {
-            var timeout = 0;
-            var maxTimeout = Settings.Default.SteamLogoutTimeoutMax;
-            var interval = Settings.Default.SteamLogoutTimeoutInterval;
-
-            Logout();
-
-            while (IsRunning())
+            while (true)
             {
-                if (timeout >= maxTimeout)
+                process.Refresh();
+
+                if (process.HasExited)
+                    return;
+
+                if (cancellationToken.IsCancellationRequested)
                 {
-                    ForceClose();
-                    return false;
+                    process.Kill();
                 }
 
-                timeout += interval;
-                Thread.Sleep(interval);
+                await Task.Delay(Settings.Default.SteamLogoutTimeoutInterval);
             }
-
-            return true;
         }
 
-        private static void ForceClose()
+        public static async Task Exit()
         {
-            GetProcess()?.CloseMainWindow();
+            var cts = new CancellationTokenSource();
+            cts.CancelAfter(Settings.Default.SteamLogoutTimeoutMax);
+
+            await Exit(cts.Token);
         }
 
         private static Process GetProcess() =>
-            Process.GetProcessesByName(Resources.Steam).FirstOrDefault();
+            Process.GetProcessesByName("steam").FirstOrDefault();
 
-        private static string GetWindowTitle() =>
-            GetProcess()?.MainWindowTitle;
-
-        private static string GetPathFromRegistry()
+        public static bool TrySetLoginUser(string user)
         {
             try
             {
                 using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
-                return registryKey?.GetValue(Resources.SteamRegistryExecutableName).ToString();
+                registryKey?.SetValue("AutoLoginUser", user);
+                return true;
             }
             catch
             {
-                return string.Empty;
+                return false;
             }
         }
 
-        private static bool ResolvePath()
-        {
-            if (!File.Exists(Settings.Default.SteamPath))
-                Settings.Default.SteamPath = GetPathFromRegistry();
+        public static bool TryResetLoginUser() => TrySetLoginUser(null);
 
-            return File.Exists(Settings.Default.SteamPath);
+        private static string FindInstallDirectory()
+        {
+            // Return the user-specified directory if it's valid.
+            if (File.Exists(GetExe(Settings.Default.SteamInstallDirectory)))
+                return Settings.Default.SteamInstallDirectory;
+
+            // Otherwise check the registry.
+            try
+            {
+                using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
+                return registryKey?.GetValue("SteamPath").ToString();
+            }
+            catch
+            {
+                App.TrayIcon.ShowNotification(
+                    "Couldn't find the Steam folder",
+                    "Please manually enter the path in options",
+                    NotificationIcon.Error);
+
+                return null;
+            }
         }
 
-        private static bool IsRunning() =>
-            GetProcess() != null;
+        //private static string FindExePath()
+        //{
+        //    // Return the user-specified path if it's valid.
+        //    var userSpecifiedExe = GetExe(Settings.Default.SteamInstallDirectory);
+        //    if (File.Exists(userSpecifiedExe))
+        //        return userSpecifiedExe;
+
+        //    // Otherwise check the registry.
+        //    try
+        //    {
+        //        using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
+        //        return registryKey?.GetValue("SteamExe").ToString();
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
+
+        private static string GetExe(string installDirectory) => Path.Combine(installDirectory, "steam.exe");
+
+        public static SteamAccountCollection GetAccounts()
+        {
+            var directory = FindInstallDirectory();
+            var loginUsersVdfPath = Path.Combine(directory, "config", "loginusers.vdf");
+            dynamic loginUsers = VdfConvert.Deserialize(File.ReadAllText(loginUsersVdfPath));
+
+            var accounts = new SteamAccountCollection();
+            foreach (var loginUser in loginUsers.Value)
+            {
+                accounts.Add(new()
+                {
+                    //ID = loginUser.Key,
+                    Name = loginUser.Value.AccountName.Value,
+                    Alias = loginUser.Value.PersonaName.Value,
+                });
+            }
+
+            return accounts;
+        }
     }
 }

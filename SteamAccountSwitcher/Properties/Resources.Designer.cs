@@ -19,7 +19,7 @@ namespace SteamAccountSwitcher.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -104,35 +104,22 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text file (*.txt)|*.txt|All files (*.*)|*.*.
-        /// </summary>
-        public static string ImportExportDialogExtensionFilter {
-            get {
-                return ResourceManager.GetString("ImportExportDialogExtensionFilter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .txt.
-        /// </summary>
-        public static string ImportExportExtension {
-            get {
-                return ResourceManager.GetString("ImportExportExtension", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to MIT License
         ///
-        ///Copyright (c) 2007 James Newton-King
+        ///Copyright (c) 2020 havendv
         ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
         ///
-        ///The above copyright n [rest of string was truncated]&quot;;.
+        ///The above copyright notice [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string Json_NET_License {
+        public static string H_NotifyIcon_License {
             get {
-                return ResourceManager.GetString("Json_NET_License", resourceCulture);
+                return ResourceManager.GetString("H_NotifyIcon_License", resourceCulture);
             }
         }
         
@@ -154,30 +141,6 @@ namespace SteamAccountSwitcher.Properties {
         /// <summary>
         ///   Looks up a localized string similar to MIT License
         ///
-        ///Copyright (c) 2009 - 2014 Laurent Bugnion
-        ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-        ///
-        ///The above copyri [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string MVVM_Light_License {
-            get {
-                return ResourceManager.GetString("MVVM_Light_License", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to steam.
-        /// </summary>
-        public static string Steam {
-            get {
-                return ResourceManager.GetString("Steam", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MIT License
-        ///
         ///Copyright (c) 2015 Daniel Chalmers
         ///
         ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
@@ -187,15 +150,6 @@ namespace SteamAccountSwitcher.Properties {
         public static string Steam_Account_Switcher_License {
             get {
                 return ResourceManager.GetString("Steam_Account_Switcher_License", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to -login.
-        /// </summary>
-        public static string SteamLoginArgument {
-            get {
-                return ResourceManager.GetString("SteamLoginArgument", resourceCulture);
             }
         }
         
@@ -218,42 +172,22 @@ namespace SteamAccountSwitcher.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SteamExe.
-        /// </summary>
-        public static string SteamRegistryExecutableName {
-            get {
-                return ResourceManager.GetString("SteamRegistryExecutableName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to -shutdown.
-        /// </summary>
-        public static string SteamShutdownArgument {
-            get {
-                return ResourceManager.GetString("SteamShutdownArgument", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to -silent.
-        /// </summary>
-        public static string SteamSilentArg {
-            get {
-                return ResourceManager.GetString("SteamSilentArg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Code Project Open License 1.02
+        ///   Looks up a localized string similar to The MIT License (MIT)
         ///
-        ///THE WORK (AS DEFINED BELOW) IS PROVIDED UNDER THE TERMS OF THIS CODE PROJECT OPEN LICENSE (&quot;LICENSE&quot;). THE WORK IS PROTECTED BY COPYRIGHT AND/OR OTHER APPLICABLE LAW. ANY USE OF THE WORK OTHER THAN AS AUTHORIZED UNDER THIS LICENSE OR COPYRIGHT LAW IS PROHIBITED.
+        ///Copyright (c) 2016 Shravan Rajinikanth
         ///
-        ///BY EXERCISING ANY RIGHTS TO THE WORK PROVIDED HEREIN, YOU ACCEPT AND AGREE TO BE BOUND BY THE TERMS OF THIS LICENSE. THE AUTHOR GRANTS YOU THE RIGHTS CONTAINED HEREIN IN CONSIDERATION OF YOUR ACCEPTANCE OF SUCH T [rest of string was truncated]&quot;;.
+        ///Permission is hereby granted, free of charge, to any person obtaining a copy
+        ///of this software and associated documentation files (the &quot;Software&quot;), to deal
+        ///in the Software without restriction, including without limitation the rights
+        ///to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        ///copies of the Software, and to permit persons to whom the Software is
+        ///furnished to do so, subject to the following conditions:
+        ///
+        ///The  [rest of string was truncated]&quot;;.
         /// </summary>
-        public static string WPF_NotifyIcon_License {
+        public static string Vdf_NET_License {
             get {
-                return ResourceManager.GetString("WPF_NotifyIcon_License", resourceCulture);
+                return ResourceManager.GetString("Vdf_NET_License", resourceCulture);
             }
         }
         
@@ -269,21 +203,6 @@ namespace SteamAccountSwitcher.Properties {
         public static string WpfAboutView_License {
             get {
                 return ResourceManager.GetString("WpfAboutView_License", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MIT License
-        ///
-        ///Copyright (c) 2017 Daniel Chalmers
-        ///
-        ///Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-        ///
-        ///The above copyright not [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string WpfWindowPlacement_License {
-            get {
-                return ResourceManager.GetString("WpfWindowPlacement_License", resourceCulture);
             }
         }
     }

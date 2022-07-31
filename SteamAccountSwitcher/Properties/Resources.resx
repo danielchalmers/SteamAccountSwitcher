@@ -117,57 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Steam" xml:space="preserve">
-    <value>steam</value>
-    <comment>Steam name</comment>
-  </data>
-  <data name="SteamLoginArgument" xml:space="preserve">
-    <value>-login</value>
-  </data>
-  <data name="SteamShutdownArgument" xml:space="preserve">
-    <value>-shutdown</value>
-  </data>
   <data name="AppPathName" xml:space="preserve">
     <value>SteamAccountSwitcher</value>
   </data>
   <data name="SteamNotLoggedInTitle" xml:space="preserve">
     <value>Steam Login</value>
   </data>
-  <data name="SteamSilentArg" xml:space="preserve">
-    <value>-silent</value>
-  </data>
-  <data name="ImportExportDialogExtensionFilter" xml:space="preserve">
-    <value>Text file (*.txt)|*.txt|All files (*.*)|*.*</value>
-  </data>
-  <data name="ImportExportExtension" xml:space="preserve">
-    <value>.txt</value>
-  </data>
   <data name="SteamRegistryDirectoryPath" xml:space="preserve">
     <value>Software\Valve\Steam</value>
   </data>
-  <data name="SteamRegistryExecutableName" xml:space="preserve">
-    <value>SteamExe</value>
-  </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="Costura_Fody_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\costura.fody license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+    <value>..\resources\licenses\costura_fody_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="Extended_WPF_Toolkit_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\extended wpf toolkit license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\resources\licenses\extended_wpf_toolkit_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Json_NET_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\json.net license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="WPF_NotifyIcon_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\wpf notifyicon license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="Steam_Account_Switcher_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\steam account switcher license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="WpfAboutView_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\wpfaboutview license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="H_NotifyIcon_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\licenses\h_notifyicon_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="MahApps_Metro_IconPacks_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\licenses\mahapps.metro.iconpacks license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+    <value>..\resources\licenses\mahapps_metro_iconpacks_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Steam_Account_Switcher_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\licenses\steam_account_switcher_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="Vdf_NET_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\licenses\vdf_net_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="WpfAboutView_License" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\licenses\wpfaboutview_license.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>
