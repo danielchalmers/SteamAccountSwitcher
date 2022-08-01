@@ -1,14 +1,19 @@
 ﻿<?define Name = "Steam Account Switcher"?>
+<?define AssemblyName = "SteamAccountSwitcher"?>
 <?define Manufacturer = "Daniel Chalmers"?>
+<?define Guid = "22E1FAEA-639E-400B-9DCB-F2D04EC126E1"?>
 
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
 
-  <Package Name="$(var.Name)" Manufacturer="$(var.Manufacturer)" UpgradeCode="22E1FAEA-639E-400B-9DCB-F2D04EC126E1" Language="1033" InstallerVersion="500" Scope="perUser">
+  <Package Name="$(var.Name)" Manufacturer="$(var.Manufacturer)" Version="!(bind.FileVersion.MainExe)" UpgradeCode="$(var.Guid)" Language="1033" InstallerVersion="500" Scope="perUser">
 
     <SummaryInformation Manufacturer="$(var.Manufacturer)" />
 
-    <Icon Id="Logo.ico" SourceFile="SteamAccountSwitcher\SteamAccountSwitcher.ico" />
+    <Icon Id="Logo.ico" SourceFile="$(var.AssemblyName)\$(var.AssemblyName).ico" />
+
     <Property Id="ARPPRODUCTICON" Value="Logo.ico" />
+    <Property Id="ARPNOREPAIR" Value="yes" Secure="yes" />
+    <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />
 
     <Media Id="1" Cabinet="App.cab" EmbedCab="yes" />
 
@@ -20,25 +25,31 @@
     </Feature>
 
     <StandardDirectory Id="LocalAppDataFolder">
-      <Directory Id="INSTALLFOLDER" Name="$(var.Name)" />
+      <Directory Id="INSTALLFOLDER" Name="$(var.AssemblyName)" />
     </StandardDirectory>
 
     <StandardDirectory Id="ProgramMenuFolder">
       <Directory Id="ApplicationProgramsFolder" Name="$(var.Name)" />
     </StandardDirectory>
 
-    <CustomAction Id="RunMainApp" Directory="INSTALLFOLDER" ExeCommand="[INSTALLFOLDER]SteamAccountSwitcher.exe" Execute="commit" Return="asyncNoWait" />
+    <Property Id="PREVIOUSVERSIONSINSTALLED" Secure="yes" />
+    <Upgrade Id="$(var.Guid)">
+      <UpgradeVersion Minimum="0.0.0.0" Maximum="999.0.0.0" Property="PREVIOUSVERSIONSINSTALLED" IncludeMinimum="yes" IncludeMaximum="no" />
+    </Upgrade>
+
+    <CustomAction Id="RunMainExe" Directory="INSTALLFOLDER" ExeCommand="[INSTALLFOLDER]$(var.AssemblyName).exe" Execute="commit" Return="asyncNoWait" />
 
     <InstallExecuteSequence>
-      <Custom Action="RunMainApp" Before="InstallFinalize" />
+      <RemoveExistingProducts Before="InstallInitialize" />
+      <Custom Action="RunMainExe" Before="InstallFinalize" />
     </InstallExecuteSequence>
   </Package>
 
   <!--Main executable-->
   <Fragment>
     <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
-      <Component Id="SteamAccountSwitcher.exe" Guid="CB6B1983-3747-44E1-A1AF-11CB626BBB2F">
-        <File Id="SteamAccountSwitcher.exe" Name="SteamAccountSwitcher.exe" Source="publish/SteamAccountSwitcher.exe" />
+      <Component Id="MainExe" Guid="CB6B1983-3747-44E1-A1AF-11CB626BBB2F">
+        <File Id="MainExe" Name="$(var.AssemblyName).exe" Source="publish/$(var.AssemblyName).exe" />
       </Component>
     </ComponentGroup>
   </Fragment>
@@ -47,7 +58,7 @@
   <Fragment>
     <DirectoryRef Id="ApplicationProgramsFolder">
       <Component Id="ApplicationShortcut">
-        <Shortcut Id="ApplicationStartMenuShortcut" Name="$(var.Name)" Icon="Logo.ico" Target="[#SteamAccountSwitcher.exe]" WorkingDirectory="INSTALLFOLDER" />
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="$(var.Name)" Icon="Logo.ico" Target="[#MainExe]" WorkingDirectory="INSTALLFOLDER" />
         <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
         <RegistryValue Root="HKCU" Key="Software\Microsoft\$(var.Manufacturer)\$(var.Name)" Name="installed" Type="integer" Value="1" KeyPath="yes" />
       </Component>
