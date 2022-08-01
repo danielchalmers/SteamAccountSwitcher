@@ -2,21 +2,19 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:p="clr-namespace:SteamAccountSwitcher.Properties"
-        Title="Options"
+        Title="Options for Steam Account Switcher"
         SizeToContent="WidthAndHeight"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Closed="Window_Closed">
 	<Grid Margin="12">
 		<Grid.RowDefinitions>
-			<RowDefinition Height="*" />
-			<RowDefinition Height="12" />
 			<RowDefinition Height="Auto" />
-			<RowDefinition Height="12" />
+			<RowDefinition Height="24" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
 
-		<Grid Grid.Row="2">
+		<Grid Grid.Row="0">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="12" />
@@ -24,8 +22,6 @@
 			</Grid.ColumnDefinitions>
 
 			<Grid.RowDefinitions>
-				<RowDefinition Height="*" />
-				<RowDefinition Height="12" />
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="12" />
 				<RowDefinition Height="Auto" />
@@ -33,30 +29,32 @@
 
 			<TextBlock Grid.Row="0"
 			           Grid.Column="0"
-			           Text="Run when PC starts" />
+			           Text="Start with PC" />
 
 			<CheckBox Grid.Row="0"
 			          Grid.Column="2"
-			          IsChecked="{Binding RunOnStartup, Source={x:Static p:Settings.Default}}" />
+			          IsChecked="{Binding RunOnStartup, Source={x:Static p:Settings.Default}}"
+			          ToolTip="Start this program after Windows restarts" />
 
 			<TextBlock Grid.Row="2"
 			           Grid.Column="0"
-			           Text="Steam directory" />
+			           Text="Steam folder" />
 
 			<TextBox Grid.Row="2"
 			         Grid.Column="2"
 			         Text="{Binding SteamInstallDirectory, Source={x:Static p:Settings.Default}}"
-			         Width="200" />
+			         ToolTip="Where to look for steam.exe if not automatically detected"
+			         MinWidth="200" />
 		</Grid>
 
-		<Grid Grid.Row="4">
+		<Grid Grid.Row="2">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="4" />
+				<ColumnDefinition Width="6" />
 				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="*" MinWidth="36" />
+				<ColumnDefinition Width="*" MinWidth="48" />
 				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="4" />
+				<ColumnDefinition Width="6" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 
@@ -64,19 +62,13 @@
 				<RowDefinition Height="23" />
 			</Grid.RowDefinitions>
 
-			<Grid.Resources>
-				<Style TargetType="Button">
-					<Setter Property="Width" Value="75" />
-				</Style>
-			</Grid.Resources>
-
-			<TextBlock Grid.Column="0">
+			<TextBlock Grid.Column="0" VerticalAlignment="Center">
 				<Hyperlink Click="LicensesHyperlink_Click">
 					Licenses...
 				</Hyperlink>
 			</TextBlock>
 
-			<TextBlock Grid.Column="2">
+			<TextBlock Grid.Column="2" VerticalAlignment="Center">
 				<Hyperlink Click="GitHubHyperlink_Click">
 					View on GitHub
 				</Hyperlink>
@@ -85,10 +77,12 @@
 			<Button Grid.Column="4"
 			        Content="OK"
 			        Click="OkButton_Click"
+			        Width="75"
 			        IsDefault="True" />
 
 			<Button Grid.Column="6"
 			        Content="Cancel"
+			        Width="75"
 			        Click="CancelButton_Click"
 			        IsCancel="True" />
 		</Grid>
