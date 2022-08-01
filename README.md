@@ -5,8 +5,8 @@ Steam Account Switcher is a lightweight and easy to use app that provides a menu
 ## Features (v3.0)
 
 - Fast — quickly switch accounts using the tray menu.
-- Easy — accounts are automatically discovered without any setup.
-- Safe — completely VAC safe and no passwords are stored, ever.
+- Easy — accounts are automatically found without any setup.
+- Safe — no VAC risk and doesn't store passwords.
 - Open — free and open source forever.
 
 ## Download
