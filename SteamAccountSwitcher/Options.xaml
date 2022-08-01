@@ -52,7 +52,9 @@
 		<Grid Grid.Row="4">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="*" MinWidth="24" />
+				<ColumnDefinition Width="4" />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" MinWidth="36" />
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="4" />
 				<ColumnDefinition Width="Auto" />
@@ -74,12 +76,18 @@
 				</Hyperlink>
 			</TextBlock>
 
-			<Button Grid.Column="2"
+			<TextBlock Grid.Column="2">
+				<Hyperlink Click="GitHubHyperlink_Click">
+					View on GitHub
+				</Hyperlink>
+			</TextBlock>
+
+			<Button Grid.Column="4"
 			        Content="OK"
 			        Click="OkButton_Click"
 			        IsDefault="True" />
 
-			<Button Grid.Column="4"
+			<Button Grid.Column="6"
 			        Content="Cancel"
 			        Click="CancelButton_Click"
 			        IsCancel="True" />

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Windows;
 using SteamAccountSwitcher.Properties;
 
@@ -13,6 +14,11 @@ namespace SteamAccountSwitcher
         {
             InitializeComponent();
             Settings.Default.Save();
+        }
+
+        private void GitHubHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(Properties.Resources.GitHub);
         }
 
         private void LicensesHyperlink_Click(object sender, RoutedEventArgs e)
