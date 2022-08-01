@@ -1,0 +1,29 @@
+name: Deploy
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-dotnet@v2
+
+      - name: Build
+        run: dotnet publish -o "publish" -c Release -r win-x64
+
+      - name: Create installer
+        run: |
+          dotnet tool install --global wix --version 4.0.0-preview.0
+          wix build Product.wxs -o "publish/Install Steam Account Switcher.msi"
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v1
+        with:
+           files: |
+             "publish/SteamAccountSwitcher.exe"
+             "publish/Install Steam Account Switcher.msi"
