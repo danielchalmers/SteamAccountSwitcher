@@ -1,21 +1,25 @@
 # Steam Account Switcher
 
-Lightweight and easy to use app that provides a menu to quickly switch between your Steam accounts, without logging in again.
+Steam Account Switcher is a lightweight and easy to use app that provides a menu for quickly switching between your Steam accounts without logging in again.
 
 ## Features
 
-- Free and open source forever.
+- Fast — quickly switch accounts using the tray menu.
+- Easy — accounts are automatically discovered without any setup.
+- Safe — completely VAC safe and no passwords are stored, ever.
+- Open — free and open source forever.
 
-## Downloads
+## Download
 
 [Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases)
 
 ## What's new in v3.0
 
 - The tray option is now the default and the main window has been removed in order to streamline the app.
-- Accounts are now automatically discovered � no setup needed!
-- Passwords are now handled completely by Steam for extra security.
-- Modern codebase that's easier to understand and modify.
+- Accounts are now automatically discovered — no setup needed!
+- Passwords are now handled completely by Steam for extra security and ease of use.
+- Steam Guard is not required on every login like before.
+- Cleaner codebase that's easier to understand and modify.
 
 ## v2.3.1
 
