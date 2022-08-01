@@ -11,7 +11,9 @@ Steam Account Switcher is a lightweight and easy to use app that provides a menu
 
 ## Download
 
-[Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases).
+[Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases) (look inside "Assets").
+
+Windows 10, [version 1903](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) or newer is recommended.
 
 ## What's new in v3.0 (preview)
 
