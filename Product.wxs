@@ -1,0 +1,40 @@
+﻿<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package UpgradeCode="22E1FAEA-639E-400B-9DCB-F2D04EC126E1" Version="1.0.0.0" Language="1033" Name="Steam Account Switcher" Manufacturer="Daniel Chalmers" InstallerVersion="300" Scope="perUser">
+    <Media Id="1" Cabinet="myapplication.cab" EmbedCab="yes" />
+
+    <Icon Id="Logo.ico" SourceFile="SteamAccountSwitcher\SteamAccountSwitcher.ico" />
+
+    <Property Id="ARPPRODUCTICON" Value="Logo.ico" />
+
+    <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
+      <Component Id="SteamAccountSwitcher.exe" Guid="CB6B1983-3747-44E1-A1AF-11CB626BBB2F">
+        <File Id="SteamAccountSwitcher.exe" Source="publish\SteamAccountSwitcher.exe" KeyPath="yes" Checksum="yes" />
+      </Component>
+    </DirectoryRef>
+
+    <Feature Id="SteamAccountSwitcher.exe" Title="Main Application" Level="1">
+      <ComponentRef Id="SteamAccountSwitcher.exe" />
+      <ComponentRef Id="ApplicationShortcut" />
+    </Feature>
+
+    <StandardDirectory Id="LocalAppDataFolder">
+      <Directory Id="APPLICATIONROOTDIRECTORY" Name="SteamAccountSwitcher" />
+    </StandardDirectory>
+
+    <CustomAction Id="RunMainApp" Directory="APPLICATIONROOTDIRECTORY" ExeCommand="[APPLICATIONROOTDIRECTORY]SteamAccountSwitcher.exe" Return="asyncNoWait" />
+
+    <InstallExecuteSequence>
+      <Custom Action="RunMainApp" Before="InstallFinalize" />
+    </InstallExecuteSequence>
+  </Package>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut">
+        <Shortcut Id="ApplicationStartMenuShortcut" Name="Steam Account Switcher" Icon="Logo.ico" Target="SteamAccountSwitcher.exe" WorkingDirectory="INSTALLFOLDER" />
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall" />
+        <RegistryValue Root="HKCU" Key="Software\Microsoft\Daniel Chalmers\Steam Account Switcher" Name="installed" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>
