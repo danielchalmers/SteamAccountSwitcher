@@ -17,14 +17,6 @@
 							<DataTrigger Binding="{Binding Converter={local:DataTypeConverter}}" Value="{x:Type local:SteamAccount}">
 								<Setter Property="CommandParameter" Value="{Binding}" />
 							</DataTrigger>
-							
-							<DataTrigger Binding="{Binding Converter={local:DataTypeConverter}}" Value="{x:Type local:SteamAccount}">
-								<Setter Property="Icon">
-									<Setter.Value>
-										<Image Source="{Binding ID, Converter={local:SteamAccountAvatarConverter}}"/>
-									</Setter.Value>
-								</Setter>
-							</DataTrigger>
 						</Style.Triggers>
 					</Style>
 				</ContextMenu.Resources>
