@@ -10,7 +10,7 @@
     <Company>Daniel Chalmers Software</Company>
     <Product>Steam Account Switcher</Product>
     <Copyright>© Daniel Chalmers 2022</Copyright>
-    <Version>3.0.0-preview1</Version>
+    <Version>3.0.0-beta1</Version>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="SteamAccountSwitcher.ico" />

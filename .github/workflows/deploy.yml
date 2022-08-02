@@ -28,4 +28,4 @@ jobs:
             "publish\SteamAccountSwitcher.exe"
             "publish\Install Steam Account Switcher.msi"
           fail_on_unmatched_files: true
-          prerelease: contains(github.ref, 'preview')
+          prerelease: contains(github.ref, 'beta')
