@@ -5,6 +5,8 @@ Steam Account Switcher is a lightweight and easy to use app that provides a menu
 [![Release](https://img.shields.io/github/release/danielchalmers/SteamAccountSwitcher.svg?label=Release&maxAge=60)](https://github.com/danielchalmers/SteamAccountSwitcher/releases/latest)
 [![License](https://img.shields.io/github/license/danielchalmers/SteamAccountSwitcher.svg?label=License&maxAge=86400)](LICENSE)
 
+![Tray menu](https://user-images.githubusercontent.com/7112040/183230716-f02fc0c7-9559-4425-9777-cf238404d0a5.png)
+
 ## Features
 
 - Fast — quickly switch accounts through the tray icon.
