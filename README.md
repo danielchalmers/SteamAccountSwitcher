@@ -1,26 +1,26 @@
 # Steam Account Switcher
 
-Steam Account Switcher is a lightweight and easy to use app that provides a menu for quickly switching between your Steam accounts without logging in again.
+[![Release](https://img.shields.io/github/release/danielchalmers/SteamAccountSwitcher?label=Release&include_prereleases)](https://github.com/danielchalmers/SteamAccountSwitcher/releases/latest)
+[![License](https://img.shields.io/github/license/danielchalmers/SteamAccountSwitcher?label=License)](LICENSE)
 
-[![Release](https://img.shields.io/github/release/danielchalmers/SteamAccountSwitcher.svg?label=Release&maxAge=60)](https://github.com/danielchalmers/SteamAccountSwitcher/releases/latest)
-[![License](https://img.shields.io/github/license/danielchalmers/SteamAccountSwitcher.svg?label=License&maxAge=86400)](LICENSE)
+Quickly switch between your Steam accounts with a lightweight and easy to use menu.
 
 ![Tray menu](https://user-images.githubusercontent.com/7112040/183230716-f02fc0c7-9559-4425-9777-cf238404d0a5.png)
 
 ## Features
 
-- Fast — quickly switch accounts through the tray icon.
-- Easy — logins are automatically found without any setup.
-- Safe — no VAC risk and doesn't store passwords.
-- Open — free and open source forever.
+- Fast — quickly switch accounts through the tray icon
+- Easy — logins are automatically found without any setup
+- Safe — no VAC risk and doesn't store passwords
+- Open — free and open source forever
 
 ## Download
 
-Get it from [GitHub Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases) (look inside Assets).
+Get it from the [Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases) page (see `Assets`).
 
 Windows 10, [version 1903](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) or newer is recommended.
 
-## What's new in v3.0 (beta)
+## What's new in v3.0
 
 - The tray option is now the default and the main window has been removed in order to streamline the app.
 - Accounts are now automatically discovered — no setup needed!
