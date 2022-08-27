@@ -14,7 +14,7 @@
 						<EventSetter Event="Click" Handler="MenuItem_Click" />
 
 						<Setter Property="Padding" Value="2,4,2,4" />
- 
+
 						<Style.Triggers>
 							<DataTrigger Binding="{Binding Converter={local:DataTypeConverter}}" Value="{x:Type local:SteamAccount}">
 								<Setter Property="CommandParameter" Value="{Binding}" />

@@ -12,6 +12,9 @@ namespace SteamAccountSwitcher
         private string _installDirectory;
         private string _configDirectory;
 
+        /// <summary>
+        /// Sets the Steam installation directory to be used, and reloads the list of accounts.
+        /// </summary>
         public void SetDirectory(string installDirectory)
         {
             if (string.IsNullOrEmpty(installDirectory) || !Directory.Exists(installDirectory))
@@ -20,9 +23,8 @@ namespace SteamAccountSwitcher
             _installDirectory = installDirectory;
             _configDirectory = Path.Combine(installDirectory, "config");
 
-            if (_watcher != null)
-                _watcher.Dispose();
-
+            // Reinitialize filesystem watcher with the new directory.
+            _watcher?.Dispose();
             _watcher = new(_configDirectory, "loginusers.vdf")
             {
                 EnableRaisingEvents = true
@@ -32,10 +34,13 @@ namespace SteamAccountSwitcher
             Reload();
         }
 
+        /// <summary>
+        /// Reloads the list of accounts by reading from the Steam directory.
+        /// </summary>
         public void Reload()
         {
             if (string.IsNullOrEmpty(_installDirectory) || !Directory.Exists(_installDirectory))
-                throw new InvalidOperationException("Can't reload; the directory doesn't exist!");
+                throw new InvalidOperationException("Can't reload; Steam directory doesn't exist!");
 
             Clear();
             foreach (var account in GetAccounts(_configDirectory))

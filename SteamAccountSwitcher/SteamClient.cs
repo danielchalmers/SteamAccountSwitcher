@@ -49,7 +49,7 @@ namespace SteamAccountSwitcher
             {
                 App.TrayIcon.ShowNotification(
                     "Couldn't switch account automatically",
-                    "We might not have permission to change the registry",
+                    "May not have permission to change the registry",
                     NotificationIcon.Error);
             }
 
@@ -132,7 +132,7 @@ namespace SteamAccountSwitcher
         /// <summary>
         /// Sets the next user to be automatically logged in.
         /// </summary>
-        /// <returns>A bool indicating the login user was set.</returns>
+        /// <returns>A bool indicating the login user was successfully set.</returns>
         private static bool TrySetLoginUser(string user)
         {
             if (user == null)
@@ -140,8 +140,8 @@ namespace SteamAccountSwitcher
 
             try
             {
-                using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath, true);
-                registryKey?.SetValue("AutoLoginUser", user);
+                using var key = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath, true);
+                key?.SetValue("AutoLoginUser", user);
                 return true;
             }
             catch
@@ -168,14 +168,14 @@ namespace SteamAccountSwitcher
             // Otherwise check the registry.
             try
             {
-                using var registryKey = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
-                return registryKey?.GetValue("SteamPath").ToString();
+                using var key = Registry.CurrentUser.OpenSubKey(Resources.SteamRegistryDirectoryPath);
+                return key?.GetValue("SteamPath").ToString();
             }
             catch
             {
                 App.TrayIcon.ShowNotification(
                     "Couldn't find the Steam folder",
-                    "Please manually enter the path in options",
+                    "Please manually enter the path in Options",
                     NotificationIcon.Error);
 
                 return null;

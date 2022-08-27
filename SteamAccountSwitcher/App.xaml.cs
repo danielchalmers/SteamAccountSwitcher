@@ -26,12 +26,14 @@ namespace SteamAccountSwitcher
 
             AppMutex = new Mutex(true, "22E1FAEA-639E-400B-9DCB-F2D04EC126E1", out var isNewInstance);
 
+            // Exit if another instance is already running.
             if (!isNewInstance)
             {
                 Shutdown(1);
                 return;
             }
 
+            // Upgrade settings from an earlier version.
             if (Settings.Default.MustUpgrade)
             {
                 Settings.Default.Upgrade();
@@ -39,8 +41,8 @@ namespace SteamAccountSwitcher
                 Settings.Default.Save();
             }
 
+            // Load tray icon.
             TrayIcon = (MyTaskbarIcon)FindResource("TrayIcon");
-
             TrayIcon.ShowRunningInTrayNotification();
 
             LoadAccounts();
@@ -58,18 +60,20 @@ namespace SteamAccountSwitcher
 
         private void OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
-            TrayIcon.ShowNotification("An unhandled exception occurred", e.Exception.Message);
+            TrayIcon.ShowNotification("An unhandled error occurred", e.Exception.Message);
         }
 
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(Settings.Default.RunOnStartup))
+            switch (e.PropertyName)
             {
-                SetRunOnStartup(Settings.Default.RunOnStartup);
-            }
-            else if (e.PropertyName == nameof(Settings.Default.SteamInstallDirectory))
-            {
-                LoadAccounts();
+                case nameof(Settings.Default.RunOnStartup):
+                    SetRunOnStartup(Settings.Default.RunOnStartup);
+                    break;
+
+                case nameof(Settings.Default.SteamInstallDirectory):
+                    LoadAccounts();
+                    break;
             }
         }
 
@@ -83,15 +87,15 @@ namespace SteamAccountSwitcher
 
         private void SetRunOnStartup(bool runOnStartup)
         {
-            var registryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+            using var key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run", true);
 
             if (runOnStartup)
             {
-                registryKey?.SetValue(SteamAccountSwitcher.Properties.Resources.AppPathName, ResourceAssembly.Location);
+                key?.SetValue(SteamAccountSwitcher.Properties.Resources.AppPathName, ResourceAssembly.Location);
             }
             else
             {
-                registryKey?.DeleteValue(SteamAccountSwitcher.Properties.Resources.AppPathName, false);
+                key?.DeleteValue(SteamAccountSwitcher.Properties.Resources.AppPathName, false);
             }
         }
     }
