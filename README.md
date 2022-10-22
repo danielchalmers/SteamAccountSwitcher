@@ -1,6 +1,6 @@
 # Steam Account Switcher
 
-[![Release](https://img.shields.io/github/release/danielchalmers/SteamAccountSwitcher?label=Release&include_prereleases)](https://github.com/danielchalmers/SteamAccountSwitcher/releases/latest)
+[![Release](https://img.shields.io/github/release/danielchalmers/SteamAccountSwitcher?label=Release&include_prereleases)](https://github.com/danielchalmers/SteamAccountSwitcher/releases)
 [![License](https://img.shields.io/github/license/danielchalmers/SteamAccountSwitcher?label=License)](LICENSE)
 
 Quickly switch between your Steam accounts with a lightweight and easy to use menu.
@@ -22,11 +22,11 @@ Windows 10, [version 1903](https://support.microsoft.com/en-us/windows/which-ver
 
 ## What's new in v3.0
 
-- The tray option is now the default and the main window has been removed in order to streamline the app.
+- The tray icon is now the default and the main window has been removed in order to streamline the app.
 - Accounts are now automatically discovered — no setup needed!
-- Passwords are now handled completely by Steam for extra security and ease of use.
+- Passwords are handled entirely by Steam for extra security and ease of use.
 - Steam Guard is not required on every login like before.
-- Cleaner codebase that's easier to understand and modify.
+- Cleaner codebase that's easier to understand and change.
 
 ## v2.3.1
 
