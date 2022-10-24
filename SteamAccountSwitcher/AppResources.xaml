@@ -35,9 +35,7 @@
 
 						<MenuItem Header="_Options" CommandParameter="options" />
 
-						<MenuItem Header="E_xit"
-						          CommandParameter="exit"
-						          Icon="{iconPacks:Material CloseBox}" />
+						<MenuItem Header="E_xit" CommandParameter="exit" />
 					</CompositeCollection>
 				</ContextMenu.ItemsSource>
 			</ContextMenu>
