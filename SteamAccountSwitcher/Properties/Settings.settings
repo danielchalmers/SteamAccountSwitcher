@@ -17,5 +17,8 @@
     <Setting Name="SteamLogoutTimeoutInterval" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">100</Value>
     </Setting>
+    <Setting Name="SteamArguments" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

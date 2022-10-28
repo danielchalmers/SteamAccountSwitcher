@@ -53,7 +53,7 @@ namespace SteamAccountSwitcher
                     NotificationIcon.Error);
             }
 
-            await Launch();
+            await Launch(Settings.Default.SteamArguments);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace SteamAccountSwitcher
                     NotificationIcon.Error);
             }
 
-            await Launch();
+            await Launch(Settings.Default.SteamArguments);
         }
 
         /// <summary>
