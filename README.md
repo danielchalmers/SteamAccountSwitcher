@@ -9,16 +9,16 @@ Quickly switch between your Steam accounts with a lightweight and easy to use me
 
 ## Features
 
-- Fast — quickly switch accounts through the tray icon
-- Easy — logins are automatically found without any setup
-- Safe — no VAC risk and doesn't store passwords
-- Open — free and open source forever
+✅ Fast — switch users effortlessly through the icon  
+✅ Easy — accounts are found without extra setup  
+✅ Safe — no VAC risk & doesn't store passwords  
+✅ Open — totally free & open source forever
 
 ## Download
 
-Get it from the [Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases) page (see `Assets`).
+➡️ Get it from the [Releases](https://github.com/danielchalmers/SteamAccountSwitcher/releases) page (see `Assets`).
 
-Windows 10, [version 1903](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) or newer is recommended.
+Windows 10 [version 1903](https://support.microsoft.com/en-us/windows/which-version-of-windows-operating-system-am-i-running-628bec99-476a-2c13-5296-9dd081cdd808) or newer is recommended.
 
 ## What's new in v3.0
 
