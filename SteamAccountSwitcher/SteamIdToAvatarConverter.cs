@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media.Imaging;
+using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher;
 
@@ -13,7 +14,7 @@ public class SteamIdToAvatarConverter : MarkupExtension, IValueConverter
 {
 	public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 	{
-		if (value is string id)
+		if (Settings.Default.ShowAvatars && value is string id)
 		{
 			var steamDirectory = SteamClient.FindInstallDirectory();
 

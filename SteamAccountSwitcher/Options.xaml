@@ -27,6 +27,8 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition Height="12" />
 				<RowDefinition Height="Auto" />
+				<RowDefinition Height="12" />
+				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 
 			<TextBlock Grid.Row="0"
@@ -40,19 +42,28 @@
 
 			<TextBlock Grid.Row="2"
 			           Grid.Column="0"
+			           Text="Show avatars" />
+
+			<CheckBox Grid.Row="2"
+			          Grid.Column="2"
+			          IsChecked="{Binding ShowAvatars, Source={x:Static p:Settings.Default}}"
+			          ToolTip="Show profile pictures in the menu (requires restart)" />
+
+			<TextBlock Grid.Row="4"
+			           Grid.Column="0"
 			           Text="Steam arguments" />
 
-			<TextBox Grid.Row="2"
+			<TextBox Grid.Row="4"
 			         Grid.Column="2"
 			         Text="{Binding SteamArguments, Source={x:Static p:Settings.Default}}"
 			         ToolTip="Command-line arguments to launch Steam with"
 			         MinWidth="200" />
 
-			<TextBlock Grid.Row="4"
+			<TextBlock Grid.Row="6"
 			           Grid.Column="0"
 			           Text="Steam folder" />
 
-			<TextBox Grid.Row="4"
+			<TextBox Grid.Row="6"
 			         Grid.Column="2"
 			         Text="{Binding SteamInstallDirectory, Source={x:Static p:Settings.Default}}"
 			         ToolTip="Where to look for steam.exe if not found automatically"

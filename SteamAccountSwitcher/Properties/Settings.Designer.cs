@@ -88,5 +88,17 @@ namespace SteamAccountSwitcher.Properties {
                 this["SteamArguments"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ShowAvatars {
+            get {
+                return ((bool)(this["ShowAvatars"]));
+            }
+            set {
+                this["ShowAvatars"] = value;
+            }
+        }
     }
 }
