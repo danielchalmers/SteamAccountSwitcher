@@ -34,7 +34,7 @@
 
 						<MenuItem Header="_Add Account" CommandParameter="add-account" />
 
-						<MenuItem Header="_Options" CommandParameter="options" />
+						<MenuItem Header="_Options..." CommandParameter="options" />
 
 						<MenuItem Header="E_xit" CommandParameter="exit" />
 					</CompositeCollection>
