@@ -20,7 +20,7 @@
 							</DataTrigger>
 
 							<DataTrigger Binding="{Binding Converter={local:ObjectToTypeConverter}}" Value="{x:Type local:SteamAccount}">
-								<Setter Property="Icon" Value="{Binding ID, Converter={local:SteamIdToAvatarConverter}}" />
+								<Setter Property="Icon" Value="{Binding ID, Converter={local:SteamIdToAvatarConverter}, IsAsync=True}" />
 							</DataTrigger>
 						</Style.Triggers>
 					</Style>
