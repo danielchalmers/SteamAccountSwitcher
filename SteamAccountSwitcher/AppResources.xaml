@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary x:Class="SteamAccountSwitcher.AppResources"
                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:SteamAccountSwitcher"
-                    xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks">
+                    xmlns:local="clr-namespace:SteamAccountSwitcher">
 	<local:MyTaskbarIcon x:Key="TrayIcon"
 	                     IconSource="SteamAccountSwitcher.ico"
 	                     ToolTipText="Steam Account Switcher"
@@ -33,9 +32,7 @@
 
 						<Separator />
 
-						<MenuItem Header="_Add Account"
-						          CommandParameter="add-account"
-						          Icon="{iconPacks:Material Plus}" />
+						<MenuItem Header="_Add Account" CommandParameter="add-account" />
 
 						<MenuItem Header="_Options" CommandParameter="options" />
 
