@@ -167,7 +167,7 @@ namespace SteamAccountSwitcher
 		public static string FindInstallDirectory()
 		{
 			// Return the user-specified directory if it's valid.
-			if (File.Exists(GetSteamExe(Settings.Default.SteamInstallDirectory)))
+			if (!string.IsNullOrWhiteSpace(Settings.Default.SteamInstallDirectory) && File.Exists(GetSteamExe(Settings.Default.SteamInstallDirectory)))
 				return Settings.Default.SteamInstallDirectory;
 
 			// Otherwise check the registry.

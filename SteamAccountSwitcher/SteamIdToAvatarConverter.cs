@@ -23,7 +23,7 @@ public class SteamIdToAvatarConverter : MarkupExtension, IValueConverter
 				var avatarPath = Path.Combine(steamDirectory, "config", "avatarcache", id + ".png");
 
 				if (File.Exists(avatarPath))
-					return new Image { Source = new BitmapImage(new Uri(avatarPath)) };
+					return new Image { Source = new BitmapImage(new Uri(avatarPath, UriKind.RelativeOrAbsolute)) };
 			}
 		}
 
