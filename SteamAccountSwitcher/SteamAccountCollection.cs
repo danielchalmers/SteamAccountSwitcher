@@ -49,13 +49,40 @@ namespace SteamAccountSwitcher
 
 		private void OnFileChanged(object sender, FileSystemEventArgs e)
 		{
-			System.Windows.Application.Current.Dispatcher.Invoke(() => Reload());
+			System.Windows.Application.Current.Dispatcher.Invoke(Reload);
+		}
+
+		private string GetLoginUsersVdfContent(string configDirectory)
+		{
+			var loginUsersVdfPath = Path.Combine(configDirectory, "loginusers.vdf");
+
+			var triesLeft = 10;
+			while (true)
+			{
+				try
+				{
+					return File.ReadAllText(loginUsersVdfPath);
+				}
+				catch (IOException)
+				{
+					// Keep trying to read file if it's locked by another process.
+					triesLeft--;
+
+					if (triesLeft == 0)
+					{
+						// Give up.
+						throw;
+					}
+
+					// Blocking the thread is not ideal, but it's a rare situation anyway.
+					System.Threading.Thread.Sleep(200);
+				}
+			}
 		}
 
 		private IEnumerable<SteamAccount> GetAccounts(string configDirectory)
 		{
-			var loginUsersVdfPath = Path.Combine(configDirectory, "loginusers.vdf");
-			dynamic loginUsers = VdfConvert.Deserialize(File.ReadAllText(loginUsersVdfPath));
+			dynamic loginUsers = VdfConvert.Deserialize(GetLoginUsersVdfContent(configDirectory));
 
 			foreach (var loginUser in loginUsers.Value)
 			{
