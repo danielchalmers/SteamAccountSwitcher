@@ -45,6 +45,10 @@ namespace SteamAccountSwitcher
 			TrayIcon = (MyTaskbarIcon)FindResource("TrayIcon");
 			TrayIcon.ShowRunningInTrayNotification();
 
+			// Pre-render menu.
+			TrayIcon.ContextMenu.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+			TrayIcon.ContextMenu.Arrange(new Rect(new Point(0, 0), TrayIcon.ContextMenu.DesiredSize));
+
 			LoadAccounts();
 
 			Settings.Default.PropertyChanged += Settings_PropertyChanged;
