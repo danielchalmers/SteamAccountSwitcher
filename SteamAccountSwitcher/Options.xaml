@@ -47,7 +47,7 @@
 			<CheckBox Grid.Row="2"
 			          Grid.Column="2"
 			          IsChecked="{Binding ShowAvatars, Source={x:Static p:Settings.Default}}"
-			          ToolTip="Show profile pictures in the menu (requires restart)" />
+			          ToolTip="Show profile pictures in the menu" />
 
 			<TextBlock Grid.Row="4"
 			           Grid.Column="0"
