@@ -9,7 +9,7 @@ using SteamAccountSwitcher.Properties;
 
 namespace SteamAccountSwitcher;
 
-[ValueConversion(typeof(object), typeof(object))]
+[ValueConversion(typeof(string), typeof(Image))]
 public class SteamIdToAvatarConverter : MarkupExtension, IValueConverter
 {
 	public object Convert(object value, Type targetType, object parameter, CultureInfo culture)

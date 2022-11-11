@@ -15,11 +15,11 @@
 						<Setter Property="Padding" Value="2,4,2,4" />
 
 						<Style.Triggers>
-							<DataTrigger Binding="{Binding Converter={local:DataTypeConverter}}" Value="{x:Type local:SteamAccount}">
+							<DataTrigger Binding="{Binding Converter={local:ObjectToTypeConverter}}" Value="{x:Type local:SteamAccount}">
 								<Setter Property="CommandParameter" Value="{Binding}" />
 							</DataTrigger>
 
-							<DataTrigger Binding="{Binding Converter={local:DataTypeConverter}}" Value="{x:Type local:SteamAccount}">
+							<DataTrigger Binding="{Binding Converter={local:ObjectToTypeConverter}}" Value="{x:Type local:SteamAccount}">
 								<Setter Property="Icon" Value="{Binding ID, Converter={local:SteamIdToAvatarConverter}}" />
 							</DataTrigger>
 						</Style.Triggers>
