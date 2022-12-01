@@ -5,14 +5,14 @@
 
 Quickly switch between your Steam accounts with a lightweight and easy to use menu.
 
-![Tray menu](https://user-images.githubusercontent.com/7112040/183230716-f02fc0c7-9559-4425-9777-cf238404d0a5.png)
+![Tray menu](https://user-images.githubusercontent.com/7112040/204982495-ca829d67-fe06-421d-9dd1-6bf69c55199d.png)
 
 ## Features
 
 ✅ Fast — switch users effortlessly through the icon  
 ✅ Easy — accounts are found without extra setup  
 ✅ Safe — no VAC risk & doesn't store passwords  
-✅ Open — totally free & open source forever
+✅ Open — free & open source forever
 
 ## Download
 
