@@ -5,7 +5,7 @@
 
 Quickly switch between your Steam accounts with a lightweight and easy to use menu.
 
-![Tray menu](https://user-images.githubusercontent.com/7112040/204982495-ca829d67-fe06-421d-9dd1-6bf69c55199d.png)
+![Tray menu](https://user-images.githubusercontent.com/7112040/205158482-606f7df8-bdfc-4249-881f-018e300a340d.png)
 
 ## Features
 
