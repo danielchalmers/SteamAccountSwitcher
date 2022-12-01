@@ -9,8 +9,8 @@ Quickly switch between your Steam accounts with a lightweight and easy to use me
 
 ## Features
 
-✅ Fast — switch users effortlessly through the icon  
-✅ Easy — accounts are found without extra setup  
+✅ Fast — switch users through the tray icon  
+✅ Easy — accounts are found automatically  
 ✅ Safe — no VAC risk & doesn't store passwords  
 ✅ Open — free & open source forever
 
